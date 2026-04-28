@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CRP Unified Dashboard — UI kit</title>
+<meta name="viewport" content="width=1400">
+<link rel="stylesheet" href="dashboard.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="DashboardNav.jsx"></script>
+<script type="text/babel" src="Kpis.jsx"></script>
+<script type="text/babel" src="Panels.jsx"></script>
+<script type="text/babel" src="StudyCard.jsx"></script>
+<script type="text/babel">
+const { useState } = React;
+
+function Sparkline({points, color = 'var(--crp-blue)'}) {
+  const max = Math.max(...points), min = Math.min(...points);
+  const w = 120, h = 28;
+  const path = points.map((p, i) => {
+    const x = (i / (points.length - 1)) * w;
+    const y = h - ((p - min) / (max - min || 1)) * h;
+    return `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+  return (
+    <svg className="sparkline" viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none">
+      <path d={path} fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+function App() {
+  const [tab, setTab] = useState('Overview');
+
+  const timeBanner = [
+    { label: 'Today', value: 'Tue · Apr 18', sub: '2026' },
+    { label: 'Enrolling studies', value: '14', color: 'blue' },
+    { label: 'Visits today', value: '38', sub: '6 dosing' },
+    { label: 'Open slots next 7d', value: '22', color: 'green' },
+    { label: 'Overdue AR', value: '$184k', color: 'red', sub: '7 accounts' },
+  ];
+
+  const hero = [
+    { label: 'Active patients', value: '412', sub: '+18 this month' },
+    { label: 'Screen-fail rate', value: '24%', sub: '▼ 3pts vs Q1', color: 'var(--success)' },
+    { label: 'Visits completed MTD', value: '1,284', sub: '91% of forecast' },
+    { label: 'Invoiced MTD', value: '$1.42M', sub: 'target $1.55M' },
+  ];
+
+  const studies = [
+    { name: 'CRP-2401 · Lp(a) Phase 3', risk: 'low',
+      stats: [{value: '48', label: 'enrolled'},{value: '12', label: 'screening'},{value: '62', label: 'target'}] },
+    { name: 'CRP-2387 · NASH Phase 2b', risk: 'high',
+      stats: [{value: '21', label: 'enrolled', color: 'var(--warning)'},{value: '6', label: 'screening'},{value: '45', label: 'target'}] },
+    { name: 'CRP-2412 · T2D injectable', risk: 'low',
+      stats: [{value: '33', label: 'enrolled'},{value: '9', label: 'screening'},{value: '40', label: 'target'}] },
+    { name: 'CRP-2369 · CKD ph.3 OL', risk: 'critical',
+      stats: [{value: '8', label: 'enrolled', color: 'var(--danger)'},{value: '2', label: 'screening'},{value: '30', label: 'target'}] },
+    { name: 'CRP-2398 · Migraine prophylaxis', risk: 'low',
+      stats: [{value: '52', label: 'enrolled'},{value: '14', label: 'screening'},{value: '60', label: 'target'}] },
+    { name: 'CRP-2405 · HFpEF pilot', risk: 'high',
+      stats: [{value: '12', label: 'enrolled', color: 'var(--warning)'},{value: '4', label: 'screening'},{value: '24', label: 'target'}] },
+  ];
+
+  const coords = [
+    { name: 'Leticia M.', initials: 'LM', count: 9 },
+    { name: 'Tanja R.', initials: 'TR', count: 8 },
+    { name: 'Liz H.', initials: 'LH', count: 7 },
+    { name: 'Jeehan K.', initials: 'JK', count: 6 },
+    { name: 'Omar S.', initials: 'OS', count: 4 },
+    { name: 'Priya V.', initials: 'PV', count: 3 },
+  ];
+
+  return (
+    <>
+      <DashboardNav active={tab} onTab={setTab}/>
+      <div className="main">
+        <Alert kind="warn"><b>3 studies</b>&nbsp;below enrollment target · &nbsp;<b>1 critical</b>&nbsp;(CRP-2369 — 27% of goal)</Alert>
+
+        <TimeBanner items={timeBanner}/>
+
+        <div className="section-label">Operations · today</div>
+        <HeroRow items={hero}/>
+
+        <div className="grid-65">
+          <Panel title="Studies — enrollment velocity" actions={<span style={{fontSize:'11px',color:'var(--fg-2)',textTransform:'none',letterSpacing:0,fontWeight:500}}>14 active · 2 in screening</span>}>
+            <div className="study-grid" style={{padding: '4px 0'}}>
+              {studies.map((s, i) => <StudyCard key={i} {...s}/>)}
+            </div>
+          </Panel>
+
+          <div>
+            <Panel title="Coordinator workload · this week">
+              {coords.map((c, i) => <CoordRow key={i} {...c} max={10}/>)}
+            </Panel>
+
+            <Panel title="Recruitment · last 30d" actions={<Badge kind="green">+12% vs prior</Badge>}>
+              <div style={{display:'flex',alignItems:'center',gap:14}}>
+                <div style={{fontSize:28,fontWeight:800,color:'var(--fg-1)',letterSpacing:-0.5}}>287</div>
+                <div style={{flex:1}}>
+                  <Sparkline points={[18,22,19,25,28,24,31,29,33,36,34,40,38,42,45]}/>
+                  <div style={{fontSize:11,color:'var(--fg-2)',marginTop:4}}>Daily leads · 15-day trailing</div>
+                </div>
+              </div>
+            </Panel>
+          </div>
+        </div>
+
+        <div className="section-label">Finance · accounts receivable</div>
+        <div className="grid-3">
+          <KpiTile label="Outstanding AR" value="$842k" sub="Across 38 sponsors" stripe="var(--crp-blue)"/>
+          <KpiTile label="Overdue 30+ days" value="$184k" sub="7 accounts" stripe="var(--danger)"/>
+          <KpiTile label="Collected MTD" value="$612k" sub="112% of forecast" stripe="var(--success)"/>
+        </div>
+
+        <Panel title="Overdue invoices">
+          <table className="tbl">
+            <thead><tr><th>Invoice</th><th>Sponsor</th><th>Study</th><th className="r">Amount</th><th>Age</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><a className="study-link">INV-2487</a></td><td>Novus Therapeutics</td><td>CRP-2387</td><td className="r">$24,810</td><td>45d</td><td><Pill kind="escalated">Escalated</Pill></td></tr>
+              <tr><td><a className="study-link">INV-2471</a></td><td>Kyrion BioPharma</td><td>CRP-2369</td><td className="r">$41,200</td><td>38d</td><td><Pill kind="disputed">Disputed</Pill></td></tr>
+              <tr><td><a className="study-link">INV-2466</a></td><td>Ferranti-Walsh</td><td>CRP-2412</td><td className="r">$18,940</td><td>33d</td><td><Pill kind="contacted">Contacted</Pill></td></tr>
+              <tr><td><a className="study-link">INV-2452</a></td><td>Cadent Labs</td><td>CRP-2401</td><td className="r">$67,500</td><td>31d</td><td><Pill kind="new">New</Pill></td></tr>
+              <tr><td><a className="study-link">INV-2440</a></td><td>Meridian BX</td><td>CRP-2398</td><td className="r">$31,870</td><td>30d</td><td><Pill kind="contacted">Contacted</Pill></td></tr>
+            </tbody>
+          </table>
+        </Panel>
+      </div>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

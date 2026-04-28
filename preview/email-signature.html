@@ -1,0 +1,141 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:26px;background:var(--bg);font-family:var(--font-sans);color:var(--fg-1)}
+  .eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--fg-2);margin-bottom:12px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-sm);margin-bottom:18px}
+  .preview-frame{background:#fff;border:1px solid var(--chart-grid-fine);border-radius:var(--radius-md);padding:28px;margin-bottom:14px}
+  h3{margin:0 0 6px 0;font-size:14px;font-weight:700;color:var(--crp-navy)}
+  .sub{font-size:11px;color:var(--fg-3);margin:0 0 14px 0}
+  pre{background:#f8fafc;border:1px solid var(--chart-grid-fine);border-radius:var(--radius-sm);padding:14px;font-family:var(--font-mono);font-size:10px;line-height:1.5;color:var(--fg-1);overflow-x:auto;margin:0}
+  .note{font-size:11px;color:var(--fg-2);line-height:1.6;margin-top:14px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+  /* Email signature — matches real Gmail render */
+  .sig{font-family:Arial, Helvetica, sans-serif;color:#555}
+  .sig table{border-collapse:collapse}
+  .sig-logo{width:120px;display:block}
+  .sig-divider{border-left:1px solid #d0d0d0}
+  .sig-name{font-size:14px;font-weight:700;color:#333;margin:0;line-height:1.5}
+  .sig-title{font-size:13px;color:#555;margin:0;line-height:1.5}
+  .sig-company{font-size:13px;color:#555;margin:0 0 14px 0;line-height:1.5}
+  .sig-meta{font-size:13px;color:#555;margin:0;line-height:1.7}
+  .sig-meta a{color:#1155cc;text-decoration:underline}
+  .sig-meta .label{display:inline-block;width:46px;color:#555}
+  .phone-icon{display:inline-block;vertical-align:middle;margin:0 6px 0 4px}
+  .addr-block{margin-top:12px}
+  .addr-block a{color:#1155cc;text-decoration:underline;font-size:13px;line-height:1.6}
+  .socials{margin-top:14px}
+  .socials a{display:inline-block;margin-right:12px;vertical-align:middle}
+  .socials svg{display:block}
+</style></head><body>
+
+<div class="card">
+  <div class="eyebrow">Email signature · rendered preview (matches current Gmail signature)</div>
+  <div class="preview-frame">
+    <div class="sig">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="padding-right:28px;vertical-align:middle;width:140px">
+            <img src="../assets/logos/crp-stacked.svg" class="sig-logo" alt="Clinical Research Philadelphia"/>
+          </td>
+          <td class="sig-divider" style="padding:4px 0 4px 28px;vertical-align:top">
+            <p class="sig-name">Aneesh Vaze</p>
+            <p class="sig-title">Managing Director</p>
+            <p class="sig-company">Clinical Research Philadelphia, LLC</p>
+
+            <p class="sig-meta"><span class="label">Phone:</span> 267-234-1643 <svg class="phone-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.25 1.02l-2.2 2.19z" fill="#0a8a3a"/></svg><span style="color:#bbb">|</span> <a href="https://www.phillyresearch.com">www.phillyresearch.com</a></p>
+            <p class="sig-meta"><span class="label">Fax:</span> 215-689-4661</p>
+            <p class="sig-meta"><span class="label">Email:</span> <a href="mailto:aneesh@phillyresearch.com">aneesh@phillyresearch.com</a></p>
+
+            <div class="addr-block">
+              <a href="https://maps.google.com/?q=9501+Roosevelt+Blvd+Suite+208+Philadelphia+PA">9501 Roosevelt Blvd, Suite 208, Philadelphia, PA</a><br/>
+              <a href="https://maps.google.com/?q=21+Route+31+North+Suite+A8+Pennington+NJ">21 Route 31 North, Suite A8, Pennington, NJ</a>
+            </div>
+
+            <div class="socials">
+              <a href="https://facebook.com/clinicalresearchphila" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="#555" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6a22 22 0 00-2.4-.13c-2.4 0-4 1.46-4 4.14V9.9H7.6V13h2.7v8h3.2z"/></svg></a>
+              <a href="https://instagram.com/clinicalresearchphila" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#555" stroke="none"/></svg></a>
+              <a href="https://linkedin.com/company/clinical-research-philadelphia" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#555" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5.01A2.5 2.5 0 014.98 3.5zM3 9.75h4V21H3V9.75zM9.5 9.75h3.82v1.54h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75V21h-4V9.75z"/></svg></a>
+              <a href="https://tiktok.com/@clinicalresearchphila" aria-label="TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="#555" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 3c.4 2.05 1.6 3.66 3.5 4.14v2.4a7.35 7.35 0 01-3.5-1.1v5.92c0 3.05-2.5 5.54-5.55 5.54A5.55 5.55 0 015.4 14.35a5.55 5.55 0 017.35-5.26v2.55a3.03 3.03 0 00-1.8-.3 3.02 3.02 0 102.5 3v-11.34h3.05z"/></svg></a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <p class="note">Rebuilt to match the current Gmail signature exactly — same structure, spacing, colors, divider, and social row. Logo is the stacked CRP lockup at 120px wide. Divider is a 1px grey rule (not orange) between logo and content.</p>
+</div>
+
+<div class="grid2">
+  <div class="card">
+    <h3>Template rules</h3>
+    <p class="sub">Keep every staff signature visually identical.</p>
+    <ul style="font-size:12px;line-height:1.75;color:var(--fg-1);padding-left:18px;margin:0">
+      <li>Logo: <code>crp-stacked.svg</code> (or PNG) at <strong>120px wide</strong>, left-aligned, vertically centered with text.</li>
+      <li>Divider: <strong>1px solid #d0d0d0</strong> vertical rule, 28px padding on each side.</li>
+      <li>Font: <strong>Arial / Helvetica, sans-serif</strong> — never embed Area Normal (email clients strip @font-face).</li>
+      <li>Text color: <code>#333</code> name, <code>#555</code> body, <code>#1155cc</code> links (Gmail default blue).</li>
+      <li>Phone icon: green handset <code>#0a8a3a</code> between phone number and website — inline SVG, 14px.</li>
+      <li>Labels (<code>Phone:</code>, <code>Fax:</code>, <code>Email:</code>) left-aligned in a 46px column.</li>
+      <li>Two addresses: both linked to Google Maps, stacked, blue + underline.</li>
+      <li>Socials: 4 icons (FB, IG, LinkedIn, TikTok) in grey <code>#555</code>, 20px, 12px gap.</li>
+      <li><strong>No tagline</strong>, no quote, no "think before you print," no department lines.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Per-staff variables</h3>
+    <p class="sub">Only these fields change between signatures.</p>
+    <pre style="margin:0">{{ NAME }}       → Aneesh Vaze
+{{ TITLE }}      → Managing Director
+{{ PHONE }}      → 267-234-1643
+{{ FAX }}        → 215-689-4661        (optional)
+{{ EMAIL }}      → aneesh@phillyresearch.com</pre>
+    <p class="note" style="margin-top:12px">Everything else — logo, company name, website, addresses, socials, colors — is locked. Staff copy the template HTML into Gmail Settings → Signature, swap the five variables, and save. No creativity, no exceptions.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">HTML source · paste into Gmail / Outlook signature editor</div>
+  <pre>&lt;table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;color:#555"&gt;
+  &lt;tr&gt;
+    &lt;td style="padding-right:28px;vertical-align:middle;width:140px"&gt;
+      &lt;img src="https://phillyresearch.com/email/crp-stacked.png" width="120" alt="Clinical Research Philadelphia"/&gt;
+    &lt;/td&gt;
+    &lt;td style="border-left:1px solid #d0d0d0;padding:4px 0 4px 28px;vertical-align:top"&gt;
+      &lt;div style="font-size:14px;font-weight:700;color:#333;line-height:1.5"&gt;{{ NAME }}&lt;/div&gt;
+      &lt;div style="font-size:13px;color:#555;line-height:1.5"&gt;{{ TITLE }}&lt;/div&gt;
+      &lt;div style="font-size:13px;color:#555;line-height:1.5;margin-bottom:14px"&gt;Clinical Research Philadelphia, LLC&lt;/div&gt;
+
+      &lt;div style="font-size:13px;color:#555;line-height:1.7"&gt;
+        &lt;span style="display:inline-block;width:46px"&gt;Phone:&lt;/span&gt; {{ PHONE }}
+        &lt;img src="https://phillyresearch.com/email/phone.png" width="14" height="14" style="vertical-align:middle;margin:0 6px"/&gt;
+        &lt;span style="color:#bbb"&gt;|&lt;/span&gt;
+        &lt;a href="https://www.phillyresearch.com" style="color:#1155cc"&gt;www.phillyresearch.com&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div style="font-size:13px;color:#555;line-height:1.7"&gt;
+        &lt;span style="display:inline-block;width:46px"&gt;Fax:&lt;/span&gt; {{ FAX }}
+      &lt;/div&gt;
+      &lt;div style="font-size:13px;color:#555;line-height:1.7"&gt;
+        &lt;span style="display:inline-block;width:46px"&gt;Email:&lt;/span&gt;
+        &lt;a href="mailto:{{ EMAIL }}" style="color:#1155cc"&gt;{{ EMAIL }}&lt;/a&gt;
+      &lt;/div&gt;
+
+      &lt;div style="margin-top:12px"&gt;
+        &lt;a href="https://maps.google.com/?q=9501+Roosevelt+Blvd+Suite+208+Philadelphia+PA" style="color:#1155cc;font-size:13px;line-height:1.6"&gt;9501 Roosevelt Blvd, Suite 208, Philadelphia, PA&lt;/a&gt;&lt;br/&gt;
+        &lt;a href="https://maps.google.com/?q=21+Route+31+North+Suite+A8+Pennington+NJ" style="color:#1155cc;font-size:13px;line-height:1.6"&gt;21 Route 31 North, Suite A8, Pennington, NJ&lt;/a&gt;
+      &lt;/div&gt;
+
+      &lt;div style="margin-top:14px"&gt;
+        &lt;a href="https://facebook.com/clinicalresearchphila" style="margin-right:12px"&gt;&lt;img src="https://phillyresearch.com/email/fb.png" width="20" height="20"/&gt;&lt;/a&gt;
+        &lt;a href="https://instagram.com/clinicalresearchphila" style="margin-right:12px"&gt;&lt;img src="https://phillyresearch.com/email/ig.png" width="20" height="20"/&gt;&lt;/a&gt;
+        &lt;a href="https://linkedin.com/company/clinical-research-philadelphia" style="margin-right:12px"&gt;&lt;img src="https://phillyresearch.com/email/li.png" width="20" height="20"/&gt;&lt;/a&gt;
+        &lt;a href="https://tiktok.com/@clinicalresearchphila"&gt;&lt;img src="https://phillyresearch.com/email/tt.png" width="20" height="20"/&gt;&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre>
+  <p class="note"><strong>Deployment:</strong> host <code>crp-stacked.png</code>, <code>phone.png</code>, and the four social icons at stable URLs on phillyresearch.com (e.g. <code>/email/</code>). Gmail inlines them automatically. Replace the 5 <code>{{ VARS }}</code> per staff member — everything else stays identical.</p>
+</div>
+
+</body></html>

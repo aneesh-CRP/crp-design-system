@@ -1,0 +1,138 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:26px;background:var(--bg);font-family:var(--font-sans);color:var(--fg-1)}
+  .eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--fg-2);margin-bottom:10px}
+  h3{margin:0 0 4px 0;font-size:14px;font-weight:700;color:var(--crp-navy)}
+  .sub{font-size:11px;color:var(--fg-3);margin:0 0 14px 0}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-sm);margin-bottom:18px}
+
+  table{width:100%;border-collapse:collapse}
+  th{text-align:left;font-weight:700;color:var(--fg-2);text-transform:uppercase;letter-spacing:.1em;font-size:10px;padding:10px 10px 10px 0;border-bottom:1px solid var(--border);white-space:nowrap}
+  td{padding:12px 10px 12px 0;border-bottom:1px solid var(--chart-grid-fine);vertical-align:top;font-size:13px;line-height:1.5}
+  td.label{color:var(--fg-2);font-family:var(--font-mono);font-size:11px;width:150px;font-weight:600;padding-top:14px}
+  td.good{color:var(--fg-1)}
+  td.good strong{color:var(--crp-navy);font-weight:700}
+  td.bad{color:var(--fg-3);font-style:italic;text-decoration:line-through;text-decoration-color:#ef4444;text-decoration-thickness:1px}
+
+  .block-title{font-size:12px;font-weight:700;color:var(--fg-2);text-transform:uppercase;letter-spacing:.08em;margin:24px 0 8px 0;padding-bottom:6px;border-bottom:1px solid var(--chart-grid-fine)}
+  .block-title:first-child{margin-top:0}
+
+  /* Empty state mock */
+  .empty{text-align:center;padding:28px 16px;background:var(--surface-2);border-radius:var(--radius-md);margin-top:14px}
+  .empty .icon{width:40px;height:40px;border-radius:999px;background:#fff;margin:0 auto 12px auto;display:flex;align-items:center;justify-content:center;color:var(--crp-orange);font-weight:800;font-size:18px}
+  .empty h4{margin:0 0 6px 0;font-size:15px;font-weight:700;color:var(--crp-navy)}
+  .empty p{margin:0 0 14px 0;font-size:12px;color:var(--fg-2);line-height:1.5;max-width:280px;margin-left:auto;margin-right:auto}
+  .empty .act{font-size:11px;padding:7px 14px;background:var(--crp-orange);color:#fff;border-radius:999px;font-weight:700;display:inline-block;text-decoration:none}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+</style></head><body>
+
+<div class="card">
+  <div class="eyebrow">Microcopy library · write like this</div>
+  <h3>Anchored to one tagline: "The future of medicine begins with you."</h3>
+  <p class="sub">Every string should feel like a continuation of that sentence — future-facing, empathetic, plain-English.</p>
+</div>
+
+<div class="card">
+  <div class="block-title">Primary CTAs</div>
+  <table>
+    <thead><tr><th>Context</th><th>Use</th><th>Not</th></tr></thead>
+    <tbody>
+      <tr><td class="label">Funnel entry</td><td class="good"><strong>Check your eligibility</strong> · See if you qualify</td><td class="bad">Apply now · Sign up · Get started</td></tr>
+      <tr><td class="label">Continue step</td><td class="good"><strong>Continue</strong> · Next question</td><td class="bad">Submit · Go · Proceed</td></tr>
+      <tr><td class="label">Final submit</td><td class="good"><strong>Send my answers</strong> · Finish screening</td><td class="bad">Submit form · Done</td></tr>
+      <tr><td class="label">Study detail</td><td class="good"><strong>See if this study is for you</strong></td><td class="bad">Read more · Learn more</td></tr>
+      <tr><td class="label">Contact</td><td class="good"><strong>Talk to a coordinator</strong> · Have a question?</td><td class="bad">Contact us · Get in touch</td></tr>
+      <tr><td class="label">Dashboard add</td><td class="good"><strong>Add participant</strong> · New screener</td><td class="bad">+ New · Create</td></tr>
+    </tbody>
+  </table>
+
+  <div class="block-title">Section headers · marketing</div>
+  <table>
+    <thead><tr><th>Section</th><th>Use (sentence case)</th><th>Not</th></tr></thead>
+    <tbody>
+      <tr><td class="label">Hero</td><td class="good"><strong>The future of medicine begins with you.</strong></td><td class="bad">Welcome to Clinical Research Philadelphia</td></tr>
+      <tr><td class="label">What we offer</td><td class="good"><strong>Real compensation, real support.</strong></td><td class="bad">Our benefits · Why choose us</td></tr>
+      <tr><td class="label">How it works</td><td class="good"><strong>Three steps from signup to care.</strong></td><td class="bad">Our process · Steps</td></tr>
+      <tr><td class="label">Trust / proof</td><td class="good"><strong>Over 500 successful trials.</strong></td><td class="bad">Why trust us · About CRP</td></tr>
+      <tr><td class="label">CTA band</td><td class="good"><strong>Ready to see if you qualify?</strong></td><td class="bad">Join today · Don't miss out</td></tr>
+    </tbody>
+  </table>
+
+  <div class="block-title">Error messages · plain-English fixes</div>
+  <table>
+    <thead><tr><th>Error</th><th>Use</th><th>Not</th></tr></thead>
+    <tbody>
+      <tr><td class="label">Invalid email</td><td class="good">Please enter an email like name@example.com</td><td class="bad">Invalid email format</td></tr>
+      <tr><td class="label">Phone wrong</td><td class="good">Please enter a 10-digit US phone number</td><td class="bad">Error: phone invalid</td></tr>
+      <tr><td class="label">Required field</td><td class="good">We need this to match you to studies</td><td class="bad">This field is required</td></tr>
+      <tr><td class="label">Age out of range</td><td class="good">This study is for ages 40–75 — <a style="color:var(--crp-blue)">see other studies</a></td><td class="bad">Age must be between 40 and 75</td></tr>
+      <tr><td class="label">Network fail</td><td class="good">Connection dropped — we'll retry automatically</td><td class="bad">Error 503 · Service unavailable</td></tr>
+      <tr><td class="label">Duplicate signup</td><td class="good">Looks like you've already started — <a style="color:var(--crp-blue)">continue where you left off</a></td><td class="bad">Duplicate entry: email exists</td></tr>
+    </tbody>
+  </table>
+
+  <div class="block-title">Confirmation & success</div>
+  <table>
+    <thead><tr><th>Context</th><th>Use</th><th>Not</th></tr></thead>
+    <tbody>
+      <tr><td class="label">Screener complete</td><td class="good"><strong>Thanks, Maria.</strong> A coordinator will call within 2 business days.</td><td class="bad">Success! Your submission has been received.</td></tr>
+      <tr><td class="label">Saved (toast)</td><td class="good">Saved</td><td class="bad">Successfully saved!</td></tr>
+      <tr><td class="label">Appointment set</td><td class="good">You're booked for Tuesday, May 7 at 10 AM.</td><td class="bad">Appointment successfully created.</td></tr>
+      <tr><td class="label">Undo after delete</td><td class="good">Removed from queue. <strong>Undo</strong></td><td class="bad">Deletion successful.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <div class="block-title">Empty states</div>
+  <p class="sub" style="margin-top:-4px">Never "No data." Always tell the user what this would be if it weren't empty, and how to fill it.</p>
+
+  <div class="grid2" style="margin-top:10px">
+    <div class="empty">
+      <div class="icon">+</div>
+      <h4>No participants yet</h4>
+      <p>This is where matched screeners will appear. Run a recruitment pass or add one manually to get started.</p>
+      <a class="act">Add participant</a>
+    </div>
+
+    <div class="empty">
+      <div class="icon">✓</div>
+      <h4>All caught up</h4>
+      <p>You've worked through every open screener in your queue. New ones will show up here as they come in.</p>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:14px">
+    <div class="empty">
+      <div class="icon">?</div>
+      <h4>No studies match — yet</h4>
+      <p>We didn't find a study for your answers right now. We'll email you when a match opens up.</p>
+      <a class="act">Edit my answers</a>
+    </div>
+
+    <div class="empty">
+      <div class="icon">!</div>
+      <h4>Something's off on our end</h4>
+      <p>We couldn't load this dashboard. It's not your fault — try again in a minute, or ping #ops-support.</p>
+      <a class="act">Retry</a>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="block-title">Reusable phrases — copy verbatim</div>
+  <table>
+    <tbody>
+      <tr><td class="label">Opening line</td><td>See if you qualify for a paid clinical research study near you.</td></tr>
+      <tr><td class="label">Compensation</td><td>Free health screenings, compensation for time and travel.</td></tr>
+      <tr><td class="label">Proof / scale</td><td>Over 500 successful trials — twenty years in Philadelphia.</td></tr>
+      <tr><td class="label">Low commitment</td><td>Three-minute screener. No commitment.</td></tr>
+      <tr><td class="label">Time-to-contact</td><td>A coordinator will call within 2 business days.</td></tr>
+      <tr><td class="label">Privacy reassurance</td><td>We'll only contact you about studies you qualify for.</td></tr>
+      <tr><td class="label">Tagline (sign-off)</td><td style="font-family:var(--font-script);color:var(--crp-orange);font-size:18px">The future of medicine begins with you.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body></html>

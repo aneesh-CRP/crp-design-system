@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>body{margin:0;padding:22px;background:#fff;font-family:var(--font-sans)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:600;border:1px solid}
+.r{background:var(--danger-bg);color:var(--danger);border-color:var(--danger-border)}
+.g{background:var(--success-bg);color:var(--success);border-color:var(--success-border)}
+.y{background:var(--warning-bg);color:var(--warning);border-color:var(--warning-border)}
+.b{background:var(--blue-bg);color:var(--crp-blue);border-color:var(--crp-blue)}
+.n{background:var(--crp-navy);color:#fff;border-color:var(--crp-navy)}
+.o{background:var(--orange-bg);color:var(--crp-orange);border-color:var(--warning-border)}
+.pill{display:inline-block;padding:5px 12px;border-radius:14px;font-size:10px;font-weight:700;text-transform:uppercase}
+</style></head><body>
+<div class="row" style="margin-bottom:14px">
+  <span class="badge r">Overdue</span>
+  <span class="badge y">At risk</span>
+  <span class="badge g">Enrolling</span>
+  <span class="badge b">Screening</span>
+  <span class="badge o">Escalated</span>
+  <span class="badge n">Active</span>
+</div>
+<div class="row">
+  <span class="pill" style="background:var(--blue-bg);color:var(--crp-blue)">New</span>
+  <span class="pill" style="background:var(--warning-bg);color:var(--warning)">Contacted</span>
+  <span class="pill" style="background:var(--orange-bg);color:var(--crp-orange)">Escalated</span>
+  <span class="pill" style="background:var(--danger-bg);color:var(--danger)">Disputed</span>
+  <span class="pill" style="background:var(--success-bg);color:var(--success)">Resolved</span>
+</div>
+</body></html>

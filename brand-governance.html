@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Using the CRP Brand — Governance & Requests</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="stylesheet" href="colors_and_type.css"/>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);font-family:var(--font-sans);color:var(--fg-1);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+
+  /* Top hero */
+  .hero{background:var(--gradient-navy-blue);color:#fff;padding:72px 0 64px 0;position:relative;overflow:hidden}
+  .hero-stencil{position:absolute;right:-100px;top:-80px;width:460px;height:460px;opacity:.04;pointer-events:none}
+  .hero .eyebrow{display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--crp-orange);margin-bottom:18px}
+  .hero h1{font-size:56px;font-weight:800;line-height:1.05;letter-spacing:-.02em;margin:0 0 16px 0;color:#fff;text-wrap:pretty;max-width:780px}
+  .hero h1 .script{font-family:var(--font-script);font-weight:400;font-style:italic;color:var(--crp-orange)}
+  .hero .lede{font-size:19px;line-height:1.5;color:rgba(255,255,255,.88);max-width:620px;margin:0}
+
+  /* Section */
+  section{padding:56px 0;border-bottom:1px solid var(--border)}
+  section:last-of-type{border-bottom:0}
+  section h2{font-size:32px;font-weight:800;color:var(--crp-navy);margin:0 0 10px 0;letter-spacing:-.015em;line-height:1.15}
+  section .lede{font-size:17px;color:var(--fg-2);max-width:640px;margin:0 0 32px 0}
+  section .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--crp-orange);margin-bottom:10px}
+
+  /* Approval matrix table */
+  .matrix{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(7,32,97,.04)}
+  .matrix table{width:100%;border-collapse:collapse;font-size:14px}
+  .matrix thead th{background:var(--surface-2);text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--fg-2);padding:14px 20px;border-bottom:1px solid var(--border)}
+  .matrix tbody td{padding:18px 20px;border-bottom:1px solid var(--border);vertical-align:top}
+  .matrix tbody tr:last-child td{border-bottom:0}
+  .matrix .what{font-weight:700;color:var(--crp-navy);font-size:15px}
+  .matrix .what small{display:block;font-weight:400;color:var(--fg-2);font-size:13px;margin-top:3px}
+  .matrix .who{font-size:13px;color:var(--fg-1)}
+  .matrix .who strong{color:var(--crp-navy)}
+  .matrix .sla{font-family:var(--font-mono);font-size:12px;color:var(--fg-2);white-space:nowrap}
+  .matrix .badge{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:4px}
+  .badge-auto{background:var(--success-bg);color:var(--success)}
+  .badge-review{background:#fff3e0;color:#9a3412}
+  .badge-lock{background:var(--danger-bg);color:var(--danger)}
+
+  /* Principles */
+  .prin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .prin{padding:28px;background:#fff;border:1px solid var(--border);border-radius:16px;height:100%}
+  .prin .n{font-family:var(--font-mono);font-size:12px;color:var(--crp-orange);font-weight:700;margin-bottom:10px}
+  .prin h3{font-size:17px;font-weight:700;color:var(--crp-navy);margin:0 0 8px 0;line-height:1.25}
+  .prin p{font-size:14px;color:var(--fg-2);line-height:1.55;margin:0}
+
+  /* Asset downloads */
+  .asset-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .asset-tile{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;gap:14px;align-items:center;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+  .asset-tile:hover{border-color:var(--crp-blue);transform:translateY(-1px)}
+  .asset-tile .icn{flex-shrink:0;width:44px;height:44px;background:var(--blue-bg);color:var(--crp-blue);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-family:var(--font-mono);font-size:11px}
+  .asset-tile .ttl{font-weight:700;color:var(--crp-navy);font-size:14px;margin:0 0 2px 0}
+  .asset-tile .sub{font-size:12px;color:var(--fg-2);margin:0;font-family:var(--font-mono)}
+
+  /* Do / Don't */
+  .dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .dd{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+  .dd-head{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+  .dd-head .mk{width:26px;height:26px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:13px}
+  .dd.do .mk{background:var(--success)}
+  .dd.dont .mk{background:var(--danger)}
+  .dd-head h3{margin:0;font-size:14px;font-weight:700;color:var(--crp-navy);text-transform:uppercase;letter-spacing:.06em}
+  .dd-list{padding:16px 22px}
+  .dd-list li{list-style:none;padding:10px 0;border-top:1px solid var(--border);font-size:14px;color:var(--fg-1);line-height:1.5;margin:0}
+  .dd-list li:first-child{border-top:0}
+  .dd-list li strong{color:var(--crp-navy)}
+
+  /* Request CTA card */
+  .req{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;background:var(--crp-navy);color:#fff;border-radius:20px;padding:44px;align-items:center}
+  .req h3{font-size:28px;font-weight:800;color:#fff;margin:0 0 10px 0;letter-spacing:-.01em;line-height:1.2}
+  .req p{font-size:15px;color:rgba(255,255,255,.85);margin:0 0 20px 0;line-height:1.55}
+  .req .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;background:var(--crp-orange);color:#fff;text-decoration:none;font-weight:700;font-size:15px}
+  .req-form{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:22px;font-size:13px;line-height:1.7}
+  .req-form .row{display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid rgba(255,255,255,.12)}
+  .req-form .row:first-child{border-top:0}
+  .req-form .k{color:rgba(255,255,255,.65);text-transform:uppercase;font-size:11px;letter-spacing:.06em;font-weight:700}
+  .req-form .v{color:#fff;font-weight:600;text-align:right}
+
+  /* Version / contact footer */
+  .meta-foot{padding:40px 0;font-size:13px;color:var(--fg-2);background:#fff;border-top:1px solid var(--border)}
+  .meta-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+  .meta-row strong{color:var(--crp-navy);font-weight:700}
+
+  @media (max-width:900px){
+    .prin-grid,.asset-grid{grid-template-columns:1fr}
+    .dd-grid,.req{grid-template-columns:1fr}
+    .hero h1{font-size:38px}
+    section h2{font-size:26px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── Hero ─── -->
+<section class="hero">
+  <svg class="hero-stencil" viewBox="0 0 200 200"><g fill="#fff"><circle cx="70" cy="70" r="60"/><circle cx="130" cy="70" r="60"/><circle cx="70" cy="130" r="60"/><circle cx="130" cy="130" r="60"/></g></svg>
+  <div class="wrap">
+    <div class="eyebrow">Brand Governance · v1.0 · April 2026</div>
+    <h1>Using the <span class="script">CRP brand</span>, with care.</h1>
+    <p class="lede">This page exists so you don't have to guess. If you're making something with the CRP logo, colors, or voice on it — internal or external — start here.</p>
+  </div>
+</section>
+
+<!-- ─── Principles ─── -->
+<section style="background:var(--bg)">
+  <div class="wrap">
+    <span class="eyebrow">Why we have a brand system</span>
+    <h2>Three principles behind every rule on this page.</h2>
+    <p class="lede">CRP talks to people at vulnerable moments — asking them to trust us with their bodies and time. The brand is how we earn that trust before a word is said.</p>
+    <div class="prin-grid">
+      <div class="prin">
+        <div class="n">01</div>
+        <h3>Consistency earns trust</h3>
+        <p>Participants see dozens of "research studies" ads a week. The ones that look the same in the email, on the flyer, and in the clinic are the ones they show up for. Inconsistency reads as amateur — and amateur reads as risky.</p>
+      </div>
+      <div class="prin">
+        <div class="n">02</div>
+        <h3>Warmth over polish</h3>
+        <p>We're not a pharma giant. The Market Pro script, the orange hand-drawn accents, the plain-English voice — these are deliberate signals that a human reads your chart, not a database.</p>
+      </div>
+      <div class="prin">
+        <div class="n">03</div>
+        <h3>Accessibility is non-negotiable</h3>
+        <p>Our audience skews older, sometimes low-vision, sometimes non-native English. 14.8:1 navy-on-white, 44px hit targets, translated consent forms. WCAG AA is the floor, not the goal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Approval matrix ─── -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Who approves what</span>
+    <h2>The approval matrix.</h2>
+    <p class="lede">Not everything needs a committee. Use this table before you make a ticket — most things you can just do.</p>
+    <div class="matrix">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:32%">What you're making</th>
+            <th style="width:24%">Who approves</th>
+            <th style="width:14%">SLA</th>
+            <th style="width:30%">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="what">Email signature <small>You, a colleague, a new hire</small></td>
+            <td class="who"><span class="badge badge-auto">Self-serve</span> Use the template, swap your 5 variables</td>
+            <td class="sla">5 min</td>
+            <td class="who">Template in <strong>preview/email-signature.html</strong>. Never change logo, colors, or structure.</td>
+          </tr>
+          <tr>
+            <td class="what">Internal slide deck <small>Team meeting, board update, investor readout</small></td>
+            <td class="who"><span class="badge badge-auto">Self-serve</span> Use the CRP deck master</td>
+            <td class="sla">same-day</td>
+            <td class="who">Brand team does a 24-hour courtesy review if you want feedback.</td>
+          </tr>
+          <tr>
+            <td class="what">Study page · landing page <small>A new study, any marketing landing</small></td>
+            <td class="who"><span class="badge badge-review">Review</span> <strong>Marketing + Compliance</strong></td>
+            <td class="sla">3 business days</td>
+            <td class="who">Every study page needs compliance sign-off on claims, IRB numbers, and comp language. Start from <strong>study-detail.html</strong>.</td>
+          </tr>
+          <tr>
+            <td class="what">Printed flyer, business card, banner <small>Anything on paper with the logo</small></td>
+            <td class="who"><span class="badge badge-review">Review</span> <strong>Brand team</strong></td>
+            <td class="sla">3 business days</td>
+            <td class="who">Brand team supplies print-ready art. You do not touch the PDF — they send you the file.</td>
+          </tr>
+          <tr>
+            <td class="what">Sponsor / partner co-branding <small>Logo lockup with another org</small></td>
+            <td class="who"><span class="badge badge-lock">Requires</span> <strong>Managing Director + Brand</strong></td>
+            <td class="sla">5 business days</td>
+            <td class="who">Every co-branded mark is reviewed individually. Never mock one up in PowerPoint; request one.</td>
+          </tr>
+          <tr>
+            <td class="what">Press release, media quote <small>Anything with CRP attribution</small></td>
+            <td class="who"><span class="badge badge-lock">Requires</span> <strong>Managing Director</strong></td>
+            <td class="sla">2 business days</td>
+            <td class="who">Aneesh reviews every external quote. Coordinate through <strong>comms@phillyresearch.com</strong>.</td>
+          </tr>
+          <tr>
+            <td class="what">Modifications to the logo or colors <small>Any variant we don't ship today</small></td>
+            <td class="who"><span class="badge badge-lock">Not permitted</span></td>
+            <td class="sla">—</td>
+            <td class="who">If you feel you need one, talk to the brand team about whether the brand itself needs to change.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Downloads ─── -->
+<section style="background:var(--bg)">
+  <div class="wrap">
+    <span class="eyebrow">Assets &amp; downloads</span>
+    <h2>Where to find the files.</h2>
+    <p class="lede">Everything lives in the project <code style="font-family:var(--font-mono);font-size:14px;background:#fff;padding:2px 8px;border-radius:4px;border:1px solid var(--border)">assets/</code> folder. If you're an external partner, email <strong>brand@phillyresearch.com</strong> — don't take screenshots from the website.</p>
+    <div class="asset-grid">
+      <a class="asset-tile" href="assets/logos/">
+        <div class="icn">SVG<br/>PNG</div>
+        <div>
+          <div class="ttl">Logos</div>
+          <div class="sub">6 variants · stacked, long, short, icon, white</div>
+        </div>
+      </a>
+      <a class="asset-tile" href="assets/fonts/">
+        <div class="icn">OTF</div>
+        <div>
+          <div class="ttl">Brand fonts</div>
+          <div class="sub">Area Normal · Market Pro (licensed)</div>
+        </div>
+      </a>
+      <a class="asset-tile" href="assets/accents/">
+        <div class="icn">PNG</div>
+        <div>
+          <div class="ttl">Accent marks</div>
+          <div class="sub">6 hand-drawn accents, orange</div>
+        </div>
+      </a>
+      <a class="asset-tile" href="assets/icons/">
+        <div class="icn">PNG</div>
+        <div>
+          <div class="ttl">Brand icons</div>
+          <div class="sub">6 feature icons · Lucide fallback</div>
+        </div>
+      </a>
+      <a class="asset-tile" href="assets/stencils/">
+        <div class="icn">SVG</div>
+        <div>
+          <div class="ttl">Quatrefoil stencil</div>
+          <div class="sub">Photo clip-path + watermark</div>
+        </div>
+      </a>
+      <a class="asset-tile" href="colors_and_type.css">
+        <div class="icn">CSS</div>
+        <div>
+          <div class="ttl">Tokens</div>
+          <div class="sub">Color, type, spacing, shadow, motion</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Do / Don't ─── -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">The five most-broken rules</span>
+    <h2>Before you ship, check these.</h2>
+    <p class="lede">If you catch one thing on this page, let it be this list. These are the issues we actually send back.</p>
+    <div class="dd-grid">
+      <div class="dd do">
+        <div class="dd-head"><span class="mk">✓</span><h3>Do</h3></div>
+        <ul class="dd-list">
+          <li><strong>Use navy text on orange buttons</strong> — passes AA at 6.2:1.</li>
+          <li><strong>One Market Pro moment per page</strong> — a tagline, a headline accent, or a quote mark.</li>
+          <li><strong>Write in plain English.</strong> Replace every "utilize" with "use." Replace every "individual" with "person."</li>
+          <li><strong>Give participants a compensation number up front.</strong> Never "up to" without a range.</li>
+          <li><strong>Start from an existing preview file.</strong> Copy and modify; don't build from scratch.</li>
+        </ul>
+      </div>
+      <div class="dd dont">
+        <div class="dd-head"><span class="mk">✕</span><h3>Don't</h3></div>
+        <ul class="dd-list">
+          <li><strong>Never use white text on orange.</strong> Fails WCAG AA at 2.4:1. Still on our live marketing — we're fixing it.</li>
+          <li><strong>Never set body copy in Market Pro.</strong> It's a decorative script, not a text font.</li>
+          <li><strong>Never recolor the logo.</strong> Use <code style="font-family:var(--font-mono);font-size:12px">crp-white.svg</code> on dark backgrounds, full-color otherwise.</li>
+          <li><strong>Never stretch or rotate the logo.</strong> Keep clear space = the height of "CRP".</li>
+          <li><strong>Never promise medical outcomes.</strong> "May help" not "will help." Always "qualified participants" not "patients."</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Request a review ─── -->
+<section style="background:var(--bg)">
+  <div class="wrap">
+    <div class="req">
+      <div>
+        <span style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--crp-orange);margin-bottom:10px">Need a review?</span>
+        <h3>Request it in one place.</h3>
+        <p>Don't DM us. Don't chase the brand team in the hallway. File a request so we can triage, track, and meet the SLA in the matrix above.</p>
+        <a class="btn" href="mailto:brand@phillyresearch.com?subject=Brand%20review%20request">Email brand@phillyresearch.com →</a>
+      </div>
+      <div class="req-form">
+        <div class="row"><span class="k">Include</span><span class="v">What + deadline</span></div>
+        <div class="row"><span class="k">Attach</span><span class="v">Draft or screenshot</span></div>
+        <div class="row"><span class="k">From</span><span class="v">Your @phillyresearch email</span></div>
+        <div class="row"><span class="k">Subject</span><span class="v">"Brand review: …"</span></div>
+        <div class="row"><span class="k">Response</span><span class="v">Per the matrix</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Version / ownership ─── -->
+<div class="meta-foot">
+  <div class="wrap meta-row">
+    <div><strong>Brand owner</strong> · Clinical Research Philadelphia, LLC · <strong>Maintainer</strong> Aneesh Vaze (<a href="mailto:aneesh@phillyresearch.com" style="color:var(--crp-blue)">aneesh@phillyresearch.com</a>)</div>
+    <div><strong>v1.0</strong> · 19 April 2026 · next review 01 October 2026</div>
+  </div>
+</div>
+
+</body>
+</html>

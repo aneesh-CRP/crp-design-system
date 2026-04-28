@@ -1,0 +1,2316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check Your Eligibility | Clinical Research Philadelphia</title>
+<meta name="description" content="See if you qualify for a paid clinical research study near you. Free health screenings, compensation for time and travel. Over 500 successful trials.">
+<meta property="og:title" content="Check Your Eligibility | Clinical Research Philadelphia">
+<meta property="og:description" content="See if you qualify for a paid clinical research study. Free health screenings, compensation for time and travel.">
+<meta property="og:image" content="https://www.joinresearchstudies.com/crp-logo.png">
+<meta property="og:url" content="https://www.joinresearchstudies.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="crp-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>@font-face{font-family:'Market Pro';src:url('MarketPro.otf') format('opentype');font-weight:normal;font-style:normal;font-display:swap}</style>
+<!-- Meta Pixel REMOVED for HIPAA compliance — all conversion tracking is server-side via CAPI -->
+<!-- Google Analytics 4 + Google Ads gtag — marketing only, NO PII ever sent -->
+<script>
+window.GA4_ID = 'G-PLACEHOLDER';    // Replace with actual GA4 Measurement ID
+window.GADS_ID = 'AW-17535018288';    // CRP Google Ads conversion ID (joinresearchstudies.com)
+window.GADS_LEAD_LABEL = 'm83ECNbbrJocELDKrKlB'; // Lp(a) Website Lead conversion label
+(function() {
+  var ga4Ready = window.GA4_ID && window.GA4_ID !== 'G-PLACEHOLDER';
+  var gadsReady = window.GADS_ID && window.GADS_ID !== 'AW-PLACEHOLDER';
+  if (!ga4Ready && !gadsReady) return;
+  // Load gtag.js — use GA4 ID if present, otherwise Google Ads ID
+  var primaryId = ga4Ready ? window.GA4_ID : window.GADS_ID;
+  var _gs = document.createElement('script');
+  _gs.async = true;
+  _gs.src = 'https://www.googletagmanager.com/gtag/js?id=' + primaryId;
+  document.head.appendChild(_gs);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){ dataLayer.push(arguments); };
+  gtag('js', new Date());
+  if (ga4Ready) gtag('config', window.GA4_ID, { anonymize_ip: true, allow_google_signals: false, allow_ad_personalization_signals: false });
+  if (gadsReady) gtag('config', window.GADS_ID);
+})();
+function gaEvent(name, params) {
+  if (typeof gtag === 'function') {
+    try { gtag('event', name, params || {}); } catch(e) {}
+  }
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#1a2744;
+  --blue:#2b4c8c;
+  --blue-light:#3a6bc5;
+  --orange:#FF9933;
+  --orange-dark:#e6872e;
+  --teal:#2a9d8f;
+  --bg:#f5f7fa;
+  --card:#fff;
+  --text:#1e293b;
+  --muted:#64748b;
+  --border:#c8d6e8;
+  --radius:16px;
+  --shadow:0 2px 12px rgba(26,39,68,.08)
+}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center}
+
+/* Header */
+.header{width:100%;background:#fff;padding:20px 0;text-align:center;border-bottom:1px solid var(--border)}
+.header img{height:72px}
+
+/* Hero */
+.hero{width:100%;background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 60%,var(--blue-light) 100%);padding:44px 20px 36px;text-align:center;color:#fff}
+.hero h1{font-family:'Market Pro','Inter',sans-serif;font-size:32px;font-weight:normal;margin-bottom:10px;line-height:1.25;letter-spacing:-0.5px;color:var(--orange)}
+.hero p{font-size:16px;opacity:.85;max-width:460px;margin:0 auto;line-height:1.6}
+
+.container{max-width:520px;width:100%;padding:20px 20px 12px}
+
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin-bottom:16px}
+.progress-bar-wrap{margin-bottom:24px}
+.progress-label{font-size:13px;font-weight:500;color:var(--muted);margin-bottom:6px}
+.progress-track{height:6px;border-radius:3px;background:var(--border);overflow:hidden}
+.progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--teal),var(--blue-light));transition:width .4s ease}
+.step{display:none}
+.step.active{display:block}
+.step h2{font-size:20px;font-weight:600;margin-bottom:4px;color:var(--navy)}
+.step p.subtitle{font-size:14px;color:var(--muted);margin-bottom:20px}
+label{display:block;font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px}
+input,select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:15px;font-family:inherit;margin-bottom:14px;transition:border .2s,box-shadow .2s;background:#fff}
+input:focus,select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(43,76,140,.1)}
+input[type="tel"]{letter-spacing:.5px}
+.checkbox-row{display:flex;align-items:flex-start;gap:10px;margin:16px 0}
+.checkbox-row input[type="checkbox"]{width:18px;height:18px;margin-top:2px;flex-shrink:0;accent-color:var(--blue)}
+.checkbox-row label{font-size:12px;color:var(--muted);margin-bottom:0;line-height:1.4}
+.btn{width:100%;padding:14px;border:none;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-primary{background:var(--orange);color:#fff}
+.btn-primary:hover{background:var(--orange-dark);transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,153,51,.3)}
+.btn-primary:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;transform:none;box-shadow:none}
+.btn-secondary{background:transparent;color:var(--blue);border:1.5px solid var(--border);margin-top:8px}
+.btn-secondary:hover{background:var(--bg);border-color:var(--blue)}
+.condition-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.condition-btn{padding:14px 12px;border:1.5px solid var(--border);border-radius:10px;background:var(--card);font-size:14px;cursor:pointer;text-align:center;transition:all .2s;font-family:inherit;font-weight:500}
+.condition-btn.selected{background:var(--blue);color:#fff;border-color:var(--blue)}
+.condition-btn:hover:not(.selected){border-color:var(--blue);background:rgba(43,76,140,.04)}
+.med-list{margin-bottom:14px}
+.med-item{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--bg);border-radius:8px;margin-bottom:6px;font-size:14px}
+.med-item .remove{color:var(--muted);cursor:pointer;margin-left:auto;font-size:18px}
+.med-item .remove:hover{color:#ef4444}
+.add-med{display:flex;gap:8px;margin-bottom:14px}
+.add-med input{flex:1;margin-bottom:0}
+.add-med button{padding:8px 16px;white-space:nowrap}
+.result-card{text-align:center;padding:32px 20px}
+.result-card .icon{font-size:48px;margin-bottom:12px}
+.result-card h2{font-size:22px;margin-bottom:8px;color:var(--navy)}
+.result-card p{font-size:14px;color:var(--muted);line-height:1.6}
+.result-card .cta-call{display:inline-block;margin-top:16px;padding:12px 28px;background:var(--orange);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;transition:background .2s}
+.result-card .cta-call:hover{background:var(--orange-dark)}
+
+/* Footer */
+.footer{width:100%;max-width:520px;padding:0 20px 24px;text-align:center}
+.privacy{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:12px}
+.privacy a{color:var(--blue);text-decoration:none}
+.privacy a:hover{text-decoration:underline}
+.footer-contact{font-size:12px;color:var(--muted);line-height:1.6}
+.footer-contact a{color:var(--blue);text-decoration:none;font-weight:500}
+.footer-logo{margin-bottom:12px}
+.footer-logo img{height:40px;opacity:.7}
+
+/* Exclusion criteria */
+.exclusion-section{border-top:1px solid var(--border);padding-top:16px}
+.excl-list{display:flex;flex-direction:column;gap:10px}
+.excl-item{background:var(--bg);border-radius:10px;padding:12px 14px}
+.excl-item label{font-size:13px;font-weight:500;margin-bottom:8px;line-height:1.4}
+.excl-options{display:flex;gap:6px;margin-top:6px}
+.excl-btn{padding:10px 18px;border:1.5px solid var(--border);border-radius:20px;background:#fff;font-size:14px;cursor:pointer;font-family:inherit;font-weight:500;transition:all .2s}
+.excl-btn:hover{border-color:var(--blue)}
+.excl-btn.selected-yes{background:#fef2f2;border-color:#f87171;color:#dc2626}
+.excl-btn.selected-no{background:#f0fdf4;border-color:#4ade80;color:#16a34a}
+.excl-btn.selected-na,.excl-btn.selected-past{background:var(--bg);border-color:var(--blue);color:var(--blue)}
+
+/* Condition/Med detail rows */
+.detail-section{margin-top:8px}
+.detail-row{background:var(--bg);border-radius:10px;padding:12px 14px;margin-bottom:8px}
+.detail-row .detail-name{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:8px}
+.detail-row .detail-fields{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.detail-row .detail-fields label{font-size:11px;margin-bottom:2px;white-space:nowrap}
+.detail-row .detail-fields select,.detail-row .detail-fields input{margin-bottom:0;padding:8px 10px;font-size:13px;min-width:0}
+.detail-row .detail-fields .field{flex:1;min-width:80px}
+.detail-row .ongoing-toggle{display:flex;align-items:center;gap:6px;margin-top:6px}
+.detail-row .ongoing-toggle label{font-size:12px;color:var(--muted);margin-bottom:0}
+.detail-row .ongoing-toggle input{width:16px;height:16px;margin-bottom:0;accent-color:var(--teal)}
+.detail-row .dose-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.dose-chip{padding:8px 14px;border:1px solid var(--border);border-radius:14px;font-size:12px;cursor:pointer;background:#fff;font-family:inherit}
+.dose-chip.selected{background:var(--blue);color:#fff;border-color:var(--blue)}
+.dose-chip:hover:not(.selected){border-color:var(--blue)}
+.validation-warn{font-size:11px;color:#f59e0b;margin-top:4px;display:none}
+
+/* Medication chips (condition-linked) */
+.med-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.med-chip{padding:10px 14px;border:1.5px solid var(--border);border-radius:20px;background:#fff;font-size:13px;cursor:pointer;transition:all .2s;font-family:inherit;font-weight:500;color:var(--text)}
+.med-chip:hover{border-color:var(--blue);background:rgba(43,76,140,.04)}
+.med-chip.selected{background:var(--teal);color:#fff;border-color:var(--teal)}
+.med-chip .cond-tag{font-size:10px;color:var(--muted);margin-left:4px;font-weight:400}
+.med-chip.selected .cond-tag{color:rgba(255,255,255,.7)}
+
+/* Medication autocomplete */
+.med-suggestions{position:absolute;top:100%;left:0;right:72px;background:#fff;border:1.5px solid var(--border);border-radius:10px;max-height:180px;overflow-y:auto;display:none;z-index:10;box-shadow:0 4px 16px rgba(7,32,97,.1);margin-top:-10px}
+.med-suggestions.visible{display:block}
+.med-suggestions div{padding:10px 14px;font-size:14px;cursor:pointer;border-bottom:1px solid var(--bg)}
+.med-suggestions div:last-child{border-bottom:none}
+.med-suggestions div:hover,.med-suggestions div.highlighted{background:var(--bg);color:var(--blue)}
+.med-suggestions div .generic{font-size:11px;color:var(--muted);margin-left:4px}
+
+/* Study cards on results page */
+.study-card{background:var(--bg);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:10px;transition:all .2s;cursor:pointer}
+.study-card:hover{border-color:var(--blue)}
+.study-card.selected{border-color:var(--teal);background:rgba(42,157,143,.06)}
+.study-card .study-check{float:right;width:22px;height:22px;border:2px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s}
+.study-card.selected .study-check{background:var(--teal);border-color:var(--teal);color:#fff}
+.study-card h3{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:4px}
+.study-card .study-indication{font-size:12px;color:var(--teal);font-weight:600;margin-bottom:6px}
+.study-card .study-desc{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:6px}
+.study-card .study-details{font-size:11px;color:var(--muted)}
+.study-card .study-details span{display:inline-block;margin-right:12px}
+.study-card .study-comp{display:inline-block;background:var(--orange);color:#fff;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;margin-top:4px}
+
+/* Condition group headers */
+.cond-group{margin-bottom:14px}
+.cond-group-label{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px}
+
+/* FAQ section */
+.faq-section{max-width:520px;width:100%;padding:0 20px 16px}
+.faq-section h2{font-size:20px;font-weight:600;color:var(--navy);text-align:center;margin-bottom:16px}
+.faq-item{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:8px;overflow:hidden}
+.faq-q{width:100%;padding:16px 20px;border:none;background:none;font-size:14px;font-weight:600;color:var(--text);text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:inherit}
+.faq-q::after{content:'+';font-size:20px;color:var(--muted);transition:transform .2s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;padding:0 20px}
+.faq-item.open .faq-a{max-height:200px;padding:0 20px 16px}
+.faq-a p{font-size:13px;color:var(--muted);line-height:1.6}
+
+.error{color:#ef4444;font-size:12px;margin-top:-10px;margin-bottom:10px;display:none}
+.spinner{display:inline-block;width:20px;height:20px;border:2px solid #fff;border-top-color:transparent;border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:480px){
+  .container{padding:12px}
+  .card{padding:20px}
+  .condition-grid{grid-template-columns:1fr}
+  .hero{padding:28px 16px 24px}
+  .hero h1{font-size:26px}
+  .header img{height:56px}
+  /* Force 2-column flex rows to stack vertically on narrow screens */
+  .row-2col{flex-direction:column !important}
+  .row-2col > div{flex:1 1 100% !important;width:100% !important}
+}
+/* Flex row utility — wraps on narrow, stacks via media query above */
+.row-2col{display:flex;gap:10px;flex-wrap:wrap}
+.row-2col > div{flex:1 1 140px;min-width:0}
+.row-2col input,.row-2col select{width:100%}
+</style>
+</head>
+<body>
+
+<!-- Header with CRP Logo -->
+<div class="header">
+  <a href="https://www.phillyresearch.com" target="_blank">
+    <img src="assets/logos/crp-long.svg" alt="Clinical Research Philadelphia">
+  </a>
+</div>
+
+<!-- Hero Section -->
+<div class="hero">
+  <h1>The future of medicine begins with you</h1>
+  <p>Check if you qualify for a paid clinical research study in under 2 minutes. Free health screenings and compensation provided.</p>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="progress-bar-wrap">
+      <div class="progress-label" id="progress-label">Step 1 of 5</div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:20%"></div></div>
+    </div>
+
+    <!-- STEP 1a: Quick Capture (Pixel fires Lead here — NO health data) -->
+    <div class="step active" id="step-1a">
+      <h2>Let's get started</h2>
+      <p class="subtitle">Just a few quick questions to begin</p>
+
+      <div class="row-2col">
+        <div><label for="f_first">First name *</label>
+          <input type="text" id="f_first" autocomplete="given-name" required></div>
+        <div><label for="f_last">Last name *</label>
+          <input type="text" id="f_last" autocomplete="family-name" required></div>
+      </div>
+      <label for="f_phone">Phone number *</label>
+      <input type="tel" id="f_phone" autocomplete="tel" placeholder="(215) 555-1234" required>
+
+      <label for="f_email">Email address *</label>
+      <input type="email" id="f_email" autocomplete="email" placeholder="you@example.com" required>
+
+      <label for="f_primary_cond" style="font-size:15px;font-weight:600;color:var(--navy)">What is your primary condition of concern? *</label>
+      <select id="f_primary_cond" style="margin-bottom:16px;border-color:var(--orange)">
+        <option value="">Select your main condition...</option>
+        <optgroup label="Dermatology">
+          <option value="eczema">Eczema / Atopic Dermatitis</option>
+          <option value="psoriasis">Psoriasis</option>
+          <option value="hidradenitis suppurativa">Hidradenitis Suppurativa (HS)</option>
+          <option value="chronic hives">Chronic Hives / Urticaria</option>
+          <option value="lichen simplex">Lichen Simplex Chronicus</option>
+        </optgroup>
+        <optgroup label="Rheumatology &amp; Autoimmune">
+          <option value="psoriatic arthritis">Psoriatic Arthritis</option>
+          <option value="lupus">Lupus (SLE)</option>
+          <option value="sjogrens">Sj&ouml;gren's Disease</option>
+          <option value="rheumatoid arthritis">Rheumatoid Arthritis</option>
+        </optgroup>
+        <optgroup label="Heart &amp; Metabolic">
+          <option value="heart disease">Heart Disease / Cardiovascular</option>
+          <option value="heart failure">Heart Failure</option>
+          <option value="high cholesterol">High Cholesterol</option>
+          <option value="high triglycerides">High Triglycerides</option>
+          <option value="type 2 diabetes">Type 2 Diabetes</option>
+          <option value="obesity">Obesity / Overweight</option>
+          <option value="fatty liver">Fatty Liver / MASH / NASH</option>
+        </optgroup>
+        <optgroup label="Neurology">
+          <option value="alzheimers">Alzheimer's Disease</option>
+          <option value="migraine">Migraines</option>
+        </optgroup>
+        <optgroup label="Women's Health">
+          <option value="menstrual migraine">Menstrual Migraines</option>
+          <option value="stress urinary incontinence">Stress Urinary Incontinence</option>
+        </optgroup>
+        <optgroup label="Other">
+          <option value="asthma">Asthma</option>
+          <option value="copd">COPD</option>
+          <option value="crohns">Crohn's / IBD</option>
+          <option value="ckd">Kidney Disease</option>
+          <option value="other">Other</option>
+        </optgroup>
+      </select>
+
+      <!-- Honeypot — hidden from real users, bots fill it -->
+      <div style="position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;overflow:hidden" aria-hidden="true">
+        <label for="f_website">Website</label>
+        <input type="text" id="f_website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="checkbox-row">
+        <input type="checkbox" id="f_consent">
+        <label for="f_consent">I agree to be contacted by Clinical Research Philadelphia about clinical research studies I may qualify for, including by phone, SMS/text, and email at the number and address provided. Message and data rates may apply. Message frequency varies. Reply STOP to cancel. <a href="https://www.phillyresearch.com/privacy-policy" target="_blank">Privacy Policy</a>.</label>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);margin:4px 0 10px;padding:8px 10px;background:#f8fafc;border-radius:6px;border:1px solid #c8d6e8">
+        🛡️ <span><strong>HIPAA-Compliant.</strong> Your health information is encrypted and never shared with advertisers.</span>
+      </div>
+      <div id="err-1a" class="error"></div>
+      <button class="btn btn-primary" onclick="goStep(1.5)">Continue</button>
+    </div>
+
+    <!-- STEP 1b: Additional Profile -->
+    <div class="step" id="step-1b">
+      <h2>A bit more about you</h2>
+      <p class="subtitle">This helps us match you to the right studies</p>
+
+      <div class="row-2col">
+        <div><label for="f_dob">Date of birth *</label>
+          <input type="date" id="f_dob" required></div>
+        <div><label for="f_gender">Gender *</label>
+          <select id="f_gender"><option value="">Select...</option><option>Male</option><option>Female</option><option>Other</option><option>Prefer not to say</option></select></div>
+      </div>
+      <label for="f_zip">ZIP code *</label>
+      <input type="text" id="f_zip" autocomplete="postal-code" maxlength="5" pattern="[0-9]{5}" required>
+
+      <!-- Physical — needed for BMI studies -->
+      <div class="row-2col">
+        <div><label for="f_height_ft">Height</label>
+          <div style="display:flex;gap:6px">
+            <select id="f_height_ft"><option value="">ft</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+            <select id="f_height_in"><option value="">in</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option></select>
+          </div>
+        </div>
+        <div><label for="f_weight">Weight (lbs)</label>
+          <input type="number" id="f_weight" placeholder="e.g. 185" min="50" max="600">
+        </div>
+      </div>
+      <div id="bmi-display" style="font-size:12px;color:var(--muted);margin:-8px 0 14px;display:none">BMI: <strong id="bmi-value"></strong></div>
+
+      <!-- Referral source (compact) -->
+      <label for="f_referral">How did you hear about us?</label>
+      <select id="f_referral"><option value="">Select...</option><option value="facebook">Facebook / Instagram ad</option><option value="google">Google search</option><option value="doctor">My doctor referred me</option><option value="friend">Friend or family</option><option value="participant">Current/past study participant</option><option value="flyer">Flyer or poster</option><option value="other">Other</option></select>
+      <div id="referral-detail" style="display:none">
+        <label id="referral-detail-label" for="f_referral_detail">Provider or referrer name</label>
+        <input type="text" id="f_referral_detail" placeholder="e.g. Dr. Smith, friend's name">
+      </div>
+
+      <!-- Optional demographics (collapsed by default) -->
+      <details style="margin:14px 0 6px;padding:10px 12px;background:#f8fafc;border:1px solid #c8d6e8;border-radius:8px">
+        <summary style="cursor:pointer;font-size:13px;font-weight:600;color:var(--navy)">+ Optional demographics (helps with diversity reporting)</summary>
+        <div style="margin-top:10px">
+          <label for="f_race" style="font-size:12px">Race / Ethnicity</label>
+          <select id="f_race" style="width:100%"><option value="">Prefer not to say</option><option>White</option><option>Black or African American</option><option>Hispanic or Latino</option><option>Asian</option><option>Native American or Alaska Native</option><option>Native Hawaiian or Pacific Islander</option><option>Two or more races</option></select>
+          <label for="f_prior_trial" style="font-size:12px;margin-top:8px">Prior clinical trial experience</label>
+          <select id="f_prior_trial"><option value="">Not specified</option><option value="yes_crp">Yes, at CRP</option><option value="yes_other">Yes, somewhere else</option><option value="no">No, this would be my first</option></select>
+        </div>
+      </details>
+
+      <!-- Hidden defaults for removed fields (language, contact pref, tobacco) -->
+      <input type="hidden" id="f_language" value="english">
+      <input type="hidden" id="f_contact_pref" value="either">
+      <input type="hidden" id="f_smoking" value="">
+
+      <div id="err-1b" class="error"></div>
+      <button class="btn btn-primary" onclick="goStep(2)">Continue</button>
+      <button class="btn btn-secondary" onclick="showStep(1)">Back</button>
+    </div>
+
+    <!-- STEP 2: Health Conditions (NO pixel events — health data zone) -->
+    <div class="step" id="step-2">
+      <h2>Health profile</h2>
+      <p class="subtitle">Do you have any additional conditions? (select all that apply)</p>
+
+      <div id="conditions-grid">
+        <div class="cond-group">
+          <div class="cond-group-label">Dermatology</div>
+          <div class="condition-grid">
+            <button class="condition-btn" data-cond="eczema">Eczema / Dermatitis</button>
+            <button class="condition-btn" data-cond="psoriasis">Psoriasis</button>
+            <button class="condition-btn" data-cond="hidradenitis suppurativa">Hidradenitis Suppurativa</button>
+            <button class="condition-btn" data-cond="chronic hives">Chronic Hives</button>
+            <button class="condition-btn" data-cond="lichen simplex">Lichen Simplex Chronicus</button>
+            <button class="condition-btn" data-cond="vitiligo">Vitiligo</button>
+            <button class="condition-btn" data-cond="alopecia">Alopecia (Hair Loss)</button>
+          </div>
+        </div>
+
+        <div class="cond-group">
+          <div class="cond-group-label">Rheumatology &amp; Autoimmune</div>
+          <div class="condition-grid">
+            <button class="condition-btn" data-cond="psoriatic arthritis">Psoriatic Arthritis</button>
+            <button class="condition-btn" data-cond="lupus">Lupus (SLE)</button>
+            <button class="condition-btn" data-cond="sjogrens">Sj&ouml;gren's Disease</button>
+            <button class="condition-btn" data-cond="rheumatoid arthritis">Rheumatoid Arthritis</button>
+          </div>
+        </div>
+
+        <div class="cond-group">
+          <div class="cond-group-label">Heart &amp; Metabolic</div>
+          <div class="condition-grid">
+            <button class="condition-btn" data-cond="heart disease">Heart Disease</button>
+            <button class="condition-btn" data-cond="heart failure">Heart Failure</button>
+            <button class="condition-btn" data-cond="high cholesterol">High Cholesterol</button>
+            <button class="condition-btn" data-cond="high triglycerides">High Triglycerides</button>
+            <button class="condition-btn" data-cond="type 2 diabetes">Type 2 Diabetes</button>
+            <button class="condition-btn" data-cond="obesity">Obesity / Overweight</button>
+            <button class="condition-btn" data-cond="fatty liver">Fatty Liver / MASH</button>
+          </div>
+        </div>
+
+        <div class="cond-group">
+          <div class="cond-group-label">Neurology</div>
+          <div class="condition-grid">
+            <button class="condition-btn" data-cond="alzheimers">Alzheimer's Disease</button>
+            <button class="condition-btn" data-cond="migraine">Migraines</button>
+          </div>
+        </div>
+
+        <div class="cond-group">
+          <div class="cond-group-label">Women's Health</div>
+          <div class="condition-grid">
+            <button class="condition-btn" data-cond="menstrual migraine">Menstrual Migraines</button>
+            <button class="condition-btn" data-cond="stress urinary incontinence">Stress Urinary Incontinence</button>
+          </div>
+        </div>
+
+        <div class="cond-group">
+          <div class="cond-group-label">Other Conditions</div>
+          <div class="condition-grid">
+            <button class="condition-btn" data-cond="asthma">Asthma</button>
+            <button class="condition-btn" data-cond="copd">COPD</button>
+            <button class="condition-btn" data-cond="crohns">Crohn's / IBD</button>
+            <button class="condition-btn" data-cond="ckd">Kidney Disease</button>
+            <button class="condition-btn" data-cond="depression">Depression / Anxiety</button>
+            <button class="condition-btn" data-cond="sleep apnea">Sleep Apnea</button>
+            <button class="condition-btn" data-cond="gerd">Acid Reflux / GERD</button>
+            <button class="condition-btn" data-cond="gout">Gout</button>
+          </div>
+        </div>
+      </div>
+      <label>Other condition</label>
+      <input type="text" id="f_other_cond" placeholder="Type any other condition...">
+
+      <!-- Condition details (appears after selecting conditions) -->
+      <div id="condition-details" class="detail-section" style="display:none">
+        <label style="margin-top:12px;font-size:15px;font-weight:600;color:var(--navy)">About your conditions</label>
+        <div id="condition-detail-list"></div>
+      </div>
+
+      <!-- Condition-specific follow-up questions (dynamically shown) -->
+      <div id="condition-followups" style="display:none">
+        <label style="margin-top:12px;font-size:15px;font-weight:600;color:var(--navy)">A few more details</label>
+
+        <!-- Eczema / Psoriasis -->
+        <div id="fu-skin" class="detail-row" style="display:none">
+          <div class="detail-name">Skin condition details</div>
+          <label>What % of your body is affected?</label>
+          <select id="f_bsa"><option value="">Select...</option><option value="<5">Less than 5%</option><option value="5-10">5-10%</option><option value="10-20">10-20%</option><option value="20-50">20-50%</option><option value="50+">More than 50%</option><option value="unsure">Not sure</option></select>
+          <label>Which body areas are affected?</label>
+          <div class="condition-grid" id="bsa-areas" style="grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:4px">
+            <button class="condition-btn" data-area="head" onclick="this.classList.toggle('selected');validateBsa()" style="font-size:11px;padding:6px">Head/Neck (9%)</button>
+            <button class="condition-btn" data-area="arms" onclick="this.classList.toggle('selected');validateBsa()" style="font-size:11px;padding:6px">Arms (18%)</button>
+            <button class="condition-btn" data-area="hands" onclick="this.classList.toggle('selected');validateBsa()" style="font-size:11px;padding:6px">Hands (3%)</button>
+            <button class="condition-btn" data-area="trunk" onclick="this.classList.toggle('selected');validateBsa()" style="font-size:11px;padding:6px">Chest/Back (36%)</button>
+            <button class="condition-btn" data-area="legs" onclick="this.classList.toggle('selected');validateBsa()" style="font-size:11px;padding:6px">Legs (36%)</button>
+            <button class="condition-btn" data-area="feet" onclick="this.classList.toggle('selected');validateBsa()" style="font-size:11px;padding:6px">Feet (3%)</button>
+          </div>
+          <div id="bsa-warning" style="display:none;background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:12px;color:#92400e;line-height:1.4"></div>
+          <label>Have topical treatments (creams/ointments) controlled your condition?</label>
+          <select id="f_topical_response"><option value="">Select...</option><option value="yes">Yes, well controlled</option><option value="partial">Partially — still have flares</option><option value="no">No — not effective</option><option value="never_tried">Never tried topicals</option></select>
+        </div>
+
+        <!-- HS specific -->
+        <div id="fu-hs" class="detail-row" style="display:none">
+          <div class="detail-name">HS details</div>
+          <label>HS lesions in at least 2 body areas?</label>
+          <select id="f_hs_areas"><option value="">Select...</option><option value="yes">Yes</option><option value="no">No</option></select>
+          <label>Have you tried oral antibiotics for HS for 12+ weeks?</label>
+          <select id="f_hs_antibiotics"><option value="">Select...</option><option value="yes_failed">Yes, didn't work well</option><option value="yes_worked">Yes, worked well</option><option value="no">No</option></select>
+          <label>Currently on Humira or another biologic for HS?</label>
+          <select id="f_hs_biologic"><option value="">Select...</option><option value="humira">Yes — Humira</option><option value="other_bio">Yes — other biologic</option><option value="no">No</option></select>
+        </div>
+
+        <!-- Migraine specific -->
+        <div id="fu-migraine" class="detail-row" style="display:none">
+          <div class="detail-name">Migraine details</div>
+          <label>How many migraine days do you have per month?</label>
+          <select id="f_migraine_days"><option value="">Select...</option><option>1-3</option><option>4-7</option><option>8-14</option><option>15+</option></select>
+          <label>Are your migraines related to your menstrual cycle?</label>
+          <select id="f_migraine_menstrual"><option value="">Select...</option><option value="yes">Yes</option><option value="no">No</option><option value="na">N/A</option></select>
+        </div>
+
+        <!-- Triglycerides specific -->
+        <div id="fu-trig" class="detail-row" style="display:none">
+          <div class="detail-name">Triglyceride details</div>
+          <label>Do you know your triglyceride level?</label>
+          <input type="number" id="f_trig_level" placeholder="mg/dL (e.g. 300)" style="margin-bottom:4px">
+          <p class="subtitle" style="margin-bottom:10px;font-size:11px">Leave blank if unknown — we can check at screening</p>
+        </div>
+
+        <!-- Diabetes specific -->
+        <div id="fu-diabetes" class="detail-row" style="display:none">
+          <div class="detail-name">Diabetes details</div>
+          <label>Do you know your last A1C?</label>
+          <input type="number" id="f_a1c" placeholder="e.g. 7.5" step="0.1" min="4" max="15" style="margin-bottom:4px">
+          <p class="subtitle" style="margin-bottom:10px;font-size:11px">Leave blank if unknown</p>
+        </div>
+
+        <!-- Fatty liver specific -->
+        <div id="fu-liver" class="detail-row" style="display:none">
+          <div class="detail-name">Liver condition details</div>
+          <label>How was it diagnosed?</label>
+          <select id="f_liver_dx"><option value="">Select...</option><option value="biopsy">Liver biopsy</option><option value="imaging">Ultrasound / MRI / FibroScan</option><option value="blood">Blood test</option><option value="doctor">Doctor told me</option><option value="unsure">Not sure</option></select>
+        </div>
+
+        <!-- Heart / Cardiovascular / Lp(a) specific -->
+        <div id="fu-heart" class="detail-row" style="display:none">
+          <div class="detail-name">Heart health details</div>
+          <label>Have you had any of the following? <span style="font-weight:400;font-size:11px;color:#64748b">(select all that apply)</span></label>
+          <div class="condition-grid" id="cv-history-grid" style="grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
+            <button class="condition-btn" data-cv="heart_attack" onclick="this.classList.toggle('selected')" style="font-size:12px;padding:8px">Heart attack</button>
+            <button class="condition-btn" data-cv="stroke" onclick="this.classList.toggle('selected')" style="font-size:12px;padding:8px">Stroke / TIA</button>
+            <button class="condition-btn" data-cv="stent" onclick="this.classList.toggle('selected')" style="font-size:12px;padding:8px">Stent or angioplasty</button>
+            <button class="condition-btn" data-cv="bypass" onclick="this.classList.toggle('selected')" style="font-size:12px;padding:8px">Bypass surgery</button>
+            <button class="condition-btn" data-cv="cad" onclick="this.classList.toggle('selected')" style="font-size:12px;padding:8px">Coronary artery disease</button>
+            <button class="condition-btn" data-cv="pad" onclick="this.classList.toggle('selected')" style="font-size:12px;padding:8px">Peripheral artery disease</button>
+          </div>
+          <label>Have you ever had your Lp(a) (lipoprotein-a) tested?</label>
+          <select id="f_lpa_tested"><option value="">Select...</option><option value="yes_elevated">Yes — it was elevated</option><option value="yes_normal">Yes — it was normal</option><option value="yes_unknown">Yes — don't remember the result</option><option value="no">No / not sure</option></select>
+          <div id="lpa-level-row" style="display:none;margin-top:4px">
+            <label>If you know your Lp(a) level:</label>
+            <input type="number" id="f_lpa_level" placeholder="mg/dL (e.g. 75)" style="margin-bottom:4px">
+            <p class="subtitle" style="margin-bottom:10px;font-size:11px">Leave blank if unknown — we can test at your visit for free</p>
+          </div>
+          <label>Are you currently taking a statin (cholesterol medication)?</label>
+          <select id="f_statin_use"><option value="">Select...</option><option value="yes">Yes</option><option value="no">No</option><option value="unsure">Not sure</option></select>
+          <label>Do you also have Type 2 Diabetes?</label>
+          <select id="f_cv_diabetes"><option value="">Select...</option><option value="yes">Yes</option><option value="no">No</option></select>
+        </div>
+      </div>
+
+      <!-- Compact exclusions — single multi-select instead of 8 separate Y/N questions -->
+      <div class="exclusion-section" style="margin-top:18px">
+        <label style="font-size:15px;font-weight:600;color:var(--navy)">Do any of these apply to you?</label>
+        <p class="subtitle" style="margin-bottom:10px;font-size:12px">Tap any that apply. Leave blank if none.</p>
+        <div class="condition-grid" id="excl-grid" style="grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px">
+          <button class="condition-btn" data-excl-key="pregnant" onclick="toggleExclCompact(this)" style="font-size:12px;padding:8px;text-align:left">Pregnant, breastfeeding, or trying to conceive</button>
+          <button class="condition-btn" data-excl-key="cancer" onclick="toggleExclCompact(this)" style="font-size:12px;padding:8px;text-align:left">Cancer in past 5 years</button>
+          <button class="condition-btn" data-excl-key="transplant" onclick="toggleExclCompact(this)" style="font-size:12px;padding:8px;text-align:left">Organ transplant</button>
+          <button class="condition-btn" data-excl-key="hiv_hep" onclick="toggleExclCompact(this)" style="font-size:12px;padding:8px;text-align:left">HIV or Hepatitis B/C</button>
+          <button class="condition-btn" data-excl-key="dialysis" onclick="toggleExclCompact(this)" style="font-size:12px;padding:8px;text-align:left">Currently on dialysis</button>
+          <button class="condition-btn" data-excl-key="recent_surgery" onclick="toggleExclCompact(this)" style="font-size:12px;padding:8px;text-align:left">Surgery in last 30 days</button>
+          <button class="condition-btn" data-excl-key="other_trial" onclick="toggleExclCompact(this)" style="font-size:12px;padding:8px;text-align:left">Enrolled in another trial</button>
+          <button class="condition-btn" data-excl-key="substance" onclick="toggleExclCompact(this)" style="font-size:12px;padding:8px;text-align:left">Active substance/alcohol use</button>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" onclick="goStep(2.5)" style="margin-top:12px">Continue to medications</button>
+      <button class="btn btn-secondary" onclick="showStep(1.5)">Back</button>
+    </div>
+
+    <!-- STEP 2.5: Medications (linked to conditions) -->
+    <div class="step" id="step-2b">
+      <h2>Medications</h2>
+      <p class="subtitle">Tell us what medications you currently take or have recently taken. This helps us match you to the right studies.</p>
+
+      <label style="font-size:14px;font-weight:600;color:var(--navy);margin-bottom:2px">Common medications for your conditions</label>
+      <p class="subtitle" style="margin-bottom:8px;font-size:12px">Tap to select any medications you take. Don't see yours? Use the search box below.</p>
+      <div id="med-chips-grouped"></div>
+
+      <div style="border-top:1px solid var(--border);padding-top:14px;margin-top:8px">
+        <label style="font-size:14px;font-weight:600;color:var(--navy);margin-bottom:2px">Add any other medication</label>
+        <p class="subtitle" style="margin-bottom:8px;font-size:12px">Include all prescriptions, over-the-counter, and supplements — for any condition, not just the ones listed above.</p>
+        <div id="med-list" class="med-list"></div>
+        <div class="add-med" style="position:relative">
+          <input type="text" id="f_med_input" placeholder="Type a medication name..." autocomplete="off">
+          <button class="btn btn-secondary" onclick="addMed()" style="width:auto;margin-top:0">Add</button>
+          <div id="med-suggestions" class="med-suggestions"></div>
+        </div>
+      </div>
+
+      <!-- Medication details — optional expander (dose/year not required for matching) -->
+      <details id="med-details-expander" style="display:none;margin:12px 0;padding:10px 12px;background:#f8fafc;border:1px solid #c8d6e8;border-radius:8px">
+        <summary style="cursor:pointer;font-size:13px;font-weight:600;color:var(--navy)">+ Add dose / start year (optional)</summary>
+        <div id="med-details" style="margin-top:10px">
+          <p class="subtitle" style="margin-bottom:8px;font-size:11px">Helps us pre-qualify you faster. Fill in only what you know.</p>
+          <div id="med-detail-list"></div>
+        </div>
+      </details>
+
+      <!-- Allergies — collapsed by default -->
+      <details style="margin:12px 0;padding:10px 12px;background:#f8fafc;border:1px solid #c8d6e8;border-radius:8px">
+        <summary style="cursor:pointer;font-size:13px;font-weight:600;color:var(--navy)">+ Allergies (optional)</summary>
+        <div style="margin-top:10px">
+          <p class="subtitle" style="margin-bottom:8px;font-size:11px">Include drug allergies, food allergies, and environmental allergies.</p>
+          <div id="allergy-list" class="med-list"></div>
+          <div class="add-med" style="position:relative">
+            <input type="text" id="f_allergy_input" placeholder="Type an allergy..." autocomplete="off">
+            <button class="btn btn-secondary" onclick="addAllergy()" style="width:auto;margin-top:0">Add</button>
+            <div id="allergy-suggestions" class="med-suggestions"></div>
+          </div>
+        </div>
+      </details>
+      <input type="hidden" id="f_allergies">
+
+      <div id="err-2" class="error"></div>
+      <button class="btn btn-primary" onclick="goStep(3)" style="margin-top:8px">Check my eligibility</button>
+      <button class="btn btn-secondary" onclick="showStep(2)">Back</button>
+    </div>
+
+    <!-- STEP 3: Submitting / Results -->
+    <div class="step" id="step-3">
+      <div id="submitting" class="result-card">
+        <div class="icon"><div class="spinner" style="width:48px;height:48px;border-width:4px;border-color:var(--blue);border-top-color:transparent"></div></div>
+        <h2>Checking eligibility...</h2>
+        <p>We're reviewing your profile against our active studies.</p>
+      </div>
+
+      <div id="result-qualified" style="display:none">
+        <div class="result-card" style="margin-bottom:16px">
+          <div class="icon">&#9989;</div>
+          <h2>Great news!</h2>
+          <p>Based on your profile, you may qualify for <strong id="match-count">1</strong> research study(ies). We'll confirm availability and discuss next steps during your pre-screening call.</p>
+        </div>
+        <div id="matched-studies"></div>
+
+        <div style="margin-top:20px;text-align:center">
+          <a href="https://calendar.app.google/uaLx3WAe2G2VupXs9" target="_blank" class="btn btn-primary" id="btn-book-call" style="display:block;text-decoration:none;font-size:18px;padding:16px;margin-bottom:8px">Book a pre-screening call</a>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:16px">Pick a time that works for you — we'll call to discuss your options</p>
+          <button class="btn btn-secondary" onclick="submitStudyInterest()" id="btn-interested" style="margin-top:0">I'll wait for your call (within 24 hours)</button>
+          <a href="tel:+12156766696" class="btn btn-secondary" style="display:block;text-decoration:none;text-align:center;margin-top:8px">Or call us now: (215) 676-6696</a>
+        </div>
+      </div>
+
+      <div id="result-maybe" class="result-card" style="display:none">
+        <div class="icon">&#128269;</div>
+        <h2>We'd like to learn more</h2>
+        <p>We need a bit more information to determine your eligibility. A member of our team will call you within 24 hours to discuss.</p>
+        <div style="margin-top:20px">
+          <a href="https://calendar.app.google/uaLx3WAe2G2VupXs9" target="_blank" class="btn btn-primary" style="display:block;text-decoration:none;font-size:18px;padding:16px;margin-bottom:8px">Book a pre-screening call</a>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:12px;text-align:center">Pick a time that works for you — we'll call to discuss</p>
+          <a href="tel:+12156766696" class="btn btn-secondary" style="display:block;text-decoration:none;text-align:center">Call us now: (215) 676-6696</a>
+        </div>
+      </div>
+
+      <div id="result-none" class="result-card" style="display:none">
+        <div class="icon">&#128172;</div>
+        <h2>Thank you for your interest</h2>
+        <p>Based on your current profile, we don't have a matching study right now. We've saved your information and will reach out when a new study matches your profile.</p>
+        <div style="margin-top:20px">
+          <a href="https://calendar.app.google/uaLx3WAe2G2VupXs9" target="_blank" class="btn btn-primary" style="display:block;text-decoration:none;font-size:18px;padding:16px;margin-bottom:8px">Book a call to discuss options</a>
+          <a href="tel:+12156766696" class="btn btn-secondary" style="display:block;text-decoration:none;text-align:center">Call us: (215) 676-6696</a>
+        </div>
+      </div>
+
+      <!-- Pre-screening visit booking cards — OUTSIDE result containers so they're
+           visible regardless of which result state (qualified/maybe/none) shows.
+           Populated by showPrescreenBookingCards() when cardiac/metabolic risk detected. -->
+      <div id="prescreen-booking-cards" style="display:none;margin-top:20px"></div>
+
+      <!-- Booking confirmation (replaces booking card after successful booking) -->
+      <div id="prescreen-booked" style="display:none;margin-top:20px;background:#ecfdf5;border:2px solid #059669;border-radius:12px;padding:24px;text-align:center">
+        <div style="font-size:36px;margin-bottom:8px">✅</div>
+        <h3 style="color:#065f46;margin-bottom:8px" id="booked-title">You're booked!</h3>
+        <p style="font-size:16px;color:#065f46;font-weight:600" id="booked-datetime"></p>
+        <p style="font-size:14px;color:#334155" id="booked-address"></p>
+        <p style="font-size:13px;color:#64748b;margin-top:8px" id="booked-details"></p>
+        <p style="font-size:12px;color:#94a3b8;margin-top:12px">Confirmation sent to your phone. A coordinator will confirm the day before.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item" onclick="this.classList.toggle('open')">
+    <button class="faq-q">Is it safe to participate?</button>
+    <div class="faq-a"><p>All studies are reviewed by an independent ethics board (IRB) and follow strict FDA guidelines. Your safety is always the top priority.</p></div>
+  </div>
+  <div class="faq-item" onclick="this.classList.toggle('open')">
+    <button class="faq-q">Will I receive a placebo?</button>
+    <div class="faq-a"><p>Some studies include a placebo group, but you will always be informed about this during the consent process before you decide to participate.</p></div>
+  </div>
+  <div class="faq-item" onclick="this.classList.toggle('open')">
+    <button class="faq-q">How much time does it take?</button>
+    <div class="faq-a"><p>Visit frequency varies by study, typically ranging from monthly to every few weeks. Most visits take 1-3 hours.</p></div>
+  </div>
+  <div class="faq-item" onclick="this.classList.toggle('open')">
+    <button class="faq-q">Is there compensation?</button>
+    <div class="faq-a"><p>Yes. Participants receive compensation for their time and travel. Amounts vary by study and are listed on your results page.</p></div>
+  </div>
+  <div class="faq-item" onclick="this.classList.toggle('open')">
+    <button class="faq-q">What if I want to stop?</button>
+    <div class="faq-a"><p>You can withdraw from any study at any time, for any reason, with no penalty.</p></div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-logo">
+    <img src="assets/logos/crp-long.svg" alt="Clinical Research Philadelphia">
+  </div>
+  <p class="privacy">Your information is protected under our <a href="https://www.phillyresearch.com/privacy-policy" target="_blank">Privacy Policy</a> and is never shared with social media platforms or advertisers.</p>
+  <div class="footer-contact">
+    <a href="tel:+12156766696">(215) 676-6696</a> &middot; <a href="mailto:info@phillyresearch.com">info@phillyresearch.com</a><br>
+    Philadelphia, PA &middot; Pennington, NJ<br>
+    <a href="https://www.phillyresearch.com" target="_blank">www.phillyresearch.com</a>
+  </div>
+</div>
+
+<script>
+// ── Config ──
+var CF_BASE = 'https://us-east1-crio-468120.cloudfunctions.net/crp-bq-feeds';
+var PIXEL_ID = '1357729759009530';
+
+// ── State ──
+var selectedConditions = new Set();
+var medications = [];
+var step1Data = null;
+
+// ── UTM / FB tracking params from URL ──
+var urlParams = new URLSearchParams(window.location.search);
+var utmSource = urlParams.get('utm_source') || '';
+var utmMedium = urlParams.get('utm_medium') || '';
+var utmCampaign = urlParams.get('utm_campaign') || '';
+var utmContent = urlParams.get('utm_content') || '';
+var fbclid = urlParams.get('fbclid') || '';
+var gclid = urlParams.get('gclid') || '';
+var _sessionId = Date.now().toString(36) + Math.random().toString(36).substring(2, 8);
+
+// ── A/B Test Framework ──
+// Use ?experiment=hero&variant=B to manually assign, or auto-random for named experiments
+var experimentId = urlParams.get('experiment') || null;
+var variantId = urlParams.get('variant') || null;
+if (experimentId && !variantId) {
+  // Auto-assign 50/50 A/B if experiment is specified without variant
+  var stored = sessionStorage.getItem('exp_' + experimentId);
+  if (stored) { variantId = stored; }
+  else {
+    variantId = Math.random() < 0.5 ? 'A' : 'B';
+    try { sessionStorage.setItem('exp_' + experimentId, variantId); } catch(e) {}
+  }
+}
+// Apply known experiments
+function applyExperiment() {
+  if (!experimentId || !variantId) return;
+  if (experimentId === 'hero' && variantId === 'B') {
+    // Variant B: urgency-focused headline
+    var h1 = document.querySelector('.hero h1');
+    var p = document.querySelector('.hero p');
+    if (h1) h1.textContent = 'Paid clinical trials enrolling now';
+    if (p) p.textContent = 'See if you qualify in under 3 minutes. Free screenings, no insurance needed, compensation for time and travel.';
+  }
+  // Future experiments can be added here
+}
+applyExperiment();
+
+// ── Record touchpoint for multi-touch attribution ──
+(function() {
+  try {
+    fetch(CF_BASE + '?action=touchpoint', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        session_id: _sessionId,
+        utm_source: utmSource,
+        utm_medium: utmMedium,
+        utm_campaign: utmCampaign,
+        utm_content: utmContent,
+        fbclid: fbclid,
+        gclid: gclid,
+        referrer: document.referrer || '',
+        landing_url: window.location.href,
+        touchpoint_type: 'page_view'
+      })
+    }).catch(function() {});
+  } catch(e) {}
+})();
+
+// Get fbp/fbc cookies for CAPI matching
+function getCookie(name) {
+  var m = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return m ? m[2] : '';
+}
+
+// ── UTM → auto-select conditions + personalize hero ──
+var UTM_CONDITION_MAP = {
+  'diabetes': ['type 2 diabetes'],
+  'triglycerides': ['high triglycerides'],
+  'high_triglycerides': ['high triglycerides'],
+  'heart': ['heart disease'],
+  'heart_health': ['heart disease'],
+  'cardiovascular': ['heart disease'],
+  'eczema': ['eczema'],
+  'atopic_dermatitis': ['eczema'],
+  'dermatitis': ['eczema'],
+  'psoriasis': ['psoriasis'],
+  'chronic_hives': ['chronic hives'],
+  'hives': ['chronic hives'],
+  'urticaria': ['chronic hives'],
+  'migraine': ['migraine'],
+  'menstrual_migraine': ['migraine'],
+  'obesity': ['obesity'],
+  'weight_loss': ['obesity'],
+  'overweight': ['obesity'],
+  'lupus': ['lupus'],
+  'fatty_liver': ['fatty liver'],
+  'nash': ['fatty liver'],
+  'mash': ['fatty liver'],
+  'liver': ['fatty liver'],
+  'hidradenitis': ['hidradenitis suppurativa'],
+  'hs': ['hidradenitis suppurativa'],
+  'arthritis': ['rheumatoid arthritis'],
+  'rheumatoid': ['rheumatoid arthritis'],
+  'cholesterol': ['high cholesterol'],
+  'lpa': ['heart disease'],
+  'lipoprotein': ['heart disease']
+};
+
+var UTM_HERO_TEXT = {
+  'diabetes': { h: 'See if you qualify for a diabetes study', p: 'Paid research studies for Type 2 Diabetes — free health screenings and compensation provided.' },
+  'eczema': { h: 'See if you qualify for an eczema study', p: 'Paid research studies for atopic dermatitis — new treatments being studied now.' },
+  'atopic_dermatitis': { h: 'See if you qualify for an eczema study', p: 'Paid research studies for atopic dermatitis — new treatments being studied now.' },
+  'dermatitis': { h: 'See if you qualify for an eczema study', p: 'Paid research studies for atopic dermatitis — new treatments being studied now.' },
+  'heart': { h: 'See if you qualify for a heart health study', p: 'Paid research studies for cardiovascular disease — free health screenings and compensation.' },
+  'heart_health': { h: 'See if you qualify for a heart health study', p: 'Paid research studies for cardiovascular disease — free health screenings and compensation.' },
+  'triglycerides': { h: 'See if you qualify for a high triglycerides study', p: 'Paid research studies for elevated triglycerides — new treatments being tested.' },
+  'high_triglycerides': { h: 'See if you qualify for a high triglycerides study', p: 'Paid research studies for elevated triglycerides — new treatments being tested.' },
+  'chronic_hives': { h: 'See if you qualify for a chronic hives study', p: 'Paid research studies for chronic urticaria — compensation for time and travel.' },
+  'hives': { h: 'See if you qualify for a chronic hives study', p: 'Paid research studies for chronic urticaria — compensation for time and travel.' },
+  'migraine': { h: 'See if you qualify for a migraine study', p: 'Paid research studies for migraines — new prevention treatments being studied.' },
+  'menstrual_migraine': { h: 'See if you qualify for a menstrual migraine study', p: 'Paid research studies specifically for menstrual-related migraines.' },
+  'obesity': { h: 'See if you qualify for a weight management study', p: 'Paid research studies for obesity and weight management — new treatments available.' },
+  'lupus': { h: 'See if you qualify for a lupus study', p: 'Paid research studies for systemic lupus erythematosus — compensation provided.' },
+  'fatty_liver': { h: 'See if you qualify for a fatty liver study', p: 'Paid research studies for NASH/MASH — free health screenings included.' },
+  'psoriasis': { h: 'See if you qualify for a psoriasis study', p: 'Paid research studies for plaque psoriasis — new biologic treatments being tested.' },
+  'lpa': { h: 'Know your Lp(a) — free heart risk screening', p: 'Get a free lipoprotein(a) blood test and find out if you qualify for new cardiovascular research studies. Compensation provided.' },
+  'lipoprotein': { h: 'Know your Lp(a) — free heart risk screening', p: 'Get a free lipoprotein(a) blood test and find out if you qualify for new cardiovascular research studies. Compensation provided.' }
+};
+
+// Auto-select conditions from UTM and personalize hero
+function applyUtmAutoSelect() {
+  var campaign = (utmCampaign || '').toLowerCase().replace(/[\s-]+/g, '_');
+  var content = (utmContent || '').toLowerCase().replace(/[\s-]+/g, '_');
+  var keys = [campaign, content].filter(Boolean);
+
+  // Personalize hero text
+  for (var i = 0; i < keys.length; i++) {
+    var hero = UTM_HERO_TEXT[keys[i]];
+    if (hero) {
+      document.querySelector('.hero h1').textContent = hero.h;
+      document.querySelector('.hero p').textContent = hero.p;
+      break;
+    }
+  }
+
+  // Auto-select conditions
+  var autoSelected = [];
+  keys.forEach(function(k) {
+    var conds = UTM_CONDITION_MAP[k];
+    if (conds) conds.forEach(function(c) { if (autoSelected.indexOf(c) === -1) autoSelected.push(c); });
+  });
+  if (autoSelected.length > 0) {
+    autoSelected.forEach(function(cond) {
+      var btn = document.querySelector('.condition-btn[data-cond="' + cond + '"]');
+      if (btn && !selectedConditions.has(cond)) {
+        selectedConditions.add(cond);
+        btn.classList.add('selected');
+      }
+    });
+  }
+}
+applyUtmAutoSelect();
+
+// ── Primary condition dropdown — default from UTM, sync with grid ──
+(function() {
+  var primaryEl = document.getElementById('f_primary_cond');
+  // Set default from UTM
+  var campaign = (utmCampaign || '').toLowerCase().replace(/[\s-]+/g, '_');
+  var content = (utmContent || '').toLowerCase().replace(/[\s-]+/g, '_');
+  var keys = [campaign, content].filter(Boolean);
+  for (var i = 0; i < keys.length; i++) {
+    var conds = UTM_CONDITION_MAP[keys[i]];
+    if (conds && conds[0]) {
+      // Check if option exists in dropdown
+      for (var j = 0; j < primaryEl.options.length; j++) {
+        if (primaryEl.options[j].value === conds[0]) {
+          primaryEl.value = conds[0];
+          break;
+        }
+      }
+      break;
+    }
+  }
+  // When primary changes, auto-select it in the condition grid too
+  primaryEl.addEventListener('change', function() {
+    var val = this.value;
+    if (!val || val === 'other') return;
+    if (!selectedConditions.has(val)) {
+      selectedConditions.add(val);
+      var btn = document.querySelector('.condition-btn[data-cond="' + val + '"]');
+      if (btn) btn.classList.add('selected');
+      renderConditionDetails();
+      renderFollowups();
+    }
+  });
+  // Fire on load if pre-set
+  if (primaryEl.value && primaryEl.value !== 'other') {
+    if (!selectedConditions.has(primaryEl.value)) {
+      selectedConditions.add(primaryEl.value);
+      var btn = document.querySelector('.condition-btn[data-cond="' + primaryEl.value + '"]');
+      if (btn) btn.classList.add('selected');
+    }
+  }
+  // Defer follow-up rendering — renderFollowups() is defined later in script
+  setTimeout(function() {
+    if (typeof renderFollowups === 'function') {
+      try { renderFollowups(); renderConditionDetails(); } catch(e) {}
+    }
+  }, 0);
+})();
+
+// ── Study info for results page ──
+// site: 'phl' = Philadelphia only, 'nj' = Pennington NJ only, 'both' = either location
+var STUDY_INFO = {
+  '95597528ADM2001': { name: 'JNJ-95597528 Eczema Study', nct: 'NCT07230860', indication: 'Atopic Dermatitis', drug: 'JNJ-95597528 (new biologic)', sponsor: 'Janssen (J&J)', phase: 'Phase 2b', desc: 'Evaluating a new biologic treatment for moderate-to-severe eczema. Requires 1+ year diagnosis and BSA 10%+.', visits: '~15 visits over 2 years', comp: 'Compensation provided', site: 'phl' },
+  'ATD002': { name: 'Galvokimig Eczema Study', nct: 'NCT07277660', indication: 'Atopic Dermatitis', drug: 'Galvokimig (new biologic)', sponsor: 'UCB Biopharma', phase: 'Phase 2', desc: 'Testing galvokimig, a new biologic approach for moderate-to-severe eczema in patients who haven\'t responded to topical therapies.', visits: '~12 visits over 2 years', comp: 'Compensation provided', site: 'phl' },
+  'EFC17599': { name: 'AQUA — Amlitelimab Eczema Study', nct: 'NCT06241118', indication: 'Atopic Dermatitis', drug: 'Amlitelimab (new biologic)', sponsor: 'Sanofi', phase: 'Phase 3', desc: 'For patients aged 12+ with moderate-to-severe eczema who\'ve had an inadequate response to prior biologic therapy (Dupixent) or oral JAK inhibitor. Testing amlitelimab on background topical steroids.', visits: '~14 visits over 2.5 years', comp: 'Compensation provided', site: 'phl' },
+  'M24-601': { name: 'SWITCH-UP — Rinvoq Eczema Study', nct: 'NCT06389136', indication: 'Atopic Dermatitis', drug: 'Upadacitinib (Rinvoq)', sponsor: 'AbbVie', phase: 'Phase 3b/4', desc: 'For adults currently on Dupixent with inadequate response. Evaluating switching to upadacitinib (Rinvoq) — an oral JAK inhibitor — vs continuing Dupixent.', visits: '~16 visits over 2.75 years', comp: 'Compensation provided', site: 'phl' },
+  'EFC18366': { name: 'Lichen Simplex Study', nct: null, indication: 'Lichen Simplex Chronicus', drug: 'Investigational', sponsor: 'Sanofi', phase: 'Phase 3', desc: 'Testing a new treatment for lichen simplex chronicus.', visits: '~10 visits', comp: 'Compensation provided', site: 'phl' },
+  '77242113PSO3006': { name: 'ICONIC-ASCEND — Psoriasis Study', nct: 'NCT06934226', indication: 'Plaque Psoriasis', drug: 'Icotrokinra (Icotyde, new oral)', sponsor: 'Janssen (J&J)', phase: 'Phase 3', desc: 'Testing icotrokinra, a new oral treatment for moderate-to-severe plaque psoriasis, compared with placebo and ustekinumab (Stelara).', visits: '~12 visits over 2.3 years', comp: 'Compensation provided', site: 'phl' },
+  '88545223PSA2001': { name: 'VELOTA — Psoriatic Arthritis Study', nct: 'NCT07321873', indication: 'Psoriatic Arthritis', drug: 'JNJ-88545223 (new biologic)', sponsor: 'Janssen (J&J)', phase: 'Phase 2b', desc: 'Evaluating a new treatment to reduce signs and symptoms of active psoriatic arthritis and improve joint and skin health.', visits: '~14 visits over 1.5 years', comp: 'Compensation provided', site: 'phl' },
+  'CDX0159-12': { name: 'EMBARQ — Chronic Hives Study', nct: 'NCT06445023', indication: 'Chronic Urticaria', drug: 'Barzolvolimab (new biologic)', sponsor: 'Celldex Therapeutics', phase: 'Phase 3', desc: 'Testing barzolvolimab for chronic spontaneous urticaria (chronic hives) inadequately controlled by antihistamines. Injections every 4-8 weeks.', visits: '~13 visits over 52 weeks', comp: 'Compensation provided', site: 'phl' },
+  'M23-698': { name: 'Step-Up HS — Hidradenitis Study', nct: 'NCT05889182', indication: 'Hidradenitis Suppurativa', drug: 'Upadacitinib (Rinvoq)', sponsor: 'AbbVie', phase: 'Phase 3', desc: 'For patients aged 12+ with moderate-to-severe HS who didn\'t get adequate relief from anti-TNF therapy (e.g., Humira). Testing upadacitinib (Rinvoq) 30mg daily.', visits: '~14 visits over 4.75 years', comp: 'Compensation provided', site: 'phl' },
+  'M20-465': { name: 'HS Pre-Screening Study', nct: null, indication: 'Hidradenitis Suppurativa', drug: 'Investigational', sponsor: 'AbbVie', phase: '', desc: 'Pre-screening for hidradenitis suppurativa clinical trials.', visits: '~4 visits', comp: 'Compensation provided', site: 'phl' },
+  '80202135SLE3001': { name: 'GARDENIA — Lupus Study', nct: 'NCT07438496', indication: 'Lupus (SLE)', drug: 'Nipocalimab (new biologic)', sponsor: 'Janssen (J&J)', phase: 'Phase 3', desc: 'Testing nipocalimab, a new biologic therapy, for adults with moderate-to-severe systemic lupus erythematosus (SLE).', visits: '~12 visits over 5.7 years', comp: 'Compensation provided', site: 'phl' },
+  '80202135SJS3001': { name: 'Sj\u00f6gren\'s Disease Study', nct: null, indication: 'Sj\u00f6gren\'s Disease', drug: 'Investigational (J&J)', sponsor: 'Janssen (J&J)', phase: 'Phase 3', desc: 'Testing a new biologic therapy for adults with Sj\u00f6gren\'s disease.', visits: '~12 visits', comp: 'Compensation provided', site: 'phl' },
+  'Rheumatoid Arthritis': { name: 'Rheumatoid Arthritis Study', nct: null, indication: 'Rheumatoid Arthritis', drug: 'Investigational', sponsor: 'CRP', phase: '', desc: 'For patients with active rheumatoid arthritis. Investigating new treatment options.', visits: '~10 visits', comp: 'Compensation provided', site: 'phl' },
+  'D7960C00015': { name: 'AZURE — Heart Health Study', nct: 'NCT07000357', indication: 'Cardiovascular (ASCVD)', drug: 'AZD0780 (oral PCSK9 inhibitor)', sponsor: 'AstraZeneca', phase: 'Phase 3', desc: 'Testing a new once-daily oral cholesterol pill (PCSK9 inhibitor) to reduce heart attacks and strokes in patients with established cardiovascular disease or high risk.', visits: '~8 visits over 4 years', comp: 'Compensation provided', site: 'both' },
+  'D6973C00001': { name: 'Prevent-HF — Heart Failure Prevention', nct: 'NCT06677060', indication: 'Heart Failure Prevention', drug: 'Baxdrostat + Dapagliflozin', sponsor: 'AstraZeneca', phase: 'Phase 3', desc: 'For patients aged 40+ with Type 2 diabetes, high blood pressure, and cardiovascular disease. Testing a new combination to prevent heart failure.', visits: '~10 visits over 4.75 years', comp: 'Compensation provided', site: 'both' },
+  '20230222': { name: 'OCEAN(a)-PreEvent — Cardiovascular Study', nct: 'NCT07136012', indication: 'Cardiovascular', drug: 'Olpasiran (Lp(a) lowering)', sponsor: 'Amgen', phase: 'Phase 3', desc: 'Testing olpasiran, a new injection given every 3 months, to lower lipoprotein(a) and prevent first heart attacks or strokes in at-risk patients.', visits: '~10 visits over 6 years', comp: '$3,000+ total · free rideshare to visits', site: 'nj' },
+  'J2O-MC-EKBG': { name: 'MOVE-Lp(a) — Cardiovascular Study', nct: 'NCT07157774', indication: 'Cardiovascular', drug: 'Muvalaplin (oral Lp(a) lowering)', sponsor: 'Eli Lilly', phase: 'Phase 3', desc: 'Testing muvalaplin, a new once-daily oral pill to lower lipoprotein(a) and reduce cardiovascular events in adults with elevated Lp(a).', visits: '~12 visits over 5.5 years', comp: '$3,000+ total · free rideshare to visits', site: 'both' },
+  'J3F-MC-EZCC': { name: 'SOLARIS — Triglycerides Study', nct: 'NCT07269210', indication: 'Hypertriglyceridemia', drug: 'Solbinsiran (RNA therapy)', sponsor: 'Eli Lilly', phase: 'Phase 2', desc: 'Testing solbinsiran, a new RNA interference therapy given by injection, to lower severely elevated triglyceride levels.', visits: '~10 visits over 1.7 years', comp: 'Compensation provided', site: 'both' },
+  'I8F-MC-GPHE': { name: 'SURPASS-EARLY — Diabetes Study', nct: 'NCT05433584', indication: 'Type 2 Diabetes', drug: 'Tirzepatide (Mounjaro)', sponsor: 'Eli Lilly', phase: 'Phase 4', desc: 'Evaluating tirzepatide (Mounjaro) vs conventional care for adults early in their Type 2 diabetes journey. Long-term efficacy and safety study.', visits: '~12 visits over 5.25 years', comp: 'Compensation provided', site: 'both' },
+  'J2A-MC-GZPO': { name: 'Orforglipron Weight & Diabetes Study', nct: 'NCT06972472', indication: 'Obesity / Weight Management', drug: 'Orforglipron (oral GLP-1)', sponsor: 'Eli Lilly', phase: 'Phase 3', desc: 'Testing orforglipron, a new once-daily oral GLP-1 pill (similar class to Ozempic but in pill form), for weight management in patients with obesity or overweight with or without Type 2 diabetes.', visits: '~14 visits over 2.25 years', comp: 'Compensation provided', site: 'both' },
+  'N1T-MC-MALO': { name: 'SYNERGY — Fatty Liver Study', nct: 'NCT07165028', indication: 'MASH / Fatty Liver', drug: 'Tirzepatide (Mounjaro) or Retatrutide', sponsor: 'Eli Lilly', phase: 'Phase 3', desc: 'For patients with high-risk fatty liver disease (MASLD/MASH). Testing tirzepatide (Mounjaro) or retatrutide to prevent major liver complications.', visits: '~12 visits over 7 years', comp: 'Compensation provided', site: 'both' },
+  'M23-714': { name: 'UBRO MM — Menstrual Migraine Study', nct: 'NCT06417775', indication: 'Menstrual Migraine', drug: 'Ubrogepant (Ubrelvy)', sponsor: 'AbbVie', phase: 'Phase 3', desc: 'Testing ubrogepant (Ubrelvy) taken daily for 7 days around your period to prevent menstrual migraines. For women 18-55.', visits: '~8 visits over 3 years', comp: 'Compensation provided', site: 'phl' },
+  'C4951063': { name: 'Rimegepant Menstrual Migraine Study', nct: 'NCT06641466', indication: 'Menstrual Migraine', drug: 'Rimegepant (Nurtec ODT)', sponsor: 'Pfizer', phase: 'Phase 3', desc: 'Testing rimegepant (Nurtec ODT) for intermittent prevention of menstrual migraine in women aged 18-45.', visits: '~10 visits over 2 years', comp: 'Compensation provided', site: 'phl' },
+  'J1G-MC-LAKI': { name: 'Alzheimer\'s Disease Study', nct: null, indication: 'Alzheimer\'s Disease', drug: 'Investigational (Lilly)', sponsor: 'Eli Lilly', phase: 'Phase 3', desc: 'Investigating a new treatment for Alzheimer\'s disease in adults aged 55-85.', visits: '~12 visits', comp: 'Compensation provided', site: 'phl' },
+  'J2A-MC-GZPS': { name: 'Stress Urinary Incontinence Study', nct: null, indication: 'Stress Urinary Incontinence', drug: 'Investigational (Lilly)', sponsor: 'Eli Lilly', phase: 'Phase 2/3', desc: 'Testing a new treatment for stress urinary incontinence in women aged 18-75.', visits: '~10 visits', comp: 'Compensation provided', site: 'both' }
+};
+
+var selectedStudyInterest = new Set();
+function renderMatchedStudies(matches) {
+  var el = document.getElementById('matched-studies');
+  var qualified = matches.filter(function(m) { return m.status === 'eligible' || m.status === 'likely_eligible'; });
+  if (qualified.length === 0) { el.innerHTML = ''; return; }
+  document.getElementById('match-count').textContent = qualified.length;
+
+  var html = '<label style="font-size:14px;font-weight:600;color:var(--navy);margin-bottom:8px;display:block">Select the studies you\'re interested in:</label>';
+  qualified.forEach(function(m) {
+    var info = STUDY_INFO[m.protocol_number] || { name: m.study_name || m.protocol_number, indication: '', desc: 'A clinical research study you may qualify for.', visits: 'Multiple visits', comp: 'Compensation provided' };
+    var id = 'study-' + m.protocol_number.replace(/[^a-z0-9]/gi, '');
+    selectedStudyInterest.add(m.protocol_number); // Select all by default
+    var siteBadge = '';
+    if (info.site === 'phl') siteBadge = '<span style="display:inline-block;font-size:10px;background:#EDE9FE;color:#7C3AED;padding:2px 8px;border-radius:10px;margin-left:6px">Philadelphia</span>';
+    else if (info.site === 'nj') siteBadge = '<span style="display:inline-block;font-size:10px;background:#DBEAFE;color:#2563EB;padding:2px 8px;border-radius:10px;margin-left:6px">Pennington, NJ</span>';
+    else siteBadge = '<span style="display:inline-block;font-size:10px;background:#D1FAE5;color:#059669;padding:2px 8px;border-radius:10px;margin-left:6px">Philadelphia or NJ</span>';
+    html += '<div class="study-card selected" id="' + id + '" onclick="toggleStudyInterest(\'' + m.protocol_number.replace(/'/g,"\\'") + '\',\'' + id + '\')">' +
+      '<div class="study-check">&#10003;</div>' +
+      '<div class="study-indication">' + (info.indication || '') + (info.phase ? ' &middot; ' + info.phase : '') + siteBadge + '</div>' +
+      '<h3>' + info.name + '</h3>' +
+      '<p class="study-desc">' + info.desc + '</p>' +
+      '<div class="study-details">' +
+        (info.drug ? '<span>&#128138; ' + info.drug + '</span>' : '') +
+        '<span>&#128197; ' + info.visits + '</span>' +
+        (info.sponsor ? '<span>&#127963; ' + info.sponsor + '</span>' : '') +
+      '</div>' +
+      (info.nct ? '<div style="font-size:10px;color:var(--muted);margin-top:4px">ClinicalTrials.gov: <a href="https://clinicaltrials.gov/study/' + info.nct + '" target="_blank" onclick="event.stopPropagation()" style="color:var(--blue)">' + info.nct + '</a></div>' : '') +
+      '<span class="study-comp">&#128176; ' + info.comp + '</span>' +
+    '</div>';
+  });
+  el.innerHTML = html;
+}
+
+function toggleStudyInterest(protocol, cardId) {
+  var card = document.getElementById(cardId);
+  if (selectedStudyInterest.has(protocol)) {
+    selectedStudyInterest.delete(protocol);
+    card.classList.remove('selected');
+  } else {
+    selectedStudyInterest.add(protocol);
+    card.classList.add('selected');
+  }
+}
+
+function submitStudyInterest() {
+  if (selectedStudyInterest.size === 0) return;
+  var btn = document.getElementById('btn-interested');
+  btn.disabled = true;
+  btn.textContent = 'Confirmed!';
+  btn.style.background = 'var(--teal)';
+  // Fire interest to backend (fire-and-forget)
+  fetch(CF_BASE + '?action=lead-partial', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      first_name: step1Data.first_name,
+      last_name: step1Data.last_name,
+      phone: step1Data.phone,
+      study_interest: Array.from(selectedStudyInterest)
+    })
+  }).catch(function() {});
+}
+
+// ── Referral detail toggle ──
+document.getElementById('f_referral').addEventListener('change', function() {
+  var v = this.value;
+  var detail = document.getElementById('referral-detail');
+  var label = document.getElementById('referral-detail-label');
+  if (v === 'doctor') { label.textContent = 'Doctor or practice name'; detail.style.display = 'block'; }
+  else if (v === 'friend' || v === 'participant') { label.textContent = 'Their name (for referral bonus)'; detail.style.display = 'block'; }
+  else if (v === 'other') { label.textContent = 'Please specify'; detail.style.display = 'block'; }
+  else { detail.style.display = 'none'; }
+});
+
+// ── BMI calculator ──
+function calcBMI() {
+  var ft = parseInt(document.getElementById('f_height_ft').value) || 0;
+  var inches = parseInt(document.getElementById('f_height_in').value) || 0;
+  var lbs = parseFloat(document.getElementById('f_weight').value) || 0;
+  var totalIn = ft * 12 + inches;
+  if (totalIn > 0 && lbs > 0) {
+    var bmi = (lbs / (totalIn * totalIn)) * 703;
+    document.getElementById('bmi-value').textContent = bmi.toFixed(1);
+    document.getElementById('bmi-display').style.display = 'block';
+    return bmi;
+  }
+  document.getElementById('bmi-display').style.display = 'none';
+  return null;
+}
+document.getElementById('f_height_ft').addEventListener('change', calcBMI);
+document.getElementById('f_height_in').addEventListener('change', calcBMI);
+document.getElementById('f_weight').addEventListener('input', calcBMI);
+
+// ── BSA Rule of 9s validation ──
+// Body area BSA percentages (Rule of 9s for adults)
+var BSA_AREA_PCT = { head: 9, arms: 18, hands: 3, trunk: 36, legs: 36, feet: 3 };
+var BSA_RANGE_MIN = { '<5': 0, '5-10': 5, '10-20': 10, '20-50': 20, '50+': 50 };
+function validateBsa() {
+  var warn = document.getElementById('bsa-warning');
+  if (!warn) return;
+  var bsaVal = document.getElementById('f_bsa').value;
+  if (!bsaVal || bsaVal === 'unsure') { warn.style.display = 'none'; return; }
+  var selectedAreas = [];
+  document.querySelectorAll('#bsa-areas .selected').forEach(function(b) { selectedAreas.push(b.getAttribute('data-area')); });
+  if (!selectedAreas.length) { warn.style.display = 'none'; return; }
+  var maxBsa = 0;
+  selectedAreas.forEach(function(a) { maxBsa += BSA_AREA_PCT[a] || 0; });
+  var minRequired = BSA_RANGE_MIN[bsaVal];
+  if (minRequired !== undefined && maxBsa < minRequired) {
+    warn.innerHTML = '<strong>Please double-check:</strong> The areas you selected (about ' + maxBsa + '% BSA) don\'t add up to your estimate of ' + bsaVal + '%. You may want to select more affected areas or adjust your percentage.';
+    warn.style.display = 'block';
+  } else {
+    warn.style.display = 'none';
+  }
+}
+// Also fire on BSA dropdown change
+document.getElementById('f_bsa').addEventListener('change', validateBsa);
+
+// ── Condition-specific follow-up questions ──
+function renderFollowups() {
+  var sec = document.getElementById('condition-followups');
+  var hasSkin = selectedConditions.has('eczema') || selectedConditions.has('psoriasis') || selectedConditions.has('lichen simplex');
+  var hasHS = selectedConditions.has('hidradenitis suppurativa');
+  var hasMigraine = selectedConditions.has('migraine') || selectedConditions.has('menstrual migraine');
+  var hasTrig = selectedConditions.has('high triglycerides');
+  var hasDiabetes = selectedConditions.has('type 2 diabetes');
+  var hasLiver = selectedConditions.has('fatty liver');
+  var hasHeart = selectedConditions.has('heart disease') || selectedConditions.has('heart failure') || selectedConditions.has('high cholesterol');
+
+  document.getElementById('fu-skin').style.display = hasSkin ? 'block' : 'none';
+  document.getElementById('fu-hs').style.display = hasHS ? 'block' : 'none';
+  document.getElementById('fu-migraine').style.display = hasMigraine ? 'block' : 'none';
+  document.getElementById('fu-trig').style.display = hasTrig ? 'block' : 'none';
+  document.getElementById('fu-diabetes').style.display = hasDiabetes ? 'block' : 'none';
+  document.getElementById('fu-liver').style.display = hasLiver ? 'block' : 'none';
+  document.getElementById('fu-heart').style.display = hasHeart ? 'block' : 'none';
+
+  sec.style.display = (hasSkin || hasHS || hasMigraine || hasTrig || hasDiabetes || hasLiver || hasHeart) ? 'block' : 'none';
+}
+
+// Show/hide Lp(a) level input based on test response
+document.getElementById('f_lpa_tested').addEventListener('change', function() {
+  var show = this.value === 'yes_elevated' || this.value === 'yes_normal' || this.value === 'yes_unknown';
+  document.getElementById('lpa-level-row').style.display = show ? 'block' : 'none';
+});
+
+// ── Condition buttons ──
+document.querySelectorAll('.condition-btn[data-cond]').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var cond = btn.getAttribute('data-cond');
+    if (selectedConditions.has(cond)) {
+      selectedConditions.delete(cond);
+      btn.classList.remove('selected');
+    } else {
+      selectedConditions.add(cond);
+      btn.classList.add('selected');
+    }
+    renderConditionDetails();
+    renderFollowups();
+  });
+});
+
+// ── Exclusion criteria ──
+var exclusions = {}; // { pregnant: 'yes'|'no'|'na', cancer: 'yes'|'no', ... }
+
+// Compact multi-select: toggling a button flips yes<->no for that exclusion key.
+// Unclicked buttons default to "no" at submit time.
+function toggleExclCompact(btn) {
+  var key = btn.getAttribute('data-excl-key');
+  if (exclusions[key] === 'yes') {
+    delete exclusions[key];
+    btn.classList.remove('selected');
+  } else {
+    exclusions[key] = 'yes';
+    btn.classList.add('selected');
+  }
+}
+
+function toggleExcl(btn) {
+  var key = btn.getAttribute('data-excl');
+  var val = btn.getAttribute('data-val');
+  // Deselect siblings
+  btn.parentNode.querySelectorAll('.excl-btn').forEach(function(b) {
+    b.className = 'excl-btn';
+  });
+  // Toggle: if already selected, deselect
+  if (exclusions[key] === val) {
+    delete exclusions[key];
+  } else {
+    exclusions[key] = val;
+    btn.classList.add('selected-' + val);
+  }
+}
+
+// ── Condition → medication mapping ──
+var CONDITION_MEDS = {
+  // ── Dermatology ──
+  'eczema': [
+    'Dupilumab (Dupixent)','Tralokinumab (Adbry)','Upadacitinib (Rinvoq)','Abrocitinib (Cibinqo)',
+    'Tacrolimus (Protopic)','Pimecrolimus (Elidel)','Crisaborole (Eucrisa)','Ruxolitinib cream (Opzelura)',
+    'Clobetasol','Triamcinolone','Hydrocortisone cream','Cyclosporine','Methotrexate',
+    'Cetirizine (Zyrtec)','Hydroxyzine (Vistaril)'
+  ],
+  'psoriasis': [
+    'Risankizumab (Skyrizi)','Guselkumab (Tremfya)','Secukinumab (Cosentyx)','Ixekizumab (Taltz)',
+    'Bimekizumab (Bimzelx)','Deucravacitinib (Sotyktu)','Apremilast (Otezla)',
+    'Adalimumab (Humira)','Ustekinumab (Stelara)','Methotrexate',
+    'Clobetasol','Calcipotriene','Tazarotene','Roflumilast cream (Zoryve)'
+  ],
+  'hidradenitis suppurativa': [
+    'Adalimumab (Humira)','Secukinumab (Cosentyx)','Bimekizumab (Bimzelx)',
+    'Doxycycline','Clindamycin topical','Rifampin','Spironolactone (Aldactone)',
+    'Metformin (Glucophage)','Prednisone','Infliximab (Remicade)'
+  ],
+  'chronic hives': [
+    'Omalizumab (Xolair)','Cetirizine (Zyrtec)','Loratadine (Claritin)',
+    'Fexofenadine (Allegra)','Hydroxyzine (Vistaril)','Famotidine (Pepcid)',
+    'Montelukast (Singulair)','Cyclosporine'
+  ],
+  'lichen simplex': [
+    'Clobetasol','Triamcinolone','Tacrolimus (Protopic)','Pimecrolimus (Elidel)',
+    'Hydroxyzine (Vistaril)','Doxepin cream','Capsaicin cream'
+  ],
+
+  // ── Rheumatology & Autoimmune ──
+  'psoriatic arthritis': [
+    'Secukinumab (Cosentyx)','Ixekizumab (Taltz)','Guselkumab (Tremfya)','Risankizumab (Skyrizi)',
+    'Upadacitinib (Rinvoq)','Tofacitinib (Xeljanz)','Apremilast (Otezla)',
+    'Adalimumab (Humira)','Etanercept (Enbrel)','Methotrexate'
+  ],
+  'lupus': [
+    'Hydroxychloroquine (Plaquenil)','Belimumab (Benlysta)','Anifrolumab (Saphnelo)',
+    'Voclosporin (Lupkynis)','Mycophenolate (CellCept)','Azathioprine (Imuran)',
+    'Methotrexate','Prednisone','Tacrolimus','Cyclophosphamide'
+  ],
+  'sjogrens': [
+    'Hydroxychloroquine (Plaquenil)','Pilocarpine (Salagen)','Cevimeline (Evoxac)',
+    'Methotrexate','Mycophenolate (CellCept)','Rituximab (Rituxan)',
+    'Artificial tears','Cyclosporine eye drops (Restasis)'
+  ],
+  'rheumatoid arthritis': [
+    'Methotrexate','Upadacitinib (Rinvoq)','Tofacitinib (Xeljanz)','Baricitinib (Olumiant)',
+    'Adalimumab (Humira)','Etanercept (Enbrel)','Abatacept (Orencia)','Tocilizumab (Actemra)',
+    'Hydroxychloroquine (Plaquenil)','Sulfasalazine','Leflunomide (Arava)','Prednisone'
+  ],
+
+  // ── Heart & Metabolic ──
+  'heart disease': [
+    'Atorvastatin (Lipitor)','Rosuvastatin (Crestor)','Aspirin','Clopidogrel (Plavix)',
+    'Ticagrelor (Brilinta)','Metoprolol (Toprol XL)','Carvedilol (Coreg)','Bisoprolol',
+    'Lisinopril','Enalapril','Losartan (Cozaar)','Valsartan (Diovan)','Amlodipine (Norvasc)',
+    'Apixaban (Eliquis)','Rivaroxaban (Xarelto)','Evolocumab (Repatha)',
+    'Hydrochlorothiazide (HCTZ)','Chlorthalidone','Furosemide (Lasix)',
+    'Ezetimibe (Zetia)','Nitroglycerin','Ranolazine (Ranexa)'
+  ],
+  'heart failure': [
+    'Sacubitril/Valsartan (Entresto)','Empagliflozin (Jardiance)','Dapagliflozin (Farxiga)',
+    'Metoprolol succinate (Toprol XL)','Carvedilol (Coreg)','Bisoprolol',
+    'Lisinopril','Enalapril','Losartan (Cozaar)','Valsartan (Diovan)',
+    'Spironolactone (Aldactone)','Eplerenone (Inspra)',
+    'Furosemide (Lasix)','Bumetanide (Bumex)','Torsemide',
+    'Ivabradine (Corlanor)','Hydralazine','Digoxin'
+  ],
+  'high cholesterol': [
+    'Atorvastatin (Lipitor)','Rosuvastatin (Crestor)','Ezetimibe (Zetia)',
+    'Evolocumab (Repatha)','Alirocumab (Praluent)','Inclisiran (Leqvio)',
+    'Bempedoic acid (Nexletol)','Ezetimibe-Bempedoic acid (Nexlizet)',
+    'Pravastatin (Pravachol)','Pitavastatin (Livalo)','Icosapent ethyl (Vascepa)'
+  ],
+  'high triglycerides': [
+    'Icosapent ethyl (Vascepa)','Fenofibrate (Tricor)','Fish Oil (Omega-3)',
+    'Pemafibrate','Atorvastatin (Lipitor)','Rosuvastatin (Crestor)',
+    'Ezetimibe (Zetia)','Gemfibrozil (Lopid)'
+  ],
+  'type 2 diabetes': [
+    'Metformin (Glucophage)','Semaglutide (Ozempic)','Tirzepatide (Mounjaro)',
+    'Empagliflozin (Jardiance)','Dapagliflozin (Farxiga)','Canagliflozin (Invokana)',
+    'Dulaglutide (Trulicity)','Liraglutide (Victoza)','Sitagliptin (Januvia)',
+    'Insulin Glargine (Lantus/Toujeo)','Insulin Lispro (Humalog)','Insulin Aspart (NovoLog)',
+    'Glipizide (Glucotrol)','Pioglitazone (Actos)','Glimepiride (Amaryl)'
+  ],
+  'obesity': [
+    'Semaglutide (Wegovy)','Tirzepatide (Zepbound)','Liraglutide (Saxenda)',
+    'Phentermine-Topiramate (Qsymia)','Naltrexone-Bupropion (Contrave)',
+    'Phentermine','Orlistat (Alli)','Metformin (Glucophage)'
+  ],
+  'fatty liver': [
+    'Resmetirom (Rezdiffra)','Semaglutide (Ozempic)','Pioglitazone (Actos)',
+    'Vitamin E','Metformin (Glucophage)','Ursodiol (Actigall)','Fish Oil (Omega-3)'
+  ],
+
+  // ── Neurology ──
+  'alzheimers': [
+    'Lecanemab (Leqembi)','Donanemab (Kisunla)','Aducanumab (Aduhelm)',
+    'Donepezil (Aricept)','Memantine (Namenda)','Rivastigmine (Exelon)',
+    'Galantamine (Razadyne)','Brexpiprazole (Rexulti)'
+  ],
+  'migraine': [
+    'Erenumab (Aimovig)','Fremanezumab (Ajovy)','Galcanezumab (Emgality)','Eptinezumab (Vyepti)',
+    'Rimegepant (Nurtec)','Atogepant (Qulipta)','Ubrogepant (Ubrelvy)',
+    'Sumatriptan (Imitrex)','Rizatriptan (Maxalt)','Topiramate (Topamax)',
+    'Propranolol (Inderal)','Amitriptyline','Botox','Venlafaxine (Effexor)'
+  ],
+  'menstrual migraine': [
+    'Erenumab (Aimovig)','Fremanezumab (Ajovy)','Galcanezumab (Emgality)',
+    'Rimegepant (Nurtec)','Atogepant (Qulipta)','Sumatriptan (Imitrex)',
+    'Naproxen (Aleve)','Frovatriptan (Frova)','Topiramate (Topamax)',
+    'Oral contraceptives','Estradiol patch'
+  ],
+
+  // ── Women's Health ──
+  'stress urinary incontinence': [
+    'Duloxetine (Cymbalta)','Oxybutynin (Ditropan)','Tolterodine (Detrol)',
+    'Mirabegron (Myrbetriq)','Vibegron (Gems)','Solifenacin (Vesicare)',
+    'Topical estrogen cream'
+  ],
+
+  // ── Other common ──
+  'asthma': [
+    'Albuterol (ProAir/Ventolin)','Budesonide-Formoterol (Symbicort)','Fluticasone-Salmeterol (Advair)',
+    'Fluticasone-Vilanterol (Breo)','Mometasone-Formoterol (Dulera)','Montelukast (Singulair)',
+    'Tiotropium (Spiriva)','Dupilumab (Dupixent)','Tezepelumab (Tezspire)',
+    'Benralizumab (Fasenra)','Mepolizumab (Nucala)','Omalizumab (Xolair)','Prednisone'
+  ],
+  'copd': [
+    'Albuterol (ProAir/Ventolin)','Tiotropium (Spiriva)','Umeclidinium-Vilanterol (Anoro)',
+    'Fluticasone-Vilanterol (Breo)','Budesonide-Formoterol (Symbicort)',
+    'Fluticasone-Umeclidinium-Vilanterol (Trelegy)','Roflumilast (Daliresp)',
+    'Azithromycin maintenance','Prednisone'
+  ],
+  'crohns': [
+    'Adalimumab (Humira)','Infliximab (Remicade)','Vedolizumab (Entyvio)','Ustekinumab (Stelara)',
+    'Risankizumab (Skyrizi)','Upadacitinib (Rinvoq)','Mesalamine (Lialda/Pentasa)',
+    'Budesonide (Entocort)','Azathioprine (Imuran)','Methotrexate','Prednisone'
+  ],
+  'ckd': [
+    'Dapagliflozin (Farxiga)','Empagliflozin (Jardiance)','Finerenone (Kerendia)',
+    'Lisinopril','Losartan (Cozaar)','Furosemide (Lasix)','Bumetanide (Bumex)',
+    'Sodium bicarbonate','Sevelamer (Renvela)','Epoetin alfa (Epogen)'
+  ],
+  'depression': [
+    'Sertraline (Zoloft)','Escitalopram (Lexapro)','Fluoxetine (Prozac)',
+    'Duloxetine (Cymbalta)','Venlafaxine (Effexor)','Bupropion (Wellbutrin)',
+    'Mirtazapine (Remeron)','Trazodone','Aripiprazole (Abilify)','Quetiapine (Seroquel)'
+  ],
+  'gerd': [
+    'Omeprazole (Prilosec)','Esomeprazole (Nexium)','Pantoprazole (Protonix)',
+    'Lansoprazole (Prevacid)','Famotidine (Pepcid)','Sucralfate (Carafate)',
+    'Vonoprazan (Voquezna)'
+  ],
+  'gout': [
+    'Allopurinol (Zyloprim)','Febuxostat (Uloric)','Colchicine (Colcrys)',
+    'Pegloticase (Krystexxa)','Indomethacin','Prednisone','Probenecid'
+  ],
+  'sleep apnea': [
+    'CPAP/BiPAP therapy','Modafinil (Provigil)','Solriamfetol (Sunosi)',
+    'Tirzepatide (Zepbound)','Acetazolamide'
+  ]
+};
+
+// All unique meds (for autocomplete fallback)
+var ALL_MEDS = [];
+var seen = {};
+Object.keys(CONDITION_MEDS).forEach(function(c) {
+  CONDITION_MEDS[c].forEach(function(m) { if (!seen[m]) { ALL_MEDS.push(m); seen[m] = 1; } });
+});
+// Add general meds not tied to specific conditions
+[// Blood pressure / diuretics
+ 'Lisinopril','Enalapril','Losartan (Cozaar)','Valsartan (Diovan)','Amlodipine (Norvasc)',
+ 'Metoprolol (Toprol XL)','Atenolol','Propranolol (Inderal)','Carvedilol (Coreg)',
+ 'Hydrochlorothiazide (HCTZ)','Chlorthalidone','Furosemide (Lasix)','Bumetanide (Bumex)',
+ 'Spironolactone (Aldactone)','Triamterene-HCTZ (Dyazide)',
+ // Thyroid
+ 'Levothyroxine (Synthroid)','Methimazole (Tapazole)',
+ // Pain
+ 'Acetaminophen (Tylenol)','Ibuprofen (Advil)','Naproxen (Aleve)',
+ 'Meloxicam (Mobic)','Diclofenac (Voltaren)','Celecoxib (Celebrex)',
+ 'Gabapentin (Neurontin)','Pregabalin (Lyrica)',
+ // Antibiotics
+ 'Amoxicillin','Doxycycline','Azithromycin (Z-Pack)',
+ // Supplements
+ 'Vitamin D3','Calcium Carbonate','Multivitamin','Magnesium','B12 (Cyanocobalamin)',
+ 'Ferrous Sulfate','Folic Acid','Potassium Chloride',
+ // Hormones
+ 'Estradiol','Progesterone','Testosterone','Levonorgestrel','Oral contraceptives',
+ // Other common
+ 'Tamsulosin (Flomax)','Finasteride (Propecia)','Citalopram (Celexa)'
+].forEach(function(m) { if (!seen[m]) { ALL_MEDS.push(m); seen[m] = 1; } });
+
+// ── Render condition-linked med chips ──
+var CONDITION_LABELS = {
+  'eczema': 'Eczema / Dermatitis', 'psoriasis': 'Psoriasis', 'hidradenitis suppurativa': 'HS',
+  'chronic hives': 'Chronic Hives', 'lichen simplex': 'Lichen Simplex',
+  'psoriatic arthritis': 'Psoriatic Arthritis', 'lupus': 'Lupus', 'sjogrens': 'Sj\u00f6gren\'s',
+  'rheumatoid arthritis': 'Rheumatoid Arthritis',
+  'heart disease': 'Heart Disease', 'heart failure': 'Heart Failure',
+  'high cholesterol': 'High Cholesterol', 'high triglycerides': 'High Triglycerides',
+  'type 2 diabetes': 'Type 2 Diabetes', 'obesity': 'Obesity', 'fatty liver': 'Fatty Liver',
+  'alzheimers': 'Alzheimer\'s', 'migraine': 'Migraines', 'menstrual migraine': 'Menstrual Migraines',
+  'stress urinary incontinence': 'Stress Urinary Incontinence',
+  'asthma': 'Asthma', 'copd': 'COPD', 'crohns': 'Crohn\'s / IBD', 'ckd': 'Kidney Disease',
+  'depression': 'Depression / Anxiety', 'gerd': 'Acid Reflux / GERD', 'gout': 'Gout',
+  'sleep apnea': 'Sleep Apnea'
+};
+
+function renderMedChips() {
+  var el = document.getElementById('med-chips-grouped');
+  var groups = {};
+  selectedConditions.forEach(function(cond) {
+    var meds = CONDITION_MEDS[cond] || [];
+    if (meds.length === 0) return;
+    groups[cond] = meds;
+  });
+  if (Object.keys(groups).length === 0) { el.innerHTML = '<p class="subtitle" style="margin-bottom:12px">Select conditions on the previous step to see relevant medications.</p>'; return; }
+  var html = '';
+  Object.keys(groups).forEach(function(cond) {
+    var label = CONDITION_LABELS[cond] || cond.charAt(0).toUpperCase() + cond.slice(1);
+    html += '<div style="margin-bottom:14px"><label style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px">' + label + ' medications</label>';
+    html += '<div class="med-chips">';
+    groups[cond].forEach(function(m) {
+      var isSelected = medications.indexOf(m) !== -1;
+      html += '<button class="med-chip' + (isSelected ? ' selected' : '') + '" onclick="toggleMedChip(this,\'' + m.replace(/'/g,"\\'") + '\')">' + m + '</button>';
+    });
+    html += '</div></div>';
+  });
+  el.innerHTML = html;
+}
+
+function toggleMedChip(btn, name) {
+  var idx = medications.indexOf(name);
+  if (idx !== -1) {
+    medications.splice(idx, 1);
+    delete medData[name];
+    btn.classList.remove('selected');
+  } else {
+    medications.push(name);
+    btn.classList.add('selected');
+  }
+  renderMeds();
+  renderMedDetails();
+}
+
+// ── Medications with autocomplete ──
+var medInput = document.getElementById('f_med_input');
+var medSuggestions = document.getElementById('med-suggestions');
+var highlightIdx = -1;
+
+// Build reverse lookup: medication → condition label
+var MED_TO_CONDITION = {};
+Object.keys(CONDITION_MEDS).forEach(function(c) {
+  var label = CONDITION_LABELS[c] || c;
+  CONDITION_MEDS[c].forEach(function(m) { if (!MED_TO_CONDITION[m]) MED_TO_CONDITION[m] = label; });
+});
+
+medInput.addEventListener('input', function() {
+  var q = medInput.value.trim().toLowerCase();
+  if (q.length < 2) { medSuggestions.classList.remove('visible'); return; }
+  // Prioritize condition-relevant meds, then all others
+  var relevant = [];
+  var other = [];
+  ALL_MEDS.forEach(function(m) {
+    if (m.toLowerCase().indexOf(q) === -1) return;
+    var isRelevant = false;
+    selectedConditions.forEach(function(c) {
+      if ((CONDITION_MEDS[c] || []).indexOf(m) !== -1) isRelevant = true;
+    });
+    if (isRelevant) relevant.push(m); else other.push(m);
+  });
+  var matches = relevant.concat(other).slice(0, 8);
+  if (matches.length === 0) { medSuggestions.classList.remove('visible'); return; }
+  highlightIdx = -1;
+  medSuggestions.innerHTML = matches.map(function(m, i) {
+    var parts = m.split('(');
+    var condLabel = MED_TO_CONDITION[m];
+    var badge = i < relevant.length ? '<span class="generic" style="color:var(--teal)">&#x2713;</span>' : '';
+    var condTag = condLabel ? '<span style="font-size:10px;background:#f1f5f9;color:var(--muted);padding:1px 6px;border-radius:4px;margin-left:4px">' + condLabel + '</span>' : '';
+    if (parts.length > 1) return '<div onclick="selectMed(this)" data-med="' + m.replace(/"/g,'&quot;') + '">' + parts[0].trim() + ' <span class="generic">(' + parts[1] + '</span> ' + badge + condTag + '</div>';
+    return '<div onclick="selectMed(this)" data-med="' + m.replace(/"/g,'&quot;') + '">' + m + ' ' + badge + condTag + '</div>';
+  }).join('');
+  medSuggestions.classList.add('visible');
+});
+
+medInput.addEventListener('keydown', function(e) {
+  var items = medSuggestions.querySelectorAll('div');
+  if (e.key === 'ArrowDown') { e.preventDefault(); highlightIdx = Math.min(highlightIdx + 1, items.length - 1); updateHighlight(items); }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); highlightIdx = Math.max(highlightIdx - 1, 0); updateHighlight(items); }
+  else if (e.key === 'Enter') {
+    e.preventDefault();
+    if (highlightIdx >= 0 && items[highlightIdx]) selectMed(items[highlightIdx]);
+    else addMed();
+  }
+});
+
+function updateHighlight(items) {
+  items.forEach(function(el, i) { el.classList.toggle('highlighted', i === highlightIdx); });
+}
+
+function selectMed(el) {
+  var name = el.getAttribute('data-med') || el.textContent.replace(/\u2713/g,'').trim();
+  if (medications.indexOf(name) === -1) medications.push(name);
+  medInput.value = '';
+  medSuggestions.classList.remove('visible');
+  renderMeds();
+  renderMedChips();
+  renderMedDetails();
+}
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.add-med')) { medSuggestions.classList.remove('visible'); allergySuggestions.classList.remove('visible'); }
+});
+
+function addMed() {
+  var name = medInput.value.trim();
+  if (!name) return;
+  if (medications.indexOf(name) === -1) medications.push(name);
+  medInput.value = '';
+  medSuggestions.classList.remove('visible');
+  renderMeds();
+  renderMedChips();
+  renderMedDetails();
+}
+function removeMed(i) { var m = medications[i]; medications.splice(i, 1); delete medData[m]; renderMeds(); renderMedChips(); renderMedDetails(); }
+function renderMeds() {
+  var html = '';
+  medications.forEach(function(m, i) {
+    html += '<div class="med-item"><span>' + m.replace(/</g,'&lt;') + '</span><span class="remove" onclick="removeMed(' + i + ')">&times;</span></div>';
+  });
+  document.getElementById('med-list').innerHTML = html;
+}
+
+// ── Allergies with autocomplete ──
+var COMMON_ALLERGIES = [
+  // Drug allergies
+  'Penicillin','Amoxicillin','Sulfa drugs (Sulfonamides)','Aspirin','Ibuprofen (NSAIDs)',
+  'Codeine','Morphine','Tramadol','Cephalosporins','Fluoroquinolones (Cipro)',
+  'Tetracycline','Erythromycin','Metformin','Statins','ACE inhibitors',
+  'Contrast dye (IV)','Lidocaine','Novocaine','Anesthesia',
+  // Food allergies
+  'Peanuts','Tree nuts','Shellfish','Fish','Eggs','Milk/Dairy','Wheat/Gluten','Soy',
+  // Environmental
+  'Latex','Bee stings','Pollen','Dust mites','Mold','Pet dander (cats)','Pet dander (dogs)',
+  // Other
+  'Adhesive/tape','Nickel','No known allergies (NKDA)'
+];
+var selectedAllergies = [];
+var allergyInput = document.getElementById('f_allergy_input');
+var allergySuggestions = document.getElementById('allergy-suggestions');
+var allergyHlIdx = -1;
+
+allergyInput.addEventListener('input', function() {
+  var q = allergyInput.value.trim().toLowerCase();
+  if (q.length < 1) { allergySuggestions.classList.remove('visible'); return; }
+  var matches = COMMON_ALLERGIES.filter(function(a) { return a.toLowerCase().indexOf(q) !== -1 && selectedAllergies.indexOf(a) === -1; }).slice(0, 6);
+  if (!matches.length) { allergySuggestions.classList.remove('visible'); return; }
+  allergyHlIdx = -1;
+  allergySuggestions.innerHTML = matches.map(function(a) {
+    return '<div onclick="selectAllergy(this)" data-allergy="' + a.replace(/"/g,'&quot;') + '">' + a + '</div>';
+  }).join('');
+  allergySuggestions.classList.add('visible');
+});
+allergyInput.addEventListener('keydown', function(e) {
+  var items = allergySuggestions.querySelectorAll('div');
+  if (e.key === 'ArrowDown') { e.preventDefault(); allergyHlIdx = Math.min(allergyHlIdx + 1, items.length - 1); items.forEach(function(el, i) { el.classList.toggle('highlighted', i === allergyHlIdx); }); }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); allergyHlIdx = Math.max(allergyHlIdx - 1, 0); items.forEach(function(el, i) { el.classList.toggle('highlighted', i === allergyHlIdx); }); }
+  else if (e.key === 'Enter') { e.preventDefault(); if (allergyHlIdx >= 0 && items[allergyHlIdx]) selectAllergy(items[allergyHlIdx]); else addAllergy(); }
+});
+function selectAllergy(el) {
+  var name = el.getAttribute('data-allergy') || el.textContent.trim();
+  if (selectedAllergies.indexOf(name) === -1) selectedAllergies.push(name);
+  allergyInput.value = '';
+  allergySuggestions.classList.remove('visible');
+  renderAllergies();
+}
+function addAllergy() {
+  var name = allergyInput.value.trim();
+  if (!name) return;
+  if (selectedAllergies.indexOf(name) === -1) selectedAllergies.push(name);
+  allergyInput.value = '';
+  allergySuggestions.classList.remove('visible');
+  renderAllergies();
+}
+function removeAllergy(i) { selectedAllergies.splice(i, 1); renderAllergies(); }
+function renderAllergies() {
+  var html = '';
+  selectedAllergies.forEach(function(a, i) {
+    html += '<div class="med-item"><span>' + a.replace(/</g,'&lt;') + '</span><span class="remove" onclick="removeAllergy(' + i + ')">&times;</span></div>';
+  });
+  document.getElementById('allergy-list').innerHTML = html;
+  // Sync to hidden field for payload
+  document.getElementById('f_allergies').value = selectedAllergies.join(',');
+}
+
+// ── Common doses per medication ──
+var MED_DOSES = {
+  'Metformin (Glucophage)': ['500mg','850mg','1000mg'],
+  'Semaglutide (Ozempic)': ['0.25mg','0.5mg','1mg','2mg'],
+  'Tirzepatide (Mounjaro)': ['2.5mg','5mg','7.5mg','10mg','12.5mg','15mg'],
+  'Empagliflozin (Jardiance)': ['10mg','25mg'],
+  'Dapagliflozin (Farxiga)': ['5mg','10mg'],
+  'Sitagliptin (Januvia)': ['25mg','50mg','100mg'],
+  'Dulaglutide (Trulicity)': ['0.75mg','1.5mg','3mg','4.5mg'],
+  'Insulin Glargine (Lantus)': ['10u','20u','30u','40u','50u+'],
+  'Insulin Lispro (Humalog)': ['varies'],
+  'Glipizide (Glucotrol)': ['2.5mg','5mg','10mg'],
+  'Atorvastatin (Lipitor)': ['10mg','20mg','40mg','80mg'],
+  'Rosuvastatin (Crestor)': ['5mg','10mg','20mg','40mg'],
+  'Simvastatin (Zocor)': ['10mg','20mg','40mg'],
+  'Ezetimibe (Zetia)': ['10mg'],
+  'Lisinopril': ['5mg','10mg','20mg','40mg'],
+  'Losartan (Cozaar)': ['25mg','50mg','100mg'],
+  'Amlodipine (Norvasc)': ['2.5mg','5mg','10mg'],
+  'Metoprolol (Lopressor)': ['25mg','50mg','100mg','200mg'],
+  'Carvedilol (Coreg)': ['3.125mg','6.25mg','12.5mg','25mg'],
+  'Dupilumab (Dupixent)': ['200mg','300mg'],
+  'Clobetasol': ['0.05%'],
+  'Triamcinolone': ['0.025%','0.1%','0.5%'],
+  'Tacrolimus (Protopic)': ['0.03%','0.1%'],
+  'Omalizumab (Xolair)': ['150mg','300mg'],
+  'Fenofibrate (Tricor)': ['48mg','145mg'],
+  'Icosapent ethyl (Vascepa)': ['1g','2g'],
+  'Sumatriptan (Imitrex)': ['25mg','50mg','100mg'],
+  'Topiramate (Topamax)': ['25mg','50mg','100mg','200mg'],
+  'Propranolol (Inderal)': ['10mg','20mg','40mg','80mg'],
+  'Albuterol (ProAir)': ['90mcg/puff'],
+  'Montelukast (Singulair)': ['4mg','5mg','10mg'],
+  'Hydroxychloroquine (Plaquenil)': ['200mg','400mg'],
+  'Prednisone': ['5mg','10mg','20mg','40mg','60mg'],
+  'Semaglutide (Wegovy)': ['0.25mg','0.5mg','1mg','1.7mg','2.4mg'],
+  'Tirzepatide (Zepbound)': ['2.5mg','5mg','7.5mg','10mg','12.5mg','15mg'],
+  'Apixaban (Eliquis)': ['2.5mg','5mg'],
+  'Clopidogrel (Plavix)': ['75mg'],
+  'Aspirin': ['81mg','325mg'],
+  'Adalimumab (Humira)': ['40mg'],
+  'Methotrexate': ['7.5mg','10mg','15mg','20mg','25mg'],
+  'Liraglutide (Victoza)': ['0.6mg','1.2mg','1.8mg'],
+  'Liraglutide (Saxenda)': ['0.6mg','1.2mg','1.8mg','2.4mg','3mg']
+};
+
+// ── Year options for dropdowns ──
+function yearOptions(label) {
+  var thisYear = new Date().getFullYear();
+  var html = '<option value="">' + label + '</option>';
+  for (var y = thisYear; y >= thisYear - 40; y--) html += '<option value="' + y + '">' + y + '</option>';
+  html += '<option value="earlier">Before ' + (thisYear - 40) + '</option>';
+  return html;
+}
+
+// ── Condition detail rows ──
+var conditionData = {}; // { condName: { year, ongoing } }
+function renderConditionDetails() {
+  var el = document.getElementById('condition-detail-list');
+  var section = document.getElementById('condition-details');
+  if (selectedConditions.size === 0) { section.style.display = 'none'; return; }
+  section.style.display = 'block';
+  var html = '';
+  selectedConditions.forEach(function(cond) {
+    var d = conditionData[cond] || { year: '', ongoing: true };
+    conditionData[cond] = d;
+    var condLabel = cond.charAt(0).toUpperCase() + cond.slice(1);
+    html += '<div class="detail-row" data-cond="' + cond + '">' +
+      '<div class="detail-name">' + condLabel + '</div>' +
+      '<div class="detail-fields">' +
+        '<div class="field"><label>Diagnosed</label><select onchange="updateCondData(\'' + cond + '\',\'year\',this.value)">' + yearOptions('Year...') + '</select></div>' +
+      '</div>' +
+      '<div class="ongoing-toggle">' +
+        '<input type="checkbox" id="cond-ongoing-' + cond.replace(/\s/g,'') + '" ' + (d.ongoing ? 'checked' : '') + ' onchange="updateCondData(\'' + cond + '\',\'ongoing\',this.checked)">' +
+        '<label for="cond-ongoing-' + cond.replace(/\s/g,'') + '">Currently have this condition</label>' +
+      '</div>' +
+    '</div>';
+  });
+  el.innerHTML = html;
+  // Restore saved values
+  selectedConditions.forEach(function(cond) {
+    var d = conditionData[cond];
+    if (d && d.year) {
+      var row = el.querySelector('[data-cond="' + cond + '"] select');
+      if (row) row.value = d.year;
+    }
+  });
+}
+function updateCondData(cond, field, value) {
+  if (!conditionData[cond]) conditionData[cond] = { year: '', ongoing: true };
+  conditionData[cond][field] = value;
+}
+
+// ── Medication detail rows ──
+var medData = {}; // { medName: { dose, year, ongoing } }
+function renderMedDetails() {
+  var el = document.getElementById('med-detail-list');
+  var expander = document.getElementById('med-details-expander');
+  if (medications.length === 0) { if (expander) expander.style.display = 'none'; return; }
+  if (expander) expander.style.display = 'block';
+  var html = '';
+  medications.forEach(function(med) {
+    var d = medData[med] || { dose: '', year: '', ongoing: true };
+    medData[med] = d;
+    var doses = MED_DOSES[med] || [];
+    var linkedCond = null;
+    selectedConditions.forEach(function(c) { if ((CONDITION_MEDS[c] || []).indexOf(med) !== -1 && !linkedCond) linkedCond = c; });
+
+    html += '<div class="detail-row" data-med="' + med.replace(/"/g,'&quot;') + '">' +
+      '<div class="detail-name">' + med.replace(/</g,'&lt;') + (linkedCond ? ' <span style="font-size:11px;color:var(--teal);font-weight:400">for ' + linkedCond + '</span>' : '') + '</div>';
+
+    // Dose chips
+    if (doses.length > 0) {
+      html += '<label style="font-size:11px;margin-bottom:4px">Dose</label><div class="dose-chips">';
+      doses.forEach(function(dose) {
+        html += '<span class="dose-chip' + (d.dose === dose ? ' selected' : '') + '" onclick="selectDose(this,\'' + med.replace(/'/g,"\\'") + '\',\'' + dose + '\')">' + dose + '</span>';
+      });
+      html += '</div>';
+    }
+
+    html += '<div class="detail-fields" style="margin-top:8px">' +
+      '<div class="field"><label>Started</label><select onchange="updateMedData(\'' + med.replace(/'/g,"\\'") + '\',\'year\',this.value)">' + yearOptions('Year...') + '</select></div>' +
+    '</div>' +
+    '<div class="ongoing-toggle">' +
+      '<input type="checkbox" id="med-ongoing-' + med.replace(/[^a-z0-9]/gi,'') + '" ' + (d.ongoing ? 'checked' : '') + ' onchange="updateMedData(\'' + med.replace(/'/g,"\\'") + '\',\'ongoing\',this.checked)">' +
+      '<label for="med-ongoing-' + med.replace(/[^a-z0-9]/gi,'') + '">Currently taking</label>' +
+    '</div>';
+
+    // Validation warning
+    if (linkedCond && conditionData[linkedCond] && conditionData[linkedCond].year && d.year && d.year !== '' && d.year !== 'earlier') {
+      var condYear = conditionData[linkedCond].year === 'earlier' ? 1900 : parseInt(conditionData[linkedCond].year);
+      var medYear = parseInt(d.year);
+      if (medYear < condYear) {
+        html += '<div class="validation-warn" style="display:block">Started before ' + linkedCond + ' diagnosis (' + conditionData[linkedCond].year + ') — please verify</div>';
+      }
+    }
+
+    html += '</div>';
+  });
+  el.innerHTML = html;
+  // Restore saved values
+  medications.forEach(function(med) {
+    var d = medData[med];
+    if (d && d.year) {
+      var row = el.querySelector('[data-med="' + med.replace(/"/g,'\\"') + '"] select');
+      if (row) row.value = d.year;
+    }
+  });
+}
+function updateMedData(med, field, value) {
+  if (!medData[med]) medData[med] = { dose: '', year: '', ongoing: true };
+  medData[med][field] = value;
+  renderMedDetails(); // re-render for validation
+}
+function selectDose(el, med, dose) {
+  if (!medData[med]) medData[med] = { dose: '', year: '', ongoing: true };
+  medData[med].dose = medData[med].dose === dose ? '' : dose;
+  el.parentNode.querySelectorAll('.dose-chip').forEach(function(c) { c.classList.remove('selected'); });
+  if (medData[med].dose) el.classList.add('selected');
+}
+
+function validateMeds() {
+  var err = document.getElementById('err-2');
+  // Check for med start before condition diagnosis
+  var warnings = [];
+  medications.forEach(function(med) {
+    var d = medData[med] || {};
+    if (!d.year) return;
+    var linkedCond = null;
+    selectedConditions.forEach(function(c) { if ((CONDITION_MEDS[c] || []).indexOf(med) !== -1 && !linkedCond) linkedCond = c; });
+    if (!linkedCond || !conditionData[linkedCond] || !conditionData[linkedCond].year) return;
+    var condYear = conditionData[linkedCond].year === 'earlier' ? 1900 : parseInt(conditionData[linkedCond].year);
+    var medYear = d.year === 'earlier' ? 1900 : parseInt(d.year);
+    if (medYear < condYear && medYear !== 1900) {
+      warnings.push(med + ' started before ' + linkedCond + ' diagnosis');
+    }
+  });
+  if (warnings.length > 0) {
+    err.textContent = 'Please check: ' + warnings[0];
+    err.style.display = 'block';
+    return false;
+  }
+  err.style.display = 'none';
+  return true;
+}
+
+// ── Phone formatting ──
+document.getElementById('f_phone').addEventListener('input', function(e) {
+  var v = e.target.value.replace(/\D/g, '').substring(0, 10);
+  if (v.length >= 7) e.target.value = '(' + v.substring(0,3) + ') ' + v.substring(3,6) + '-' + v.substring(6);
+  else if (v.length >= 4) e.target.value = '(' + v.substring(0,3) + ') ' + v.substring(3);
+  else if (v.length > 0) e.target.value = '(' + v;
+});
+
+// ── Returning patient lookup (fires on phone blur) ──
+var _lookupDone = false;
+document.getElementById('f_phone').addEventListener('blur', function() {
+  if (_lookupDone) return;
+  var phone = this.value.replace(/\D/g, '');
+  // Strip leading country code "1" if user typed 1-xxx-xxx-xxxx (11+ digits starting with 1)
+  if (phone.length >= 11 && phone.charAt(0) === '1') phone = phone.substring(1);
+  if (phone.length < 10) return;
+  fetch(CF_BASE + '?action=lead-lookup', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ phone: '+1' + phone })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (!data.found) return;
+    _lookupDone = true;
+    // Show welcome back banner
+    var banner = document.createElement('div');
+    banner.style.cssText = 'background:var(--teal);color:#fff;padding:10px 14px;border-radius:10px;margin-bottom:14px;font-size:13px;line-height:1.4';
+    banner.innerHTML = '<strong>Welcome back, ' + data.first_name + '!</strong> We found your profile from ' + (data.first_visit || 'a previous visit') + '. We\'ve pre-filled your information — just review and update anything that\'s changed.';
+    var form = document.getElementById('step-1a');
+    form.insertBefore(banner, form.querySelector('label'));
+    // Pre-fill fields
+    if (data.first_name) document.getElementById('f_first').value = data.first_name;
+    if (data.last_name) document.getElementById('f_last').value = data.last_name;
+    if (data.email) document.getElementById('f_email').value = data.email;
+    if (data.zip_code) document.getElementById('f_zip').value = data.zip_code;
+    if (data.date_of_birth) document.getElementById('f_dob').value = data.date_of_birth;
+    if (data.gender) document.getElementById('f_gender').value = data.gender;
+    if (data.height_ft) document.getElementById('f_height_ft').value = data.height_ft;
+    if (data.height_in) document.getElementById('f_height_in').value = data.height_in;
+    if (data.weight_lbs) document.getElementById('f_weight').value = data.weight_lbs;
+    if (data.race) document.getElementById('f_race').value = data.race;
+    if (data.smoking_status) document.getElementById('f_smoking').value = data.smoking_status;
+    if (data.language) document.getElementById('f_language').value = data.language;
+    if (data.contact_preference) document.getElementById('f_contact_pref').value = data.contact_preference;
+    calcBMI();
+  })
+  .catch(function() {}); // Silent fail — not critical
+});
+
+// ── Partial save (fires on step 1 → 2 transition) ──
+function savePartial() {
+  if (!step1Data) return;
+  fetch(CF_BASE + '?action=lead-partial', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      first_name: step1Data.first_name,
+      last_name: step1Data.last_name,
+      phone: step1Data.phone,
+      email: step1Data.email,
+      primary_condition: step1Data.primary_condition,
+      zip_code: step1Data.zip_code,
+      date_of_birth: step1Data.date_of_birth,
+      gender: step1Data.gender,
+      height_ft: step1Data.height_ft,
+      height_in: step1Data.height_in,
+      weight_lbs: step1Data.weight_lbs,
+      bmi: step1Data.bmi,
+      race: step1Data.race,
+      smoking_status: step1Data.smoking_status,
+      language: step1Data.language,
+      contact_preference: step1Data.contact_preference,
+      consent_future_studies: step1Data.consent_future_studies,
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_campaign: utmCampaign,
+      utm_content: utmContent,
+      fbclid: fbclid
+    })
+  }).catch(function() {}); // Fire-and-forget
+}
+
+// ── Funnel Analytics ──
+function trackStep(stepName) {
+  // Fire to BQ (always)
+  try {
+    fetch(CF_BASE + '?action=funnel-event', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        step: stepName,
+        session_id: _sessionId,
+        utm_source: utmSource,
+        utm_medium: utmMedium,
+        utm_campaign: utmCampaign,
+        utm_content: utmContent,
+        experiment_id: experimentId,
+        variant_id: variantId,
+        phone: step1Data ? step1Data.phone : null
+      })
+    }).catch(function() {});
+  } catch(e) {}
+  // Fire to GA4 (no PII — only step name + UTM)
+  gaEvent(stepName, {
+    session_id: _sessionId,
+    utm_source: utmSource,
+    utm_medium: utmMedium,
+    utm_campaign: utmCampaign,
+    utm_content: utmContent
+  });
+  // Fire Google Ads conversion for qualified form submission
+  if (stepName === 'step_3_qualified' && typeof gtag === 'function' && window.GADS_ID && window.GADS_ID !== 'AW-PLACEHOLDER' && window.GADS_LEAD_LABEL && window.GADS_LEAD_LABEL !== 'PLACEHOLDER') {
+    try { gtag('event', 'conversion', { send_to: window.GADS_ID + '/' + window.GADS_LEAD_LABEL }); } catch(e) {}
+  }
+}
+
+// ── Navigation ──
+function goStep(n) {
+  // Step 1a → 1b
+  if (n === 1.5) {
+    if (!validateStep1a()) return;
+    savePartial();
+    trackStep('step_1a_complete');
+    showStep(1.5);
+    return;
+  }
+  // Step 1b → 2
+  if (n === 2) {
+    if (!validateStep1b()) return;
+    trackStep('step_1b_complete');
+    showStep(2);
+    // Ensure follow-ups render on arrival (in case UTM auto-selected a condition)
+    try { renderFollowups(); renderConditionDetails(); } catch(e) {}
+    return;
+  }
+  // Step 2 → 2b
+  if (n === 2.5) {
+    trackStep('step_2_complete');
+    renderConditionDetails();
+    renderMedChips();
+    showStep(2.5);
+    return;
+  }
+  // Step 2b → 3 (submit)
+  if (n === 3) {
+    if (!validateMeds()) return;
+    trackStep('step_3_submit');
+    showStep(3);
+    submitForm();
+    return;
+  }
+  // Back navigation (n === 1 goes to 1a)
+  showStep(n);
+}
+
+var STEP_MAP = { '1a': 1, '1b': 2, '2': 3, '2b': 4, '3': 5 };
+function showStep(n) {
+  document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
+  var stepId;
+  if (n === 1 || n === '1a') stepId = 'step-1a';
+  else if (n === 1.5 || n === '1b') stepId = 'step-1b';
+  else if (n === 2.5) stepId = 'step-2b';
+  else stepId = 'step-' + n;
+  document.getElementById(stepId).classList.add('active');
+
+  // Update progress bar
+  var stepKey;
+  if (n === 1 || n === '1a') stepKey = '1a';
+  else if (n === 1.5 || n === '1b') stepKey = '1b';
+  else if (n === 2.5) stepKey = '2b';
+  else stepKey = '' + n;
+  var stepNum = STEP_MAP[stepKey] || 1;
+  var pct = Math.round((stepNum / 5) * 100);
+  document.getElementById('progress-label').textContent = 'Step ' + stepNum + ' of 5';
+  document.getElementById('progress-fill').style.width = pct + '%';
+
+  window.scrollTo(0, 0);
+}
+
+// Validate Step 1a (quick capture: name + phone + primary condition)
+var _lastSubmitTime = 0;
+function validateStep1a() {
+  var first = document.getElementById('f_first').value.trim();
+  var last = document.getElementById('f_last').value.trim();
+  var phone = document.getElementById('f_phone').value.replace(/\D/g, '');
+  // Strip leading country code "1" if user typed 1-xxx-xxx-xxxx (11+ digits starting with 1).
+  // Without this, "+1" + "18562740864" produces "+118562740864" (double country code) which
+  // causes phone dedup to fail (partial row stores the wrong number, full submit can't find
+  // it by phone match → shadow row created). Discovered 2026-04-16: Christopher Funk's phone
+  // was stored as +11856274086 vs CRIO's correct +18562740864.
+  if (phone.length >= 11 && phone.charAt(0) === '1') phone = phone.substring(1);
+  var email = document.getElementById('f_email').value.trim();
+  var primary = document.getElementById('f_primary_cond').value;
+  var err = document.getElementById('err-1a');
+
+  // Honeypot check — bots fill hidden fields
+  if (document.getElementById('f_website').value) { err.textContent = 'Something went wrong. Please refresh and try again.'; err.style.display = 'block'; return false; }
+
+  // Throttle — prevent rapid re-submissions (10s cooldown)
+  var now = Date.now();
+  if (now - _lastSubmitTime < 10000) { err.textContent = 'Please wait a moment before continuing.'; err.style.display = 'block'; return false; }
+
+  if (!first || !last) { err.textContent = 'Please enter your first and last name.'; err.style.display = 'block'; return false; }
+  if (phone.length < 10) { err.textContent = 'Please enter a valid 10-digit phone number.'; err.style.display = 'block'; return false; }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = 'Please enter a valid email address.'; err.style.display = 'block'; return false; }
+  // Primary condition is optional — condition grid on step 2 captures this
+  if (!document.getElementById('f_consent').checked) { err.textContent = 'Please agree to be contacted to continue.'; err.style.display = 'block'; return false; }
+
+  err.style.display = 'none';
+
+  // Build partial step1Data from 1a fields
+  var phone10 = '+1' + phone;
+  step1Data = {
+    first_name: first,
+    last_name: last,
+    phone: phone10,
+    email: email,
+    primary_condition: primary || null,
+    zip_code: null,
+    date_of_birth: null,
+    gender: null,
+    height_ft: null,
+    height_in: null,
+    weight_lbs: null,
+    bmi: null,
+    race: null,
+    smoking_status: null,
+    language: null,
+    contact_preference: null,
+    referral_source: null,
+    referral_detail: null,
+    prior_trial: null,
+    consent_future_studies: document.getElementById('f_consent').checked
+  };
+
+  step1Data._event_id_lead = 'lead-' + Date.now() + '-' + Math.random().toString(36).substring(2, 8);
+  _lastSubmitTime = Date.now();
+
+  // Meta Pixel removed for HIPAA — Lead + CompleteRegistration events sent server-side via CAPI
+
+  return true;
+}
+
+// Validate Step 1b (additional profile)
+// Service area ZIP prefixes: PHL metro (190-196), South Jersey (080-089), Central NJ (077-079, 088), North NJ select
+var SERVICE_AREA_ZIPS = /^(190|191|192|193|194|195|196|180|181|183|184|185|186|189|077|078|079|080|081|082|083|084|085|086|087|088|089|070|071|073|074|076|100|103|104|110|111|112|113|114|115|116|117|119|197|198|199)/;
+function validateStep1b() {
+  var zip = document.getElementById('f_zip').value.trim();
+  var dob = document.getElementById('f_dob').value;
+  var err = document.getElementById('err-1b');
+
+  if (!zip || zip.length < 5) { err.textContent = 'Please enter your 5-digit ZIP code.'; err.style.display = 'block'; return false; }
+  if (!SERVICE_AREA_ZIPS.test(zip)) {
+    err.innerHTML = 'We currently serve the Philadelphia and New Jersey area. If you\'re willing to travel, please call us at <a href="tel:2156766696" style="color:var(--blue)">(215) 676-6696</a>.';
+    err.style.display = 'block'; return false;
+  }
+  if (!dob) { err.textContent = 'Please enter your date of birth.'; err.style.display = 'block'; return false; }
+  // Age validation — must be 18+
+  var dobParts = dob.split('-');
+  var dobDate = new Date(parseInt(dobParts[0]), parseInt(dobParts[1]) - 1, parseInt(dobParts[2]));
+  var today = new Date();
+  var age = today.getFullYear() - dobDate.getFullYear();
+  if (today.getMonth() < dobDate.getMonth() || (today.getMonth() === dobDate.getMonth() && today.getDate() < dobDate.getDate())) age--;
+  if (age < 18) { err.textContent = 'You must be at least 18 years old to participate in our studies.'; err.style.display = 'block'; return false; }
+  if (age > 120) { err.textContent = 'Please check your date of birth.'; err.style.display = 'block'; return false; }
+
+  err.style.display = 'none';
+
+  // Enrich step1Data with 1b fields (email captured on step 1a)
+  var bmi = calcBMI();
+  step1Data.zip_code = zip;
+  step1Data.date_of_birth = dob;
+  step1Data.gender = document.getElementById('f_gender').value || null;
+  step1Data.height_ft = parseInt(document.getElementById('f_height_ft').value) || null;
+  step1Data.height_in = parseInt(document.getElementById('f_height_in').value) || null;
+  step1Data.weight_lbs = parseFloat(document.getElementById('f_weight').value) || null;
+  step1Data.bmi = bmi ? parseFloat(bmi.toFixed(1)) : null;
+  step1Data.race = document.getElementById('f_race').value || null;
+  step1Data.smoking_status = document.getElementById('f_smoking').value || null;
+  step1Data.language = document.getElementById('f_language').value || null;
+  step1Data.contact_preference = document.getElementById('f_contact_pref').value || null;
+  step1Data.referral_source = document.getElementById('f_referral').value || null;
+  step1Data.referral_detail = document.getElementById('f_referral_detail').value.trim() || null;
+  step1Data.prior_trial = document.getElementById('f_prior_trial').value || null;
+
+  return true;
+}
+
+// ── Submit ──
+function submitForm() {
+  var otherCond = document.getElementById('f_other_cond').value.trim();
+  var conditions = [];
+  selectedConditions.forEach(function(c) {
+    var d = conditionData[c] || {};
+    conditions.push({ name: c, self_reported: true, diagnosed_year: d.year || null, ongoing: d.ongoing !== false });
+  });
+  if (otherCond) conditions.push({ name: otherCond, self_reported: true, diagnosed_year: null, ongoing: true });
+
+  var meds = medications.map(function(m) {
+    var d = medData[m] || {};
+    var linkedCond = null;
+    selectedConditions.forEach(function(c) { if ((CONDITION_MEDS[c] || []).indexOf(m) !== -1 && !linkedCond) linkedCond = c; });
+    return { name: m, dose: d.dose || null, started_year: d.year || null, ongoing: d.ongoing !== false, for_condition: linkedCond };
+  });
+  var allergies = document.getElementById('f_allergies').value.trim();
+
+  var eventIdCr = 'cr-' + Date.now() + '-' + Math.random().toString(36).substring(2, 8);
+
+  // Gather condition-specific follow-up answers
+  var bsaAreas = [];
+  document.querySelectorAll('#bsa-areas .selected').forEach(function(b) { bsaAreas.push(b.getAttribute('data-area')); });
+  var followups = {
+    bsa_percent: document.getElementById('f_bsa') ? document.getElementById('f_bsa').value || null : null,
+    bsa_areas: bsaAreas.length ? bsaAreas : null,
+    topical_response: document.getElementById('f_topical_response') ? document.getElementById('f_topical_response').value || null : null,
+    hs_areas_2plus: document.getElementById('f_hs_areas') ? document.getElementById('f_hs_areas').value || null : null,
+    hs_antibiotics: document.getElementById('f_hs_antibiotics') ? document.getElementById('f_hs_antibiotics').value || null : null,
+    hs_biologic: document.getElementById('f_hs_biologic') ? document.getElementById('f_hs_biologic').value || null : null,
+    migraine_days_per_month: document.getElementById('f_migraine_days') ? document.getElementById('f_migraine_days').value || null : null,
+    migraine_menstrual: document.getElementById('f_migraine_menstrual') ? document.getElementById('f_migraine_menstrual').value || null : null,
+    triglyceride_level: document.getElementById('f_trig_level') ? parseFloat(document.getElementById('f_trig_level').value) || null : null,
+    a1c: document.getElementById('f_a1c') ? parseFloat(document.getElementById('f_a1c').value) || null : null,
+    liver_diagnosis_method: document.getElementById('f_liver_dx') ? document.getElementById('f_liver_dx').value || null : null,
+    cv_history: (function() { var cv = []; document.querySelectorAll('#cv-history-grid .selected').forEach(function(b) { cv.push(b.getAttribute('data-cv')); }); return cv.length ? cv : null; })(),
+    lpa_tested: document.getElementById('f_lpa_tested') ? document.getElementById('f_lpa_tested').value || null : null,
+    lpa_level: document.getElementById('f_lpa_level') ? parseFloat(document.getElementById('f_lpa_level').value) || null : null,
+    statin_use: document.getElementById('f_statin_use') ? document.getElementById('f_statin_use').value || null : null,
+    cv_diabetes: document.getElementById('f_cv_diabetes') ? document.getElementById('f_cv_diabetes').value || null : null
+  };
+
+  var payload = {
+    first_name: step1Data.first_name,
+    last_name: step1Data.last_name,
+    phone: step1Data.phone,
+    email: step1Data.email,
+    zip_code: step1Data.zip_code,
+    date_of_birth: step1Data.date_of_birth,
+    gender: step1Data.gender,
+    height_ft: step1Data.height_ft,
+    height_in: step1Data.height_in,
+    weight_lbs: step1Data.weight_lbs,
+    bmi: step1Data.bmi,
+    race: step1Data.race,
+    smoking_status: step1Data.smoking_status,
+    language: step1Data.language,
+    contact_preference: step1Data.contact_preference,
+    consent_future_studies: step1Data.consent_future_studies,
+    conditions: conditions,
+    medications: meds,
+    allergies: allergies ? allergies.split(',').map(function(a) { return a.trim(); }) : [],
+    primary_condition: document.getElementById('f_primary_cond') ? document.getElementById('f_primary_cond').value || null : null,
+    referral_source: step1Data.referral_source,
+    referral_detail: step1Data.referral_detail,
+    prior_trial: step1Data.prior_trial,
+    travel_preference: null,
+    family_history: null,
+    followups: followups,
+    exclusions: (function() {
+      var allKeys = ['pregnant','cancer','transplant','hiv_hep','dialysis','recent_surgery','other_trial','substance'];
+      var out = {};
+      allKeys.forEach(function(k) { out[k] = exclusions[k] === 'yes' ? 'yes' : 'no'; });
+      return out;
+    })(),
+    source_campaign: utmCampaign,
+    utm_source: utmSource,
+    utm_medium: utmMedium,
+    utm_campaign: utmCampaign,
+    utm_content: utmContent,
+    fbclid: fbclid,
+    gclid: gclid,
+    experiment_id: experimentId,
+    variant_id: variantId,
+    fbp: getCookie('_fbp'),
+    fbc: getCookie('_fbc') || (fbclid ? 'fb.1.' + Date.now() + '.' + fbclid : ''),
+    event_id_lead: step1Data._event_id_lead,
+    event_id_cr: eventIdCr,
+    source_url: window.location.href,
+    consent_sms: step1Data.consent_future_studies,
+    _hp: document.getElementById('f_website').value || ''
+  };
+
+  fetch(CF_BASE + '?action=lead-submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    document.getElementById('submitting').style.display = 'none';
+    // Handle duplicate submission gracefully
+    if (data.duplicate) {
+      document.getElementById('result-maybe').style.display = 'block';
+      var maybeCard = document.querySelector('#result-maybe .result-card');
+      if (maybeCard) {
+        maybeCard.querySelector('h2').textContent = 'We already have your information!';
+        maybeCard.querySelector('p').textContent = 'A coordinator will be in touch with you soon. If you\'d like to speak with someone right away, please call us.';
+      }
+      showPrescreenBookingCards(data.patient_id, conditions, medications, step1Data.bmi, step1Data.primary_condition);
+      trackStep('step_3_duplicate');
+      return;
+    }
+    if (data.success) {
+      var qualified = (data.matches || []).filter(function(m) { return m.status === 'eligible' || m.status === 'likely_eligible'; });
+      var needsReview = (data.matches || []).filter(function(m) { return m.status === 'needs_review'; });
+
+      if (qualified.length > 0) {
+        renderMatchedStudies(data.matches);
+        // Show pre-screening booking cards if cardiac or metabolic risk detected
+        showPrescreenBookingCards(data.patient_id, conditions, medications, step1Data.bmi, step1Data.primary_condition);
+        document.getElementById('result-qualified').style.display = 'block';
+        trackStep('step_3_qualified');
+      } else if (needsReview.length > 0 || conditions.length > 0) {
+        showPrescreenBookingCards(data.patient_id, conditions, medications, step1Data.bmi, step1Data.primary_condition);
+        document.getElementById('result-maybe').style.display = 'block';
+        trackStep('step_3_none');
+      } else {
+        showPrescreenBookingCards(data.patient_id, conditions, medications, step1Data.bmi, step1Data.primary_condition);
+        document.getElementById('result-none').style.display = 'block';
+        trackStep('step_3_none');
+      }
+    } else {
+      document.getElementById('result-maybe').style.display = 'block';
+      trackStep('step_3_none');
+    }
+  })
+  .catch(function(err) {
+    console.error('lead-submit failed:', err);
+    document.getElementById('submitting').style.display = 'none';
+    // Still show booking cards even if the backend failed — we have the form data
+    showPrescreenBookingCards(null, conditions, medications, step1Data.bmi, step1Data.primary_condition);
+    document.getElementById('result-maybe').style.display = 'block';
+    trackStep('step_3_none');
+  });
+}
+
+// ── Pre-screening visit booking (Lp(a) + FibroScan) ──
+// Detects cardiac or metabolic risk from form data and shows inline booking cards.
+// Patient picks site + time preference → backend books directly into CRIO.
+function showPrescreenBookingCards(patientId, formConditions, formMedications, formBmi, primaryCondition) {
+  // ALWAYS show both booking cards. The pre-screening visit IS the screening —
+  // don't try to pre-filter patients out of seeing these options. Any patient
+  // who completes the form is worth offering the Lp(a) blood test and FibroScan.
+  // The visit itself determines eligibility, not our keyword matching.
+
+  var container = document.getElementById('prescreen-booking-cards');
+  var html = '';
+
+  // Lp(a) card — always shown
+  {
+    html += '<div style="background:linear-gradient(135deg,#fef2f2,#fff1f2);border:1px solid #fecaca;border-radius:12px;padding:20px;margin-bottom:16px">' +
+      '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">' +
+        '<span style="font-size:28px">🫀</span>' +
+        '<div><h3 style="margin:0;color:#991b1b;font-size:16px">Free Heart Health Blood Test</h3>' +
+        '<p style="margin:2px 0 0;font-size:13px;color:#64748b">A quick 15-min visit to check your Lp(a) — a hidden heart risk most doctors don\'t test. You\'ll receive <b>$31</b> for your time.</p></div>' +
+      '</div>' +
+      '<div style="margin-bottom:12px">' +
+        '<label style="font-size:12px;color:#475569;font-weight:600;display:block;margin-bottom:4px">Choose location:</label>' +
+        '<div style="display:flex;gap:8px">' +
+          '<button type="button" onclick="selectPrescreenSite(this,\'lpa\',\'phl\')" class="ps-site-btn" data-type="lpa" style="flex:1;padding:10px;border:2px solid #c8d6e8;border-radius:8px;background:#fff;cursor:pointer;font-size:13px;font-weight:600">Philadelphia</button>' +
+          '<button type="button" onclick="selectPrescreenSite(this,\'lpa\',\'pnj\')" class="ps-site-btn" data-type="lpa" style="flex:1;padding:10px;border:2px solid #c8d6e8;border-radius:8px;background:#fff;cursor:pointer;font-size:13px;font-weight:600">Pennington, NJ</button>' +
+        '</div>' +
+      '</div>' +
+      '<div style="margin-bottom:12px">' +
+        '<label style="font-size:12px;color:#475569;font-weight:600;display:block;margin-bottom:4px">When works best?</label>' +
+        '<div style="display:flex;gap:8px">' +
+          '<button type="button" onclick="selectPrescreenTime(this,\'lpa\',\'morning\')" class="ps-time-btn" data-type="lpa" style="flex:1;padding:8px;border:2px solid #c8d6e8;border-radius:8px;background:#fff;cursor:pointer;font-size:12px">Mornings</button>' +
+          '<button type="button" onclick="selectPrescreenTime(this,\'lpa\',\'afternoon\')" class="ps-time-btn" data-type="lpa" style="flex:1;padding:8px;border:2px solid #c8d6e8;border-radius:8px;background:#fff;cursor:pointer;font-size:12px">Afternoons</button>' +
+          '<button type="button" onclick="selectPrescreenTime(this,\'lpa\',\'either\')" class="ps-time-btn ps-selected" data-type="lpa" style="flex:1;padding:8px;border:2px solid #1843AD;border-radius:8px;background:#e8eeff;cursor:pointer;font-size:12px;font-weight:600">Either</button>' +
+        '</div>' +
+      '</div>' +
+      '<button type="button" onclick="bookPrescreen(\'lpa\')" id="btn-book-lpa" style="width:100%;padding:14px;background:#dc2626;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer">Book My Heart Test →</button>' +
+    '</div>';
+  }
+
+  // FibroScan card — always shown
+  {
+    html += '<div style="background:linear-gradient(135deg,#eff6ff,#f0f9ff);border:1px solid #93c5fd;border-radius:12px;padding:20px;margin-bottom:16px">' +
+      '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">' +
+        '<span style="font-size:28px">🔬</span>' +
+        '<div><h3 style="margin:0;color:#1e40af;font-size:16px">Free Liver Health Scan</h3>' +
+        '<p style="margin:2px 0 0;font-size:13px;color:#64748b">A painless 10-min FibroScan at our Pennington, NJ office — instant results on your liver health.</p></div>' +
+      '</div>' +
+      '<div style="margin-bottom:12px">' +
+        '<label style="font-size:12px;color:#475569;font-weight:600;display:block;margin-bottom:4px">When works best?</label>' +
+        '<div style="display:flex;gap:8px">' +
+          '<button type="button" onclick="selectPrescreenTime(this,\'fibroscan\',\'morning\')" class="ps-time-btn" data-type="fibroscan" style="flex:1;padding:8px;border:2px solid #c8d6e8;border-radius:8px;background:#fff;cursor:pointer;font-size:12px">Mornings</button>' +
+          '<button type="button" onclick="selectPrescreenTime(this,\'fibroscan\',\'afternoon\')" class="ps-time-btn" data-type="fibroscan" style="flex:1;padding:8px;border:2px solid #c8d6e8;border-radius:8px;background:#fff;cursor:pointer;font-size:12px">Afternoons</button>' +
+          '<button type="button" onclick="selectPrescreenTime(this,\'fibroscan\',\'either\')" class="ps-time-btn ps-selected" data-type="fibroscan" style="flex:1;padding:8px;border:2px solid #1843AD;border-radius:8px;background:#e8eeff;cursor:pointer;font-size:12px;font-weight:600">Either</button>' +
+        '</div>' +
+      '</div>' +
+      '<button type="button" onclick="bookPrescreen(\'fibroscan\')" id="btn-book-fibroscan" style="width:100%;padding:14px;background:#1e40af;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer">Book My Liver Scan →</button>' +
+    '</div>';
+  }
+
+  container.innerHTML = html;
+  container.style.display = 'block';
+
+  // Store patient_id for booking
+  container.dataset.patientId = patientId;
+}
+
+var _prescreenSite = {};
+var _prescreenTime = { lpa: 'either', fibroscan: 'either' };
+
+function selectPrescreenSite(btn, type, site) {
+  _prescreenSite[type] = site;
+  document.querySelectorAll('.ps-site-btn[data-type="' + type + '"]').forEach(function(b) {
+    b.style.border = '2px solid #c8d6e8'; b.style.background = '#fff'; b.style.fontWeight = '600';
+  });
+  btn.style.border = '2px solid #1843AD'; btn.style.background = '#e8eeff'; btn.style.fontWeight = '700';
+}
+
+function selectPrescreenTime(btn, type, time) {
+  _prescreenTime[type] = time;
+  document.querySelectorAll('.ps-time-btn[data-type="' + type + '"]').forEach(function(b) {
+    b.style.border = '2px solid #c8d6e8'; b.style.background = '#fff'; b.style.fontWeight = '400';
+    b.classList.remove('ps-selected');
+  });
+  btn.style.border = '2px solid #1843AD'; btn.style.background = '#e8eeff'; btn.style.fontWeight = '600';
+  btn.classList.add('ps-selected');
+}
+
+function bookPrescreen(type) {
+  var patientId = document.getElementById('prescreen-booking-cards').dataset.patientId;
+  if (!patientId) { alert('Please complete the form first.'); return; }
+
+  var site = _prescreenSite[type] || (type === 'fibroscan' ? 'pnj' : 'phl');
+  var timePref = _prescreenTime[type] || 'either';
+
+  var btn = document.getElementById('btn-book-' + type);
+  if (btn) { btn.disabled = true; btn.textContent = 'Booking...'; }
+
+  fetch(CF_BASE + '?action=book-prescreen', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      patient_id: patientId,
+      type: type,
+      site: site,
+      time_preference: timePref,
+      preferred_days: [] // empty = any weekday
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.success && data.confirmation) {
+      // Show confirmation
+      document.getElementById('prescreen-booking-cards').style.display = 'none';
+      document.getElementById('btn-book-call').style.display = 'none';
+      var booked = document.getElementById('prescreen-booked');
+      booked.style.display = 'block';
+      document.getElementById('booked-title').textContent = data.confirmation.visit_type + ' — You\'re booked!';
+      document.getElementById('booked-datetime').textContent = data.confirmation.date + ' at ' + data.confirmation.time;
+      document.getElementById('booked-address').textContent = data.confirmation.address;
+      var details = 'Bring a photo ID. Duration: ~15 minutes.';
+      if (data.confirmation.stipend) details += ' You\'ll receive $' + data.confirmation.stipend + ' for your time.';
+      document.getElementById('booked-details').textContent = details;
+      trackStep('prescreen_booked_' + type);
+    } else if (data.success && data.fallback) {
+      // No slot found — coordinator will call
+      if (btn) { btn.textContent = '✓ Request received'; btn.style.background = '#059669'; }
+      alert('No available slots matching your preference right now. A coordinator will call you within 24 hours to find a time that works.');
+      trackStep('prescreen_fallback_' + type);
+    } else {
+      if (btn) { btn.disabled = false; btn.textContent = 'Try again'; }
+      alert(data.error || 'Something went wrong. Please call us at (215) 676-6696.');
+    }
+  })
+  .catch(function() {
+    if (btn) { btn.disabled = false; btn.textContent = 'Try again'; }
+    alert('Connection error. Please call us at (215) 676-6696.');
+  });
+}
+
+// Fire step_1a_view on page load
+trackStep('step_1a_view');
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body{margin:0;padding:22px;background:#fff;font-family:var(--font-sans)}
+h4{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-3);margin:0 0 8px;font-weight:600}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;align-items:start}
+.tile{border:1px solid var(--border);border-radius:10px;background:#fff;padding:16px 12px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.tile svg{width:140px;height:140px;display:block}
+.name{font-family:var(--font-mono);font-size:10px;color:var(--fg-2);text-align:center}
+
+.cyan{color:var(--crp-cyan)}
+.orange{color:var(--crp-orange)}
+.navy{color:var(--crp-navy)}
+
+/* Usage example — photo clipped into the quatrefoil */
+.demo{display:flex;gap:14px;align-items:center;margin-top:18px}
+.demo .step{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:10px;color:var(--fg-3);font-family:var(--font-mono)}
+.demo .step svg{width:120px;height:120px}
+.demo .sym{font-size:22px;color:var(--fg-3);padding:0 2px}
+.photo{width:120px;height:120px;background:var(--crp-navy);border-radius:8px}
+.clipped-wrap{width:140px;height:140px;display:grid;place-items:center}
+.clipped-wrap svg{width:140px;height:140px}
+
+.note{margin-top:16px;font-size:12px;color:var(--fg-2);line-height:1.55;padding:12px 14px;background:#f6f9ff;border-left:3px solid var(--crp-orange);border-radius:0 6px 6px 0}
+.note b{color:var(--crp-navy)}
+.note code{font-family:var(--font-mono);font-size:11px;background:#fff;padding:1px 5px;border-radius:3px;border:1px solid var(--border)}
+</style></head><body>
+<!-- Inline clipPath for the quatrefoil stencil. Uses objectBoundingBox so any sized element can use clip-path:url(#qc). -->
+<svg width="0" height="0" style="position:absolute"><defs><clipPath id="qc" clipPathUnits="objectBoundingBox"><path d="M.35,.05 a.3,.3 0 1 0 0,.6 a.3,.3 0 1 0 0,-.6 M.65,.05 a.3,.3 0 1 0 0,.6 a.3,.3 0 1 0 0,-.6 M.35,.35 a.3,.3 0 1 0 0,.6 a.3,.3 0 1 0 0,-.6 M.65,.35 a.3,.3 0 1 0 0,.6 a.3,.3 0 1 0 0,-.6"/></clipPath></defs></svg>
+<h4>Quatrefoil photo stencil · pg 20</h4>
+<div class="row">
+  <div class="tile"><svg viewBox="0 0 200 200" class="cyan"><g fill="currentColor"><circle cx="70" cy="70" r="60"/><circle cx="130" cy="70" r="60"/><circle cx="70" cy="130" r="60"/><circle cx="130" cy="130" r="60"/></g></svg><span class="name">cyan var(--crp-cyan)</span></div>
+  <div class="tile"><svg viewBox="0 0 200 200" class="orange"><g fill="currentColor"><circle cx="70" cy="70" r="60"/><circle cx="130" cy="70" r="60"/><circle cx="70" cy="130" r="60"/><circle cx="130" cy="130" r="60"/></g></svg><span class="name">orange var(--crp-orange)</span></div>
+  <div class="tile"><svg viewBox="0 0 200 200" class="navy"><g fill="currentColor"><circle cx="70" cy="70" r="60"/><circle cx="130" cy="70" r="60"/><circle cx="70" cy="130" r="60"/><circle cx="130" cy="130" r="60"/></g></svg><span class="name">navy var(--crp-navy)</span></div>
+</div>
+
+<h4 style="margin-top:22px">Applied as a photo mask</h4>
+<div class="demo">
+  <div class="step"><div class="photo"></div><span>photo</span></div>
+  <span class="sym">+</span>
+  <div class="step"><svg viewBox="0 0 200 200" class="cyan"><g fill="currentColor"><circle cx="70" cy="70" r="60"/><circle cx="130" cy="70" r="60"/><circle cx="70" cy="130" r="60"/><circle cx="130" cy="130" r="60"/></g></svg><span>stencil</span></div>
+  <span class="sym">=</span>
+  <div class="step"><div class="clipped-wrap"><svg viewBox="0 0 200 200" class="navy"><g fill="currentColor"><circle cx="70" cy="70" r="60"/><circle cx="130" cy="70" r="60"/><circle cx="70" cy="130" r="60"/><circle cx="130" cy="130" r="60"/></g></svg></div><span>masked</span></div>
+</div>
+
+<div class="note"><b>Usage:</b> For multi-image compositions where you want a signature shape. Apply via CSS <code>mask</code> (as shown) or SVG <code>clip-path</code>. The SVG fills with <code>currentColor</code> so it inherits a parent <code>color:</code>. Same geometry as <code>crp-icon.svg</code>.</div>
+</body></html>

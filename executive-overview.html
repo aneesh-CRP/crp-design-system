@@ -1,0 +1,1397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CRP — Executive Overview, April 2026</title>
+<link rel="stylesheet" href="./colors_and_type.css">
+<style>
+  /* ─── Page setup: 16:9 widescreen, print one slide per page ─── */
+  @page { size: 13.333in 7.5in; margin: 0; }
+  html, body { margin: 0; padding: 0; background: #2a2f3a; }
+  body { font-family: var(--font-sans); color: var(--fg-1); -webkit-font-smoothing: antialiased; }
+  /* Readability tune: darker greys (was #4a6080 / #7a90b0) */
+  :root { --fg-2: #2c4470; --fg-3: #4a6080; }
+
+  .deck { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 40px 0; }
+
+  .slide {
+    position: relative;
+    width: 1280px; height: 720px;        /* 16:9 */
+    background: var(--surface);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    border-radius: var(--radius-lg);
+  }
+  @media print {
+    body { background: white; }
+    .deck { gap: 0; padding: 0; }
+    .slide { box-shadow: none; border-radius: 0; page-break-after: always; }
+    .slide:last-child { page-break-after: auto; }
+  }
+
+  /* ─── Slide chrome ─── */
+  .footer {
+    position: absolute; left: 56px; right: 56px; bottom: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: var(--fs-xs); color: var(--fg-3); letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .footer .mark { display: flex; align-items: center; gap: 10px; }
+  .footer .mark img { height: 16px; opacity: 0.7; }
+  .pageno { font-variant-numeric: tabular-nums; }
+
+  /* ═══════════════════════════════════════════════════════════
+     SLIDE 1 — COVER (patient tagline)
+     ═══════════════════════════════════════════════════════════ */
+  .cover {
+    background: var(--gradient-navy-blue);
+    color: var(--crp-white);
+    display: grid; grid-template-columns: 1.25fr 1fr;
+    align-items: center;
+  }
+  .cover .quat {
+    position: absolute; right: -120px; bottom: -180px;
+    width: 720px; height: 720px; opacity: 0.07;
+  }
+  .cover .left {
+    padding: 96px 40px 96px 96px; position: relative; z-index: 2;
+    text-align: center;
+  }
+  .cover .eyebrow {
+    font-size: 14.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--crp-cyan); margin-bottom: 28px; font-weight: 600;
+  }
+  .cover h1 {
+    font-family: var(--font-sans); font-weight: 800;
+    font-size: 56px; line-height: 1.05; margin: 0 0 4px;
+    letter-spacing: -0.015em; color: var(--crp-white);
+    white-space: nowrap;
+  }
+  .cover .script-line {
+    font-family: var(--font-script); color: var(--crp-orange);
+    font-size: 96px; line-height: 1; margin: 0 0 32px;
+  }
+  .cover .year {
+    font-size: 16px; color: rgba(255,255,255,0.9);
+    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600;
+  }
+  .cover .right {
+    padding: 96px; position: relative; z-index: 2; text-align: right;
+    display: flex; flex-direction: column; align-items: flex-end; gap: 18px;
+  }
+  .cover .right img { width: 100%; max-width: 280px; }
+  .cover .right .cover-tag {
+    font-size: 14.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--crp-cyan); font-weight: 700; margin-top: 8px;
+  }
+  .cover .right .cover-date {
+    font-family: var(--font-script); color: var(--crp-orange);
+    font-size: 44px; line-height: 1;
+  }
+  .cover .footer { color: rgba(255,255,255,0.55); }
+  .cover .footer .mark img { filter: brightness(0) invert(1); opacity: 0.6; }
+
+  /* ═══ SLIDE — risk/quality (4-card grid) ═══ */
+  .risk-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .risk-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--crp-blue);
+    border-radius: var(--radius-lg);
+    padding: 22px 22px;
+    box-shadow: var(--shadow-md);
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .risk-card:nth-child(2) { border-top-color: var(--crp-orange); }
+  .risk-card:nth-child(3) { border-top-color: var(--crp-blue); }
+  .risk-card:nth-child(4) { border-top-color: var(--crp-orange); }
+  .risk-card h4 {
+    font-size: 16px; font-weight: 700; color: var(--crp-navy);
+    margin: 0; line-height: 1.2; letter-spacing: -0.01em;
+  }
+  .risk-card .risk-eye {
+    font-size: 13.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--crp-blue); font-weight: 700;
+  }
+  .risk-card ul {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .risk-card li {
+    font-size: 14.5px; color: var(--crp-navy); opacity: 0.92; line-height: 1.4;
+    padding-left: 14px; position: relative;
+  }
+  .risk-card li::before {
+    content: '';
+    position: absolute; left: 0; top: 7px;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--crp-blue);
+  }
+  .risk-card li.tbd::before { background: var(--crp-orange); }
+  .risk-card li.tbd {
+    background: #fff8ec;
+    margin-left: -8px; padding-left: 22px; padding-right: 8px;
+    border-radius: var(--radius-sm);
+    border: 1px dashed #f0c87a;
+    padding-top: 4px; padding-bottom: 4px;
+  }
+  .risk-card li.tbd::before { left: 8px; top: 11px; }
+  .risk-card li.tbd .tbd-tag {
+    display: block; font-size: 9px; letter-spacing: 0.1em;
+    color: #b8651c; text-transform: uppercase; font-weight: 700; margin-top: 2px;
+  }
+  .risk-bottom {
+    margin-top: 28px; text-align: center;
+    font-size: 16px; color: var(--crp-navy); font-weight: 600;
+    padding: 14px 24px;
+    background: var(--blue-bg); border-radius: var(--radius-md);
+    max-width: 720px; margin-left: auto; margin-right: auto;
+  }
+  .risk-bottom strong { color: var(--crp-orange); }
+
+  /* ═══════════════════════════════════════════════════════════
+     SLIDE 2 — POSITIONING + STAT ROW
+     ═══════════════════════════════════════════════════════════ */
+  .positioning { padding: 88px 96px 0; }
+  .positioning .eyebrow {
+    font-size: var(--fs-micro); letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--crp-blue); font-weight: var(--fw-semibold); margin-bottom: 20px;
+  }
+  .positioning h2 {
+    font-family: var(--font-sans); font-weight: var(--fw-extrabold);
+    font-size: 52px; line-height: 1.1; margin: 0 0 24px; color: var(--crp-navy);
+    max-width: 980px;
+  }
+  .positioning .lede {
+    font-size: 20px; line-height: 1.5; color: var(--fg-2); max-width: 880px;
+    margin-bottom: 64px;
+  }
+  .stat-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+    max-width: 1120px; margin: 0 auto; width: 100%;
+  }
+  .stat-row.stat-row-8 { gap: 16px; }
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--crp-blue);
+    border-radius: var(--radius-lg);
+    padding: 22px 22px;
+    box-shadow: var(--shadow-md);
+  }
+  .stat-row-8 .stat { padding: 18px 18px; }
+  .stat .num {
+    font-weight: var(--fw-extrabold); font-size: 48px; line-height: 1;
+    color: var(--crp-navy); letter-spacing: -0.02em;
+  }
+  .stat-row-8 .stat .num { font-size: 40px; }
+  .stat .num .unit { font-size: 22px; font-weight: var(--fw-semibold); color: var(--crp-blue); margin-left: 4px; }
+  .stat-row-8 .stat .num .unit { font-size: 18px; }
+  .stat .label {
+    margin-top: 12px; font-size: 15.5px; color: var(--crp-navy); opacity: 0.95; line-height: 1.45;
+  }
+  .stat-row-8 .stat .label { font-size: 14.5px; margin-top: 10px; }
+  /* Alternating top-border accent across 4 cells; for 8-stat the same nth pattern continues */
+  .stat:nth-child(2n) { border-top-color: var(--crp-orange); }
+
+  /* ═══════════════════════════════════════════════════════════
+     SLIDE 3 — PERFORMANCE PROOF
+     ═══════════════════════════════════════════════════════════ */
+  .perf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; max-width: 1120px; margin: 0 auto; width: 100%; }
+  .perf .eyebrow {
+    font-size: 14.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--crp-blue); font-weight: 700; margin-bottom: 12px;
+  }
+  .perf h2 {
+    font-family: var(--font-sans); font-weight: var(--fw-extrabold);
+    font-size: 36px; line-height: 1.1; margin: 0 0 14px; color: var(--crp-navy); letter-spacing: -0.015em;
+  }
+  .perf .lede { font-size: 16px; line-height: 1.5; color: var(--crp-navy); opacity: 0.92; margin-bottom: 24px; }
+
+  .hero-stat {
+    background: var(--gradient-navy-blue);
+    color: var(--crp-white);
+    border-radius: var(--radius-xl);
+    padding: 28px 30px 26px;
+    box-shadow: var(--shadow-lg);
+    position: relative; overflow: hidden;
+  }
+  .hero-stat .quat-bg {
+    position: absolute; right: -60px; bottom: -80px; width: 240px; height: 240px;
+    opacity: 0.08;
+  }
+  .hero-stat .num {
+    font-weight: var(--fw-extrabold); font-size: 112px; line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .hero-stat .num .pct { font-size: 56px; color: var(--crp-cyan); margin-left: 4px; vertical-align: top; }
+  .hero-stat .label { font-size: 17px; line-height: 1.4; margin-top: 14px; max-width: 380px; opacity: 0.95; }
+  .hero-stat .bench {
+    margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.18);
+    font-size: 14.5px; color: rgba(255,255,255,0.85);
+  }
+  .hero-stat .bench strong { color: var(--crp-cyan); font-weight: 700; }
+
+  .perf-supporting { display: flex; flex-direction: column; gap: 16px; }
+  .perf-supporting { gap: 10px !important; }
+  .perf-row {
+    display: grid; grid-template-columns: 72px 1fr;
+    align-items: center; gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    box-shadow: var(--shadow-xs);
+  }
+  .perf-row .v {
+    font-weight: var(--fw-extrabold); font-size: 30px; line-height: 1;
+    color: var(--crp-navy); text-align: right;
+  }
+  .perf-row .v .sm { font-size: 16px; color: var(--crp-blue); margin-right: 2px; }
+  .perf-row .t .ttl { font-size: 15.5px; font-weight: 700; color: var(--crp-navy); margin-bottom: 2px; }
+  .perf-row .t .desc { font-size: 13.5px; color: var(--crp-navy); opacity: 0.9; line-height: 1.4; }
+
+  .perf-source {
+    position: absolute; left: 80px; right: 80px; bottom: 60px;
+    font-size: 12.5px; color: var(--fg-2); font-style: italic;
+  }
+  .perf-source a { color: var(--crp-blue); text-decoration: none; }
+
+  /* ═══ Shared slide chrome (centered, high-contrast) ═══ */
+  .slide-pad {
+    padding: 56px 80px 80px;
+    height: 100%; box-sizing: border-box;
+    display: flex; flex-direction: column;
+  }
+  .slide-head {
+    text-align: center; max-width: 1040px;
+    margin: 0 auto 28px;
+  }
+  .slide-eyebrow {
+    font-size: 13.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--crp-blue); font-weight: 700; margin-bottom: 10px;
+  }
+  .slide-h2 {
+    font-family: var(--font-sans); font-weight: var(--fw-extrabold);
+    font-size: 36px; line-height: 1.15; margin: 0 0 10px;
+    color: var(--crp-navy); letter-spacing: -0.015em;
+  }
+  .slide-lede {
+    font-size: 16px; line-height: 1.5;
+    color: var(--crp-navy);
+    margin: 0 auto;
+    max-width: 820px;
+  }
+  .slide-body { flex: 1; display: flex; flex-direction: column; justify-content: flex-start; }
+
+  /* ═══ SLIDE — three pillars ═══ */
+  .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .pillar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--crp-blue);
+    border-radius: var(--radius-lg);
+    padding: 22px 22px;
+    box-shadow: var(--shadow-md);
+    display: flex; flex-direction: column;
+  }
+  .pillar:nth-child(2) { border-top-color: var(--crp-orange); }
+  .pillar .pillar-eyebrow {
+    font-size: 13.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--crp-blue); font-weight: 700; margin-bottom: 8px;
+  }
+  .pillar h3 {
+    font-size: 20px; font-weight: var(--fw-extrabold); color: var(--crp-navy);
+    margin: 0 0 14px; line-height: 1.2; min-height: 4.8em;
+  }
+  .pillar p { margin-top: auto; }
+  .pillar .pillar-stat {
+    font-size: 40px; font-weight: var(--fw-extrabold); color: var(--crp-navy);
+    line-height: 1; letter-spacing: -0.02em; margin-bottom: 4px;
+  }
+  .pillar .pillar-stat .unit { font-size: 20px; color: var(--crp-blue); margin-left: 2px; }
+  .pillar .pillar-stat-label {
+    font-size: 13.5px; color: var(--fg-2); text-transform: uppercase; letter-spacing: 0.06em;
+    margin-bottom: 14px; font-weight: 600;
+  }
+  .pillar p { font-size: 15.5px; line-height: 1.55; color: var(--crp-navy); opacity: 0.92; margin: 0; }
+  .pillar-grid-wrap { max-width: 1120px; margin: 0 auto; width: 100%; }
+
+  /* ═══ SLIDE — therapeutic depth (4 columns w/ marquee studies) ═══ */
+  .ta-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .ta-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--crp-blue);
+    border-radius: var(--radius-lg);
+    padding: 22px 22px;
+    display: flex; flex-direction: column; gap: 14px;
+    box-shadow: var(--shadow-md);
+  }
+  .ta-block:nth-child(2) { border-top-color: var(--crp-orange); }
+  .ta-block:nth-child(4) { border-top-color: var(--crp-orange); }
+  .ta-block h4 {
+    font-size: 13.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--crp-blue); margin: 0; font-weight: 700;
+  }
+  .ta-study {
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+  .ta-study .ta-name { font-size: 15.5px; font-weight: 600; color: var(--crp-navy); margin-bottom: 6px; line-height: 1.25; }
+  .ta-status {
+    display: inline-block;
+    font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em;
+    padding: 3px 9px; border-radius: 999px;
+    background: var(--blue-bg); color: var(--crp-blue);
+  }
+  .ta-status.live { background: var(--orange-bg, #fff3e0); color: var(--crp-orange); font-weight: 800; }
+  .ta-actual {
+    margin-top: 6px;
+    font-size: 13.5px; color: var(--fg-2); line-height: 1.3;
+  }
+  .ta-actual strong { color: var(--crp-orange); font-weight: 800; }
+
+  /* ═══ SLIDE — tech stack architecture ═══ */
+  .stack {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    align-items: stretch;
+    margin-top: 12px;
+  }
+  .stack-node {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--crp-blue);
+    border-radius: var(--radius-lg);
+    padding: 22px 22px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .stack-node:nth-child(2) { border-top-color: var(--crp-orange); }
+  .stack-node:nth-child(4) { border-top-color: var(--crp-orange); }
+  .stack-node + .stack-node::before {
+    content: '→'; position: absolute; left: -22px; top: 50%; transform: translateY(-50%);
+    color: var(--crp-blue); font-size: 28px; font-weight: 700; line-height: 1;
+  }
+  .stack-node .stack-eyebrow {
+    font-size: 13.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--crp-blue); font-weight: 700;
+  }
+  .stack-node h4 {
+    font-size: 22px; font-weight: var(--fw-extrabold); color: var(--crp-navy);
+    margin: 0; line-height: 1.1;
+  }
+  .stack-node p { font-size: 14.5px; color: var(--crp-navy); opacity: 0.95; line-height: 1.5; margin: 0; }
+  .stack-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 28px;
+  }
+  .stack-row .row-cell {
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    background: var(--blue-bg);
+  }
+  .stack-row .row-cell .row-h {
+    font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--crp-blue); font-weight: 700; margin-bottom: 4px;
+  }
+  .stack-row .row-cell .row-d { font-size: 14.5px; color: var(--crp-navy); opacity: 0.95; line-height: 1.45; }
+
+  /* ═══ SLIDE — recruitment funnel ═══ */
+  .funnel { display: flex; flex-direction: column; gap: 12px; max-width: 880px; }
+  .funnel-step {
+    display: flex; align-items: center; gap: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--crp-blue);
+    border-radius: var(--radius-md);
+    padding: 18px 24px;
+    box-shadow: var(--shadow-xs);
+  }
+  .funnel-step:nth-child(2n) { border-top-color: var(--crp-orange); }
+  .funnel-step .fnum {
+    font-size: 36px; font-weight: var(--fw-extrabold); color: var(--crp-navy);
+    line-height: 1; letter-spacing: -0.02em; min-width: 140px;
+  }
+  .funnel-step .fnum .unit { font-size: 18px; color: var(--crp-blue); margin-left: 2px; }
+  .funnel-step .fbody { flex: 1; }
+  .funnel-step .fbody .ftitle { font-size: 16px; font-weight: 700; color: var(--crp-navy); margin-bottom: 2px; }
+  .funnel-step .fbody .fdesc { font-size: 14.5px; color: var(--crp-navy); opacity: 0.95; line-height: 1.45; }
+
+  .funnel-side {
+    margin-top: 24px; padding: 18px 22px;
+    background: var(--blue-bg);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--crp-orange);
+    border-radius: var(--radius-md);
+    font-size: 15.5px; color: var(--crp-navy); line-height: 1.5;
+    max-width: 880px;
+  }
+  .funnel-side strong { color: var(--crp-navy); }
+
+  /* ═══ SLIDE — team (with headshots) ═══ */
+  .ppl-grid { display: grid; gap: 18px; max-width: 1120px; margin: 0 auto; width: 100%; }
+  .ppl-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .ppl-grid.cols-5 { grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  /* 4-column grid where row 2 has only 3 cards: offset to columns 2-4 so widths match row 1 */
+  .ppl-grid.cols-4-3 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1120px; margin: 0 auto; width: 100%; }
+  .ppl-grid.cols-4-3 .ppl-card:first-child { grid-column-start: 2; }
+  .ppl-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 18px 14px 14px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .ppl-card .head {
+    width: 84px; height: 84px;
+    border-radius: 50%; overflow: hidden;
+    background: var(--surface-2);
+    margin-bottom: 12px;
+    border: 2px solid var(--border);
+  }
+  .ppl-card.cols-5 .head { width: 72px; height: 72px; }
+  .ppl-card .head img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .ppl-card .head.placeholder {
+    display: flex; align-items: center; justify-content: center;
+    background: var(--gradient-cyan-blue); color: white;
+    font-weight: 800; font-size: 28px;
+  }
+  .ppl-card .name {
+    font-size: 15.5px; font-weight: 700; color: var(--crp-navy);
+    line-height: 1.2; margin-bottom: 4px;
+  }
+  .ppl-card .role {
+    font-size: 13.5px; color: var(--crp-navy); opacity: 0.92;
+    line-height: 1.35;
+  }
+  .ppl-card .specialty {
+    margin-top: 6px;
+    font-size: 12.5px; font-weight: 700; color: var(--crp-blue);
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+
+  /* ═══ SLIDE — combined facilities ═══ */
+  .fac-wrap { max-width: 1120px; margin: 0 auto; width: 100%; }
+  .fac-cap-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    margin-bottom: 24px;
+  }
+  .fac-cap-cell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--crp-blue);
+    border-radius: var(--radius-lg);
+    padding: 22px 22px;
+    box-shadow: var(--shadow-md);
+  }
+  .fac-cap-cell:nth-child(2) { border-top-color: var(--crp-orange); }
+  .fac-cap-cell h4 {
+    font-size: 13.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--crp-blue); margin: 0 0 10px; font-weight: 700;
+  }
+  .fac-cap-cell ul {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .fac-cap-cell li {
+    font-size: 14.5px; color: var(--crp-navy); opacity: 0.92;
+    line-height: 1.4; padding-left: 12px; position: relative;
+  }
+  .fac-cap-cell li::before {
+    content: '–'; position: absolute; left: 0; color: var(--crp-blue); font-weight: 700;
+  }
+  .fac-sites {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .fac-site {
+    background: var(--blue-bg);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    display: flex; align-items: baseline; gap: 12px;
+  }
+  .fac-site strong {
+    font-size: 16px; font-weight: 800; color: var(--crp-navy); flex-shrink: 0;
+  }
+  .fac-site span {
+    font-size: 14.5px; color: var(--crp-navy); opacity: 0.92; line-height: 1.4;
+  }
+
+  /* ═══ SLIDE — treatments grid (drug logos) ═══ */
+  .tx-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    max-width: 1120px; margin: 0 auto; width: 100%;
+  }
+  .tx-cell {
+    height: 88px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center;
+    padding: 10px 16px;
+    box-shadow: var(--shadow-sm);
+  }
+  .tx-cell img { max-height: 56px; max-width: 100%; width: auto; }
+  .tx-cell .tx-fb {
+    display: none; flex-direction: column; align-items: center; gap: 4px;
+    text-align: center;
+  }
+  .tx-cell .tx-fb .brand {
+    font-size: 19px; font-weight: 800; color: var(--crp-navy);
+    letter-spacing: -0.01em; line-height: 1;
+  }
+  .tx-cell .tx-fb .gen {
+    font-size: 14.5px; color: var(--fg-2);
+    text-transform: lowercase; letter-spacing: 0.02em;
+  }
+  .tx-cat {
+    font-size: 13.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--crp-blue); font-weight: 700;
+    text-align: center; margin-bottom: 14px;
+  }
+  .tx-col { display: flex; flex-direction: column; gap: 10px; }
+
+  /* ═══ SLIDE — track record / logo wall ═══ */
+  .logo-wall-wrap { max-width: 1120px; margin: 0 auto; width: 100%; }
+  .logo-wall {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
+    margin-bottom: 24px;
+  }
+  .logo-cell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    height: 80px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 12px 16px;
+    box-shadow: var(--shadow-xs);
+    position: relative;
+  }
+  .logo-cell img {
+    max-width: 100%; max-height: 56px;
+    width: auto; height: auto;
+    filter: grayscale(100%);
+    opacity: 0.92;
+  }
+  .logo-cell .name-fb {
+    display: none;
+    font-size: 14.5px; font-weight: 800; color: var(--crp-navy);
+    text-align: center; line-height: 1.15; letter-spacing: -0.01em;
+  }
+  .testimonial-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+    margin-top: 16px;
+  }
+  .quote-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--crp-orange);
+    border-radius: var(--radius-lg);
+    padding: 18px 22px;
+    box-shadow: var(--shadow-md);
+  }
+  .quote-card blockquote {
+    margin: 0 0 8px; font-size: 15.5px; line-height: 1.45;
+    color: var(--crp-navy); font-style: italic;
+  }
+  .quote-card cite {
+    font-size: 13.5px; font-weight: 700; color: var(--crp-blue);
+    font-style: normal; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+
+  /* ═══ SLIDE — facilities ═══ */
+  .fac-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .fac-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--crp-blue);
+    border-radius: var(--radius-xl);
+    padding: 28px 30px;
+    box-shadow: var(--shadow-md);
+  }
+  .fac-card:nth-child(2) { border-top-color: var(--crp-orange); }
+  .fac-card .fac-eye { font-size: 13.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--crp-blue); font-weight: 700; margin-bottom: 6px; }
+  .fac-card h3 { font-size: 28px; font-weight: var(--fw-extrabold); color: var(--crp-navy); margin: 0 0 14px; line-height: 1.1; }
+  .fac-card .fac-desc { font-size: 15.5px; color: var(--fg-2); line-height: 1.5; margin-bottom: 18px; }
+  .fac-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .fac-chip { font-size: 13.5px; padding: 6px 12px; border-radius: 999px; background: var(--blue-bg); color: var(--crp-navy); font-weight: 600; }
+
+  /* ═══ SLIDE — diversity ═══ */
+  .div-hero {
+    display: flex; align-items: center; gap: 32px;
+    padding: 24px 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--crp-orange);
+    border-radius: var(--radius-lg);
+    margin-bottom: 28px; max-width: 1080px;
+    box-shadow: var(--shadow-sm);
+  }
+  .div-hero .num { font-size: 64px; font-weight: var(--fw-extrabold); color: var(--crp-navy); line-height: 1; flex-shrink: 0; letter-spacing: -0.02em; }
+  .div-hero .copy { font-size: 17px; color: var(--crp-navy); line-height: 1.4; font-weight: 500; }
+  .div-hero .copy .bench { display: block; font-size: 14.5px; color: var(--fg-2); margin-top: 6px; font-weight: 400; }
+  .div-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+  .div-col h4 { font-size: 12.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--crp-blue); margin: 0 0 14px; font-weight: 700; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .div-row { margin-bottom: 12px; }
+  .div-row .dh { display: flex; justify-content: space-between; margin-bottom: 4px; }
+  .div-row .dl { font-size: 14.5px; color: var(--crp-navy); font-weight: 500; }
+  .div-row .dp { font-size: 15.5px; color: var(--crp-navy); font-weight: 800; font-variant-numeric: tabular-nums; }
+  .div-row .dt { height: 8px; background: #dde6f5; border-radius: 999px; overflow: hidden; }
+  .div-row .df { height: 100%; background: var(--crp-blue); border-radius: 999px; min-width: 4px; }
+  .div-row.accent .df { background: var(--crp-orange); }
+  .div-row.accent .dp { color: var(--crp-orange); }
+
+  /* ═══ SLIDE — track record (sponsors + drugs) ═══ */
+  .track-half h3 { font-size: 15.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--crp-blue); margin: 0 0 14px; font-weight: 700; }
+  .track-sponsors {
+    display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-bottom: 28px;
+  }
+  .track-cell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 8px;
+    font-size: 13.5px; font-weight: 700; color: var(--crp-navy);
+    text-align: center; line-height: 1.2;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 40px;
+  }
+  .track-drugs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .track-drug-col h4 { font-size: 12.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--crp-blue); margin: 0 0 8px; font-weight: 700; }
+  .track-drug-col .pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .drug-pill {
+    background: var(--blue-bg); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 6px 10px;
+    font-size: 13.5px; font-weight: 700; color: var(--crp-navy);
+  }
+  .drug-pill .gen { display: block; font-size: 11.5px; font-weight: 400; color: var(--fg-3); margin-top: 1px; text-transform: lowercase; }
+
+  /* ═══ SLIDE — contact / next step (white) ═══ */
+  .contact {
+    background: var(--surface);
+    color: var(--crp-navy);
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+  }
+  .contact .left { padding: 96px 40px 96px 96px; position: relative; z-index: 2; }
+  .contact .right { padding: 96px 96px 96px 40px; position: relative; z-index: 2; border-left: 1px solid var(--border); }
+  .contact .quat { position: absolute; right: -180px; bottom: -220px; width: 720px; height: 720px; opacity: 0.04; }
+  .contact .ey {
+    font-size: 13.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--crp-blue); margin-bottom: 18px; font-weight: 700;
+  }
+  .contact h2 {
+    font-size: 52px; font-weight: var(--fw-extrabold); line-height: 1.08; margin: 0 0 24px;
+    color: var(--crp-navy); letter-spacing: -0.015em;
+  }
+  .contact .lede { font-size: 17px; line-height: 1.5; color: var(--crp-navy); opacity: 0.92; margin-bottom: 32px; max-width: 540px; }
+  .contact .ctas { display: flex; flex-direction: column; gap: 12px; max-width: 480px; }
+  .contact .cta-btn {
+    background: var(--crp-orange); color: var(--crp-navy);
+    padding: 16px 24px; border-radius: var(--radius-md);
+    font-size: 16px; font-weight: 700; text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 2px 12px rgba(255,153,51,0.25);
+  }
+  .contact .cta-btn.ghost {
+    background: transparent; color: var(--crp-navy);
+    border: 1.5px solid var(--crp-navy); box-shadow: none;
+  }
+  .contact .info { font-size: 15.5px; line-height: 1.6; }
+  .contact .info .lbl {
+    font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--crp-blue); margin-bottom: 4px; font-weight: 700;
+  }
+  .contact .info .blk { margin-bottom: 22px; color: var(--crp-navy); }
+  .contact .info a { color: var(--crp-navy); text-decoration: none; font-weight: 600; }
+  .contact .info a:hover { color: var(--crp-blue); }
+  .contact .footer { color: var(--fg-3); }
+  .contact .footer .mark img { opacity: 0.7; }
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- ═════════ SLIDE 1 — COVER (patient tagline) ═════════ -->
+<section class="slide cover">
+  <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="left">
+    <div class="eyebrow">Clinical Research Philadelphia</div>
+    <h1>The future of medicine</h1>
+    <div class="script-line">begins with you</div>
+    <div class="year">Executive Overview · April 2026</div>
+  </div>
+  <div class="right">
+    <img src="./assets/logos/crp-white.svg" alt="CRP">
+    <div class="cover-tag">Sponsor &amp; CRO Capabilities</div>
+    <div class="cover-date">April 2026</div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> phillyresearch.com</span>
+    <span class="pageno">01</span>
+  </div>
+</section>
+
+<!-- ═════════ SLIDE 2 — WHO WE ARE (8-stat exec snapshot) ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Executive snapshot</div>
+      <h2 class="slide-h2">Thirty years of clinical research in Greater Philadelphia.</h2>
+      <p class="slide-lede">Two sites, more than 500 trials, and a recruitment engine reaching well over a million patients.</p>
+    </div>
+    <div class="slide-body">
+      <div class="stat-row stat-row-8">
+        <div class="stat">
+          <div class="num">30<span class="unit">yrs</span></div>
+          <div class="label">Continuously operating since 1996</div>
+        </div>
+        <div class="stat">
+          <div class="num">500<span class="unit">+</span></div>
+          <div class="label">Clinical trials across diverse therapeutic areas</div>
+        </div>
+        <div class="stat">
+          <div class="num">1.5<span class="unit">M</span></div>
+          <div class="label">Patient records reachable through partner EMRs</div>
+        </div>
+        <div class="stat">
+          <div class="num">50<span class="unit">+</span></div>
+          <div class="label">Referring provider partnerships across PA &amp; NJ</div>
+        </div>
+        <div class="stat">
+          <div class="num">95<span class="unit">%</span></div>
+          <div class="label">Sponsor enrollment targets met or exceeded</div>
+        </div>
+        <div class="stat">
+          <div class="num">200<span class="unit">+</span></div>
+          <div class="label">Years of combined research experience on team</div>
+        </div>
+        <div class="stat">
+          <div class="num">37<span class="unit">%</span></div>
+          <div class="label">Enrollment from racial or ethnic minorities</div>
+        </div>
+        <div class="stat">
+          <div class="num">8</div>
+          <div class="label">Board-certified investigators across our therapeutic areas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Clinical Research Philadelphia</span>
+    <span class="pageno">02</span>
+  </div>
+</section>
+
+<!-- ═════════ SLIDE 3 — PERFORMANCE PROOF ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Performance proof</div>
+      <h2 class="slide-h2">We hit sponsor enrollment targets nine times out of ten.</h2>
+      <p class="slide-lede">Across our last ten trials. The cycle-time metrics below show how.</p>
+    </div>
+    <div class="slide-body">
+      <div class="perf-grid">
+        <div class="hero-stat">
+          <img class="quat-bg" src="./assets/stencils/quatrefoil.svg" alt="">
+          <div class="num">95<span class="pct">%</span></div>
+          <div class="label">of recent studies met or exceeded the sponsor's enrollment target.</div>
+          <div class="bench">In our cardiometabolic trials, we've enrolled <strong>340%</strong> and <strong>186%</strong> of target.</div>
+        </div>
+        <div class="perf-supporting">
+          <div class="perf-row">
+            <div class="v"><span class="sm">&lt;</span>7</div>
+            <div class="t">
+              <div class="ttl">Days from greenlight to first screen</div>
+              <div class="desc">Recruitment mobilizes the moment IRB clears.</div>
+            </div>
+          </div>
+          <div class="perf-row">
+            <div class="v">3</div>
+            <div class="t">
+              <div class="ttl">Days from start-up packet to IRB submission</div>
+              <div class="desc">Regulatory turns documents in parallel, not in sequence.</div>
+            </div>
+          </div>
+          <div class="perf-row">
+            <div class="v"><span class="sm">&lt;</span>7</div>
+            <div class="t">
+              <div class="ttl">Days from draft budget to contract finalized</div>
+              <div class="desc">In-house budget &amp; contracting eliminates back-and-forth.</div>
+            </div>
+          </div>
+          <div class="perf-row">
+            <div class="v">3</div>
+            <div class="t">
+              <div class="ttl">Days average query resolution</div>
+              <div class="desc">EDC queries cleared within the same business week.</div>
+            </div>
+          </div>
+          <div class="perf-row">
+            <div class="v">1</div>
+            <div class="t">
+              <div class="ttl">Day average EDC data entry</div>
+              <div class="desc">CRIO source-to-EDC — no double entry.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Performance · last 10 trials</span>
+    <span class="pageno">03</span>
+  </div>
+</section>
+
+<!-- ═════════ SLIDE 4 — THREE PILLARS ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Why CRP</div>
+      <h2 class="slide-h2">Tech, team, and start-up speed are how we get there.</h2>
+      <p class="slide-lede">Three reasons sponsors hand us their toughest enrollment targets.</p>
+    </div>
+    <div class="slide-body">
+      <div class="pillar-grid pillar-grid-wrap">
+        <div class="pillar">
+          <div class="pillar-eyebrow">Tech</div>
+          <h3>An analytics layer most sites don't have.</h3>
+          <div class="pillar-stat">100<span class="unit">%</span></div>
+          <div class="pillar-stat-label">eSource · zero paper</div>
+          <p>CRIO eSource plus BigQuery and an agent-driven dashboard. Coordinators answer queries the same day, monitors see live data, and we surface risk before it becomes a finding.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-eyebrow">Team</div>
+          <h3>Two hundred years of combined experience under one roof.</h3>
+          <div class="pillar-stat">8</div>
+          <div class="pillar-stat-label">Board-certified investigators</div>
+          <p>Investigators across cardiology, endocrinology, derm, rheum, internal medicine, and OB/GYN. Coordinators average eight years on platform — studies see the same staff visit-to-visit.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-eyebrow">Start-up speed</div>
+          <h3>Built to mobilize the moment we are selected.</h3>
+          <div class="pillar-stat">21<span class="unit">days</span></div>
+          <div class="pillar-stat-label">Start-up · first patient screened &lt;7 days after greenlight</div>
+          <p>Parallel regulatory and recruitment workflows, two facilities ready to run, and a provider partnership network we pulse the day a study opens.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Three pillars · Tech, Team, Start-up speed</span>
+    <span class="pageno">04</span>
+  </div>
+</section>
+
+<!-- ═════════ SLIDE 5 — THERAPEUTIC DEPTH ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Therapeutic depth</div>
+      <h2 class="slide-h2">Cardiometabolic is our anchor. We run four other areas alongside it.</h2>
+      <p class="slide-lede">Verified actuals shown for cardiometabolic. Other columns show current enrollment status.</p>
+    </div>
+    <div class="slide-body">
+      <div class="ta-cols" style="max-width:1120px;margin:0 auto;width:100%;">
+        <div class="ta-block">
+          <h4>Cardiometabolic</h4>
+          <div class="ta-study">
+            <div class="ta-name">Lp(a) ASCVD CVOT</div>
+            <span class="ta-status live">Currently enrolling</span>
+            <div class="ta-actual">Target 15 · <strong>Actual 51 · 340%</strong></div>
+          </div>
+          <div class="ta-study">
+            <div class="ta-name">ASCVD + CKD</div>
+            <span class="ta-status live">Currently enrolling</span>
+            <div class="ta-actual">Target 7 · <strong>Actual 13 · 186%</strong></div>
+          </div>
+          <div class="ta-study">
+            <div class="ta-name">T2DM + CV Risk</div>
+            <span class="ta-status">Recently closed</span>
+            <div class="ta-actual">Target 5 · <strong>Actual 9 · 180%</strong></div>
+          </div>
+        </div>
+        <div class="ta-block">
+          <h4>Derm &amp; Rheum</h4>
+          <div class="ta-study"><div class="ta-name">Plaque Psoriasis</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-study"><div class="ta-name">Atopic Dermatitis</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-study"><div class="ta-name">Sjögren's Disease</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-study"><div class="ta-name">Hidradenitis Suppurativa</div><span class="ta-status live">Currently enrolling</span></div>
+        </div>
+        <div class="ta-block">
+          <h4>Neurology</h4>
+          <div class="ta-study"><div class="ta-name">Migraine Prevention</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-study"><div class="ta-name">Alzheimer's Disease</div><span class="ta-status">Long-running</span></div>
+        </div>
+        <div class="ta-block">
+          <h4>Women's Health</h4>
+          <div class="ta-study"><div class="ta-name">Contraception / Birth Control</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-study"><div class="ta-name">Menstrual Migraine</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-study"><div class="ta-name">Hot Flashes</div><span class="ta-status">Long-running</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Selected studies · non-exhaustive</span>
+    <span class="pageno">05</span>
+  </div>
+</section>
+
+<!-- ═════════ SLIDE 6 — TECH STACK (themes only, no numbers) ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">The tech moat</div>
+      <h2 class="slide-h2">We built our own data layer on top of CRIO.</h2>
+      <p class="slide-lede">CRIO is the source of truth. Everything else is automation we built to compress cycle times and surface risk in real time.</p>
+    </div>
+    <div class="slide-body">
+      <div class="stack" style="max-width:1120px;margin:0 auto;width:100%;">
+        <div class="stack-node">
+          <div class="stack-eyebrow">Source of truth</div>
+          <h4>CRIO</h4>
+          <p>eSource CTMS. Every visit, query, status change, and document lives here.</p>
+        </div>
+        <div class="stack-node">
+          <div class="stack-eyebrow">Warehouse</div>
+          <h4>BigQuery</h4>
+          <p>All CRIO tables synced. Joined with ClickUp, finance, and our lead CRM for live operational queries.</p>
+        </div>
+        <div class="stack-node">
+          <div class="stack-eyebrow">Automation</div>
+          <h4>Agents</h4>
+          <p>Reconcile leads, sync medical records, compose sponsor chase emails, watch for scheduling gaps.</p>
+        </div>
+        <div class="stack-node">
+          <div class="stack-eyebrow">Last mile</div>
+          <h4>Dashboard + HIE</h4>
+          <p>Live ops dashboard for the team. HSX and NJHIN integration for clinical record retrieval.</p>
+        </div>
+      </div>
+      <div class="stack-row" style="max-width:1120px;margin:24px auto 0;width:100%;">
+        <div class="row-cell"><div class="row-h">Reach</div><div class="row-d">Patient records reachable across partner EMRs</div></div>
+        <div class="row-cell"><div class="row-h">Re-engagement</div><div class="row-d">Cross-study matching surfaces prior I/E-cleared candidates</div></div>
+        <div class="row-cell"><div class="row-h">QA agent</div><div class="row-d">Every outbound comm reviewed before send</div></div>
+        <div class="row-cell"><div class="row-h">Audit</div><div class="row-d">Per-action audit log, BAA-ready, HIPAA-grade</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> CRIO · BigQuery · Agents · Dashboard</span>
+    <span class="pageno">06</span>
+  </div>
+</section>
+
+<!-- ═════════ SLIDE 7 — RECRUITMENT FUNNEL (themes, fits in slide) ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Recruitment engine</div>
+      <h2 class="slide-h2">Three lead channels feed one coordinator queue.</h2>
+      <p class="slide-lede">Provider EMR mining, paid digital, and our cross-study re-engagement pool. One pipeline. One owner.</p>
+    </div>
+    <div class="slide-body">
+      <div class="funnel" style="max-width:880px;margin:0 auto;width:100%;">
+        <div class="funnel-step">
+          <div class="fnum">50<span class="unit">+</span></div>
+          <div class="fbody">
+            <div class="ftitle">Referring provider partnerships</div>
+            <div class="fdesc">Cardiology, endocrinology, primary care, dermatology. Direct EMR access at most.</div>
+          </div>
+        </div>
+        <div class="funnel-step">
+          <div class="fnum">1.5<span class="unit">M</span></div>
+          <div class="fbody">
+            <div class="ftitle">Patient records reachable via partner EMRs</div>
+            <div class="fdesc">Diagnosis-driven candidate lists per protocol, generated within a day of greenlight.</div>
+          </div>
+        </div>
+        <div class="funnel-step">
+          <div class="fnum">3</div>
+          <div class="fbody">
+            <div class="ftitle">Lead channels feeding one queue</div>
+            <div class="fdesc">Provider mining + paid digital + cross-study re-engagement pool. Multi-channel outreach (phone / SMS / email / fax), every outbound message QA-reviewed.</div>
+          </div>
+        </div>
+        <div class="funnel-step">
+          <div class="fnum">10<span class="unit">k+</span></div>
+          <div class="fbody">
+            <div class="ftitle">Lifetime enrollments — 500+ studies, 30 years</div>
+            <div class="fdesc">Coordinator queue is single-owner so nothing falls through the cracks.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Top of funnel to enrolled</span>
+    <span class="pageno">07</span>
+  </div>
+</section>
+
+<!-- ═════════ SLIDE 8 — INVESTIGATORS (with headshots) ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Investigators</div>
+      <h2 class="slide-h2">Eight board-certified investigators across our therapeutic areas.</h2>
+      <p class="slide-lede">Combined 200+ years of clinical research experience. Most have been with CRP for over a decade.</p>
+    </div>
+    <div class="slide-body">
+      <div class="ppl-grid cols-4">
+        <div class="ppl-card"><div class="head"><img src="./assets/team/aneesh.png" alt="Aneesh Vaze"></div><div class="name">Aneesh Vaze, MBA</div><div class="role">Managing Director</div></div>
+        <div class="ppl-card"><div class="head"><img src="./assets/team/dr-andruczyk.png" alt="Eugene Andruczyk"></div><div class="name">Eugene Andruczyk, MBA, DO</div><div class="role">Investigator</div><div class="specialty">OB / GYN</div></div>
+        <div class="ppl-card"><div class="head"><img src="./assets/team/lolita.jpg" alt="Lolita Vaughan"></div><div class="name">Lolita Vaughan, CRNP, CCRC</div><div class="role">Investigator</div><div class="specialty">Women's Health</div></div>
+        <div class="ppl-card"><div class="head"><img src="./assets/team/dr-heether.png" alt="Joseph Heether"></div><div class="name">Joseph Heether, MD</div><div class="role">Investigator</div><div class="specialty">Cardiothoracic</div></div>
+      </div>
+      <div class="ppl-grid cols-4" style="margin-top:18px;">
+        <div class="ppl-card"><div class="head"><img src="./assets/team/dr-shaffer.png" alt="Brian Shaffer"></div><div class="name">Brian Shaffer, MD</div><div class="role">Investigator</div><div class="specialty">Internal Medicine</div></div>
+        <div class="ppl-card"><div class="head"><img src="./assets/team/dr-modarressi.png" alt="Taher Modarressi"></div><div class="name">Taher Modarressi, MD</div><div class="role">Investigator</div><div class="specialty">Endo / Lipidology</div></div>
+        <div class="ppl-card"><div class="head"><img src="./assets/team/dr-tomeo.jpg" alt="Michael Tomeo"></div><div class="name">Michael Tomeo, MD</div><div class="role">Investigator</div><div class="specialty">Dermatology</div></div>
+        <div class="ppl-card"><div class="head"><img src="./assets/team/dr-leventhal.png" alt="Lawrence Leventhal"></div><div class="name">Lawrence Leventhal, MD</div><div class="role">Investigator</div><div class="specialty">Rheumatology</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Investigators · board-certified across our TAs</span>
+    <span class="pageno">08</span>
+  </div>
+</section>
+
+<!-- ═════════ SLIDE 9 — OPERATIONS & COORDINATORS (with headshots) ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Operations &amp; coordinators</div>
+      <h2 class="slide-h2">Coordinators who average eight years on platform.</h2>
+      <p class="slide-lede">Continuity of staff across visits — your study sees the same faces from screening to closeout.</p>
+    </div>
+    <div class="slide-body">
+      <div class="ppl-grid cols-4">
+        <div class="ppl-card"><div class="head"><img src="./assets/team/liz.png" alt="Liz Usmiani"></div><div class="name">Liz Usmiani</div><div class="role">Recruitment &amp; Ops Lead</div></div>
+        <div class="ppl-card"><div class="head"><img src="./assets/team/leticia.png" alt="Leticia Denato"></div><div class="name">Leticia Denato, MPH</div><div class="role">Operations Manager</div></div>
+        <div class="ppl-card"><div class="head"><img src="./assets/team/stacey.jpg" alt="Stacey Scott"></div><div class="name">Stacey Scott, RMA</div><div class="role">Coordinator</div></div>
+        <div class="ppl-card"><div class="head"><img src="./assets/team/ruby.png" alt="Ruby Pereira"></div><div class="name">Ruby Pereira</div><div class="role">Coordinator</div></div>
+      </div>
+      <div class="ppl-grid cols-4-3" style="margin-top:18px;">
+        <div class="ppl-card"><div class="head"><img src="./assets/team/mario.jpg" alt="Mario Castellanos"></div><div class="name">Mario Castellanos, RMA</div><div class="role">Coordinator</div></div>
+        <div class="ppl-card"><div class="head"><img src="./assets/team/cady.jpg" alt="Cady Chilensky"></div><div class="name">Cady Chilensky</div><div class="role">Coordinator</div></div>
+        <div class="ppl-card"><div class="head"><img src="./assets/team/angelina.jpg" alt="Angelina McMullen"></div><div class="name">Angelina McMullen</div><div class="role">Coordinator</div></div>
+      </div>
+      <p style="text-align:center;font-size:14px;color:var(--crp-navy);opacity:0.85;margin-top:22px;">Plus six recruiters, eight regulatory specialists, two phlebotomy and lab staff, one quality assurance lead.</p>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Operations &amp; coordinators</span>
+    <span class="pageno">09</span>
+  </div>
+</section>
+
+<!-- ═════════ SLIDE 10 — FACILITIES (combined) ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Facilities</div>
+      <h2 class="slide-h2">Two sites. Same operational standard.</h2>
+      <p class="slide-lede">Both sites are equipped end-to-end for Phase II–IV — on-site IP storage, specialized equipment, sponsor workspace.</p>
+    </div>
+    <div class="slide-body">
+      <div class="fac-wrap">
+        <div class="fac-cap-grid">
+          <div class="fac-cap-cell">
+            <h4>On-site equipment</h4>
+            <ul>
+              <li>FibroScan</li>
+              <li>Ultrasound</li>
+              <li>Centrifuges</li>
+              <li>EKG</li>
+              <li>Infusion pumps</li>
+              <li>Incubator</li>
+            </ul>
+          </div>
+          <div class="fac-cap-cell">
+            <h4>IP storage &amp; lab</h4>
+            <ul>
+              <li>Ambient secured drug storage</li>
+              <li>Refrigerated 2–8°C</li>
+              <li>Frozen -20°C and -80°C</li>
+              <li>24/7 temperature monitoring</li>
+              <li>Sample processing lab</li>
+              <li>Phlebotomy &amp; nursing stations</li>
+            </ul>
+          </div>
+          <div class="fac-cap-cell">
+            <h4>Workspace</h4>
+            <ul>
+              <li>Private exam rooms</li>
+              <li>Investigator offices</li>
+              <li>Coordinator offices</li>
+              <li>Dedicated monitor workstations</li>
+              <li>Sponsor conference / training room</li>
+              <li>Patient-only restrooms</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fac-sites">
+          <div class="fac-site">
+            <strong>Philadelphia, PA</strong>
+            <span>9501 Roosevelt Blvd #208 · Class-A medical building, 24-hour urgent care on campus, SEPTA accessible</span>
+          </div>
+          <div class="fac-site">
+            <strong>Pennington, NJ</strong>
+            <span>21 Route 31 North, Suite A8 · Off I-95 / US-1, suburban location, free parking</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> PA + NJ · sponsor-ready, end-to-end</span>
+    <span class="pageno">10</span>
+  </div>
+</section>
+
+<!-- ═════════ SLIDE 11 — RISK / QUALITY / CAPACITY ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Risk profile</div>
+      <h2 class="slide-h2">Built for sponsor confidence.</h2>
+      <p class="slide-lede">Quality, security, and capacity are table stakes. We treat them as proof points.</p>
+    </div>
+    <div class="slide-body">
+      <div class="risk-grid" style="max-width:1120px;margin:0 auto;width:100%;">
+        <div class="risk-card">
+          <div class="risk-eye">Compliance</div>
+          <h4>Inspection-ready</h4>
+          <ul>
+            <li>30 years of continuous operation</li>
+            <li>Zero FDA Form 483s</li>
+            <li>Last sponsor audit December 2024 — no findings</li>
+            <li>SOPs maintained for ICH-GCP E6 (R3)</li>
+          </ul>
+        </div>
+        <div class="risk-card">
+          <div class="risk-eye">Regulatory speed</div>
+          <h4>Cleared and ready in days, not weeks</h4>
+          <ul>
+            <li>3 days from packet to IRB submission</li>
+            <li>&lt;7 days from greenlight to first screen</li>
+            <li>Standing IRB relationships: Advarra, WCG, Sterling</li>
+            <li>In-house budget &amp; contracting team</li>
+          </ul>
+        </div>
+        <div class="risk-card">
+          <div class="risk-eye">Active capacity</div>
+          <h4>Bandwidth for new starts</h4>
+          <ul>
+            <li>15+ currently enrolling protocols</li>
+            <li>Two sites running in parallel</li>
+            <li>Coordinator rotation across protocols</li>
+          </ul>
+        </div>
+        <div class="risk-card">
+          <div class="risk-eye">Data security</div>
+          <h4>HIPAA-compliant end to end</h4>
+          <ul>
+            <li>Encrypted, role-based access only</li>
+            <li>Every action logged for audit</li>
+            <li>Direct EHR connection for medical records</li>
+            <li>BAA-ready from kickoff</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Risk profile · what sponsors check first</span>
+    <span class="pageno">11</span>
+  </div>
+</section>
+
+<!-- ═════════ SLIDE 12 — DIVERSITY & ACCESS ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Diversity in enrollment</div>
+      <h2 class="slide-h2">Our enrollment reflects the populations FDA wants to reach.</h2>
+      <p class="slide-lede">Aggregate participant demographics across all studies, trailing 12 months. Pulled live from CRIO.</p>
+    </div>
+    <div class="slide-body">
+      <div style="max-width:1120px;margin:0 auto;width:100%;">
+        <div class="div-hero">
+          <div class="num">37%</div>
+          <div class="copy">
+            of CRP enrollment identifies as a racial or ethnic minority.
+            <span class="bench">Above FDA targets for representative trial populations.</span>
+          </div>
+        </div>
+        <div class="div-grid">
+          <div class="div-col">
+            <h4>Gender</h4>
+            <div class="div-row"><div class="dh"><span class="dl">Female</span><span class="dp">51%</span></div><div class="dt"><div class="df" style="width:51%"></div></div></div>
+            <div class="div-row"><div class="dh"><span class="dl">Male</span><span class="dp">43%</span></div><div class="dt"><div class="df" style="width:43%"></div></div></div>
+            <div class="div-row"><div class="dh"><span class="dl">Other / Not specified</span><span class="dp">6%</span></div><div class="dt"><div class="df" style="width:6%"></div></div></div>
+          </div>
+          <div class="div-col">
+            <h4>Race &amp; Ethnicity</h4>
+            <div class="div-row"><div class="dh"><span class="dl">Caucasian</span><span class="dp">53%</span></div><div class="dt"><div class="df" style="width:53%"></div></div></div>
+            <div class="div-row"><div class="dh"><span class="dl">African American</span><span class="dp">23%</span></div><div class="dt"><div class="df" style="width:23%"></div></div></div>
+            <div class="div-row"><div class="dh"><span class="dl">Hispanic / Latino</span><span class="dp">14%</span></div><div class="dt"><div class="df" style="width:14%"></div></div></div>
+            <div class="div-row"><div class="dh"><span class="dl">Asian</span><span class="dp">7%</span></div><div class="dt"><div class="df" style="width:7%"></div></div></div>
+            <div class="div-row"><div class="dh"><span class="dl">Other</span><span class="dp">3%</span></div><div class="dt"><div class="df" style="width:3%"></div></div></div>
+          </div>
+          <div class="div-col">
+            <h4>Age</h4>
+            <div class="div-row"><div class="dh"><span class="dl">18 – 34</span><span class="dp">15%</span></div><div class="dt"><div class="df" style="width:15%"></div></div></div>
+            <div class="div-row"><div class="dh"><span class="dl">35 – 44</span><span class="dp">15%</span></div><div class="dt"><div class="df" style="width:15%"></div></div></div>
+            <div class="div-row"><div class="dh"><span class="dl">45 – 54</span><span class="dp">25%</span></div><div class="dt"><div class="df" style="width:25%"></div></div></div>
+            <div class="div-row"><div class="dh"><span class="dl">55 – 64</span><span class="dp">25%</span></div><div class="dt"><div class="df" style="width:25%"></div></div></div>
+            <div class="div-row"><div class="dh"><span class="dl">65+</span><span class="dp">20%</span></div><div class="dt"><div class="df" style="width:20%"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Demographics · trailing 12 months</span>
+    <span class="pageno">12</span>
+  </div>
+</section>
+
+<!-- ═════════ SLIDE 13 — TRACK RECORD (real logo wall + testimonials) ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Track record</div>
+      <h2 class="slide-h2">Sponsors trust us. Approved medicines prove it.</h2>
+      <p class="slide-lede">A non-exhaustive selection.</p>
+    </div>
+    <div class="slide-body">
+      <div class="logo-wall-wrap">
+        <div class="logo-wall">
+          <div class="logo-cell"><img src="./assets/sponsors/abbvie.svg" alt="AbbVie" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="name-fb">AbbVie</span></div>
+          <div class="logo-cell"><img src="./assets/sponsors/merck.svg" alt="Merck" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="name-fb">Merck</span></div>
+          <div class="logo-cell"><img src="./assets/sponsors/lilly.svg" alt="Eli Lilly" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="name-fb">Eli Lilly</span></div>
+          <div class="logo-cell"><img src="./assets/sponsors/pfizer.svg" alt="Pfizer" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="name-fb">Pfizer</span></div>
+          <div class="logo-cell"><img src="./assets/sponsors/novartis.svg" alt="Novartis" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="name-fb">Novartis</span></div>
+          <div class="logo-cell"><img src="./assets/sponsors/sanofi.svg" alt="Sanofi" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="name-fb">Sanofi</span></div>
+          <div class="logo-cell"><img src="./assets/sponsors/bayer.svg" alt="Bayer" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="name-fb">Bayer</span></div>
+          <div class="logo-cell"><img src="./assets/sponsors/novo-nordisk.svg" alt="Novo Nordisk" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="name-fb">Novo Nordisk</span></div>
+          <div class="logo-cell"><img src="./assets/sponsors/bms.svg" alt="Bristol Myers Squibb" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="name-fb">Bristol Myers Squibb</span></div>
+          <div class="logo-cell"><img src="./assets/sponsors/janssen.svg" alt="Janssen" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="name-fb">Janssen</span></div>
+          <div class="logo-cell"><img src="./assets/sponsors/amgen.svg" alt="Amgen" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="name-fb">Amgen</span></div>
+          <div class="logo-cell"><img src="./assets/sponsors/gsk.svg" alt="GSK" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="name-fb">GSK</span></div>
+          <div class="logo-cell"><img src="./assets/sponsors/takeda.svg" alt="Takeda" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="name-fb">Takeda</span></div>
+          <div class="logo-cell"><img src="./assets/sponsors/daiichi-sankyo.svg" alt="Daiichi Sankyo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="name-fb">Daiichi Sankyo</span></div>
+          <div class="logo-cell"><img src="./assets/sponsors/abbott.svg" alt="Abbott" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="name-fb">Abbott</span></div>
+        </div>
+        <div class="testimonial-row">
+          <div class="quote-card">
+            <blockquote>"CRP's commitment and professionalism is inspiring."</blockquote>
+            <cite>IQVIA &amp; Daiichi Sankyo</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"Working with CRP's dedicated team has always been a great pleasure."</blockquote>
+            <cite>Bayer</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Sponsors · what they say · what they advanced</span>
+    <span class="pageno">13</span>
+  </div>
+</section>
+
+<!-- ═════════ SLIDE 14 — TREATMENTS WE'VE HELPED ADVANCE ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Treatments we've helped advance</div>
+      <h2 class="slide-h2">Approved medicines our trials helped get to market.</h2>
+      <p class="slide-lede">A non-exhaustive selection across diabetes &amp; obesity, migraine, and dermatology &amp; rheumatology.</p>
+    </div>
+    <div class="slide-body">
+      <div class="tx-grid">
+        <div class="tx-col">
+          <div class="tx-cat">Diabetes &amp; Obesity</div>
+          <div class="tx-cell"><img src="./assets/treatments/wegovy.png" alt="Wegovy" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tx-fb"><span class="brand">Wegovy</span><span class="gen">semaglutide</span></div></div>
+          <div class="tx-cell"><img src="./assets/treatments/ozempic.png" alt="Ozempic" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tx-fb"><span class="brand">Ozempic</span><span class="gen">semaglutide</span></div></div>
+          <div class="tx-cell"><img src="./assets/treatments/mounjaro.png" alt="Mounjaro" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tx-fb"><span class="brand">Mounjaro</span><span class="gen">tirzepatide</span></div></div>
+        </div>
+        <div class="tx-col">
+          <div class="tx-cat">Migraine</div>
+          <div class="tx-cell"><img src="./assets/treatments/nurtec.png" alt="Nurtec ODT" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tx-fb"><span class="brand">Nurtec ODT</span><span class="gen">rimegepant</span></div></div>
+          <div class="tx-cell"><img src="./assets/treatments/ubrelvy.png" alt="Ubrelvy" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tx-fb"><span class="brand">Ubrelvy</span><span class="gen">ubrogepant</span></div></div>
+          <div class="tx-cell"><img src="./assets/treatments/qulipta.png" alt="Qulipta" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tx-fb"><span class="brand">Qulipta</span><span class="gen">atogepant</span></div></div>
+        </div>
+        <div class="tx-col">
+          <div class="tx-cat">Derm &amp; Rheum</div>
+          <div class="tx-cell"><img src="./assets/treatments/dupixent.png" alt="Dupixent" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tx-fb"><span class="brand">Dupixent</span><span class="gen">dupilumab</span></div></div>
+          <div class="tx-cell"><img src="./assets/treatments/rinvoq.png" alt="Rinvoq" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tx-fb"><span class="brand">Rinvoq</span><span class="gen">upadacitinib</span></div></div>
+          <div class="tx-cell"><img src="./assets/treatments/olumiant.png" alt="Olumiant" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tx-fb"><span class="brand">Olumiant</span><span class="gen">baricitinib</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Approved treatments · trials we supported</span>
+    <span class="pageno">14</span>
+  </div>
+</section>
+
+<!-- ═════════ SLIDE 15 — CONTACT / NEXT STEP ═════════ -->
+<section class="slide contact">
+  <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="left">
+    <div class="ey">Let's talk</div>
+    <h2>Send us a protocol.<br>We'll respond within 48 hours.</h2>
+    <p class="lede">We can review your protocol, scope a feasibility plan, and have a site qualification call on the calendar within the week.</p>
+    <div class="ctas">
+      <a href="https://calendar.app.google/zJ21ZoeajmTxhG6r8" target="_blank" rel="noopener" class="cta-btn">Schedule a site qualification call <span>→</span></a>
+      <a href="https://phillyresearch.com/sponsors" class="cta-btn ghost">See our full sponsor capabilities <span>→</span></a>
+    </div>
+  </div>
+  <div class="right info">
+    <div class="blk">
+      <div class="lbl">Email</div>
+      <a href="mailto:aneesh@phillyresearch.com">aneesh@phillyresearch.com</a>
+    </div>
+    <div class="blk">
+      <div class="lbl">Phone</div>
+      <a href="tel:+12156766696">(215) 676-6696</a>
+    </div>
+    <div class="blk">
+      <div class="lbl">Philadelphia, PA</div>
+      9501 Roosevelt Blvd #208<br>Philadelphia, PA 19114
+    </div>
+    <div class="blk">
+      <div class="lbl">Pennington, NJ</div>
+      21 Route 31 North, Suite A8<br>Pennington, NJ 08534
+    </div>
+    <div class="blk">
+      <div class="lbl">Web</div>
+      <a href="https://phillyresearch.com">phillyresearch.com</a>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Clinical Research Philadelphia · April 2026</span>
+    <span class="pageno">15</span>
+  </div>
+</section>
+
+</div>
+</body>
+</html>

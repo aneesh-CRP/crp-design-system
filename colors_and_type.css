@@ -1,0 +1,324 @@
+/* CRP Design System — Colors & Type
+   Clinical Research Philadelphia, LLC
+   Source: new-branding/README.md + dashboard styles.css
+*/
+
+/* ═══ Brand font faces ═══ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;800&display=swap');
+@font-face { font-family: 'Market Pro'; src: url('./assets/fonts/MarketPro.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+
+:root {
+  /* ═══ Primary Brand Palette ═══ */
+  --crp-navy:   #072061;  /* Primary — headers, buttons, body accents */
+  --crp-blue:   #1843AD;  /* Secondary blue — links, CTAs, active state */
+  --crp-cyan:   #A2DCEB;  /* Light accent — illustration backgrounds */
+  --crp-orange: #FF9933;  /* CTA / warmth — Market Pro script + hand-drawn marks */
+
+  /* ═══ Brand Gradient Endpoints (bottom-left → top-right only) ═══ */
+  --crp-navy-deep:      #0d2e7a;   /* deepened navy for gradient endpoints */
+  --crp-blue-light:     #3a6bc5;   /* lighter blue for hero gradients */
+  --gradient-navy-blue: linear-gradient(135deg, #072061 0%, #1843AD 100%);
+  --gradient-cyan-blue: linear-gradient(135deg, #A2DCEB 0%, #1843AD 100%);
+  --gradient-orange-navy: linear-gradient(135deg, #FF9933 0%, #072061 100%);
+
+  /* ═══ Neutrals ═══ */
+  --crp-black:      #000000;
+  --crp-dark-gray:  #828282;
+  --crp-light-gray: #D2D2D2;
+  --crp-white:      #FFFFFF;
+
+  /* ═══ Semantic UI Tokens (from dashboard) ═══ */
+  --bg:        #f0f4fa;  /* page background — cool blue-tinted */
+  --surface:   #FFFFFF;  /* card background */
+  --surface-2: #edf2f8;  /* secondary surface, table headers */
+  --border:    #c8d6e8;  /* default card border */
+  --border-2:  #b0c4d8;  /* stronger border */
+
+  /* Foreground text */
+  --fg-1: #072061;  /* primary text — same as navy */
+  --fg-2: #4a6080;  /* muted body / secondary labels */
+  --fg-3: #7a90b0;  /* tertiary / captions */
+
+  /* Status colors */
+  --success:        #10b981;
+  --success-bg:     #ecfdf5;
+  --success-border: #a7f3d0;
+
+  --warning:        #f59e0b;    /* semantic amber */
+  --warning-bg:     #fff8f0;
+  --warning-border: #ffc57a;
+
+  --danger:         #ef4444;
+  --danger-bg:      #fef2f2;
+  --danger-border:  #fecaca;
+
+  /* Brand-orange tint (distinct from semantic warning) */
+  --orange-bg:      #fff3e0;
+  --orange-border:  #ffc57a;
+
+  /* Soft tint backgrounds for inline emphasis */
+  --blue-bg:        #E8EEFF;
+
+  /* ═══ Type ═══ */
+  /* Brand primary: Inter (loaded via Google Fonts, see @import above). */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Monaco, monospace;
+  /* Market Pro: handwritten accent, always orange, sparingly */
+  --font-script: 'Market Pro', 'Caveat', 'Brush Script MT', cursive;
+
+  /* Scale (px, rounded from pt values in brand guide) */
+  --fs-display:  64px;   /* hero, oversized moments */
+  --fs-h1:       48px;   /* Headline (SemiBold) */
+  --fs-h2:       36px;   /* Sub-headline (ExtraBold) */
+  --fs-h3:       24px;
+  --fs-h4:       18px;
+  --fs-body:     15px;   /* Body Regular */
+  --fs-small:    13px;
+  --fs-xs:       11px;
+  --fs-micro:    10px;   /* uppercase labels */
+
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+  --fw-extrabold: 800;
+
+  --lh-tight:  1.15;
+  --lh-snug:   1.35;
+  --lh-normal: 1.5;
+  --lh-loose:  1.65;
+
+  /* ═══ Radii ═══ */
+  --radius-xs: 4px;   /* pills inside tables, tiny chips */
+  --radius-sm: 6px;   /* buttons, small inputs */
+  --radius-md: 8px;   /* alerts, standard buttons */
+  --radius-lg: 10px;  /* cards */
+  --radius-xl: 12px;  /* modal, hero card */
+  --radius-2xl: 16px; /* large container (marketing) */
+  --radius-pill: 999px;
+
+  /* ═══ Shadows ═══ */
+  --shadow-xs: 0 1px 3px rgba(7,32,97,0.04);
+  --shadow-sm: 0 1px 3px rgba(7,32,97,0.06);
+  --shadow-md: 0 2px 12px rgba(26,39,68,0.08);
+  --shadow-lg: 0 4px 16px rgba(7,32,97,0.10);
+  --shadow-xl: 0 24px 60px rgba(7,32,97,0.18);
+  --shadow-hover-blue: 0 4px 16px rgba(24,67,173,0.15);
+
+  /* ═══ Spacing (4-based) ═══ */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ═══ Motion ═══ */
+  --ease-out:     cubic-bezier(.2,.8,.2,1);   /* natural out-ease — default */
+  --ease-in-out:  cubic-bezier(.4,0,.2,1);    /* symmetric, for modals/sheets */
+  --ease-spring:  cubic-bezier(.34,1.56,.64,1); /* subtle overshoot — use sparingly, success states only */
+  --dur-instant: 100ms;  /* color/opacity flips */
+  --dur-fast:    150ms;  /* hover, small moves */
+  --dur-base:    250ms;  /* standard transitions */
+  --dur-slow:    400ms;  /* modal, slide-up */
+  --dur-deliberate: 600ms; /* marketing reveal, never UI */
+
+  /* ═══ Focus ring (a11y) ═══ */
+  /* 2px blue outline + 3px pale-blue halo. Never relies on color alone — always
+     paired with the underlying element's hover/active state. WCAG 2.2 SC 2.4.11. */
+  --ring-color: #1843AD;
+  --ring-halo:  rgba(24,67,173,0.25);
+  --ring: 0 0 0 2px var(--ring-color), 0 0 0 5px var(--ring-halo);
+
+  /* ═══ Data visualization ═══ */
+  /* Categorical scale — up to 6 series before we warn the user the chart
+     has too many series. Ordered by perceptual distinctness, starting on
+     brand navy. Always pair with a shape/pattern legend for a11y. */
+  --chart-1: #1843AD;   /* brand blue     — primary series */
+  --chart-2: #FF9933;   /* brand orange   — comparison / highlight */
+  --chart-3: #10b981;   /* emerald        — positive / growth */
+  --chart-4: #8b5cf6;   /* violet         — extra series */
+  --chart-5: #f59e0b;   /* amber          — caution / mixed */
+  --chart-6: #06b6d4;   /* cyan-dark      — extra series */
+
+  /* Sequential scale — single-hue navy, for heatmaps / density */
+  --chart-seq-1: #E8EEFF;
+  --chart-seq-2: #B8C8F0;
+  --chart-seq-3: #7B98DC;
+  --chart-seq-4: #3A6BC5;
+  --chart-seq-5: #1843AD;
+  --chart-seq-6: #072061;
+
+  /* Diverging scale — red ↔ neutral ↔ green, for variance / delta */
+  --chart-div-neg-2: #dc2626;
+  --chart-div-neg-1: #fca5a5;
+  --chart-div-zero:  #f1f5f9;
+  --chart-div-pos-1: #86efac;
+  --chart-div-pos-2: #16a34a;
+
+  /* Chart chrome */
+  --chart-grid:      #e5ecf5;   /* very pale, cool — major gridlines */
+  --chart-grid-fine: #f1f5f9;   /* minor gridlines + table dividers */
+  --chart-axis:      #7a90b0;   /* axis labels, same as --fg-3 */
+  --chart-axis-line: #c8d6e8;   /* axis rule — same as --border */
+}
+
+/* ═══ Utility — focus-visible ring (opt-in) ═══ */
+.focus-ring:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+  border-radius: var(--radius-sm);
+}
+
+/* ═══ Semantic element styles ═══ */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--fg-1);
+  background: var(--bg);
+}
+
+h1, .h1 {
+  font-family: var(--font-sans);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  color: var(--crp-navy);
+}
+h2, .h2 {
+  font-family: var(--font-sans);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-extrabold);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  color: var(--crp-navy);
+}
+h3, .h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  color: var(--crp-navy);
+}
+h4, .h4 {
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  color: var(--crp-navy);
+}
+p { font-size: var(--fs-body); line-height: var(--lh-loose); color: var(--fg-1); }
+
+.script, .hand {
+  font-family: var(--font-script);
+  color: var(--crp-orange);
+  font-weight: var(--fw-regular);
+}
+
+.eyebrow, .label-caps {
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--fg-2);
+}
+
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+/* ═══ Buttons — canonical recipe ═══
+   ONE recipe across modals, banners, confirm bars, form footers.
+   Size variants only. Never override padding per-context.
+
+     .btn           → 36px · primary action surface (forms, modals, confirms)
+     .btn-sm        → 30px · inline actions in banners & table toolbars
+     .btn-icon      → 28×28 · close / overflow / single-glyph actions
+     .actions       → right-aligned row, 8px gap, ghost-left / primary-right
+*/
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 16px;
+  min-width: 96px;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  border: 1px solid transparent;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  box-sizing: border-box;
+  white-space: nowrap;
+  transition: background var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-fast) var(--ease-out);
+}
+.btn-sm  { height: 30px; padding: 0 12px; min-width: 84px; font-size: 12px; }
+.btn-xs  { height: 24px; padding: 0 10px; min-width: 64px; font-size: 11px; font-weight: 600; }
+
+.btn-primary { background: var(--crp-orange); color: #fff; border-color: var(--crp-orange); }
+.btn-primary:hover { background: #e6872e; border-color: #e6872e; box-shadow: 0 4px 12px rgba(255,153,51,.3); }
+
+.btn-secondary { background: var(--crp-blue); color: #fff; border-color: var(--crp-blue); }
+.btn-secondary:hover { background: #153a96; border-color: #153a96; }
+
+.btn-ghost { background: transparent; color: var(--fg-1); border-color: var(--border); }
+.btn-ghost:hover { border-color: var(--border-2); background: var(--surface-2); }
+
+.btn-ghost-on-dark { background: transparent; color: rgba(255,255,255,.85); border-color: rgba(255,255,255,.28); font-weight: 600; }
+.btn-ghost-on-dark:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.45); color: #fff; }
+
+.btn-danger { background: var(--danger); color: #fff; border-color: var(--danger); }
+.btn-danger:hover { background: #dc2626; border-color: #dc2626; }
+
+.btn-link { background: transparent; color: var(--crp-blue); border-color: transparent; min-width: 0; padding: 0 6px; }
+.btn-link:hover { text-decoration: underline; }
+
+.btn[disabled], .btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+  background: var(--border);
+  color: var(--fg-2);
+  border-color: var(--border);
+  box-shadow: none;
+}
+
+.btn-icon {
+  width: 28px; height: 28px; padding: 0; min-width: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--fg-3);
+  cursor: pointer;
+  font-size: 16px; line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: inherit; flex-shrink: 0;
+  transition: background var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+.btn-icon:hover { background: var(--surface-2); color: var(--fg-1); }
+
+/* Action row — right-aligned, 8px gap, used in modal footers, confirm bars,
+   inline toolbars. Ghost-left, primary-right convention. */
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  align-items: center;
+}

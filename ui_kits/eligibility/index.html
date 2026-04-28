@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CRP · Eligibility funnel — UI kit</title>
+  <link rel="stylesheet" href="../../colors_and_type.css">
+  <link rel="stylesheet" href="eligibility.css?v=2">
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" src="steps.jsx"></script>
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // Step registry → ordered list for nav & progress
+    const STEPS = [
+      { id: "1a",   label: "Capture",    step: 1, Comp: () => <Step1Capture  onNext={() => go("1b")} /> },
+      { id: "1b",   label: "Profile",    step: 2, Comp: () => <Step1bProfile onNext={() => go("2")}  onBack={() => go("1a")} /> },
+      { id: "2",    label: "Conditions", step: 3, Comp: () => <Step2Conditions onNext={() => go("2b")} onBack={() => go("1b")} /> },
+      { id: "2b",   label: "Medications",step: 4, Comp: () => <Step2bMedications onNext={() => go("submit")} onBack={() => go("2")} /> },
+      { id: "submit", label: "Submitting", step: 5, Comp: () => <StepSubmitting />, hideProgress: true },
+      { id: "qual", label: "Qualified",  step: 5, Comp: () => <ResultQualified />, hideProgress: true },
+      { id: "maybe",label: "Maybe",      step: 5, Comp: () => <ResultMaybe />,     hideProgress: true },
+      { id: "none", label: "No match",   step: 5, Comp: () => <ResultNone />,      hideProgress: true },
+    ];
+    const STEP_MAP = Object.fromEntries(STEPS.map(s => [s.id, s]));
+    const TOTAL = 5;
+
+    const LS_KEY = "crp-elig-step";
+    let setter;
+    const go = (id) => { setter(id); localStorage.setItem(LS_KEY, id); };
+
+    // Auto-advance from submit to qualified so the spinner doesn't hang forever
+    const App = () => {
+      const [current, setCurrent] = useState(() => localStorage.getItem(LS_KEY) || "1a");
+      setter = setCurrent;
+      useEffect(() => {
+        if (current === "submit") {
+          const t = setTimeout(() => go("qual"), 1800);
+          return () => clearTimeout(t);
+        }
+      }, [current]);
+      const S = STEP_MAP[current] || STEPS[0];
+      return (
+        <div className="elig-page">
+          <div className="elig-top">
+            <div className="brand"><img src="../../assets/logos/crp-long.png" alt="Clinical Research Philadelphia" /></div>
+            <div className="help">Questions? <a href="tel:+12156766696">(215) 676-6696</a></div>
+          </div>
+          <div className="elig-intro">
+            <h1>See if you qualify for a paid clinical research study.</h1>
+            <p>Takes about 2 minutes. Free health screenings and compensation provided.</p>
+          </div>
+          <div className="elig-stack">
+            <div className="elig-card">
+              {!S.hideProgress && <ProgressBar step={S.step} total={TOTAL} />}
+              <S.Comp />
+            </div>
+
+          </div>
+
+          {/* Prototype-only step navigator, quiet in corner — not part of real build */}
+          <div className="elig-nav-wrap" aria-hidden="true">
+            <span className="elig-nav-label">Prototype states</span>
+            <div className="elig-nav">
+              {STEPS.map(s => (
+                <button key={s.id} className={current === s.id ? "active" : ""} onClick={() => go(s.id)}>
+                  {s.id}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    };
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>

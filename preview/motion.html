@@ -1,0 +1,75 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:26px;background:var(--bg);font-family:var(--font-sans);color:var(--fg-1)}
+  .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:start}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-sm)}
+  .eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--fg-2);margin-bottom:12px}
+  h3{margin:0 0 10px 0;font-size:13px;font-weight:700;color:var(--crp-navy)}
+  .row{display:flex;align-items:center;gap:14px;padding:10px 0;border-top:1px solid var(--chart-grid-fine)}
+  .row:first-of-type{border-top:0}
+  .tok{font-family:var(--font-mono);font-size:11px;color:var(--fg-1);min-width:130px}
+  .val{font-family:var(--font-mono);font-size:10px;color:var(--fg-2);flex:1}
+  .dot{width:18px;height:18px;border-radius:999px;background:var(--crp-blue)}
+  .demo{display:flex;align-items:center;gap:14px;padding:12px 14px;background:var(--surface-2);border-radius:var(--radius-md)}
+  .demo-btn{padding:8px 14px;border-radius:var(--radius-sm);background:var(--crp-orange);color:#fff;font-weight:600;font-size:12px;border:0;cursor:pointer;transition:transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out)}
+  .demo-btn:hover{background:#e6872e;transform:translateY(-1px);box-shadow:0 4px 16px rgba(255,153,51,.3)}
+  .pill{font-family:var(--font-mono);font-size:10px;padding:3px 8px;background:var(--blue-bg);color:var(--crp-blue);border-radius:999px}
+  .mover{width:20px;height:20px;border-radius:4px;background:var(--crp-blue);animation:slide 2.4s infinite}
+  @keyframes slide{0%,100%{transform:translateX(0)}50%{transform:translateX(140px)}}
+  .card-hover{padding:14px;background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);transition:transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);font-size:12px;color:var(--fg-1)}
+  .card-hover:hover{transform:translateY(-1px);box-shadow:var(--shadow-lg);border-color:var(--crp-blue)}
+  .modal-sheet{animation:slideUp 400ms var(--ease-out) infinite alternate;padding:10px 14px;background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);font-size:11px;box-shadow:var(--shadow-xl)}
+  @keyframes slideUp{from{transform:translateY(18px);opacity:0}to{transform:translateY(0);opacity:1}}
+  .bad{color:#ef4444}
+  .good{color:#10b981}
+</style></head><body>
+<div class="grid">
+  <div class="card">
+    <div class="eyebrow">Motion Tokens</div>
+    <div class="row"><div class="tok">--dur-instant</div><div class="val">100ms · color/opacity flips</div></div>
+    <div class="row"><div class="tok">--dur-fast</div><div class="val">150ms · hover, small moves</div></div>
+    <div class="row"><div class="tok">--dur-base</div><div class="val">250ms · standard transitions</div></div>
+    <div class="row"><div class="tok">--dur-slow</div><div class="val">400ms · modal, slide-up</div></div>
+    <div class="row"><div class="tok">--dur-deliberate</div><div class="val">600ms · marketing reveal only</div></div>
+    <div class="row" style="margin-top:8px;border-top:2px solid var(--border)"><div class="tok">--ease-out</div><div class="val">cubic-bezier(.2,.8,.2,1) · default</div></div>
+    <div class="row"><div class="tok">--ease-in-out</div><div class="val">cubic-bezier(.4,0,.2,1) · modals</div></div>
+    <div class="row"><div class="tok">--ease-spring</div><div class="val">cubic-bezier(.34,1.56,.64,1) · success, rare</div></div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Live Samples</div>
+
+    <h3 style="margin-top:0">Button hover <span class="pill">150ms · ease-out</span></h3>
+    <div class="demo" style="margin-bottom:16px"><button class="demo-btn">Check Your Eligibility</button><span style="font-size:11px;color:var(--fg-2)">hover → lift 1px + warm shadow</span></div>
+
+    <h3>Card hover <span class="pill">150ms · ease-out</span></h3>
+    <div class="demo" style="margin-bottom:16px"><div class="card-hover">Hover me — I lift, my shadow deepens, my border goes blue.</div></div>
+
+    <h3>Modal slide-up <span class="pill">400ms · ease-out</span></h3>
+    <div class="demo" style="margin-bottom:16px;height:70px;overflow:hidden;align-items:flex-start;padding-top:20px"><div class="modal-sheet">Entering: translateY(18px→0) + opacity 0→1</div></div>
+
+    <h3>Keyframe example — linear motion</h3>
+    <div class="demo"><div class="mover"></div><span style="font-size:11px;color:var(--fg-2)">slide 2.4s</span></div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:20px">
+  <div class="eyebrow">Rules</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;font-size:12px;line-height:1.55">
+    <div>
+      <h3>Do</h3>
+      <p class="good">✓ Default to <code>--ease-out</code> + <code>--dur-fast</code> for any hover</p>
+      <p class="good">✓ Use <code>--dur-slow</code> only for modals, sheets, drawers</p>
+      <p class="good">✓ Animate <code>transform</code> and <code>opacity</code> — cheap, composited</p>
+      <p class="good">✓ Respect <code>prefers-reduced-motion</code> — drop to opacity or instant</p>
+    </div>
+    <div>
+      <h3>Don't</h3>
+      <p class="bad">✗ No bounces, springs, or overshoot on UI — brand is reassuring</p>
+      <p class="bad">✗ No durations &gt; 400ms except a single marketing hero reveal</p>
+      <p class="bad">✗ Don't animate <code>width</code>, <code>height</code>, <code>top/left</code> — janky</p>
+      <p class="bad">✗ No shimmer skeletons — use a spinner or a calm fade-in</p>
+    </div>
+  </div>
+</div>
+</body></html>

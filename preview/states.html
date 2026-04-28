@@ -1,0 +1,146 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:26px;background:var(--bg);font-family:var(--font-sans);color:var(--fg-1)}
+  h3{margin:0 0 14px 0;font-size:11px;font-weight:700;color:var(--fg-2);text-transform:uppercase;letter-spacing:.12em}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-sm);margin-bottom:18px;overflow:hidden}
+  table{width:100%;border-collapse:collapse}
+  th{text-align:center;font-size:10px;font-weight:700;color:var(--fg-2);text-transform:uppercase;letter-spacing:.1em;padding:10px 8px;border-bottom:1px solid var(--border);white-space:nowrap}
+  th:first-child{text-align:left}
+  td{padding:14px 8px;border-bottom:1px solid var(--chart-grid-fine);vertical-align:middle;text-align:center}
+  td:first-child{font-size:11px;font-weight:700;color:var(--crp-navy);width:90px;white-space:nowrap;text-align:left;padding-left:12px}
+  /* Inside the state cells: every control shrinks to fit */
+  td > .btn{min-width:0;width:auto;padding:0 14px;margin:0 auto;display:inline-flex}
+  td > .inp{width:100%;max-width:140px;box-sizing:border-box;display:inline-block}
+  td > .mini-card{width:100%;max-width:160px;box-sizing:border-box;margin:0 auto;text-align:left;display:inline-block}
+
+  /* ─── Button states ───
+     Extends the shared .btn (36px / 16px x-padding / 96px min-width) from
+     colors_and_type.css. Only the forced-state classes are defined locally,
+     because the matrix needs to show all five states side-by-side without
+     triggering :hover/:focus pseudos. */
+  .btn-primary.hover{background:#e6872e;transform:translateY(-1px);box-shadow:0 4px 16px rgba(255,153,51,.3)}
+  .btn-primary.focus{box-shadow:var(--ring)}
+  .btn-primary.active{background:#d67623;transform:translateY(0)}
+  .btn-primary.disabled{background:#ffd4a8;color:#fff;border-color:#ffd4a8;cursor:not-allowed;box-shadow:none}
+
+  .btn-secondary.hover{background:#0f2f7a;transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+  .btn-secondary.focus{box-shadow:var(--ring)}
+  .btn-secondary.active{background:#061847;transform:translateY(0)}
+  .btn-secondary.disabled{background:#c8d6e8;color:#7a90b0;border-color:#c8d6e8;cursor:not-allowed}
+
+  .btn-ghost.hover{background:var(--surface-2);border-color:var(--border-2)}
+  .btn-ghost.focus{box-shadow:var(--ring)}
+  .btn-ghost.active{background:var(--blue-bg)}
+  .btn-ghost.disabled{color:#c8d6e8;border-color:var(--chart-grid-fine);cursor:not-allowed}
+
+  /* ─── Inputs — fluid inside cell */
+  .inp{font-family:var(--font-sans);font-size:13px;padding:9px 12px;border-radius:var(--radius-sm);border:1px solid var(--border);background:#fff;outline:none;color:var(--fg-1);transition:all var(--dur-fast) var(--ease-out)}
+  .inp.hover{border-color:var(--border-2)}
+  .inp.focus{border-color:var(--crp-blue);box-shadow:var(--ring)}
+  .inp.filled{border-color:var(--border-2)}
+  .inp.error{border-color:#ef4444;box-shadow:0 0 0 3px rgba(239,68,68,.15)}
+  .inp.disabled{background:var(--surface-2);color:var(--fg-3);cursor:not-allowed}
+
+  /* ─── Cards — fluid inside cell */
+  .mini-card{padding:12px 14px;border:1px solid var(--border);border-radius:var(--radius-lg);background:#fff;font-size:12px;color:var(--fg-1);transition:all var(--dur-fast) var(--ease-out);cursor:pointer}
+  .mini-card strong{color:var(--crp-navy);font-size:13px;display:block;margin-bottom:2px}
+  .mini-card.hover{border-color:var(--crp-blue);transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+  .mini-card.focus{border-color:var(--crp-blue);box-shadow:var(--ring)}
+  .mini-card.selected{border-color:var(--crp-blue);background:var(--blue-bg)}
+  .mini-card.disabled{background:var(--surface-2);color:var(--fg-3);border-color:var(--chart-grid-fine);cursor:not-allowed}
+  .mini-card.disabled strong{color:var(--fg-3)}
+
+  /* ─── Checkbox */
+  .cb{width:18px;height:18px;border:1.5px solid var(--border-2);border-radius:4px;background:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--dur-fast) var(--ease-out)}
+  .cb.hover{border-color:var(--crp-blue)}
+  .cb.focus{border-color:var(--crp-blue);box-shadow:var(--ring)}
+  .cb.checked{background:var(--crp-blue);border-color:var(--crp-blue)}
+  .cb.checked::after{content:'';width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+  .cb.disabled{background:var(--surface-2);border-color:var(--chart-grid-fine);cursor:not-allowed}
+  .cb.disabled.checked{background:var(--border)}
+  .cb-wrap{display:inline-flex;align-items:center;gap:10px;font-size:12px;color:var(--fg-1)}
+
+  .note{font-size:10px;color:var(--fg-3);font-family:var(--font-mono);margin-top:8px}
+</style></head><body>
+
+<div class="card">
+  <h3>Buttons</h3>
+  <table>
+    <thead><tr><th></th><th>Default</th><th>Hover</th><th>Focus</th><th>Active</th><th>Disabled</th></tr></thead>
+    <tbody>
+      <tr><td>Primary</td>
+        <td><button class="btn btn-primary">Qualify</button></td>
+        <td><button class="btn btn-primary hover">Qualify</button></td>
+        <td><button class="btn btn-primary focus">Qualify</button></td>
+        <td><button class="btn btn-primary active">Qualify</button></td>
+        <td><button class="btn btn-primary disabled">Qualify</button></td>
+      </tr>
+      <tr><td>Secondary</td>
+        <td><button class="btn btn-secondary">Learn more</button></td>
+        <td><button class="btn btn-secondary hover">Learn more</button></td>
+        <td><button class="btn btn-secondary focus">Learn more</button></td>
+        <td><button class="btn btn-secondary active">Learn more</button></td>
+        <td><button class="btn btn-secondary disabled">Learn more</button></td>
+      </tr>
+      <tr><td>Ghost</td>
+        <td><button class="btn btn-ghost">Cancel</button></td>
+        <td><button class="btn btn-ghost hover">Cancel</button></td>
+        <td><button class="btn btn-ghost focus">Cancel</button></td>
+        <td><button class="btn btn-ghost active">Cancel</button></td>
+        <td><button class="btn btn-ghost disabled">Cancel</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h3>Inputs</h3>
+  <table>
+    <thead><tr><th></th><th>Default</th><th>Hover</th><th>Focus</th><th>Filled</th><th>Error</th><th>Disabled</th></tr></thead>
+    <tbody>
+      <tr><td>Text</td>
+        <td><input class="inp" placeholder="Email"/></td>
+        <td><input class="inp hover" placeholder="Email"/></td>
+        <td><input class="inp focus" placeholder="Email"/></td>
+        <td><input class="inp filled" value="name@crp.com"/></td>
+        <td><input class="inp error" value="name@crp"/></td>
+        <td><input class="inp disabled" value="locked" disabled/></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note">Error states carry an accompanying message below — color alone is never the only signal.</p>
+</div>
+
+<div class="card">
+  <h3>Cards (selectable)</h3>
+  <table>
+    <thead><tr><th></th><th>Default</th><th>Hover</th><th>Focus</th><th>Selected</th><th>Disabled</th></tr></thead>
+    <tbody>
+      <tr><td>Study card</td>
+        <td><div class="mini-card"><strong>CRP-247</strong>Lipid · Phase III</div></td>
+        <td><div class="mini-card hover"><strong>CRP-247</strong>Lipid · Phase III</div></td>
+        <td><div class="mini-card focus"><strong>CRP-247</strong>Lipid · Phase III</div></td>
+        <td><div class="mini-card selected"><strong>CRP-247</strong>Lipid · Phase III</div></td>
+        <td><div class="mini-card disabled"><strong>CRP-247</strong>Archived</div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h3>Checkboxes</h3>
+  <table>
+    <thead><tr><th></th><th>Default</th><th>Hover</th><th>Focus</th><th>Checked</th><th>Disabled</th></tr></thead>
+    <tbody>
+      <tr><td>Consent</td>
+        <td><div class="cb-wrap"><span class="cb"></span>I agree</div></td>
+        <td><div class="cb-wrap"><span class="cb hover"></span>I agree</div></td>
+        <td><div class="cb-wrap"><span class="cb focus"></span>I agree</div></td>
+        <td><div class="cb-wrap"><span class="cb checked"></span>I agree</div></td>
+        <td><div class="cb-wrap" style="color:var(--fg-3)"><span class="cb disabled checked"></span>Locked</div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body></html>

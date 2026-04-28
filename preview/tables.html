@@ -1,0 +1,168 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:26px;background:var(--bg);font-family:var(--font-sans);color:var(--fg-1)}
+  .eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--fg-2);margin-bottom:10px}
+  h3{margin:0 0 4px 0;font-size:14px;font-weight:700;color:var(--crp-navy)}
+  .sub{font-size:11px;color:var(--fg-3);margin:0 0 14px 0;font-family:var(--font-mono)}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-sm);margin-bottom:18px}
+
+  /* ─── Dense operations table (dashboard spec) */
+  .table-wrap{border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;background:#fff}
+  table.data{width:100%;border-collapse:collapse;font-size:13px}
+  table.data thead{background:var(--surface-2)}
+  table.data th{text-align:left;font-weight:700;color:var(--fg-2);text-transform:uppercase;letter-spacing:.08em;font-size:10px;padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap}
+  table.data th.num{text-align:right}
+  table.data th .sort{color:var(--crp-blue);margin-left:4px}
+  table.data td{padding:11px 12px;border-bottom:1px solid var(--chart-grid-fine);vertical-align:middle;color:var(--fg-1)}
+  table.data td.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--font-mono);font-size:12px}
+  table.data td.strong{font-weight:700;color:var(--crp-navy)}
+  table.data tbody tr:hover{background:#fafcff;cursor:pointer}
+  table.data tbody tr:last-child td{border-bottom:0}
+  table.data .sub-row{font-size:10px;color:var(--fg-3);margin-top:1px}
+
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.02em}
+  .pill.open{background:#ecfdf5;color:#065f46}
+  .pill.closing{background:#fff3e0;color:#9a3412}
+  .pill.risk{background:#fef2f2;color:#991b1b}
+  .pill.hold{background:var(--surface-2);color:var(--fg-2)}
+
+  .trend{display:inline-flex;align-items:center;gap:3px;font-variant-numeric:tabular-nums;font-family:var(--font-mono);font-size:11px;font-weight:700}
+  .trend.up{color:#10b981}
+  .trend.down{color:#ef4444}
+
+  .toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;background:#fff;border-bottom:1px solid var(--border)}
+  .toolbar .searches{display:flex;align-items:center;gap:8px}
+  .toolbar input{font-family:inherit;font-size:12px;padding:6px 10px;border-radius:var(--radius-sm);border:1px solid var(--border);background:#fff;outline:none;width:200px}
+  .toolbar input:focus{border-color:var(--crp-blue);box-shadow:var(--ring)}
+  .toolbar .count{font-family:var(--font-mono);font-size:10px;color:var(--fg-2)}
+  /* Filter buttons = shared .btn-xs .btn-ghost — see colors_and_type.css */
+
+  .footer{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--surface-2);font-size:11px;color:var(--fg-2);border-top:1px solid var(--border)}
+  .footer .pg{display:flex;gap:4px}
+  .footer .pg button{width:26px;height:26px;border-radius:var(--radius-sm);border:1px solid var(--border);background:#fff;color:var(--fg-2);font-size:11px;cursor:pointer;font-family:inherit}
+  .footer .pg button.active{background:var(--crp-navy);color:#fff;border-color:var(--crp-navy)}
+
+  /* ─── Marketing table (sparse, big) */
+  .m-table{width:100%;border-collapse:collapse}
+  .m-table tr{border-top:1px solid var(--chart-grid-fine)}
+  .m-table tr:first-child{border-top:0}
+  .m-table td{padding:16px 14px;font-size:14px;color:var(--fg-1);vertical-align:middle}
+  .m-table .label{color:var(--fg-2);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;width:160px}
+  .m-table strong{color:var(--crp-navy);font-weight:700}
+
+  .legend{display:flex;gap:18px;font-size:11px;color:var(--fg-2);margin-top:10px;flex-wrap:wrap}
+  .legend b{color:var(--crp-navy);font-weight:700;margin-right:4px}
+</style></head><body>
+
+<div class="card">
+  <div class="eyebrow">Dashboard · dense data table</div>
+  <h3>Studies · primary operations grid</h3>
+  <p class="sub">10px uppercase th · 13px mono nums · hover tint · sortable · paginated · toolbar above</p>
+  <div class="table-wrap">
+    <div class="toolbar">
+      <div class="searches">
+        <input placeholder="Search studies…"/>
+        <button class="btn btn-xs btn-ghost">+ Filter · phase</button>
+        <button class="btn btn-xs btn-ghost">+ Filter · status</button>
+      </div>
+      <span class="count">128 of 1,247</span>
+    </div>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Study <span class="sort">↓</span></th>
+          <th>Phase</th>
+          <th>Status</th>
+          <th class="num">Enrolled</th>
+          <th class="num">Target</th>
+          <th class="num">7-day trend</th>
+          <th class="num">Risk score</th>
+          <th>PI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="strong">CRP-247<div class="sub-row">Lipid disorders</div></td>
+          <td>III</td>
+          <td><span class="pill open">Open</span></td>
+          <td class="num">48</td><td class="num">60</td>
+          <td class="num"><span class="trend up">↑ +7</span></td>
+          <td class="num">0.31</td>
+          <td>Chawla</td>
+        </tr>
+        <tr>
+          <td class="strong">CRP-312<div class="sub-row">Type 2 diabetes</div></td>
+          <td>II</td>
+          <td><span class="pill open">Open</span></td>
+          <td class="num">36</td><td class="num">50</td>
+          <td class="num"><span class="trend up">↑ +4</span></td>
+          <td class="num">0.42</td>
+          <td>Patel</td>
+        </tr>
+        <tr>
+          <td class="strong">CRP-401<div class="sub-row">Migraine prophylaxis</div></td>
+          <td>III</td>
+          <td><span class="pill closing">Closing soon</span></td>
+          <td class="num">58</td><td class="num">60</td>
+          <td class="num"><span class="trend up">↑ +2</span></td>
+          <td class="num">0.14</td>
+          <td>Chawla</td>
+        </tr>
+        <tr>
+          <td class="strong">CRP-156<div class="sub-row">Hypertension</div></td>
+          <td>II</td>
+          <td><span class="pill risk">At risk</span></td>
+          <td class="num">24</td><td class="num">45</td>
+          <td class="num"><span class="trend down">↓ −3</span></td>
+          <td class="num">0.78</td>
+          <td>Nguyen</td>
+        </tr>
+        <tr>
+          <td class="strong">CRP-088<div class="sub-row">NASH — steatohepatitis</div></td>
+          <td>II</td>
+          <td><span class="pill hold">On hold</span></td>
+          <td class="num">15</td><td class="num">40</td>
+          <td class="num"><span class="trend down">↓ 0</span></td>
+          <td class="num">—</td>
+          <td>Patel</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="footer">
+      <span>Showing 1–5 of 128</span>
+      <div class="pg">
+        <button>‹</button>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>…</button>
+        <button>26</button>
+        <button>›</button>
+      </div>
+    </div>
+  </div>
+  <div class="legend">
+    <span><b>Sortable</b>— column headers are buttons; one active sort, indicated by ↑/↓</span>
+    <span><b>Status pill</b>— 4 states only: Open · Closing soon · At risk · On hold</span>
+    <span><b>Numbers</b>— mono-font, right-aligned, tabular nums; em-dash for null</span>
+  </div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">Marketing · sparse info table</div>
+  <h3>Study details — reading, not scanning</h3>
+  <p class="sub">Used in study-detail pages · 14px body · 16px padding · no row hover</p>
+  <div class="table-wrap" style="border-color:var(--border)">
+    <table class="m-table">
+      <tr><td class="label">Study ID</td><td><strong>CRP-247</strong></td></tr>
+      <tr><td class="label">Condition</td><td>High cholesterol (LDL-C &gt; 100 mg/dL)</td></tr>
+      <tr><td class="label">Phase</td><td>Phase III · enrolling</td></tr>
+      <tr><td class="label">Ages</td><td>40 – 75</td></tr>
+      <tr><td class="label">Visits</td><td>3 site visits over 12 weeks</td></tr>
+      <tr><td class="label">Compensation</td><td><strong style="color:var(--crp-orange)">Up to $600</strong> · plus travel reimbursement</td></tr>
+      <tr><td class="label">Location</td><td>9501 Roosevelt Blvd, Philadelphia</td></tr>
+    </table>
+  </div>
+</div>
+
+</body></html>

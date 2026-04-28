@@ -1,0 +1,147 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  /* ─── Whole page renders in dark-mode preview ─── */
+  :root {
+    --d-bg:        #0a1430;
+    --d-surface:   #111e42;
+    --d-surface-2: #17265a;
+    --d-border:    #24356f;
+    --d-border-2:  #32478a;
+    --d-fg-1:      #e5ecf5;
+    --d-fg-2:      #9fb4d8;
+    --d-fg-3:      #6c82aa;
+    --d-blue:      #5a80d4;
+    --d-orange:    #FFB266;
+    --d-success:   #34d399;
+    --d-danger:    #f87171;
+  }
+
+  body{margin:0;padding:26px;background:var(--d-bg);font-family:var(--font-sans);color:var(--d-fg-1)}
+  .eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--d-fg-2);margin-bottom:10px}
+  h3{margin:0 0 4px 0;font-size:14px;font-weight:700;color:var(--d-fg-1)}
+  .sub{font-size:11px;color:var(--d-fg-3);margin:0 0 14px 0}
+  .card{background:var(--d-surface);border:1px solid var(--d-border);border-radius:var(--radius-lg);padding:20px;box-shadow:0 1px 3px rgba(7,32,97,.4);margin-bottom:18px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+  /* Live sample inside a nested surface */
+  .demo{background:var(--d-bg);border:1px solid var(--d-border);border-radius:var(--radius-md);padding:20px;color:var(--d-fg-1);font-family:var(--font-sans)}
+  .demo .demo-eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--d-fg-2);margin-bottom:10px}
+  .demo .mini-card{background:var(--d-surface);border:1px solid var(--d-border);border-radius:var(--radius-md);padding:14px;margin-bottom:10px;font-size:12px}
+  .demo .mini-card strong{color:var(--d-fg-1);display:block;font-size:13px;margin-bottom:3px}
+  .demo .mini-card span.meta{color:var(--d-fg-2)}
+  .demo .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:10px;font-weight:700;margin-top:4px}
+  .demo .pill.ok{background:rgba(52,211,153,.15);color:var(--d-success)}
+  .demo .pill.warn{background:rgba(248,113,113,.15);color:var(--d-danger)}
+  /* Dark-mode .btn overrides — reuses shared .btn geometry, only swaps colors */
+  .demo .btn-primary{background:var(--d-orange);color:#2a1200;border-color:var(--d-orange)}
+  .demo .btn-ghost{color:var(--d-fg-1);border-color:var(--d-border-2);background:transparent}
+
+  /* Token map rows */
+  .row{display:flex;align-items:center;gap:14px;padding:10px 0;border-top:1px solid var(--d-border);font-size:11px}
+  .row:first-of-type{border-top:0;padding-top:4px}
+  .row:last-of-type{padding-bottom:4px}
+  .tok{font-family:var(--font-mono);font-size:10px;color:var(--d-fg-1);min-width:120px}
+  .chip{width:28px;height:20px;border-radius:4px;border:1px solid rgba(255,255,255,.08);flex-shrink:0}
+  .arrow{color:var(--d-fg-3);font-size:12px}
+  .val{font-family:var(--font-mono);font-size:10px;color:var(--d-fg-2);min-width:70px}
+  .use{flex:1;color:var(--d-fg-3);font-size:11px}
+
+  .rules{font-size:12px;color:var(--d-fg-2);line-height:1.7}
+  .rules strong{color:var(--d-fg-1)}
+  .rules p{margin:0 0 10px 0}
+  .rules p:last-child{margin-bottom:0}
+  .rules code{font-family:var(--font-mono);font-size:.9em;background:var(--d-surface-2);padding:1px 6px;border-radius:3px;color:var(--d-fg-1)}
+
+  pre{background:#050b20;color:var(--d-fg-1);border:1px solid var(--d-border);border-radius:var(--radius-sm);padding:14px;font-family:var(--font-mono);font-size:10px;line-height:1.6;overflow-x:auto;margin:0}
+  pre .k{color:#9fb4d8}
+  pre .v{color:var(--d-orange)}
+
+  /* Small helper: page-header note */
+  .page-note{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:var(--d-surface);border:1px solid var(--d-border);color:var(--d-fg-2);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px}
+  .page-note .d{width:7px;height:7px;border-radius:999px;background:var(--d-orange)}
+</style></head><body>
+
+<span class="page-note"><span class="d"></span>Dark-mode preview · dashboard [data-theme="dark"]</span>
+
+<div class="grid2">
+  <div class="card">
+    <div class="eyebrow">Live sample</div>
+    <h3>Study panel on dark surface</h3>
+    <p class="sub">Same components as light mode — only luminance shifts</p>
+    <div class="demo">
+      <div class="demo-eyebrow">Active studies</div>
+      <div class="mini-card">
+        <strong>CRP-247 <span style="color:var(--d-orange);font-weight:400;font-size:11px">· Lipid</span></strong>
+        <span class="meta">48 enrolled of 60 · Phase III</span>
+        <div class="pill ok">On track</div>
+      </div>
+      <div class="mini-card">
+        <strong>CRP-156 · Hypertension</strong>
+        <span class="meta">24 of 45 · Phase II</span>
+        <div class="pill warn">At risk · 0.78</div>
+      </div>
+      <div class="actions" style="margin-top:14px;justify-content:flex-start">
+        <button class="btn btn-sm btn-primary">Add participant</button>
+        <button class="btn btn-sm btn-ghost">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Token map · light → dark</div>
+    <h3>Each semantic token has a dark twin</h3>
+    <p class="sub">Navy becomes navy-darker, not black · cool temperature preserved</p>
+    <div class="row"><span class="tok">--bg</span><span class="chip" style="background:#f0f4fa"></span><span class="arrow">→</span><span class="chip" style="background:#0a1430"></span><span class="val">#0a1430</span><span class="use">app background</span></div>
+    <div class="row"><span class="tok">--surface</span><span class="chip" style="background:#fff"></span><span class="arrow">→</span><span class="chip" style="background:#111e42"></span><span class="val">#111e42</span><span class="use">cards, panels</span></div>
+    <div class="row"><span class="tok">--surface-2</span><span class="chip" style="background:#edf2f8"></span><span class="arrow">→</span><span class="chip" style="background:#17265a"></span><span class="val">#17265a</span><span class="use">table headers, hover</span></div>
+    <div class="row"><span class="tok">--border</span><span class="chip" style="background:#c8d6e8"></span><span class="arrow">→</span><span class="chip" style="background:#24356f"></span><span class="val">#24356f</span><span class="use">card border</span></div>
+    <div class="row"><span class="tok">--fg-1</span><span class="chip" style="background:#072061"></span><span class="arrow">→</span><span class="chip" style="background:#e5ecf5"></span><span class="val">#e5ecf5</span><span class="use">primary text</span></div>
+    <div class="row"><span class="tok">--fg-2</span><span class="chip" style="background:#4a6080"></span><span class="arrow">→</span><span class="chip" style="background:#9fb4d8"></span><span class="val">#9fb4d8</span><span class="use">muted body</span></div>
+    <div class="row"><span class="tok">--fg-3</span><span class="chip" style="background:#7a90b0"></span><span class="arrow">→</span><span class="chip" style="background:#6c82aa"></span><span class="val">#6c82aa</span><span class="use">captions</span></div>
+    <div class="row"><span class="tok">--crp-blue</span><span class="chip" style="background:#1843AD"></span><span class="arrow">→</span><span class="chip" style="background:#5a80d4"></span><span class="val">#5a80d4</span><span class="use">links · desaturated</span></div>
+    <div class="row"><span class="tok">--crp-orange</span><span class="chip" style="background:#FF9933"></span><span class="arrow">→</span><span class="chip" style="background:#FFB266"></span><span class="val">#FFB266</span><span class="use">CTA · lightened</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">CSS · drop into colors_and_type.css</div>
+  <pre>[data-theme="dark"] {
+  <span class="k">--bg</span>:        <span class="v">#0a1430</span>;
+  <span class="k">--surface</span>:   <span class="v">#111e42</span>;
+  <span class="k">--surface-2</span>: <span class="v">#17265a</span>;
+  <span class="k">--border</span>:    <span class="v">#24356f</span>;
+  <span class="k">--border-2</span>:  <span class="v">#32478a</span>;
+  <span class="k">--fg-1</span>:      <span class="v">#e5ecf5</span>;
+  <span class="k">--fg-2</span>:      <span class="v">#9fb4d8</span>;
+  <span class="k">--fg-3</span>:      <span class="v">#6c82aa</span>;
+
+  /* Brand colors shift up on the luminance axis — keep hue */
+  <span class="k">--crp-blue</span>:   <span class="v">#5a80d4</span>;   /* was #1843AD */
+  <span class="k">--crp-orange</span>: <span class="v">#FFB266</span>;   /* was #FF9933 */
+  <span class="k">--crp-navy</span>:   <span class="v">#e5ecf5</span>;   /* text color role flips to light */
+
+  /* Semantic tokens lighten for legibility on dark */
+  <span class="k">--success</span>:    <span class="v">#34d399</span>;
+  <span class="k">--danger</span>:     <span class="v">#f87171</span>;
+  <span class="k">--warning</span>:    <span class="v">#fbbf24</span>;
+
+  /* Soft backgrounds become rgba tints of the accent */
+  <span class="k">--blue-bg</span>:    <span class="v">rgba(90,128,212,.15)</span>;
+  <span class="k">--orange-bg</span>:  <span class="v">rgba(255,178,102,.15)</span>;
+
+  /* Shadows get heavier and cooler */
+  <span class="k">--shadow-sm</span>:  <span class="v">0 1px 3px rgba(7,32,97,.4)</span>;
+  <span class="k">--shadow-lg</span>:  <span class="v">0 4px 16px rgba(7,32,97,.5)</span>;
+}</pre>
+</div>
+
+<div class="card">
+  <div class="eyebrow">Rules</div>
+  <div class="rules">
+    <p><strong>Where dark mode applies.</strong> Dashboard only (<code>[data-theme="dark"]</code> on <code>&lt;html&gt;</code>, user-toggled, persisted in localStorage). Marketing stays light — dark clinical-trial marketing reads as untrustworthy.</p>
+    <p><strong>What shifts.</strong> Luminance, not hue. Navy stays navy (cool-blue family); orange stays orange (warm family). We lighten brand blue and orange on dark backgrounds so they pass contrast against the new surface.</p>
+    <p><strong>What doesn't shift.</strong> Gradients, Market Pro script (still orange), the quatrefoil stencil (uses <code>currentColor</code>).</p>
+  </div>
+</div>
+
+</body></html>

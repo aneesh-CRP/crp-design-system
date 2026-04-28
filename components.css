@@ -1,0 +1,509 @@
+/* CRP Design System — Component CSS
+ * Canonical source for component classes referenced by manifest.json.
+ *
+ * Status: v1.0 (2026-04-27).
+ *
+ * Activation: this file is the design-system canonical. The live dashboard
+ * currently styles components inline in index.html's <style> block. The
+ * retrofit phase will fold these rules into that block (or load this file
+ * directly via <link rel="stylesheet">). Until then, this file is the
+ * spec, not the live stylesheet.
+ *
+ * Required prerequisite: colors_and_type.css must be loaded first
+ * (defines all --crp-*, --fg-*, --success-*, --warning-*, etc. tokens).
+ *
+ * What this file defines (NEW or canonical):
+ *   • Token redefinitions (--success/--warning) per DOCTRINE §2.B
+ *   • Chip system (7 variants) — DOCTRINE §2.2
+ *   • Status indicators: pill-study-status, status-dot, severity-flag
+ *   • Alert (4 variants) — DOCTRINE §2.3
+ *   • Filter primitives: filter-bar, filter-chip
+ *   • State surfaces: empty-state, error-state, loading-spinner, loading-skeleton, toast
+ *   • Refresh affordances: refresh-button, last-updated stamp
+ *   • Section card, KPI tile (clean canonical)
+ *
+ * What this file does NOT redefine (already in index.html — defer to retrofit):
+ *   • Buttons (.btn variants — see colors_and_type.css)
+ *   • Tables (.data-table, .tr, .td-* — existing inline)
+ *   • Modals (.modal — existing inline)
+ *   • Inputs (.input, .checkbox, .radio — existing inline)
+ *   • Tabs (.tab, .tab-bar — existing inline)
+ *   • Charts (programmatically generated)
+ */
+
+/* ═══ Token redefinitions per DOCTRINE §2.B ═══ */
+/* Adopt the production hex as the token value so retrofit causes zero pixel shift.
+ * The original colors_and_type.css values were lighter; production has been
+ * using these darker hues for hundreds of inline styles. Doctrine wins by
+ * absorbing reality. */
+:root {
+  --success:        #059669;          /* was #10b981 */
+  --success-bg:     #f0fdf4;
+  --success-border: #a7f3d0;
+  --success-strong: #065f46;          /* dark text on success-bg */
+
+  --warning:        #d97706;          /* was #f59e0b */
+  --warning-bg:     #fef3c7;
+  --warning-border: #fde68a;
+  --warning-strong: #92400e;          /* dark text on warning-bg */
+
+  /* New: AI / agent semantic — DOCTRINE §2.2 */
+  --ai:             #7c3aed;
+  --ai-bg:          #f5f3ff;
+  --ai-border:      #c4b5fd;
+  --ai-strong:      #5b21b6;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §2.2  CHIP — small inline status label                                   */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);                /* 11px */
+  font-weight: var(--fw-semibold);
+  line-height: 1.4;
+  border-radius: var(--radius-xs);        /* 4px */
+  border: 1px solid transparent;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.chip-icon { font-size: 10px; opacity: 0.85; }
+
+.chip-success { background: var(--success-bg); color: var(--success-strong); border-color: var(--success-border); }
+.chip-warning { background: var(--warning-bg); color: var(--warning-strong); border-color: var(--warning-border); }
+.chip-danger  { background: var(--danger-bg);  color: #991b1b;              border-color: var(--danger-border); }
+.chip-info    { background: var(--blue-bg);    color: #1e40af;              border-color: #bfdbfe; }
+.chip-meta    { background: transparent;       color: var(--fg-2);          border-color: var(--border); }
+.chip-ai      { background: var(--ai-bg);      color: var(--ai-strong);     border-color: var(--ai-border); }
+.chip-ghost   { background: transparent;       color: var(--fg-1);          border-color: var(--border); }
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §2.2  PILL — study lifecycle status (distinct from chip)                 */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.pill-enrolling    { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
+.pill-maintenance  { background: var(--blue-bg); color: #1e40af; border-color: #bfdbfe; }
+.pill-pre-closed   { background: #fffbeb; color: var(--warning-strong); border-color: var(--warning-border); }
+.pill-configuring  { background: var(--surface-2); color: var(--fg-2); border-color: var(--border); }
+.pill-startup      { background: var(--ai-bg); color: var(--ai-strong); border-color: var(--ai-border); }
+.pill-closed       { background: transparent; color: var(--fg-3); border-color: var(--border); }
+.pill-suspended    { background: var(--danger-bg); color: #991b1b; border-color: var(--danger-border); }
+.pill-withdrawn    { background: var(--danger-bg); color: #991b1b; border-color: var(--danger-border); }
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §2.2  STATUS DOT — color dot, no label                                   */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.dot-success { background: var(--success); }
+.dot-warning { background: var(--warning); }
+.dot-danger  { background: var(--danger); }
+.dot-info    { background: var(--crp-blue); }
+.dot-meta    { background: var(--fg-3); }
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §2.2  SITE TAG — PHL / PNJ geographic site indicator                     */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.site-tag {
+  display: inline-block;
+  padding: 1px 5px;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: var(--fw-bold);
+  border-radius: var(--radius-xs);
+  white-space: nowrap;
+  vertical-align: middle;
+  letter-spacing: 0.02em;
+}
+
+.site-tag-pnj { background: rgba(5,150,105,0.12); color: var(--success); }
+.site-tag-phl { background: rgba(7,32,97,0.12);   color: var(--crp-navy); }
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §2.2  PURPOSE BADGE — study/visit-type identifier (DISTINCT from chip)   */
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* Use to label a study, visit type, or campaign so it's scannable across
+ * rows. Tones are perceptually distinct and named by hue (not by study), so
+ * the registry of study→tone lives in code, not in CSS.
+ * Tones: red | violet | blue | green | indigo | amber                      */
+
+.purpose-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.3px;
+  text-transform: none;
+  color: #fff;
+  border-radius: var(--radius-xs);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.purpose-badge-red     { background: #dc2626; }
+.purpose-badge-amber   { background: var(--warning); }
+.purpose-badge-green   { background: var(--success); }
+.purpose-badge-teal    { background: #2a9d8f; }
+.purpose-badge-blue    { background: var(--crp-blue); }
+.purpose-badge-indigo  { background: #6366f1; }
+.purpose-badge-violet  { background: var(--ai); }
+.purpose-badge-magenta { background: #be185d; }
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §2.2  SEVERITY FLAG — high-emphasis attention indicator                  */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.flag-urgent  { background: var(--danger-bg);  color: #991b1b;              border-color: var(--danger-border); }
+.flag-warning { background: var(--warning-bg); color: var(--warning-strong); border-color: var(--warning-border); }
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §2.3  ALERT — full-width inline notice                                   */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);             /* 13px */
+  line-height: var(--lh-snug);
+}
+
+.alert-icon  { flex-shrink: 0; font-size: 18px; line-height: 1.2; }
+.alert-body  { flex: 1; }
+.alert-title { font-weight: var(--fw-semibold); margin-bottom: 2px; }
+
+.alert-info    { background: var(--blue-bg);    color: var(--fg-1); border-color: #bfdbfe; }
+.alert-success { background: var(--success-bg); color: var(--success-strong); border-color: var(--success-border); }
+.alert-warning { background: var(--warning-bg); color: var(--warning-strong); border-color: var(--warning-border); }
+.alert-danger  { background: var(--danger-bg);  color: #991b1b;     border-color: var(--danger-border); }
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §2.3  KPI TILE — primary metric display                                  */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.kpi-tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--dur-fast) var(--ease-out),
+              transform   var(--dur-fast) var(--ease-out);
+}
+
+.kpi-tile:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.kpi-tile-label  { font-size: var(--fs-micro); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-2); }
+.kpi-tile-value  { font-size: var(--fs-h2); font-weight: var(--fw-extrabold); line-height: 1; color: var(--crp-navy); font-variant-numeric: tabular-nums; }
+.kpi-tile-delta  { display: inline-flex; align-items: center; gap: 2px; font-size: var(--fs-small); font-weight: var(--fw-semibold); }
+.kpi-tile-delta-up   { color: var(--success); }
+.kpi-tile-delta-down { color: var(--danger); }
+.kpi-tile-delta-flat { color: var(--fg-3); }
+.kpi-tile-sublabel   { font-size: var(--fs-xs); color: var(--fg-3); }
+.kpi-tile-sparkline  { margin-top: var(--space-2); }
+
+.kpi-tile-compact {
+  padding: var(--space-3) var(--space-4);
+}
+.kpi-tile-compact .kpi-tile-value { font-size: var(--fs-h3); }
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §2.3  SECTION CARD — generic content container                           */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.card-header { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.card-title  { font-size: var(--fs-h4); font-weight: var(--fw-semibold); color: var(--crp-navy); margin: 0; }
+.card-body   { padding: var(--space-4); }
+.card-footer { padding: var(--space-3) var(--space-4); border-top: 1px solid var(--border); background: var(--surface-2); display: flex; align-items: center; justify-content: flex-end; gap: var(--space-2); }
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §2.6  FILTER BAR + FILTER CHIP                                           */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-3);
+}
+
+.filter-bar-search   { flex: 0 0 240px; }
+.filter-bar-filters  { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; flex: 1; }
+.filter-bar-actions  { display: flex; align-items: center; gap: var(--space-2); margin-left: auto; }
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--fg-2);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+
+.filter-chip:hover { background: var(--surface-2); border-color: var(--border-2); }
+
+.filter-chip-active {
+  background: var(--crp-navy);
+  color: #fff;
+  border-color: var(--crp-navy);
+}
+.filter-chip-active:hover { background: var(--crp-navy-deep); border-color: var(--crp-navy-deep); }
+
+.filter-chip-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  padding: 0 4px;
+  margin-left: 2px;
+  font-size: 10px;
+  font-weight: var(--fw-bold);
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,0.2);
+  color: inherit;
+}
+.filter-chip:not(.filter-chip-active) .filter-chip-count {
+  background: var(--surface-2);
+  color: var(--fg-2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §2.9  STATE SURFACES — empty, error, loading, toast                      */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12) var(--space-6);
+  text-align: center;
+  color: var(--fg-2);
+}
+.empty-state-illustration { margin-bottom: var(--space-3); opacity: 0.7; }
+.empty-state-headline { font-size: var(--fs-h4); font-weight: var(--fw-semibold); color: var(--crp-navy); margin: 0 0 var(--space-1); }
+.empty-state-body     { font-size: var(--fs-small); margin: 0 0 var(--space-3); max-width: 360px; }
+
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  background: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  border-radius: var(--radius-lg);
+}
+.error-state-icon     { font-size: 24px; color: var(--danger); margin-bottom: var(--space-2); }
+.error-state-headline { font-size: var(--fs-h4); font-weight: var(--fw-semibold); color: #991b1b; margin: 0 0 var(--space-1); }
+.error-state-body     { font-size: var(--fs-small); color: var(--fg-1); margin: 0 0 var(--space-3); max-width: 420px; }
+
+/* Loading spinner — indeterminate */
+.spinner {
+  display: inline-block;
+  border: 2px solid var(--border);
+  border-top-color: var(--crp-blue);
+  border-radius: var(--radius-pill);
+  animation: spinner-rotate 0.8s linear infinite;
+  flex-shrink: 0;
+}
+.spinner-16 { width: 16px; height: 16px; }
+.spinner-20 { width: 20px; height: 20px; border-width: 2px; }
+.spinner-24 { width: 24px; height: 24px; border-width: 3px; }
+.spinner-32 { width: 32px; height: 32px; border-width: 3px; }
+
+@keyframes spinner-rotate { to { transform: rotate(360deg); } }
+
+/* Loading skeleton — content shimmer */
+.skel {
+  display: block;
+  background: linear-gradient(90deg, var(--surface-2) 0%, var(--bg) 50%, var(--surface-2) 100%);
+  background-size: 200% 100%;
+  border-radius: var(--radius-sm);
+  animation: skel-shimmer 1.4s ease-in-out infinite;
+}
+.skel-text   { height: 12px; margin-bottom: 6px; }
+.skel-block  { height: 80px; }
+.skel-circle { width: 32px; height: 32px; border-radius: var(--radius-pill); }
+.skel-row    { height: 36px; margin-bottom: var(--space-1); }
+
+@keyframes skel-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner { animation: none; }
+  .skel    { animation: none; background: var(--surface-2); }
+}
+
+/* Toast — transient feedback, bottom-right */
+.toast-container {
+  position: fixed;
+  bottom: var(--space-5);
+  right: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  min-width: 280px;
+  max-width: 480px;
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--fg-3);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  pointer-events: auto;
+  animation: toast-slide-in var(--dur-base) var(--ease-out);
+}
+
+.toast-success { border-left-color: var(--success); }
+.toast-info    { border-left-color: var(--crp-blue); }
+.toast-warning { border-left-color: var(--warning); }
+.toast-danger  { border-left-color: var(--danger); }
+
+@keyframes toast-slide-in {
+  from { transform: translateX(110%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §2.9  REFRESH AFFORDANCES                                                */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.refresh-btn[data-loading="true"] .refresh-btn-icon {
+  animation: spinner-rotate 0.8s linear infinite;
+  display: inline-block;
+}
+
+.last-updated {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-xs);
+  color: var(--fg-3);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §2.4  TABLE — only the new bits (most table styling already in index.html) */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.tr-empty td {
+  padding: var(--space-8) var(--space-4) !important;
+  text-align: center;
+  color: var(--fg-3);
+}
+
+.tr-subdued {
+  opacity: 0.55;
+}
+
+.th-sort {
+  cursor: pointer;
+  user-select: none;
+}
+.th-sort::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 4px;
+  vertical-align: middle;
+  opacity: 0.3;
+}
+.th-sort-asc::after  { border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 5px solid currentColor; opacity: 1; }
+.th-sort-desc::after { border-left: 4px solid transparent; border-right: 4px solid transparent; border-top:    5px solid currentColor; opacity: 1; }
+
+.td-num { text-align: right; font-variant-numeric: tabular-nums; }
+.td-link a { color: var(--crp-blue); text-decoration: none; }
+.td-link a:hover { text-decoration: underline; }
+
+/* End of components.css */

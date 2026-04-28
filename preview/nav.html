@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>body{margin:0;padding:0;background:#f1f5f9;font-family:var(--font-sans)}
+.nav{background:#fff;border-bottom:1px solid var(--border);padding:0 18px;display:flex;align-items:center;gap:4px;min-height:56px;box-shadow:0 1px 3px rgba(7,32,97,.05)}
+.brand{display:flex;align-items:center;margin-right:18px;padding-right:18px;border-right:1px solid #c8d6e8}
+.brand img{height:28px;width:auto;display:block}
+.tab{padding:6px 12px;border-radius:6px;font-size:13px;font-weight:500;color:var(--fg-2);cursor:pointer;border:1px solid transparent;font-family:inherit}
+.tab.active{background:var(--blue-bg);color:var(--crp-navy);border-color:var(--crp-blue);font-weight:600}
+.tab:hover:not(.active){background:var(--surface-2);color:var(--crp-navy)}
+.right{margin-left:auto;display:flex;gap:8px;align-items:center}
+.badge{font-size:11px;color:var(--fg-2);background:var(--surface-2);padding:4px 10px;border-radius:999px;border:1px solid var(--border)}
+.refresh{padding:6px 12px;border-radius:6px;font-size:12px;font-weight:600;background:var(--success-bg);color:var(--success);border:1px solid var(--success-border);cursor:pointer;font-family:inherit}
+.connect{padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;background:var(--crp-navy);color:#fff;border:none;cursor:pointer;font-family:inherit}
+</style></head><body>
+<div class="nav">
+  <div class="brand"><img src="../assets/logos/crp-long.png" alt="Clinical Research Philadelphia"></div>
+  <div class="tab active">Overview</div>
+  <div class="tab">Recruitment</div>
+  <div class="tab">Studies</div>
+  <div class="tab">Coordinators</div>
+  <div class="tab">Finance</div>
+  <div class="right">
+    <div class="badge">Synced 2 min ago</div>
+    <button class="refresh">↻ Refresh</button>
+    <button class="connect">Connect data</button>
+  </div>
+</div>
+</body></html>

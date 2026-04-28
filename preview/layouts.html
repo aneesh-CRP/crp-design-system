@@ -1,0 +1,193 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:26px;background:var(--bg);font-family:var(--font-sans);color:var(--fg-1)}
+  .eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--fg-2);margin-bottom:10px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-sm);margin-bottom:20px}
+  h3{margin:0 0 4px 0;font-size:14px;font-weight:700;color:var(--crp-navy)}
+  .sub{font-size:11px;color:var(--fg-3);margin:0 0 14px 0;font-family:var(--font-mono)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
+  /* Page mock — shared chrome */
+  .page{border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;background:#fff}
+  .page-nav{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--chart-grid-fine);font-size:10px}
+  .page-nav .logo{font-weight:700;color:var(--crp-navy)}
+  .page-nav .links{display:flex;gap:12px;color:var(--fg-2)}
+  .page-nav .cta{font-size:9px;padding:4px 10px;background:var(--crp-orange);color:#fff;border-radius:999px;font-weight:600}
+
+  /* 1. HERO */
+  .hero{background:var(--gradient-navy-blue);color:#fff;padding:28px 22px;text-align:center}
+  .hero .h1{font-family:var(--font-sans);font-size:22px;font-weight:800;line-height:1.1;letter-spacing:-.02em;margin:0 0 6px 0;color:#fff}
+  .hero .script{font-family:var(--font-script);font-size:22px;color:var(--crp-orange);font-style:italic;font-weight:400;letter-spacing:0}
+  .hero .lede{font-size:11px;color:rgba(255,255,255,.92);max-width:300px;margin:0 auto 14px auto;line-height:1.5}
+  .hero .btn{display:inline-block;padding:8px 18px;background:var(--crp-orange);color:#fff;font-weight:700;font-size:11px;border-radius:999px}
+
+  /* 2. FEATURE GRID */
+  .fg-wrap{padding:24px 18px}
+  .fg-eyebrow{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--crp-orange);margin-bottom:6px;text-align:center}
+  .fg-head{font-size:16px;font-weight:700;color:var(--crp-navy);text-align:center;margin:0 0 18px 0}
+  .fg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .f{padding:12px;border:1px solid var(--border);border-radius:var(--radius-md);text-align:left}
+  .f-icon{width:24px;height:24px;background:var(--crp-orange);border-radius:var(--radius-sm);margin-bottom:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:12px}
+  .f-title{font-size:10px;font-weight:700;color:var(--crp-navy);margin-bottom:3px}
+  .f-body{font-size:9px;color:var(--fg-2);line-height:1.5}
+
+  /* 3. SPLIT */
+  .split{display:grid;grid-template-columns:1fr 1fr;min-height:180px}
+  .split .left{padding:22px 18px;background:var(--surface-2);display:flex;flex-direction:column;justify-content:center}
+  .split .right{background:var(--gradient-cyan-blue);position:relative;display:flex;align-items:center;justify-content:center}
+  .split .right .quatrefoil{width:80%;height:80%;background:#fff;clip-path:path('M 50,0 C 75,0 100,25 100,50 C 100,75 75,100 50,100 C 25,100 0,75 0,50 C 0,25 25,0 50,0 Z');}
+  .split .eye{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--crp-orange);margin-bottom:6px}
+  .split h4{font-size:16px;font-weight:700;color:var(--crp-navy);margin:0 0 8px 0;line-height:1.15}
+  .split p{font-size:10px;color:var(--fg-2);margin:0 0 12px 0;line-height:1.5}
+  .split .lnk{font-size:10px;color:var(--crp-blue);font-weight:700}
+  .placeholder-photo{width:80%;height:75%;background:#fff;border-radius:16px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--fg-3);font-size:9px;font-family:var(--font-mono)}
+
+  /* 4. TESTIMONIAL */
+  .test{padding:26px 22px;background:var(--crp-navy);color:#fff;text-align:center}
+  .test .q{font-family:var(--font-script);color:var(--crp-orange);font-size:30px;line-height:1;margin-bottom:4px}
+  .test .quote{font-size:13px;line-height:1.5;max-width:320px;margin:0 auto 14px auto;font-weight:500;color:#fff}
+  .test .meta{font-size:10px;color:rgba(255,255,255,.88)}
+  .test .meta strong{color:#fff;font-weight:700;display:block;font-size:11px}
+  .test .avatar{width:36px;height:36px;border-radius:999px;background:var(--crp-orange);margin:0 auto 8px auto;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px}
+
+  /* 5. CTA BAND */
+  .cta-band{padding:24px 22px;background:var(--crp-cyan);display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .cta-band .lead{flex:1}
+  .cta-band h4{font-size:15px;font-weight:800;color:var(--crp-navy);margin:0 0 3px 0;line-height:1.15}
+  .cta-band p{font-size:10px;color:var(--crp-navy);margin:0;opacity:.9}
+  .cta-band .btn{padding:10px 20px;background:var(--crp-orange);color:#fff;font-weight:700;font-size:11px;border-radius:999px;white-space:nowrap}
+
+  /* 6. STUDY LIST */
+  .list-wrap{padding:20px 18px}
+  .list-head{font-size:14px;font-weight:700;color:var(--crp-navy);margin:0 0 10px 0}
+  .study-row{display:grid;grid-template-columns:1fr auto;gap:12px;padding:10px 0;border-top:1px solid var(--chart-grid-fine);align-items:center}
+  .study-row:first-of-type{border-top:0}
+  .study-row .t{font-size:11px;font-weight:700;color:var(--crp-navy)}
+  .study-row .sub{font-size:9px;color:var(--fg-2);font-family:var(--font-sans);margin:2px 0 0 0}
+  .pill{font-size:9px;padding:3px 8px;border-radius:999px;font-weight:700;white-space:nowrap}
+  .pill.open{background:#ecfdf5;color:#065f46}
+  .pill.closing{background:#fff3e0;color:#9a3412}
+
+  .rules{font-size:11px;color:var(--fg-2);line-height:1.6}
+  .rules strong{color:var(--crp-navy)}
+</style></head><body>
+
+<div class="grid2">
+
+  <!-- 1. Hero -->
+  <div class="card">
+    <div class="eyebrow">Hero · gradient full-bleed</div>
+    <h3>Use at page top, once per page</h3>
+    <p class="sub">Navy→Blue gradient · Market Pro script accent · single CTA</p>
+    <div class="page">
+      <div class="page-nav"><span class="logo">CRP</span><span class="links"><span>Studies</span><span>About</span><span>Contact</span></span><span class="cta">Qualify</span></div>
+      <div class="hero">
+        <div class="h1">The future of medicine<br/><span class="script">begins with you.</span></div>
+        <p class="lede">Paid clinical research studies in Philadelphia. Free screenings, compensation for time and travel.</p>
+        <span class="btn">Check Your Eligibility &rsaquo;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Feature grid -->
+  <div class="card">
+    <div class="eyebrow">Feature grid · 3-up</div>
+    <h3>"What we offer" · process steps</h3>
+    <p class="sub">Orange accent tile icons · title case feature names</p>
+    <div class="page">
+      <div class="page-nav"><span class="logo">CRP</span><span class="links"><span>Studies</span><span>About</span></span><span class="cta">Qualify</span></div>
+      <div class="fg-wrap">
+        <div class="fg-eyebrow">What you get</div>
+        <h4 class="fg-head">Real compensation, real support.</h4>
+        <div class="fg">
+          <div class="f"><div class="f-icon">$</div><div class="f-title">Fair compensation</div><div class="f-body">Up to $75 per visit plus travel.</div></div>
+          <div class="f"><div class="f-icon">♡</div><div class="f-title">Free health screen</div><div class="f-body">Full labs, no insurance needed.</div></div>
+          <div class="f"><div class="f-icon">★</div><div class="f-title">Expert care team</div><div class="f-body">Board-certified investigators.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Split -->
+  <div class="card">
+    <div class="eyebrow">Split · 50/50 image + copy</div>
+    <h3>Story moments · company intro · founder</h3>
+    <p class="sub">Photo clipped to quatrefoil stencil · eyebrow + headline + link</p>
+    <div class="page">
+      <div class="page-nav"><span class="logo">CRP</span><span class="links"><span>Studies</span><span>About</span></span><span class="cta">Qualify</span></div>
+      <div class="split">
+        <div class="left">
+          <div class="eye">About CRP</div>
+          <h4>Over 500 successful trials, one mission.</h4>
+          <p>Twenty years in Philadelphia connecting patients with breakthrough therapies before they're widely available.</p>
+          <span class="lnk">Meet the team →</span>
+        </div>
+        <div class="right">
+          <div class="placeholder-photo">photo · quatrefoil clip</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Testimonial -->
+  <div class="card">
+    <div class="eyebrow">Testimonial · single quote</div>
+    <h3>Participant stories</h3>
+    <p class="sub">Navy background · Market Pro quote mark · small avatar</p>
+    <div class="page">
+      <div class="page-nav"><span class="logo">CRP</span><span class="links"><span>Studies</span></span><span class="cta">Qualify</span></div>
+      <div class="test">
+        <div class="q">"</div>
+        <p class="quote">They answered every question — and I walked out knowing my cholesterol numbers for the first time.</p>
+        <div class="avatar">MR</div>
+        <p class="meta"><strong>Maria R.</strong>Lipid study · 2024</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. CTA Band -->
+  <div class="card">
+    <div class="eyebrow">CTA band · cyan</div>
+    <h3>End of page · repeat primary action</h3>
+    <p class="sub">Cyan background · navy copy · orange button (AA passes at 6.2:1)</p>
+    <div class="page">
+      <div class="cta-band">
+        <div class="lead">
+          <h4>Ready to see if you qualify?</h4>
+          <p>Three-minute screener. No commitment.</p>
+        </div>
+        <span class="btn">Check Your Eligibility &rsaquo;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Study list -->
+  <div class="card">
+    <div class="eyebrow">Study list · status rows</div>
+    <h3>Denser marketing — active trials</h3>
+    <p class="sub">Bordered rows · status pill right-aligned · two-line summary</p>
+    <div class="page">
+      <div class="page-nav"><span class="logo">CRP</span><span class="links"><span>Studies</span></span><span class="cta">Qualify</span></div>
+      <div class="list-wrap">
+        <h4 class="list-head">Now enrolling · 14 studies</h4>
+        <div class="study-row"><div><div class="t">High cholesterol · CRP-247</div><div class="sub">Ages 40–75 · 3 visits · up to $600 compensation</div></div><span class="pill open">Open</span></div>
+        <div class="study-row"><div><div class="t">Type 2 diabetes · CRP-312</div><div class="sub">Ages 18–65 · 6 visits · up to $1,200 compensation</div></div><span class="pill open">Open</span></div>
+        <div class="study-row"><div><div class="t">Migraine · CRP-401</div><div class="sub">Ages 18–55 · 4 visits · up to $800 compensation</div></div><span class="pill closing">Closing soon</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="card">
+  <div class="eyebrow">Composition rules</div>
+  <div class="rules">
+    <p><strong>One gradient per page</strong> — typically the hero. Don't layer gradients.</p>
+    <p><strong>One Market Pro moment per page</strong> — the tagline, a headline accent, or a pull-quote mark. Never body copy.</p>
+    <p><strong>Funnel pages stay single-column.</strong> Max-width 520px, centered. Progress bar at top. No multi-column marketing layouts on conversion surfaces.</p>
+    <p><strong>Every page ends with a CTA band.</strong> Cyan or orange. Repeat the primary action — participants scroll.</p>
+    <p><strong>Photography (when available) goes in Split or Hero only.</strong> Other blocks stay typographic. We deliberately avoid decorative photography.</p>
+  </div>
+</div>
+
+</body></html>

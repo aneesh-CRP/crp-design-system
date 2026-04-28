@@ -1,0 +1,148 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:26px;background:var(--bg);font-family:var(--font-sans);color:var(--fg-1)}
+  .eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--fg-2);margin-bottom:10px}
+  h3{margin:0 0 4px 0;font-size:14px;font-weight:700;color:var(--crp-navy)}
+  .sub{font-size:11px;color:var(--fg-3);margin:0 0 14px 0}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-sm);margin-bottom:18px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+  /* .btn / .btn-sm / .btn-icon / .actions come from shared colors_and_type.css */
+
+  /* Toast — stacked bottom-right */
+  .toast-stack{display:flex;flex-direction:column;gap:10px;align-items:stretch;background:var(--surface-2);border-radius:var(--radius-md);padding:18px;min-height:160px;position:relative}
+  .toast{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--crp-blue);border-radius:var(--radius-md);padding:12px 10px 12px 14px;box-shadow:var(--shadow-lg);width:100%;font-size:13px;display:flex;align-items:flex-start;gap:10px;box-sizing:border-box}
+  .toast .icon{width:22px;height:22px;border-radius:999px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:12px;margin-top:1px}
+  .toast .body{flex:1;line-height:1.45;min-width:0}
+  .toast .body strong{color:var(--crp-navy);font-weight:700;display:block;margin-bottom:2px}
+  .toast .body p{color:var(--fg-2);margin:0;font-size:12px}
+  /* Toast close — anchored to top-right of card, visually aligned with title */
+  .toast > .btn-icon{margin-top:-2px}
+
+  .toast.success{border-left-color:var(--success)}
+  .toast.success .icon{background:var(--success)}
+  .toast.error{border-left-color:#ef4444}
+  .toast.error .icon{background:#ef4444}
+  .toast.warning{border-left-color:var(--warning)}
+  .toast.warning .icon{background:var(--warning)}
+  .toast.info .icon{background:var(--crp-blue)}
+
+  /* Banner — full-width, sticky */
+  .banner{padding:10px 12px 10px 14px;border-radius:var(--radius-md);font-size:13px;display:flex;align-items:center;gap:12px;margin-bottom:8px;border:1px solid}
+  .banner.info{background:var(--blue-bg);border-color:#c7d4fc;color:var(--crp-navy)}
+  .banner.warn{background:#fff8f0;border-color:#ffc57a;color:#9a3412}
+  .banner .dot{width:8px;height:8px;border-radius:999px;flex-shrink:0}
+  .banner .dot.i{background:var(--crp-blue)}
+  .banner .dot.w{background:var(--warning)}
+  .banner .msg{flex:1}
+  /* Banner ghost button recolors its border/text per-tone */
+  .banner.info .btn-ghost{color:var(--crp-navy);border-color:#c7d4fc;background:rgba(255,255,255,.5)}
+  .banner.warn .btn-ghost{color:#9a3412;border-color:#ffc57a;background:rgba(255,255,255,.5)}
+
+  /* Modal */
+  .modal-backdrop{background:rgba(7,32,97,.45);backdrop-filter:blur(3px);border-radius:var(--radius-lg);padding:40px;display:flex;align-items:center;justify-content:center;min-height:240px}
+  .modal{background:var(--surface);border-radius:var(--radius-xl);padding:26px;max-width:360px;box-shadow:var(--shadow-xl);width:100%}
+  .modal h4{margin:0 0 8px 0;font-size:17px;font-weight:800;color:var(--crp-navy)}
+  .modal p{margin:0 0 20px 0;font-size:13px;color:var(--fg-2);line-height:1.55}
+
+  /* Inline confirm bar */
+  .confirm-bar{background:var(--crp-navy);color:#fff;border-radius:var(--radius-md);padding:10px 12px 10px 16px;display:flex;align-items:center;gap:12px;font-size:13px;min-height:56px}
+  .confirm-bar .msg{flex:1;color:rgba(255,255,255,.85)}
+  .confirm-bar .msg strong{color:#fff;font-weight:700}
+
+  .rules{font-size:11px;color:var(--fg-2);line-height:1.6}
+  .rules strong{color:var(--crp-navy)}
+  .rules .good{color:var(--success)}
+  .rules .bad{color:#ef4444}
+
+  /* Leftover helper hook — unused, kept as stub */
+</style></head><body>
+
+<div class="grid2">
+  <div class="card">
+    <div class="eyebrow">Toasts · transient</div>
+    <h3>Bottom-right stack · 4–6s auto-dismiss</h3>
+    <p class="sub">For non-critical confirmations · stackable · dismissable</p>
+    <div class="toast-stack">
+      <div class="toast success">
+        <span class="icon">✓</span>
+        <div class="body"><strong>Screener saved</strong><p>Maria R. added to CRP-247 queue.</p></div>
+        <button class="btn-icon" aria-label="Dismiss">×</button>
+      </div>
+      <div class="toast info">
+        <span class="icon">i</span>
+        <div class="body"><strong>3 new screeners</strong><p>Check the recruitment queue.</p></div>
+        <button class="btn-icon" aria-label="Dismiss">×</button>
+      </div>
+      <div class="toast error">
+        <span class="icon">!</span>
+        <div class="body"><strong>Couldn't save</strong><p>Network offline — we'll retry automatically.</p></div>
+        <button class="btn-icon" aria-label="Dismiss">×</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Banners · persistent</div>
+    <h3>Inline, top of page or section</h3>
+    <p class="sub">Uses <code style="font-family:var(--font-mono);font-size:10px">.btn-sm</code> — smaller because they live inline</p>
+    <div class="banner info">
+      <span class="dot i"></span>
+      <span class="msg"><strong>Scheduled maintenance</strong> · Sunday 2 AM ET for 30 min. Read-only during this window.</span>
+      <button class="btn btn-sm btn-ghost">Details</button>
+    </div>
+    <div class="banner warn">
+      <span class="dot w"></span>
+      <span class="msg"><strong>3 overdue invoices</strong> · combined $41,230 — 45+ days out.</span>
+      <button class="btn btn-sm btn-ghost">Review</button>
+    </div>
+    <p style="font-size:11px;color:var(--fg-2);margin-top:10px;line-height:1.5">Banner actions are <code style="font-family:var(--font-mono);font-size:10px">.btn-sm</code> — the only place we use the small variant. This keeps them proportional to the banner's 38px body height.</p>
+  </div>
+</div>
+
+<div class="grid2">
+  <div class="card">
+    <div class="eyebrow">Modal · destructive</div>
+    <h3>Irreversible action confirmation</h3>
+    <p class="sub">Standard <code style="font-family:var(--font-mono);font-size:10px">.btn</code> · right-aligned · ghost left, danger right</p>
+    <div class="modal-backdrop">
+      <div class="modal">
+        <h4>Archive CRP-088?</h4>
+        <p>This study will be moved to the archive. Active participants will be notified and all open invoices will remain queryable for 7 years per 21 CFR 312.</p>
+        <div class="actions">
+          <button class="btn btn-ghost">Cancel</button>
+          <button class="btn btn-danger">Archive study</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Inline confirm · non-blocking</div>
+    <h3>Undo-able destructive action</h3>
+    <p class="sub">Same 36px <code style="font-family:var(--font-mono);font-size:10px">.btn</code> · sized to match modal buttons</p>
+    <div class="confirm-bar">
+      <span class="msg"><strong>Participant removed</strong> from CRP-247 recruitment queue.</span>
+      <div class="actions">
+        <button class="btn btn-ghost-on-dark">Dismiss</button>
+        <button class="btn btn-primary">Undo</button>
+      </div>
+    </div>
+    <p style="font-size:11px;color:var(--fg-2);margin:14px 0 0 0;line-height:1.55"><strong style="color:var(--crp-navy)">Prefer this pattern</strong> for any action that can be reversed. Modals are for actions that <em>cannot</em> be undone — contract sign-offs, archives, deletions that cascade.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">Rules of escalation</div>
+  <div class="rules">
+    <p><span class="good">✓</span> <strong>Toast</strong> — the action succeeded, here's confirmation. Auto-dismiss. No blocking.</p>
+    <p><span class="good">✓</span> <strong>Banner</strong> — state you need to know for this whole session. Never auto-dismiss.</p>
+    <p><span class="good">✓</span> <strong>Inline confirm bar</strong> — something happened, here's your Undo. Default to this for any delete/remove.</p>
+    <p><span class="good">✓</span> <strong>Modal</strong> — we need an explicit decision before proceeding. Use sparingly — they block.</p>
+    <p><span class="bad">✗</span> Never stack more than 3 toasts — if more are queued, hold them.</p>
+    <p><span class="bad">✗</span> Never modal for a success message. Success goes to toast.</p>
+    <p><span class="bad">✗</span> Never use toast for errors the user must read — those need a banner or modal.</p>
+  </div>
+</div>
+
+</body></html>

@@ -1,0 +1,231 @@
+{
+  "$comment": "Machine-readable mirror of DOCTRINE.md §2. CI enforces sync — doctrine is the human source of truth, this file is what lint + audit consume.",
+  "version": "1.0.0",
+  "lastSynced": "2026-04-27",
+  "doctrine": "DOCTRINE.md",
+  "components": {
+    "button": {
+      "section": "§2.1",
+      "anatomy": { "required": ["label"], "optional": ["icon"] },
+      "variants": ["primary", "secondary", "action", "ghost", "ghost-on-dark", "danger", "link"],
+      "sizes": ["default", "sm", "xs"],
+      "classes": ["btn", "btn-{variant}", "btn-{size}"],
+      "helper": "ds.button"
+    },
+    "button-icon": {
+      "section": "§2.1",
+      "anatomy": { "required": ["glyph"] },
+      "classes": ["btn-icon"],
+      "helper": "ds.buttonIcon"
+    },
+    "action-row": {
+      "section": "§2.1",
+      "anatomy": { "required": ["buttons"] },
+      "classes": ["actions"],
+      "helper": "ds.actionRow"
+    },
+    "chip": {
+      "section": "§2.2",
+      "anatomy": { "required": ["text"], "optional": ["icon"] },
+      "variants": ["success", "warning", "danger", "info", "meta", "ai", "ghost"],
+      "classes": ["chip", "chip-{variant}"],
+      "helper": "ds.chip"
+    },
+    "pill-study-status": {
+      "section": "§2.2",
+      "anatomy": { "required": ["status"] },
+      "variants": ["enrolling", "maintenance", "pre-closed", "configuring", "startup", "closed", "suspended", "withdrawn"],
+      "classes": ["pill", "pill-{variant}"],
+      "helper": "ds.studyPill"
+    },
+    "status-dot": {
+      "section": "§2.2",
+      "variants": ["success", "warning", "danger", "info", "meta"],
+      "classes": ["dot", "dot-{variant}"],
+      "helper": "ds.statusDot"
+    },
+    "severity-flag": {
+      "section": "§2.2",
+      "anatomy": { "required": ["label"] },
+      "variants": ["urgent", "warning"],
+      "classes": ["flag", "flag-{variant}"],
+      "helper": "ds.severityFlag"
+    },
+    "site-tag": {
+      "section": "§2.2",
+      "anatomy": { "required": ["site"] },
+      "variants": ["pnj", "phl"],
+      "classes": ["site-tag", "site-tag-{variant}"],
+      "helper": "ds.siteTag"
+    },
+    "purpose-badge": {
+      "section": "§2.2",
+      "anatomy": { "required": ["label"] },
+      "tones": ["red", "amber", "green", "teal", "blue", "indigo", "violet", "magenta"],
+      "classes": ["purpose-badge", "purpose-badge-{tone}"],
+      "helper": "ds.purposeBadge"
+    },
+    "kpi-tile": {
+      "section": "§2.3",
+      "anatomy": { "required": ["label", "value"], "optional": ["delta", "deltaDir", "sparklineData", "subLabel"] },
+      "sizes": ["default", "compact"],
+      "classes": ["kpi-tile", "kpi-tile-{size}"],
+      "helper": "ds.kpiTile"
+    },
+    "section-card": {
+      "section": "§2.3",
+      "anatomy": { "required": ["children"], "optional": ["header", "footer"] },
+      "classes": ["card"],
+      "helper": "ds.card"
+    },
+    "study-card": {
+      "section": "§2.3",
+      "anatomy": { "required": ["study"], "optional": ["riskLevel"] },
+      "classes": ["study-card", "study-card-risk-{level}"],
+      "helper": "ds.studyCard"
+    },
+    "risk-card": {
+      "section": "§2.3",
+      "anatomy": { "required": ["severity", "title"], "optional": ["meta", "action"] },
+      "variants": ["urgent", "warning"],
+      "classes": ["risk-card", "risk-{severity}"],
+      "helper": "ds.riskCard"
+    },
+    "alert": {
+      "section": "§2.3",
+      "anatomy": { "required": ["body"], "optional": ["title", "action"] },
+      "variants": ["info", "success", "warning", "danger"],
+      "classes": ["alert", "alert-{variant}"],
+      "helper": "ds.alert"
+    },
+    "detail-panel-header": {
+      "section": "§2.3",
+      "anatomy": { "required": ["title"], "optional": ["subtitle"] },
+      "classes": ["detail-panel-header"],
+      "helper": "rendered inside ds.modal({ heroHeader: true })"
+    },
+    "data-table": {
+      "section": "§2.4",
+      "anatomy": { "required": ["columns", "rows"], "optional": ["caption", "sortable"] },
+      "classes": ["data-table"],
+      "helper": "ds.table"
+    },
+    "table-row": {
+      "section": "§2.4",
+      "modifiers": ["clickable", "selected", "disabled", "subdued"],
+      "classes": ["tr", "tr-{modifier}"]
+    },
+    "table-cell-text": { "section": "§2.4", "classes": ["td", "td-text"] },
+    "table-cell-number": { "section": "§2.4", "classes": ["td", "td-num"] },
+    "table-cell-chip": { "section": "§2.4", "classes": ["td", "td-chip"] },
+    "table-cell-button": { "section": "§2.4", "classes": ["td", "td-button"] },
+    "table-cell-link": { "section": "§2.4", "classes": ["td", "td-link"] },
+    "table-sort-header": {
+      "section": "§2.4",
+      "states": ["unsorted", "sorted-asc", "sorted-desc"],
+      "classes": ["th-sort", "th-sort-asc", "th-sort-desc"],
+      "helper": "ds.sortHeader"
+    },
+    "table-empty-row": { "section": "§2.4", "classes": ["tr-empty"] },
+    "table-footer-row": { "section": "§2.4", "classes": ["tr-footer"] },
+    "input-text": { "section": "§2.5", "classes": ["input"] },
+    "input-textarea": { "section": "§2.5", "classes": ["input", "input-textarea"] },
+    "input-select": { "section": "§2.5", "classes": ["input", "input-select"] },
+    "input-checkbox": { "section": "§2.5", "classes": ["checkbox"] },
+    "input-radio": { "section": "§2.5", "classes": ["radio"] },
+    "input-toggle": { "section": "§2.5", "classes": ["toggle"] },
+    "input-date": { "section": "§2.5", "classes": ["input", "input-date"] },
+    "input-search": { "section": "§2.5", "classes": ["input", "input-search"] },
+    "field": {
+      "section": "§2.5",
+      "anatomy": { "required": ["label", "input"], "optional": ["helper", "error", "required"] },
+      "classes": ["field", "field-error"],
+      "helper": "ds.field"
+    },
+    "filter-bar": {
+      "section": "§2.6",
+      "anatomy": { "optional": ["search", "filters", "clearAll", "actions"] },
+      "classes": ["filter-bar"],
+      "helper": "ds.filterBar"
+    },
+    "filter-chip": {
+      "section": "§2.6",
+      "anatomy": { "required": ["label"], "optional": ["count"] },
+      "states": ["inactive", "active", "disabled"],
+      "classes": ["filter-chip", "filter-chip-active"],
+      "helper": "ds.filterChip"
+    },
+    "filter-dropdown": {
+      "section": "§2.6",
+      "classes": ["filter-dropdown"]
+    },
+    "period-toggle": {
+      "section": "§2.6",
+      "variants": ["5-period"],
+      "classes": ["period-toggle"]
+    },
+    "group-by-toggle": { "section": "§2.6", "classes": ["group-by-toggle"] },
+    "clear-filters-button": { "section": "§2.6", "classes": ["btn", "btn-ghost", "btn-sm", "filter-clear"] },
+    "primary-tab-bar": { "section": "§2.7", "classes": ["tab-bar", "tab-bar-primary"] },
+    "primary-tab": {
+      "section": "§2.7",
+      "states": ["inactive", "active", "hidden", "locked"],
+      "classes": ["tab", "tab-primary", "tab-active", "tab-locked"]
+    },
+    "sub-tab-bar": { "section": "§2.7", "classes": ["tab-bar", "tab-bar-sub"] },
+    "sub-tab": { "section": "§2.7", "classes": ["tab", "tab-sub", "tab-active"] },
+    "modal": {
+      "section": "§2.8",
+      "anatomy": { "required": ["title", "body"], "optional": ["footer", "onClose", "heroHeader"] },
+      "sizes": ["sm", "md", "lg", "fullscreen"],
+      "classes": ["modal", "modal-{size}"],
+      "helper": "ds.modal"
+    },
+    "drawer": {
+      "section": "§2.8",
+      "directions": ["right", "left", "bottom"],
+      "classes": ["drawer", "drawer-{direction}"]
+    },
+    "tooltip": { "section": "§2.8", "classes": ["tooltip"] },
+    "popover": { "section": "§2.8", "classes": ["popover"] },
+    "kpi-popup": {
+      "section": "§2.8",
+      "classes": ["modal", "kpi-popup"],
+      "helper": "ds.kpiPopup"
+    },
+    "patient-card-modal": { "section": "§2.8", "classes": ["modal", "patient-card-modal"] },
+    "loading-spinner": {
+      "section": "§2.9",
+      "sizes": ["16", "20", "24", "32"],
+      "classes": ["spinner", "spinner-{size}"]
+    },
+    "loading-skeleton": {
+      "section": "§2.9",
+      "shapes": ["text", "block", "circle", "row"],
+      "classes": ["skel", "skel-{shape}"]
+    },
+    "empty-state": {
+      "section": "§2.9",
+      "anatomy": { "required": ["headline"], "optional": ["body", "action", "illustration"] },
+      "classes": ["empty-state"],
+      "helper": "ds.emptyState"
+    },
+    "error-state": { "section": "§2.9", "classes": ["error-state"] },
+    "refresh-button": { "section": "§2.9", "classes": ["btn", "btn-ghost", "btn-sm", "refresh-btn"] },
+    "last-updated-stamp": { "section": "§2.9", "classes": ["last-updated"] },
+    "toast": {
+      "section": "§2.9",
+      "variants": ["success", "info", "warning", "danger"],
+      "classes": ["toast", "toast-{variant}"]
+    },
+    "chart-categorical": { "section": "§2.10", "classes": ["chart", "chart-categorical"] },
+    "chart-sequential": { "section": "§2.10", "classes": ["chart", "chart-sequential"] },
+    "chart-diverging": { "section": "§2.10", "classes": ["chart", "chart-diverging"] },
+    "sparkline": {
+      "section": "§2.10",
+      "sizes": ["16", "20", "24"],
+      "classes": ["sparkline"]
+    },
+    "trend-line": { "section": "§2.10", "classes": ["chart", "chart-trend"] }
+  }
+}

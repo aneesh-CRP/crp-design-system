@@ -1,0 +1,214 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:26px;background:var(--bg);font-family:var(--font-sans);color:var(--fg-1)}
+  .eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--fg-2);margin-bottom:12px}
+  h3{margin:0 0 6px 0;font-size:14px;font-weight:700;color:var(--crp-navy)}
+  .sub{font-size:11px;color:var(--fg-3);margin:0 0 14px 0}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-sm);margin-bottom:18px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+  /* Form chrome — mirrors joinresearchstudies.com funnel */
+  label{display:block;font-size:13px;font-weight:600;color:var(--crp-navy);margin-bottom:6px}
+  .req{color:var(--crp-orange);margin-left:2px;font-weight:700}
+  .help{font-size:11px;color:var(--fg-2);margin:4px 0 0 0;line-height:1.4}
+  .err{font-size:12px;color:#991b1b;margin:6px 0 0 0;display:flex;align-items:center;gap:6px;font-weight:500}
+  .err::before{content:'!';display:inline-flex;width:14px;height:14px;border-radius:999px;background:#ef4444;color:#fff;align-items:center;justify-content:center;font-size:10px;font-weight:800}
+  .fld{margin-bottom:16px}
+
+  input[type=text], input[type=email], input[type=tel], input[type=date], select, textarea{
+    width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:var(--radius-sm);
+    font-family:inherit;font-size:14px;background:#fff;color:var(--fg-1);box-sizing:border-box;
+    transition:all var(--dur-fast) var(--ease-out);outline:none;
+  }
+  input:focus, select:focus, textarea:focus{border-color:var(--crp-blue);box-shadow:var(--ring)}
+  .inp-error{border-color:#ef4444 !important;box-shadow:0 0 0 3px rgba(239,68,68,.15) !important}
+  input:disabled{background:var(--surface-2);color:var(--fg-3);cursor:not-allowed}
+
+  /* Radio cards — the funnel's signature pattern */
+  .radio-group{display:flex;flex-direction:column;gap:8px}
+  .radio-card{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-md);background:#fff;cursor:pointer;font-size:14px;color:var(--fg-1);transition:all var(--dur-fast) var(--ease-out)}
+  .radio-card:hover{border-color:var(--crp-blue);background:#fafcff}
+  .radio-card .circle{width:20px;height:20px;border-radius:999px;border:1.5px solid var(--border-2);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all var(--dur-fast) var(--ease-out)}
+  .radio-card.selected{border-color:var(--crp-blue);background:var(--blue-bg)}
+  .radio-card.selected .circle{border-color:var(--crp-blue)}
+  .radio-card.selected .circle::after{content:'';width:10px;height:10px;border-radius:999px;background:var(--crp-blue)}
+  .radio-card strong{color:var(--crp-navy);font-weight:700}
+
+  /* Checkbox group */
+  .check-group{display:flex;flex-direction:column;gap:10px}
+  .chk-row{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--fg-1);line-height:1.5;cursor:pointer}
+  .chk-row .box{width:20px;height:20px;border:1.5px solid var(--border-2);border-radius:4px;background:#fff;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;margin-top:1px;transition:all var(--dur-fast) var(--ease-out)}
+  .chk-row.checked .box{background:var(--crp-blue);border-color:var(--crp-blue)}
+  .chk-row.checked .box::after{content:'';width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+
+  /* Progress — funnel's top bar */
+  .progress{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+  .progress-track{flex:1;height:4px;background:var(--chart-grid-fine);border-radius:999px;overflow:hidden}
+  .progress-fill{height:100%;background:var(--crp-orange);border-radius:999px}
+  .progress-label{font-family:var(--font-mono);font-size:10px;color:var(--fg-2);text-transform:uppercase;letter-spacing:.08em}
+
+  /* Buttons */
+  .btn-row{display:flex;gap:10px;justify-content:space-between;margin-top:20px;padding-top:16px;border-top:1px solid var(--chart-grid-fine)}
+  /* .btn / .btn-primary / .btn-ghost come from shared colors_and_type.css */
+
+  .funnel-frame{max-width:100%;margin:0 auto;padding:22px;border:1px solid var(--border);border-radius:var(--radius-xl);background:#fff;box-shadow:var(--shadow-md)}
+  .step-copy{font-size:11px;color:var(--fg-3);margin:0 0 4px 0;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em}
+  .step-h{font-size:20px;font-weight:800;color:var(--crp-navy);margin:0 0 8px 0;line-height:1.2}
+  .step-lede{font-size:13px;color:var(--fg-2);margin:0 0 20px 0;line-height:1.5}
+</style></head><body>
+
+<div class="grid2">
+  <div class="card">
+    <div class="eyebrow">Funnel step · signature pattern</div>
+    <h3>Eligibility screener — single question per step</h3>
+    <p class="sub">joinresearchstudies.com funnel · max-width 420px · one action per screen</p>
+    <div class="funnel-frame">
+    <div class="progress">
+      <div class="progress-track"><div class="progress-fill" style="width:33%"></div></div>
+      <span class="progress-label">2 of 6</span>
+    </div>
+    <p class="step-copy">About you</p>
+    <h4 class="step-h">Which best describes you?</h4>
+    <p class="step-lede">Pick the option that fits — you can change this later if needed.</p>
+
+    <div class="radio-group">
+      <label class="radio-card"><span class="circle"></span><span>I've been diagnosed with high cholesterol</span></label>
+      <label class="radio-card selected"><span class="circle"></span><span><strong>I'm on cholesterol medication</strong> but still have concerns</span></label>
+      <label class="radio-card"><span class="circle"></span><span>I've been told I'm at risk but not yet diagnosed</span></label>
+      <label class="radio-card"><span class="circle"></span><span>None of the above</span></label>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-ghost">← Back</button>
+      <button class="btn btn-primary">Continue →</button>
+    </div>
+  </div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Funnel anatomy</div>
+    <h3>Why this pattern works</h3>
+    <p class="sub">Every screen in the funnel follows the same contract</p>
+    <div style="display:flex;flex-direction:column;gap:14px;margin-top:8px">
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="flex-shrink:0;width:28px;height:28px;border-radius:999px;background:var(--blue-bg);color:var(--crp-blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;font-family:var(--font-mono)">01</div>
+        <div>
+          <strong style="color:var(--crp-navy);font-size:13px;display:block;margin-bottom:2px">Progress bar always visible</strong>
+          <p style="font-size:12px;color:var(--fg-2);margin:0;line-height:1.5">Step N of M — reduces abandonment by 30% on long funnels (per CRP 2024 landing test).</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="flex-shrink:0;width:28px;height:28px;border-radius:999px;background:var(--blue-bg);color:var(--crp-blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;font-family:var(--font-mono)">02</div>
+        <div>
+          <strong style="color:var(--crp-navy);font-size:13px;display:block;margin-bottom:2px">One question per screen</strong>
+          <p style="font-size:12px;color:var(--fg-2);margin:0;line-height:1.5">Never multi-column. Never "page of 12 fields." Even on desktop, the funnel stays 420px.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="flex-shrink:0;width:28px;height:28px;border-radius:999px;background:var(--blue-bg);color:var(--crp-blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;font-family:var(--font-mono)">03</div>
+        <div>
+          <strong style="color:var(--crp-navy);font-size:13px;display:block;margin-bottom:2px">Back is a ghost, Continue is primary</strong>
+          <p style="font-size:12px;color:var(--fg-2);margin:0;line-height:1.5">Primary action always on the right. Back never styled the same weight as Continue.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="flex-shrink:0;width:28px;height:28px;border-radius:999px;background:var(--blue-bg);color:var(--crp-blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;font-family:var(--font-mono)">04</div>
+        <div>
+          <strong style="color:var(--crp-navy);font-size:13px;display:block;margin-bottom:2px">Radio cards, not radio dots</strong>
+          <p style="font-size:12px;color:var(--fg-2);margin:0;line-height:1.5">Entire card is the hit target (44px min). Selected state uses the <code style="font-size:11px">--blue-bg</code> fill.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid2">
+  <div class="card">
+    <div class="eyebrow">Text fields · full set</div>
+    <h3>Inputs, labels, help + error</h3>
+    <p class="sub">Required marker · inline help · error below field</p>
+
+    <div class="fld">
+      <label>Full name<span class="req">*</span></label>
+      <input type="text" value="Maria Rodriguez"/>
+    </div>
+
+    <div class="fld">
+      <label>Email<span class="req">*</span></label>
+      <input type="email" value="maria@example.com" style="border-color:var(--crp-blue);box-shadow:var(--ring)"/>
+      <p class="help">We'll only contact you about studies you qualify for.</p>
+    </div>
+
+    <div class="fld">
+      <label>Phone<span class="req">*</span></label>
+      <input type="tel" value="215-555" class="inp-error"/>
+      <p class="err">Please enter a 10-digit US phone number.</p>
+    </div>
+
+    <div class="fld">
+      <label>Date of birth</label>
+      <input type="date" value="1975-03-12"/>
+    </div>
+
+    <div class="fld">
+      <label>ZIP code</label>
+      <input type="text" value="19114" disabled/>
+      <p class="help">Locked after matching you to nearby sites.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Select · textarea · consent</div>
+    <h3>Mixed controls</h3>
+    <p class="sub">Native select · 3-line notes · consent checkboxes</p>
+
+    <div class="fld">
+      <label>Preferred contact time</label>
+      <select>
+        <option>Anytime</option>
+        <option>Morning (8–11 AM)</option>
+        <option>Afternoon (12–5 PM)</option>
+        <option>Evening (5–8 PM)</option>
+      </select>
+    </div>
+
+    <div class="fld">
+      <label>Anything we should know?</label>
+      <textarea rows="3">I work nights — weekends are best for visits.</textarea>
+      <p class="help">Optional — coordinators read every note.</p>
+    </div>
+
+    <div class="fld" style="margin-top:20px;padding-top:16px;border-top:1px solid var(--chart-grid-fine)">
+      <label style="margin-bottom:10px">Consent<span class="req">*</span></label>
+      <div class="check-group">
+        <label class="chk-row checked"><span class="box"></span><span>I consent to be contacted by CRP about clinical research studies.</span></label>
+        <label class="chk-row checked"><span class="box"></span><span>I confirm I'm 18 or older.</span></label>
+        <label class="chk-row"><span class="box"></span><span>Send me occasional updates about new studies (optional).</span></label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">Rules</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;font-size:12px;line-height:1.7;color:var(--fg-1)">
+    <div>
+      <h3 style="margin-bottom:8px">Do</h3>
+      <p style="color:#10b981">✓ One question per funnel step — no "page of 12 fields"</p>
+      <p style="color:#10b981">✓ Always pair a <code>&lt;label&gt;</code> with every input (never placeholder-only)</p>
+      <p style="color:#10b981">✓ Mark required fields with the orange asterisk, not "(required)"</p>
+      <p style="color:#10b981">✓ Error messages: icon + color + plain-English fix ("Please enter 10 digits")</p>
+      <p style="color:#10b981">✓ Consent checkboxes default unchecked — user has to opt in</p>
+    </div>
+    <div>
+      <h3 style="margin-bottom:8px">Don't</h3>
+      <p style="color:#ef4444">✗ Never use placeholder text as the only label — it disappears on focus</p>
+      <p style="color:#ef4444">✗ Never say "Invalid" or "Error" — tell the user how to fix it</p>
+      <p style="color:#ef4444">✗ Don't auto-advance the funnel on radio click — confirms reduce errors</p>
+      <p style="color:#ef4444">✗ No "Submit" on the primary button — use the verb of the next action ("Continue")</p>
+      <p style="color:#ef4444">✗ Never pre-check marketing opt-ins (GDPR/CAN-SPAM)</p>
+    </div>
+  </div>
+</div>
+
+</body></html>

@@ -1,0 +1,144 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:26px;background:var(--bg);font-family:var(--font-sans);color:var(--fg-1)}
+  .eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--fg-2);margin-bottom:12px}
+  h3{margin:0 0 10px 0;font-size:13px;font-weight:700;color:var(--crp-navy)}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-sm);margin-bottom:18px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  table{width:100%;border-collapse:collapse;font-size:11px}
+  th{text-align:left;font-weight:700;color:var(--fg-2);text-transform:uppercase;letter-spacing:.08em;font-size:9px;padding:6px 8px;border-bottom:1px solid var(--border)}
+  td{padding:8px;border-bottom:1px solid var(--chart-grid-fine);vertical-align:middle}
+  .swatch{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10px}
+  .chip{width:16px;height:16px;border-radius:3px;border:1px solid rgba(0,0,0,.06)}
+  .sample{padding:8px 10px;border-radius:6px;font-weight:600;font-size:12px;display:inline-block}
+  .pass{color:#10b981;font-weight:700}
+  .fail{color:#ef4444;font-weight:700}
+  .warn{color:#f59e0b;font-weight:700}
+  .tgt{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px;background:var(--surface-2);border-radius:var(--radius-md)}
+  .tgt .box{background:var(--crp-blue);border-radius:var(--radius-sm)}
+  .tgt .lbl{font-family:var(--font-mono);font-size:10px;color:var(--fg-2)}
+  .tgt .name{font-size:11px;font-weight:700;color:var(--crp-navy)}
+  .focus-demo{padding:14px;background:#fff;border-radius:var(--radius-md);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .focus-demo button, .focus-demo input{font-family:var(--font-sans);font-size:12px}
+  .btn-primary{padding:8px 14px;border-radius:var(--radius-sm);background:var(--crp-orange);color:#fff;font-weight:600;border:0;cursor:pointer;outline:none}
+  .btn-primary:focus-visible{box-shadow:var(--ring)}
+  .btn-secondary{padding:8px 14px;border-radius:var(--radius-sm);background:var(--crp-navy);color:#fff;font-weight:600;border:0;cursor:pointer;outline:none}
+  .btn-secondary:focus-visible{box-shadow:var(--ring)}
+  .inp{padding:7px 10px;border-radius:var(--radius-sm);border:1px solid var(--border);outline:none}
+  .inp:focus-visible{box-shadow:var(--ring);border-color:var(--crp-blue)}
+  .always-focused{box-shadow:var(--ring) !important;border-radius:var(--radius-sm)}
+  .bad{color:#ef4444}
+  .good{color:#10b981}
+</style></head><body>
+
+<div class="card">
+  <div class="eyebrow">Color Contrast — WCAG 2.2 AA</div>
+  <table>
+    <thead><tr><th>Foreground</th><th>Background</th><th>Sample</th><th>Ratio</th><th>Body (4.5:1)</th><th>Large 18pt+ (3:1)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="swatch"><span class="chip" style="background:#072061"></span>Navy #072061</span></td>
+        <td><span class="swatch"><span class="chip" style="background:#ffffff;border-color:#e5ecf5"></span>White</span></td>
+        <td><span class="sample" style="background:#fff;color:#072061">The future of medicine</span></td>
+        <td>14.8:1</td><td class="pass">PASS AAA</td><td class="pass">PASS AAA</td>
+      </tr>
+      <tr>
+        <td><span class="swatch"><span class="chip" style="background:#072061"></span>Navy #072061</span></td>
+        <td><span class="swatch"><span class="chip" style="background:#f0f4fa"></span>Page bg #f0f4fa</span></td>
+        <td><span class="sample" style="background:#f0f4fa;color:#072061">The future of medicine</span></td>
+        <td>13.4:1</td><td class="pass">PASS AAA</td><td class="pass">PASS AAA</td>
+      </tr>
+      <tr>
+        <td><span class="swatch"><span class="chip" style="background:#1843AD"></span>Blue #1843AD</span></td>
+        <td><span class="swatch"><span class="chip" style="background:#ffffff;border-color:#e5ecf5"></span>White</span></td>
+        <td><span class="sample" style="background:#fff;color:#1843AD">See if you qualify</span></td>
+        <td>8.1:1</td><td class="pass">PASS AAA</td><td class="pass">PASS AAA</td>
+      </tr>
+      <tr>
+        <td><span class="swatch"><span class="chip" style="background:#4a6080"></span>Muted #4a6080</span></td>
+        <td><span class="swatch"><span class="chip" style="background:#ffffff;border-color:#e5ecf5"></span>White</span></td>
+        <td><span class="sample" style="background:#fff;color:#4a6080;font-weight:400">Muted body copy</span></td>
+        <td>5.7:1</td><td class="pass">PASS AA</td><td class="pass">PASS AAA</td>
+      </tr>
+      <tr>
+        <td><span class="swatch"><span class="chip" style="background:#7a90b0"></span>Tertiary #7a90b0</span></td>
+        <td><span class="swatch"><span class="chip" style="background:#ffffff;border-color:#e5ecf5"></span>White</span></td>
+        <td><span class="sample" style="background:#fff;color:#7a90b0;font-weight:400">Caption copy</span></td>
+        <td>3.3:1</td><td class="fail">FAIL</td><td class="pass">PASS</td>
+      </tr>
+      <tr>
+        <td><span class="swatch"><span class="chip" style="background:#ffffff;border-color:#e5ecf5"></span>White</span></td>
+        <td><span class="swatch"><span class="chip" style="background:#FF9933"></span>Orange #FF9933</span></td>
+        <td><span class="sample" style="background:#FF9933;color:#fff">Check Your Eligibility</span></td>
+        <td>2.4:1</td><td class="fail">FAIL</td><td class="fail">FAIL</td>
+      </tr>
+      <tr>
+        <td><span class="swatch"><span class="chip" style="background:#072061"></span>Navy #072061</span></td>
+        <td><span class="swatch"><span class="chip" style="background:#FF9933"></span>Orange #FF9933</span></td>
+        <td><span class="sample" style="background:#FF9933;color:#072061">Check Your Eligibility</span></td>
+        <td>6.2:1</td><td class="pass">PASS AA</td><td class="pass">PASS AAA</td>
+      </tr>
+      <tr>
+        <td><span class="swatch"><span class="chip" style="background:#FF9933"></span>Orange #FF9933</span></td>
+        <td><span class="swatch"><span class="chip" style="background:#072061"></span>Navy #072061</span></td>
+        <td><span class="sample" style="background:#072061;color:#FF9933">"begins with you."</span></td>
+        <td>6.2:1</td><td class="pass">PASS AA</td><td class="pass">PASS AAA</td>
+      </tr>
+      <tr>
+        <td><span class="swatch"><span class="chip" style="background:#072061"></span>Navy #072061</span></td>
+        <td><span class="swatch"><span class="chip" style="background:#A2DCEB"></span>Cyan #A2DCEB</span></td>
+        <td><span class="sample" style="background:#A2DCEB;color:#072061">Accent panel copy</span></td>
+        <td>10.4:1</td><td class="pass">PASS AAA</td><td class="pass">PASS AAA</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:11px;color:var(--fg-2);margin:14px 0 0 0;line-height:1.55"><strong style="color:#ef4444">Critical:</strong> white-on-orange is our most-used CTA pattern on the live marketing site — it <em>fails</em> WCAG AA. Prefer <strong>navy-on-orange</strong> for button labels (passes AA at 6.2:1). Audit all existing CTAs.</p>
+</div>
+
+<div class="grid2">
+  <div class="card">
+    <div class="eyebrow">Focus Ring</div>
+    <p style="font-size:12px;color:var(--fg-2);margin:0 0 12px 0;line-height:1.55">2px blue outline + 3px halo via <code>--ring</code>. Applied with <code>:focus-visible</code> — never shows on mouse click. Token: <code style="font-family:var(--font-mono);font-size:11px">box-shadow: 0 0 0 2px #1843AD, 0 0 0 5px rgba(24,67,173,.25)</code></p>
+    <div class="focus-demo">
+      <button class="btn-primary always-focused">Primary</button>
+      <button class="btn-secondary always-focused">Secondary</button>
+      <input class="inp always-focused" placeholder="Email"/>
+    </div>
+    <p style="font-size:11px;color:var(--fg-2);margin:12px 0 0 0">Always visible on keyboard nav. Never relies on color alone — the halo adds a second visual cue for low-vision users.</p>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Hit Targets</div>
+    <p style="font-size:12px;color:var(--fg-2);margin:0 0 12px 0;line-height:1.55">Minimum <strong>44×44px</strong> for touch (WCAG 2.2 SC 2.5.8 AAA · Apple HIG). Dense dashboard allows 32px but only with 8px spacing between neighbors.</p>
+    <div class="grid3">
+      <div class="tgt"><div class="box" style="width:32px;height:32px"></div><div class="name">Dashboard min</div><div class="lbl">32 · dense only</div></div>
+      <div class="tgt"><div class="box" style="width:44px;height:44px"></div><div class="name">Touch min</div><div class="lbl">44 · default</div></div>
+      <div class="tgt"><div class="box" style="width:56px;height:56px"></div><div class="name">Marketing CTA</div><div class="lbl">56 · primary</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="grid2">
+  <div class="card">
+    <div class="eyebrow">Principles</div>
+    <div style="font-size:12px;line-height:1.65">
+      <p class="good" style="margin:6px 0">✓ Never communicate state with color alone — add icon, text, or pattern</p>
+      <p class="good" style="margin:6px 0">✓ Honor <code>prefers-reduced-motion</code> — drop all transforms to opacity-only</p>
+      <p class="good" style="margin:6px 0">✓ Every input has a <code>&lt;label&gt;</code>, never placeholder-only</p>
+      <p class="good" style="margin:6px 0">✓ Error messages use icon + color + text (triple signal)</p>
+      <p class="good" style="margin:6px 0">✓ Logical tab order — don't use <code>tabindex</code> above 0</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="eyebrow">Known Issues (open)</div>
+    <div style="font-size:12px;line-height:1.65">
+      <p class="bad" style="margin:6px 0">✗ Live marketing CTA is white-on-orange (2.4:1) — fails AA</p>
+      <p class="warn" style="margin:6px 0">⚠ Tertiary text <code>#7a90b0</code> fails body contrast — only use at 18pt+</p>
+      <p class="warn" style="margin:6px 0">⚠ Market Pro script (orange) must never be body copy — hard to read below 24pt</p>
+      <p class="good" style="margin:6px 0">✓ Focus ring specced; needs audit across all interactive components</p>
+    </div>
+  </div>
+</div>
+
+</body></html>
