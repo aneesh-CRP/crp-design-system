@@ -266,6 +266,60 @@ window.ds = (function () {
     return '<div class="toast toast-' + variant + '" data-ds="toast" role="status">' + titleHtml + '<div>' + _esc(opts.body) + '</div></div>';
   };
 
+  // ─── §2.10 Phone formatting ──────────────────────────────────────────
+  //
+  // ONE chokepoint for every phone display in the dashboards. Handles all
+  // the input shapes that arrive from CRIO / forms / BQ:
+  //
+  //   "5551234567"       → "(555) 123-4567"
+  //   "15551234567"      → "(555) 123-4567"
+  //   "+15551234567"     → "(555) 123-4567"
+  //   "+1 (555) 123-4567"→ "(555) 123-4567"
+  //   "+1 15551234567"   → "(555) 123-4567"   ← the +1+1 duplication bug
+  //   "+11 5551234567"   → "(555) 123-4567"
+  //
+  // Returns the original input unchanged if it doesn't look like a US
+  // 10-digit number (international, extensions, garbage). Display-only —
+  // SMS/email send paths still use E.164 via _e164() server-side.
+  api.fmtPhone = function (raw) {
+    if (raw === null || raw === undefined || raw === '') return '';
+    var digits = String(raw).replace(/\D/g, '');
+    while (digits.length > 10 && digits.charAt(0) === '1') {
+      digits = digits.substring(1);
+    }
+    if (digits.length !== 10) return String(raw);
+    return '(' + digits.substring(0, 3) + ') ' + digits.substring(3, 6) + '-' + digits.substring(6);
+  };
+
+  // Returns the bare 10 digits (no formatting) — used for tel: hrefs.
+  // Returns '' if the input doesn't normalize to 10 US digits.
+  api.phoneDigits = function (raw) {
+    if (raw === null || raw === undefined || raw === '') return '';
+    var digits = String(raw).replace(/\D/g, '');
+    while (digits.length > 10 && digits.charAt(0) === '1') {
+      digits = digits.substring(1);
+    }
+    return digits.length === 10 ? digits : '';
+  };
+
+  // Renders a tel: anchor with formatted display text. Falls back to plain
+  // text when the input isn't a recognizable 10-digit number, so callers
+  // don't need to guard.
+  //
+  //   ds.phoneLink({ raw: '+15551234567' })
+  //     → '<a href="tel:+15551234567">(555) 123-4567</a>'
+  api.phoneLink = function (opts) {
+    opts = opts || {};
+    var raw = opts.raw;
+    if (raw === null || raw === undefined || raw === '') return _esc(opts.fallback || '—');
+    var digits = api.phoneDigits(raw);
+    if (!digits) return _esc(opts.fallback !== undefined ? opts.fallback : raw);
+    var display = api.fmtPhone(raw);
+    var styleAttr = opts.style ? ' style="' + _attr(opts.style) + '"' : (opts.color ? ' style="color:' + _attr(opts.color) + ';text-decoration:none"' : '');
+    var dataAttr = opts.dataAttrs ? ' ' + opts.dataAttrs : '';
+    return '<a href="tel:+1' + digits + '" data-ds="phone-link"' + styleAttr + dataAttr + '>' + _esc(display) + '</a>';
+  };
+
   // Imperative toast: mounts to body, auto-dismisses.
   api.toast.show = function (opts) {
     opts = opts || {};
