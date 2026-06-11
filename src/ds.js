@@ -281,6 +281,15 @@ window.ds = (function () {
   // Returns the original input unchanged if it doesn't look like a US
   // 10-digit number (international, extensions, garbage). Display-only —
   // SMS/email send paths still use E.164 via _e164() server-side.
+  //
+  // deep-review f307: structurally-invalid NANP numbers (area code starting
+  // with 0/1 — e.g. the leading-1-with-dropped-digit capture corruption
+  // "1215873953") must NOT be prettified into a legitimate-looking
+  // "(121) 587-3953". Return the raw input so the corruption stays visible.
+  // Mirrors the area-code guard in crp-unified-dashboard
+  // cloud-function/lib/leads-crm.ts (normPhoneDigits). Exchange-digit
+  // validation is intentionally NOT enforced: the dashboard contract test
+  // uses the reserved 555-123-XXXX fixtures whose exchange starts with 1.
   api.fmtPhone = function (raw) {
     if (raw === null || raw === undefined || raw === '') return '';
     var digits = String(raw).replace(/\D/g, '');
@@ -288,6 +297,8 @@ window.ds = (function () {
       digits = digits.substring(1);
     }
     if (digits.length !== 10) return String(raw);
+    // deep-review f307: NANP area code can never start with 0/1 — corrupted capture, keep raw
+    if (!/^[2-9]/.test(digits)) return String(raw);
     return '(' + digits.substring(0, 3) + ') ' + digits.substring(3, 6) + '-' + digits.substring(6);
   };
 
@@ -299,7 +310,9 @@ window.ds = (function () {
     while (digits.length > 10 && digits.charAt(0) === '1') {
       digits = digits.substring(1);
     }
-    return digits.length === 10 ? digits : '';
+    // deep-review f307: reject NANP-impossible area codes (0/1 start) so
+    // phoneLink falls back to plain text instead of a fake-dialable tel: href
+    return (digits.length === 10 && /^[2-9]/.test(digits)) ? digits : '';
   };
 
   // Renders a tel: anchor with formatted display text. Falls back to plain

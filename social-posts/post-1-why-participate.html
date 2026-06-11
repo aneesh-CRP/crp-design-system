@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CRP Social — Why Participate</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; padding:0; background:#1f2937; }
+  body { display:flex; justify-content:center; align-items:flex-start; padding:24px 0; font-family: var(--font-sans); }
+
+  /* Original-spec palette (matches the printed PDF exactly) */
+  :root {
+    --o-teal:    #2a9d8f;
+    --o-teal-dk: #1f7a70;
+    --o-green:   #7CB342;
+    --o-blue:    #3a6bc5;
+    --o-purple:  #8b5cf6;
+    --o-mint-bg: #d6ecea;
+  }
+
+  .post {
+    width: 1080px; height: 1500px;
+    background: #fff;
+    color: var(--fg-1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,.4);
+    display: flex; flex-direction: column;
+  }
+
+  /* ── Top conversational lede ─────────────────────────────── */
+  .lede {
+    padding: 40px 64px 28px;
+    background: #fafbfd;
+  }
+  .lede p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1e293b;
+    margin: 0 0 12px;
+  }
+  .lede p strong { color: var(--o-teal); font-weight: 700; }
+  .lede p .green { color: var(--o-green); font-weight: 700; }
+  .lede a { color: var(--crp-blue); text-decoration: underline; }
+  .lede .emoji { font-size: 17px; }
+
+  /* ── Hero headline w/ starbursts ─────────────────────────── */
+  .hero {
+    background: var(--o-mint-bg);
+    background: linear-gradient(180deg, #e8f4f2 0%, #d6ecea 100%);
+    padding: 36px 56px 28px;
+    text-align: center;
+    border-top: 1px solid #c8e2de;
+    border-bottom: 1px solid #c8e2de;
+  }
+  .hero .stack {
+    position: relative; display: inline-block;
+  }
+  .hero .top  { font-size: 56px; font-weight: 800; color: var(--crp-navy); letter-spacing:-.01em; line-height:1; }
+  .hero .mid  { font-size: 86px; font-weight: 800; color: var(--o-teal);   letter-spacing:-.015em; line-height:1; margin: 6px 0; display:inline-block; position:relative; }
+  .hero .bot  { font-size: 64px; font-weight: 800; color: var(--crp-navy); letter-spacing:-.01em;  line-height:1; }
+
+  /* starburst rays */
+  .ray {
+    position: absolute;
+    width: 4px; border-radius: 2px;
+    background: var(--crp-navy);
+  }
+  .ray.left  { left: -64px; }
+  .ray.right { right: -64px; }
+  .r1 { top: 50%; transform: translateY(-50%); width: 56px; height: 4px; }
+  .r2 { top: 12%; transform: rotate(-32deg); height: 28px; }
+  .r3 { bottom: 12%; transform: rotate(32deg); height: 28px; }
+  .ray.right.r2 { transform: rotate(32deg); }
+  .ray.right.r3 { transform: rotate(-32deg); }
+
+  /* dark sub-banner */
+  .subbar {
+    margin: 20px auto 0;
+    background: var(--crp-navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 14px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  /* ── 5 colored icon row ──────────────────────────────────── */
+  .benefits {
+    background: #fff;
+    padding: 36px 56px 24px;
+  }
+  .row5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+  }
+  .tile { text-align: center; padding: 0 4px; }
+  .circle {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: #fff;
+  }
+  .circle svg { width: 46px; height: 46px; stroke: #fff; }
+  .ic-teal   { background: var(--o-teal); }
+  .ic-green  { background: var(--o-green); }
+  .ic-blue   { background: var(--o-blue); }
+  .ic-purple { background: var(--o-purple); }
+
+  .tile .label {
+    font-size: 13px; font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .lab-teal   { color: var(--o-teal); }
+  .lab-green  { color: var(--o-green); }
+  .lab-blue   { color: var(--o-blue); }
+  .lab-purple { color: var(--o-purple); }
+  .tile .desc {
+    font-size: 12.5px;
+    color: #475569;
+    line-height: 1.45;
+  }
+
+  /* ── Photo + checklist band (matches original) ───────────── */
+  .photo-band {
+    margin: 8px 56px 0;
+    background: var(--o-mint-bg);
+    background: linear-gradient(135deg, #e8f4f2 0%, #d6ecea 100%);
+    border-radius: 18px;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    align-items: center;
+    gap: 18px;
+  }
+  .photo-ph {
+    aspect-ratio: 16/10;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #cfe6e2 0%, #b9d6d2 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .photo-ph .silhouettes {
+    width: 84%; height: 78%;
+    background: radial-gradient(circle at 18% 65%, #5a7d78 0 18%, transparent 19%),
+                radial-gradient(circle at 38% 55%, #4d6f6a 0 20%, transparent 21%),
+                radial-gradient(circle at 60% 60%, #6a8d88 0 19%, transparent 20%),
+                radial-gradient(circle at 82% 65%, #547672 0 18%, transparent 19%),
+                linear-gradient(180deg, transparent 38%, rgba(0,0,0,.04) 100%);
+  }
+  .photo-ph .ph-tag {
+    position: absolute; top: 10px; left: 10px;
+    background: rgba(255,255,255,.85); color: var(--o-teal-dk);
+    font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+    padding: 4px 8px; border-radius: 4px;
+  }
+
+  .checks {
+    display: grid; gap: 10px;
+    padding: 8px 8px 0 4px;
+  }
+  .check {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 15px; font-weight: 600;
+    color: var(--crp-navy);
+  }
+  .check svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--o-teal); }
+  .belong-line { margin-top: 4px; text-align: right; }
+  .belong {
+    font-family: var(--font-script), 'Caveat', cursive;
+    color: var(--o-teal);
+    font-size: 46px;
+    line-height: 1;
+    transform: rotate(-3deg);
+    display: inline-block;
+  }
+  .belong .heart { font-size: 32px; vertical-align: middle; margin-left: 2px; }
+
+  /* ── Footer CTA ──────────────────────────────────────────── */
+  .footer {
+    margin-top: auto;
+    background: var(--crp-navy);
+    color: #fff;
+    padding: 26px 56px;
+    display: grid;
+    grid-template-columns: auto 1px 1fr;
+    align-items: center;
+    column-gap: 28px;
+  }
+  .footer .crp-logo { height: 64px; display: block; }
+  .footer .vrule { background: rgba(255,255,255,.18); width: 1px; height: 60px; }
+  .footer .cta-row { display: flex; align-items: center; gap: 16px; }
+  .footer .globe {
+    width: 86px; height: 86px; border-radius: 50%;
+    background: var(--o-teal);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .footer .cta-text .lbl  { font-size: 18px; font-weight: 800; color: #fff; letter-spacing: .03em; text-transform: uppercase; }
+  .footer .cta-text .url  { font-size: 14px; color: rgba(255,255,255,.85); margin-top: 4px; line-height:1.4; }
+  .footer .cta-text .url b { color: var(--o-teal); font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="post">
+
+  <!-- Conversational lede with emoji -->
+  <div class="lede">
+    <p>Hi everyone! <span class="emoji">&#128075;</span></p>
+    <p>Did you know you can take control of your health AND get paid for it? <span class="emoji">&#128153;</span></p>
+    <p>At CRP (Clinical Research Philadelphia), we conduct clinical trials for new medications and treatments to help improve lives. You&rsquo;ll receive <strong>free medical treatment</strong> from our experienced team&mdash;and <span class="green">get paid for each visit</span>!</p>
+    <p><span class="emoji">&#128663;</span> Need a ride? No problem! We provide transportation to and from your visits if you need it.</p>
+    <p><span class="emoji">&#10024;</span> Your participation helps shape the future of medicine&mdash;and comes with real benefits for you.</p>
+    <p>Ready to learn more? Check out our current clinical trials and see if you qualify! <span class="emoji">&#128071;</span></p>
+    <p><span class="emoji">&#127760;</span> Visit: <a href="https://www.phillyresearch.com/find-a-trial">https://www.phillyresearch.com/find-a-trial</a></p>
+    <p>Take the first step toward better health&mdash;your future self will thank you! <span class="emoji">&#128170;</span></p>
+  </div>
+
+  <!-- Hero headline -->
+  <div class="hero">
+    <div class="stack">
+      <span class="ray left  r2"></span>
+      <span class="ray left  r1"></span>
+      <span class="ray left  r3"></span>
+      <span class="ray right r2"></span>
+      <span class="ray right r1"></span>
+      <span class="ray right r3"></span>
+
+      <div class="top">WHY PARTICIPATE IN A</div>
+      <div class="mid">CLINICAL TRIAL</div>
+      <div class="bot">WITH CRP?</div>
+    </div>
+    <div class="subbar">You get more than care. You make a difference.</div>
+  </div>
+
+  <!-- 5 icon benefits -->
+  <div class="benefits">
+    <div class="row5">
+
+      <div class="tile">
+        <span class="circle ic-teal">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v6a4 4 0 0 0 8 0V3"/><circle cx="18" cy="14" r="2.5"/><path d="M9 13v2a5 5 0 0 0 5 5h.5a3.5 3.5 0 0 0 3.5-3.5"/></svg>
+        </span>
+        <div class="label lab-teal">Free medical<br>treatment</div>
+        <div class="desc">Receive study-related care, exams, and medication at no cost to you.</div>
+      </div>
+
+      <div class="tile">
+        <span class="circle ic-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="1"/><circle cx="12" cy="12" r="2.5"/><path d="M6 7v10M18 7v10"/></svg>
+        </span>
+        <div class="label lab-green">Get paid for<br>each visit</div>
+        <div class="desc">Earn compensation for your time and participation at every visit.</div>
+      </div>
+
+      <div class="tile">
+        <span class="circle ic-blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 17l2-7a2 2 0 0 1 2-1.5h10a2 2 0 0 1 2 1.5l2 7"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/></svg>
+        </span>
+        <div class="label lab-blue">Transportation<br>support</div>
+        <div class="desc">We provide transportation to and from your appointments if you need it.</div>
+      </div>
+
+      <div class="tile">
+        <span class="circle ic-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>
+        </span>
+        <div class="label lab-purple">Your safety<br>is our priority</div>
+        <div class="desc">Your health and well-being are always monitored by our experienced medical team.</div>
+      </div>
+
+      <div class="tile">
+        <span class="circle ic-teal">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c0-3 2.5-5 6-5s6 2 6 5"/><path d="M14 19c0-2.2 1.6-4 4-4s4 1.5 4 4"/></svg>
+        </span>
+        <div class="label lab-teal">Help advance<br>medicine</div>
+        <div class="desc">Your participation helps researchers develop new treatments that may help others in the future.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Photo + checklist band -->
+  <div class="photo-band">
+    <div class="photo-ph">
+      <span class="ph-tag">Replace with hero photo</span>
+      <div class="silhouettes"></div>
+    </div>
+    <div>
+      <div class="checks">
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 10 18 20 6"/></svg> Make a difference</div>
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 10 18 20 6"/></svg> Take control of your health</div>
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 10 18 20 6"/></svg> Receive quality care</div>
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 10 18 20 6"/></svg> Get compensated</div>
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 10 18 20 6"/></svg> Supported every step of the way</div>
+      </div>
+      <div class="belong-line"><span class="belong">You belong here.<span class="heart">&#9825;</span></span></div>
+    </div>
+  </div>
+
+  <!-- Footer CTA -->
+  <div class="footer">
+    <img class="crp-logo" src="../assets/logos/crp-white.svg" alt="CRP &mdash; Clinical Research Philadelphia">
+    <div class="vrule"></div>
+    <div class="cta-row">
+      <span class="globe">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18"/></svg>
+      </span>
+      <div class="cta-text">
+        <div class="lbl">Ready to get started?</div>
+        <div class="url">Visit <b>https://www.phillyresearch.com/find-a-trial</b><br>to see our current clinical trials and find out if you qualify!</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

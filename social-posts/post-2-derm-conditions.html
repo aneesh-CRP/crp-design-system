@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CRP Social — Dermatology Conditions</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; padding:0; background:#1f2937; }
+  body { display:flex; justify-content:center; align-items:flex-start; padding:24px 0; font-family: var(--font-sans); }
+
+  :root {
+    --o-teal:    #2a9d8f;
+    --o-teal-dk: #1f7a70;
+    --o-green:   #7CB342;
+    --o-blue:    #3a6bc5;
+    --o-purple:  #8b5cf6;
+    --o-mint-bg: #d6ecea;
+  }
+
+  .post {
+    width: 1080px; height: 1500px;
+    background: #fff;
+    color: var(--fg-1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,.4);
+    display: flex; flex-direction: column;
+  }
+
+  /* ── Hero ────────────────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(180deg, #ffffff 0%, #f4faf9 100%);
+    padding: 56px 56px 28px;
+    text-align: center;
+  }
+  .hero .stack { position: relative; display: inline-block; }
+  .hero .top { font-size: 80px; font-weight: 800; color: var(--crp-navy); line-height: 1; letter-spacing:-.015em; }
+  .hero .bot { font-size: 80px; font-weight: 800; color: var(--o-teal);   line-height: 1; letter-spacing:-.015em; margin-top: 6px; display:inline-block; position:relative; }
+
+  /* starbursts around the headline block */
+  .ray { position: absolute; background: var(--crp-navy); border-radius: 2px; }
+  .ray.left  { left: -64px; }
+  .ray.right { right: -64px; }
+  .r1 { top: 50%; transform: translateY(-50%); width: 56px; height: 4px; }
+  .r2 { top: 12%; transform: rotate(-32deg); height: 28px; width: 4px; }
+  .r3 { bottom: 12%; transform: rotate(32deg); height: 28px; width: 4px; }
+  .ray.right.r2 { transform: rotate(32deg); }
+  .ray.right.r3 { transform: rotate(-32deg); }
+
+  .hero .lead {
+    margin: 22px auto 0;
+    max-width: 760px;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--crp-navy);
+    font-weight: 500;
+  }
+  .hero .lead .heart { color: #ef4444; vertical-align: middle; }
+
+  /* dark perks bar */
+  .perks-bar {
+    background: var(--crp-navy);
+    color: #fff;
+    padding: 18px 36px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 24px; flex-wrap: wrap;
+  }
+  .perk { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+  .perk .pcircle { width: 38px; height: 38px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; }
+  .perk .pcircle svg { width: 18px; height: 18px; stroke: #fff; }
+  .pp1 .pcircle { background: var(--o-teal); }
+  .pp2 .pcircle { background: var(--o-green); }
+  .pp3 .pcircle { background: var(--o-blue); }
+  .pp4 .pcircle { background: var(--o-purple); }
+
+  /* section title */
+  .section-title { background:#fff; text-align:center; padding: 32px 56px 18px; }
+  .section-title .lead-h {
+    display: inline-flex; align-items: center; gap: 18px;
+    font-size: 30px; font-weight: 800; color: var(--crp-navy);
+    letter-spacing: .015em; text-transform: uppercase;
+  }
+  .section-title .rule { width: 76px; height: 2px; background: var(--crp-navy); border-radius:1px; position: relative; }
+  .section-title .rule::before, .section-title .rule::after { content:""; position:absolute; top:50%; transform:translateY(-50%); width:8px; height:8px; border-radius:50%; background:var(--crp-navy); }
+  .section-title .rule::before { left: -10px; }
+  .section-title .rule::after  { right: -10px; }
+
+  /* condition grid */
+  .conditions { background: #fff; padding: 6px 48px 22px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .cond {
+    text-align: center;
+    padding: 12px 8px 14px;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .cond .circle {
+    width: 84px; height: 84px;
+    border-radius: 50%;
+    background: var(--crp-navy);
+    color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 12px;
+  }
+  .cond .circle svg { width: 40px; height: 40px; stroke: #fff; }
+  .cond .name {
+    font-size: 16px; font-weight: 800;
+    color: var(--o-teal);
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .cond .desc {
+    font-size: 13px;
+    color: var(--crp-navy);
+    line-height: 1.45;
+    max-width: 260px;
+    margin-bottom: 10px;
+  }
+  .cond .photo-ph {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #d6ecea 0%, #cfe6e2 100%);
+    position: relative;
+    overflow: hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .cond .photo-ph .ph-tag {
+    position: absolute; top: 8px; left: 8px;
+    background: rgba(255,255,255,.85); color: var(--o-teal-dk);
+    font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+    padding: 3px 6px; border-radius: 4px;
+  }
+  .cond .photo-ph::before {
+    content: "";
+    width: 60%; height: 60%;
+    background: radial-gradient(ellipse at 50% 60%, #aac9c4 0 35%, transparent 36%),
+                radial-gradient(ellipse at 30% 50%, #93b5af 0 25%, transparent 26%);
+    border-radius: 50%;
+  }
+
+  /* belong band */
+  .belong-band {
+    background: linear-gradient(180deg, #ffffff 0%, var(--o-mint-bg) 100%);
+    padding: 22px 56px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+  }
+  .belong-band .left {
+    display: flex; align-items: center; gap: 14px;
+    color: var(--crp-navy);
+  }
+  .belong-band .left .icon {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--o-teal);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: #fff; flex-shrink: 0;
+  }
+  .belong-band .left .icon svg { width: 28px; height: 28px; stroke: #fff; }
+  .belong-band .left .copy { line-height: 1.3; }
+  .belong-band .left .copy .h { font-size: 17px; font-weight: 700; }
+  .belong-band .left .copy .s { font-size: 14px; color: #475569; }
+  .belong {
+    font-family: var(--font-script), 'Caveat', cursive;
+    color: var(--o-teal);
+    font-size: 56px;
+    line-height: 1;
+    transform: rotate(-3deg);
+    white-space: nowrap;
+  }
+  .belong .heart { font-size: 38px; vertical-align: middle; margin-left: 4px; }
+
+  /* footer */
+  .footer {
+    margin-top: auto;
+    background: var(--crp-navy);
+    color: #fff;
+    padding: 26px 56px;
+    display: grid;
+    grid-template-columns: auto 1px 1fr;
+    align-items: center;
+    column-gap: 28px;
+  }
+  .footer .crp-logo { height: 64px; display: block; }
+  .footer .vrule { background: rgba(255,255,255,.18); width: 1px; height: 60px; }
+  .footer .cta-row { display: flex; align-items: center; gap: 16px; }
+  .footer .globe {
+    width: 86px; height: 86px; border-radius: 50%;
+    background: var(--o-teal);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: #fff; flex-shrink: 0;
+  }
+  .footer .cta-text .lbl  { font-size: 18px; font-weight: 800; color: #fff; letter-spacing: .03em; text-transform: uppercase; }
+  .footer .cta-text .url  { font-size: 14px; color: rgba(255,255,255,.85); margin-top: 4px; line-height:1.4; }
+  .footer .cta-text .url b { color: var(--o-teal); font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="post">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="stack">
+      <span class="ray left  r2"></span>
+      <span class="ray left  r1"></span>
+      <span class="ray left  r3"></span>
+      <span class="ray right r2"></span>
+      <span class="ray right r1"></span>
+      <span class="ray right r3"></span>
+      <div class="top">HELP ADVANCE MEDICINE.</div>
+      <div class="bot">HELP YOURSELF.</div>
+    </div>
+    <p class="lead">At CRP (Clinical Research Philadelphia), we conduct clinical trials for new treatments in a variety of conditions. <span class="heart">&#10084;</span></p>
+  </div>
+
+  <!-- Perks bar -->
+  <div class="perks-bar">
+    <span class="perk pp1"><span class="pcircle">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v6a4 4 0 0 0 8 0V3"/><circle cx="18" cy="14" r="2.5"/><path d="M9 13v2a5 5 0 0 0 5 5h.5a3.5 3.5 0 0 0 3.5-3.5"/></svg>
+    </span> Free medical treatment</span>
+    <span class="perk pp2"><span class="pcircle">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="1"/><circle cx="12" cy="12" r="2.4"/></svg>
+    </span> Get paid for each visit</span>
+    <span class="perk pp3"><span class="pcircle">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 17l2-7a2 2 0 0 1 2-1.5h10a2 2 0 0 1 2 1.5l2 7"/><circle cx="7.5" cy="17" r="1.6"/><circle cx="16.5" cy="17" r="1.6"/></svg>
+    </span> Transportation support if you need it</span>
+    <span class="perk pp4"><span class="pcircle">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>
+    </span> Care from an experienced, dedicated team</span>
+  </div>
+
+  <!-- Section title -->
+  <div class="section-title">
+    <div class="lead-h">
+      <span class="rule"></span>
+      Conditions we treat &amp; study
+      <span class="rule"></span>
+    </div>
+  </div>
+
+  <!-- Conditions grid -->
+  <div class="conditions">
+    <div class="grid">
+
+      <div class="cond">
+        <span class="circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r=".9" fill="#fff"/><circle cx="15" cy="10" r=".9" fill="#fff"/><path d="M9 15c1 1 2 1.5 3 1.5s2-.5 3-1.5"/><circle cx="7" cy="14" r="1.1" fill="#fff" opacity=".55"/><circle cx="17" cy="14" r=".9" fill="#fff" opacity=".55"/></svg>
+        </span>
+        <div class="name">Acne &amp; other skin conditions</div>
+        <div class="desc">Studies for moderate to severe acne and other skin concerns.</div>
+        <div class="photo-ph"><span class="ph-tag">Photo</span></div>
+      </div>
+
+      <div class="cond">
+        <span class="circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3v18M5.6 5.6l12.8 12.8M5.6 18.4 18.4 5.6"/><circle cx="12" cy="12" r="2.5" fill="#fff" opacity=".25"/></svg>
+        </span>
+        <div class="name">Psoriasis &amp; eczema</div>
+        <div class="desc">Researching new treatments to help reduce flare-ups, itching, and discomfort.</div>
+        <div class="photo-ph"><span class="ph-tag">Photo</span></div>
+      </div>
+
+      <div class="cond">
+        <span class="circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="2.5"/><path d="M8 11c0-1.5 1.5-2.5 4-2.5s4 1 4 2.5v3l2 6h-3l-1-4h-4l-1 4H6l2-6z"/></svg>
+        </span>
+        <div class="name">Hidradenitis suppurativa (HS)</div>
+        <div class="desc">Studies focused on reducing symptoms and improving quality of life.</div>
+        <div class="photo-ph"><span class="ph-tag">Photo</span></div>
+      </div>
+
+      <div class="cond">
+        <span class="circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14a7 7 0 0 1 14 0v5H5z"/><path d="M5 9c1.5-2 3.5-3 7-3s5.5 1 7 3"/><path d="M9 6c.5-1 1.5-1.5 3-1.5s2.5.5 3 1.5"/></svg>
+        </span>
+        <div class="name">Hair loss (alopecia)</div>
+        <div class="desc">Clinical trials for different types of hair loss.</div>
+        <div class="photo-ph"><span class="ph-tag">Photo</span></div>
+      </div>
+
+      <div class="cond">
+        <span class="circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M4 12h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/><circle cx="9" cy="9" r="1" fill="#fff"/><circle cx="15" cy="8" r="1.2" fill="#fff"/><circle cx="12" cy="6.5" r=".8" fill="#fff"/></svg>
+        </span>
+        <div class="name">Fungal infections</div>
+        <div class="desc">Researching new therapies for nail, skin, and other fungal infections.</div>
+        <div class="photo-ph"><span class="ph-tag">Photo</span></div>
+      </div>
+
+      <div class="cond">
+        <span class="circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5a1.5 1.5 0 0 1 3 0v6"/><path d="M12 11V4a1.5 1.5 0 0 1 3 0v7"/><path d="M15 11V6a1.5 1.5 0 0 1 3 0v8a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6v-3a1.5 1.5 0 0 1 3 0v2"/><circle cx="14" cy="15" r=".8" fill="#fff" opacity=".55"/></svg>
+        </span>
+        <div class="name">Warts &amp; other common dermatologic concerns</div>
+        <div class="desc">Studies to find better, more effective treatment options.</div>
+        <div class="photo-ph"><span class="ph-tag">Photo</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Belong band -->
+  <div class="belong-band">
+    <div class="left">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c0-3 2.5-5 6-5s6 2 6 5"/><path d="M14 19c0-2.2 1.6-4 4-4s4 1.5 4 4"/></svg>
+      </span>
+      <div class="copy">
+        <div class="h">Your participation makes a difference.</div>
+        <div class="s">New treatments. Better futures.</div>
+      </div>
+    </div>
+    <div class="belong">You belong here.<span class="heart">&#9825;</span></div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <img class="crp-logo" src="../assets/logos/crp-white.svg" alt="CRP &mdash; Clinical Research Philadelphia">
+    <div class="vrule"></div>
+    <div class="cta-row">
+      <span class="globe">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18"/></svg>
+      </span>
+      <div class="cta-text">
+        <div class="lbl">Interested in participating?</div>
+        <div class="url">Visit <b>https://www.phillyresearch.com/find-a-trial</b><br>to see our current clinical trials and find out if you qualify!</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
