@@ -97,7 +97,9 @@ window.ds = (function () {
     opts = opts || {};
     if (!opts.status) return '';
     var v = String(opts.status).toLowerCase().replace(/\s+/g, '-');
-    return '<span class="pill pill-' + v + '" data-ds="pill-study-status">' + _esc(opts.status) + '</span>';
+    // deep-review f306: status is data (CRIO lifecycle strings) — escape the
+    // class-attribute side too, so a quote/angle-bracket can't break out.
+    return '<span class="pill pill-' + _attr(v) + '" data-ds="pill-study-status">' + _esc(opts.status) + '</span>';
   };
 
   // Status dot — color only, no label. variant: success | warning | danger | info | meta
@@ -266,7 +268,9 @@ window.ds = (function () {
     return '<div class="toast toast-' + variant + '" data-ds="toast" role="status">' + titleHtml + '<div>' + _esc(opts.body) + '</div></div>';
   };
 
-  // ─── §2.10 Phone formatting ──────────────────────────────────────────
+  // ─── §2.11 Phone formatting ──────────────────────────────────────────
+  // (deep-review f305: registered in manifest.json + DOCTRINE.md §2.11 —
+  //  §2.10 was already Charts & data viz.)
   //
   // ONE chokepoint for every phone display in the dashboards. Handles all
   // the input shapes that arrive from CRIO / forms / BQ:
