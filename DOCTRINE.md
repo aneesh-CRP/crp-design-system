@@ -411,6 +411,17 @@ Every tagged component below. Format per entry:
 **`trend-line`** — full-size line chart.
 - Class: `chart chart-trend`
 
+### §2.11 Phone formatting
+
+<!-- deep-review f305: registers the phone helpers added to src/ds.js in 8662b4a -->
+
+**`phone-link`** — `tel:` anchor with formatted display text. The display chokepoint for every phone number shown in the dashboards.
+- Helper: `ds.phoneLink({ raw, style?, color?, dataAttrs?, fallback? })` → `<a href="tel:+1NNNNNNNNNN" data-ds="phone-link">(NNN) NNN-NNNN</a>`
+- Companions: `ds.fmtPhone(raw)` → formatted display string · `ds.phoneDigits(raw)` → bare 10 digits for `tel:` hrefs
+- Normalizes US input shapes (`1`/`+1` prefixes, the `+1+1` duplication bug); non-US, extensions, and NANP-impossible area codes (leading 0/1) stay raw / fall back to plain text so capture corruption stays visible
+- Display-only — SMS/email send paths still use E.164 server-side
+- Class: none (plain anchor)
+
 **`[LOCKED 2.A]`** Component count above is ~50, complete coverage of §§1–11 inventory. If a surface needs something not listed, that's a doctrine PR, not improvisation.
 **`[LOCKED 2.B]`** All `chip` use the **redefined** semantic tokens (`--success: #059669`, `--warning: #d97706`) so existing dashboard pixels don't shift.
 **`[LOCKED 2.C]`** `pill-study-status` is kept SEPARATE from `chip` because study lifecycle has 8 distinct states with their own color-mapping that doesn't fit the 7 chip variants.
