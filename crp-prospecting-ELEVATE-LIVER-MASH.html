@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>CRP — Executive Overview, April 2026</title>
+<title>CRP — ELEVATE-LIVER Site Brief + Capabilities</title>
 <link rel="stylesheet" href="./colors_and_type.css">
 <style>
   /* ─── Page setup: 16:9 widescreen, print one slide per page ─── */
@@ -718,6 +718,206 @@
 </head>
 <body>
 <div class="deck">
+
+<!-- ════════════ STUDY-SPECIFIC SITE BRIEF (prepended) ════════════ -->
+<style>
+  .sx-cover{box-sizing:border-box;height:720px;overflow:hidden;background:var(--gradient-navy-blue);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:64px 96px;}
+  .sx-cover .eyebrow{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--crp-cyan);font-weight:700;margin-bottom:16px;}
+  .sx-cover h1{color:#fff;font-size:56px;line-height:1.03;margin:0 0 14px;letter-spacing:-.5px;}
+  .sx-cover .sub{font-size:19px;color:#dbe6ff;max-width:860px;margin:0 0 8px;line-height:1.35;}
+  .sx-cover .why{font-size:15.5px;color:#A2DCEB;margin:6px 0 30px;font-style:italic;}
+  .sx-strip{display:flex;gap:13px;flex-wrap:wrap;}
+  .sx-chip{background:rgba(255,255,255,.10);border:1px solid rgba(162,220,235,.35);border-radius:10px;padding:13px 16px;min-width:140px;}
+  .sx-chip .n{font-size:23px;font-weight:800;color:#fff;line-height:1;}
+  .sx-chip .l{font-size:11.5px;color:#cfe0ff;margin-top:6px;}
+  .sx-cover .prep{position:absolute;top:34px;right:56px;font-size:12px;color:#bcd0ff;letter-spacing:.06em;text-transform:uppercase;}
+  .sx-cfoot{position:absolute;left:96px;right:96px;bottom:30px;display:flex;justify-content:space-between;font-size:11px;color:#bcd0ff;letter-spacing:.04em;text-transform:uppercase;}
+  .sx-cfoot .m{display:flex;align-items:center;gap:10px;}.sx-cfoot .m img{height:16px;filter:brightness(0) invert(1);opacity:.6;}
+
+  .sx-qa{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;margin-top:6px;}
+  .sx-row{display:grid;gap:5px;padding:16px 20px;background:var(--surface-2);border-radius:10px;border-left:4px solid var(--crp-blue);}
+  .sx-row .q{font-size:13px;font-weight:700;color:var(--crp-blue);}
+  .sx-row .a{font-size:12.5px;color:var(--fg-1);line-height:1.4;}
+  .sx-people{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;}
+  .sx-person{background:#fff;border:1px solid var(--crp-light-gray);border-radius:8px;padding:9px 14px;font-size:12.5px;color:var(--fg-1);}
+  .sx-person b{color:var(--crp-navy);}
+
+  .sx-funnel{display:flex;align-items:flex-start;gap:0;margin:16px 0 14px;}
+  .sx-stage{flex:1;text-align:center;padding:0 5px;}
+  .sx-bar{height:106px;display:flex;flex-direction:column;justify-content:center;color:#fff;border-radius:8px;margin-bottom:9px;}
+  .sx-bar .sn{font-size:33px;font-weight:800;line-height:1;}
+  .sx-bar .sl{font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;margin-top:5px;opacity:.92;}
+  .sx-conv{font-size:11.5px;color:var(--fg-3);}
+  .sx-arrow{align-self:center;text-align:center;color:var(--fg-3);font-size:11px;padding:0 2px;margin-bottom:46px;min-width:42px;}
+  .sx-arrow .pc{display:block;font-weight:800;color:var(--crp-blue);font-size:15px;}
+  .sx-capline{text-align:center;font-size:11.5px;color:var(--fg-2);margin:0 0 26px;line-height:1.4;}
+  .sx-capline b{color:var(--crp-navy);}
+  .sx-two{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+  .sx-h{font-size:12.5px;font-weight:800;color:var(--crp-navy);text-transform:uppercase;letter-spacing:.05em;margin:0 0 9px;}
+  .sx-list{margin:0;padding:0;list-style:none;}
+  .sx-list li{font-size:12.5px;color:var(--fg-1);line-height:1.45;padding:6px 0 6px 17px;position:relative;}
+  .sx-list li:before{content:"";position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:50%;background:var(--crp-orange);}
+  .sx-list.tealdot li:before{background:var(--crp-blue);}
+
+  .sx-cta-two{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin:14px 0 26px;}
+  .sx-list.big li{font-size:14px;padding:8px 0 8px 18px;}
+  .sx-bigcta{background:var(--gradient-navy-blue);color:#fff;border-radius:12px;padding:24px 30px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  .sx-bigcta .t{font-size:20px;font-weight:800;color:#fff;line-height:1.2;}
+  .sx-bigcta .c{font-size:13.5px;color:#dbe6ff;margin-top:5px;}
+  .sx-bigcta .who{text-align:right;font-size:13px;color:#eaf1ff;line-height:1.6;white-space:nowrap;}
+  .sx-bigcta .who b{color:#fff;}
+  .sx-cred{display:flex;justify-content:space-between;gap:12px;margin-top:26px;border-top:1px solid var(--crp-light-gray);padding-top:18px;}
+  .sx-cred div.c{flex:1;text-align:center;}
+  .sx-cred .n{font-size:21px;font-weight:800;color:var(--crp-navy);line-height:1;}
+  .sx-cred .l{font-size:11px;color:var(--fg-2);margin-top:6px;}
+  .sx-cover2{box-sizing:border-box;height:720px;overflow:hidden;position:relative;background:var(--gradient-navy-blue);color:#fff;display:grid;grid-template-columns:1.35fr 1fr;align-items:center;}
+  .sx-quat{position:absolute;right:-150px;bottom:-200px;width:700px;height:700px;opacity:0.06;}
+  .sx-cov-left{padding:60px 40px 60px 88px;position:relative;z-index:2;}
+  .sx-cov-left .eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--crp-cyan);font-weight:700;margin-bottom:16px;}
+  .sx-cov-left h1{color:#fff;font-size:50px;line-height:1.05;margin:0 0 14px;letter-spacing:-.5px;font-weight:800;}
+  .sx-cov-left .sub{font-size:17.5px;color:#dbe6ff;margin:0 0 8px;line-height:1.35;}
+  .sx-cov-left .why{font-size:15px;color:var(--crp-cyan);margin:6px 0 26px;font-style:italic;}
+  .sx-cov-right{padding:60px 80px 60px 34px;position:relative;z-index:2;border-left:1px solid rgba(162,220,235,.22);align-self:stretch;display:flex;flex-direction:column;justify-content:center;}
+  .sx-logo{width:360px;max-width:100%;margin-bottom:26px;}
+  .sx-covtag{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--crp-cyan);font-weight:700;margin-bottom:14px;}
+  .sx-covprep{font-size:14.5px;color:#dbe6ff;line-height:1.5;}
+  .sx-covprep b{color:#fff;font-size:20px;display:block;margin-top:3px;}
+  .sx-script{font-family:var(--font-script);color:var(--crp-orange);font-size:29px;margin-top:24px;line-height:1;}
+  .footer .pageno{text-transform:none;}
+</style>
+
+<!-- STUDY SLIDE 1 — cover (branded) -->
+<section class="slide sx-cover2">
+  <img class="sx-quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="sx-cov-left">
+    <div class="eyebrow">ELEVATE-LIVER · Phase III · MASLD / Early MASH</div>
+    <h1>Survodutide in MASLD&nbsp;/ early&nbsp;MASH</h1>
+    <div class="sub">A cardiac function &amp; structure study in metabolic-dysfunction-associated steatotic liver disease — where our cardiometabolic and hepatology strengths overlap.</div>
+    <div class="why">Why CRP is a high-yield, low-risk site for this protocol.</div>
+    <div class="sx-strip">
+      <div class="sx-chip"><div class="n">8&ndash;12</div><div class="l">Projected randomized</div></div>
+      <div class="sx-chip"><div class="n">1.5M+</div><div class="l">EMR lives mined for MASLD</div></div>
+      <div class="sx-chip"><div class="n">On-site</div><div class="l">FibroScan (CAP / kPa)</div></div>
+      <div class="sx-chip"><div class="n">95%</div><div class="l">Trials hit enrollment target</div></div>
+      <div class="sx-chip"><div class="n">&lt;21d</div><div class="l">Study start-up</div></div>
+    </div>
+  </div>
+  <div class="sx-cov-right">
+    <img class="sx-logo" src="./assets/logos/crp-white.svg" alt="Clinical Research Philadelphia">
+    <div class="sx-covtag">Site Capabilities Brief</div>
+    <div class="sx-covprep">Prepared for<b>Boehringer Ingelheim</b></div>
+    <div class="sx-script">the right site for this study</div>
+  </div>
+  <div class="sx-cfoot"><span class="m"><img src="./assets/logos/crp-icon.svg" alt=""> phillyresearch.com</span><span>ELEVATE-LIVER · Site Brief · S1</span></div>
+</section>
+
+<!-- STUDY SLIDE 2 — sponsor questions answered -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Site fit · what you're evaluating</div>
+      <h2 class="slide-h2">Built for a cardiac-function study in MASLD.</h2>
+      <p class="slide-lede">The questions a feasibility team asks for this protocol — answered.</p>
+    </div>
+    <div class="sx-qa">
+      <div class="sx-row"><div class="q">Right patients for this protocol?</div><div class="a">156 MASLD candidates in-database, scaled via <b>EMR mining</b> (steatosis &amp; FIB-4) across 1.5M+ lives and 50+ provider partners.</div></div>
+      <div class="sx-row"><div class="q">Non-invasive staging at screening?</div><div class="a">On-site <b>FibroScan</b> (CAP + liver-stiffness kPa) for eligibility — no biopsy bottleneck for early MASH.</div></div>
+      <div class="sx-row"><div class="q">Right PI for a cardiac endpoint?</div><div class="a">Dr. Heether (Cardiology) + Dr. Modarressi (Endo / Lipidology) — a cardiac-function-in-MASLD study sits on our cardiometabolic anchor.</div></div>
+      <div class="sx-row"><div class="q">Procedures &amp; equipment match?</div><div class="a">On-site ECG, echo access, infusion, central-lab processing, monitored −80 / refrigerated IP storage.</div></div>
+      <div class="sx-row"><div class="q">Familiar with the drug class?</div><div class="a">Active GLP-1 / incretin program — survodutide's glucagon / GLP-1 mechanism is in our wheelhouse.</div></div>
+      <div class="sx-row"><div class="q">Sponsor relationship &amp; track record?</div><div class="a">Established Boehringer site-engagement relationship; proven delivery for AstraZeneca, Lilly, Novo &amp; Amgen.</div></div>
+    </div>
+    <div class="sx-people">
+      <div class="sx-person"><b>PI</b> · Joseph Heether, MD — Cardiology</div>
+      <div class="sx-person"><b>Sub-I</b> · Taher Modarressi, MD, FNLA — Endo / Lipidology</div>
+      <div class="sx-person"><b>Coordinators</b> · 4 CRCs, 10+ yrs each</div>
+    </div>
+  </div>
+  <div class="footer"><span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Clinical Research Philadelphia</span><span class="pageno">ELEVATE-LIVER · S2</span></div>
+</section>
+
+<!-- STUDY SLIDE 3 — enrollment funnel (REAL rates) + recruitment -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Projected enrollment · grounded in real CRP data</div>
+      <h2 class="slide-h2">Our measured conversion, applied to ELEVATE-LIVER.</h2>
+      <p class="slide-lede">Conversion rates below are CRP <b>actuals</b> from comparable cardiometabolic trials — not estimates.</p>
+    </div>
+    <div class="sx-funnel">
+      <div class="sx-stage"><div class="sx-bar" style="background:#072061;"><span class="sn">1,000</span><span class="sl">Prospects</span></div><div class="sx-conv">EMR-mined MASLD pool</div></div>
+      <div class="sx-arrow"><span class="pc">72%</span>reached</div>
+      <div class="sx-stage"><div class="sx-bar" style="background:#1843AD;"><span class="sn">720</span><span class="sl">Interested</span></div><div class="sx-conv">contacted / opt-in</div></div>
+      <div class="sx-arrow"><span class="pc">26%</span>qualify</div>
+      <div class="sx-stage"><div class="sx-bar" style="background:#3a6bc5;"><span class="sn">190</span><span class="sl">Eligible</span></div><div class="sx-conv">pass pre-screen</div></div>
+      <div class="sx-arrow"><span class="pc">28%</span>sched×show</div>
+      <div class="sx-stage"><div class="sx-bar" style="background:#5b86d6;"><span class="sn">53</span><span class="sl">Screened</span></div><div class="sx-conv">on-site screening</div></div>
+      <div class="sx-arrow"><span class="pc">19%</span>randomize</div>
+      <div class="sx-stage"><div class="sx-bar" style="background:#FF9933;"><span class="sn">~10</span><span class="sl">Randomized</span></div><div class="sx-conv">range 8&ndash;12</div></div>
+    </div>
+    <div class="sx-capline">CRP actuals (n≈1,200 leads, 260 screened): <b>72%</b> reached · <b>26%</b> pre-qualify · <b>19%</b> screen→randomize (~81% screen-fail is typical for imaging-gated MASLD). ≈ <b>1 randomized per ~100 identified</b> — so we mine at scale.</div>
+    <div class="sx-two">
+      <div>
+        <div class="sx-h">How we fill the top of funnel</div>
+        <ul class="sx-list">
+          <li><b>EMR mining</b> — steatosis / FIB-4 flags across 1.5M+ lives &amp; 50+ providers</li>
+          <li><b>CRIO database</b> — 156 MASLD candidates ready to re-contact</li>
+          <li><b>Referrals + digital</b> — endo / cardio / PCP / GI &amp; targeted campaigns</li>
+        </ul>
+      </div>
+      <div>
+        <div class="sx-h">How we protect the bottom of funnel</div>
+        <ul class="sx-list tealdot">
+          <li><b>On-site FibroScan pre-stages CAP / kPa eligibility before screening</b> — attacks the ~81% imaging-driven screen-fail that caps MASLD enrollment</li>
+          <li>Cardiometabolic PI bench + 70–95% retention keeps subjects on study</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Recruitment projection · real CRP conversion</span><span class="pageno">ELEVATE-LIVER · S3</span></div>
+</section>
+
+<!-- STUDY SLIDE 4 — CTA / next steps -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Next steps</div>
+      <h2 class="slide-h2">Ready to move on your timeline.</h2>
+      <p class="slide-lede">Send the protocol and we'll turn feasibility around fast.</p>
+    </div>
+    <div class="sx-cta-two">
+      <div>
+        <div class="sx-h">What we'd need from you</div>
+        <ul class="sx-list big">
+          <li>Protocol synopsis + key inclusion / exclusion criteria</li>
+          <li>Feasibility questionnaire (returned in days, not weeks)</li>
+          <li>Draft budget / CTA to begin redlines</li>
+          <li>Start-up contact &amp; CDA to share full protocol</li>
+        </ul>
+      </div>
+      <div>
+        <div class="sx-h">What you'll get back — fast</div>
+        <ul class="sx-list big tealdot">
+          <li>Signed CDA within 24 hours</li>
+          <li>FibroScan-based pre-screen plan + EMR-mined candidate counts</li>
+          <li>&lt;7 days budget → contract · &lt;21-day activation</li>
+          <li>Weekly enrollment &amp; data-quality reporting once live</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sx-bigcta">
+      <div>
+        <div class="t">Send the feasibility questionnaire, or book a 30-minute capabilities call.</div>
+        <div class="c">We'll confirm projected enrollment for your exact I/E and a start-up timeline.</div>
+      </div>
+      <div class="who"><b>Aneesh Vaze, MBA</b> — Managing Director<br>aneesh@phillyresearch.com · 215-676-6696<br>PI: Joseph Heether, MD · phillyresearch.com</div>
+    </div>
+    <div class="sx-cred"><div class="c"><div class="n">30 yrs</div><div class="l">Operating since 1996</div></div><div class="c"><div class="n">500+</div><div class="l">Clinical trials run</div></div><div class="c"><div class="n">2 sites</div><div class="l">Philadelphia + Pennington</div></div><div class="c"><div class="n">95%</div><div class="l">Hit enrollment target</div></div><div class="c"><div class="n">&lt;21d</div><div class="l">Study start-up</div></div></div>
+  </div>
+  <div class="footer"><span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Let's build the future of medicine</span><span class="pageno">ELEVATE-LIVER · S4</span></div>
+</section>
+<!-- ════════════ END STUDY BRIEF — GENERAL CAPABILITIES FOLLOW ════════════ -->
+
 
 <!-- ═════════ SLIDE 1 — COVER (patient tagline) ═════════ -->
 <section class="slide cover">

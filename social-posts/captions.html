@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CRP Social — Captions</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin:0; padding:48px 0; background:#1f2937; font-family: var(--font-sans); }
+  .stack { width: 720px; margin: 0 auto; display:flex; flex-direction:column; gap: 28px; }
+  .cap {
+    background:#fff; color: var(--fg-1);
+    border-radius: var(--radius-xl);
+    padding: 32px 36px 28px;
+    box-shadow: var(--shadow-lg);
+  }
+  .eyebrow {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--crp-blue);
+    margin-bottom: 6px;
+  }
+  h2 { font-size: 22px; font-weight: 800; color: var(--crp-navy); letter-spacing:-0.01em; margin: 0 0 14px; }
+  pre {
+    font-family: inherit;
+    white-space: pre-wrap;
+    line-height: 1.6;
+    font-size: 15px;
+    color: var(--fg-1);
+    margin: 0;
+    padding: 18px 20px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
+  .meta {
+    margin-top: 14px;
+    font-size: 12px; color: var(--fg-2);
+    display: flex; gap: 14px; flex-wrap: wrap;
+  }
+  .meta b { color: var(--crp-navy); }
+  .tag {
+    display: inline-flex; align-items: center;
+    background: var(--blue-bg); color: var(--crp-blue);
+    font-weight: 600; font-size: 11px;
+    padding: 3px 9px; border-radius: var(--radius-pill);
+  }
+</style>
+</head>
+<body>
+<div class="stack">
+
+  <div class="cap">
+    <div class="eyebrow">Caption · Post 1 — General</div>
+    <h2>Help advance medicine. Help yourself.</h2>
+<pre>You can take control of your health — and get paid for your time.
+
+At CRP (Clinical Research Philadelphia), we run clinical trials for new medicines and treatments. If you join a study, you receive:
+
+• Free study-related medical care
+• Compensation for each visit
+• Transportation to and from your appointments, if you need it
+• Care from an experienced, dedicated team
+
+Your participation helps shape the future of medicine — and comes with real benefits for you.
+
+See if you qualify → phillyresearch.com/find-a-trial
+
+You belong here.
+
+#ClinicalResearch #Philadelphia #ClinicalTrials #Health</pre>
+    <div class="meta">
+      <span class="tag">Voice: confident, plain</span>
+      <span class="tag">CTA: phillyresearch.com/find-a-trial</span>
+      <b>Pairs with:</b> post-1-why-participate.html
+    </div>
+  </div>
+
+  <div class="cap">
+    <div class="eyebrow">Caption · Post 2 — Dermatology</div>
+    <h2>Better skin. Better futures.</h2>
+<pre>Free medical care + compensation for your time — while helping bring new dermatology treatments forward.
+
+We&rsquo;re currently enrolling for studies in:
+• Acne and other skin conditions
+• Psoriasis and eczema
+• Hidradenitis suppurativa
+• Hair loss (alopecia)
+• Fungal infections
+• Warts and other common dermatologic concerns
+
+Every participant receives:
+• Free study-related care and medication
+• Compensation per visit
+• Transportation if you need it
+• Care from an experienced team
+
+See if you qualify → phillyresearch.com/find-a-trial
+
+You belong here.
+
+#Dermatology #Acne #Psoriasis #Eczema #ClinicalTrials #Philadelphia</pre>
+    <div class="meta">
+      <span class="tag">Voice: warm, specific</span>
+      <span class="tag">CTA: phillyresearch.com/find-a-trial</span>
+      <b>Pairs with:</b> post-2-derm-conditions.html
+    </div>
+  </div>
+
+  <div class="cap" style="background: var(--bg); border:1px solid var(--border);">
+    <div class="eyebrow">Notes — what changed vs. the originals</div>
+    <h2 style="font-size:18px;">Design upgrades</h2>
+<pre>1. Type
+   • Inter (system) for body + headlines &mdash; per CRP typography rule.
+   • Market Pro for the orange accent line ("Help yourself." / "Better futures." / "You belong here.").
+     Replaces the teal Caveat-style script in the original.
+
+2. Color
+   • Hero band uses brand --gradient-navy-blue (#072061 → #1843AD).
+   • Belong band uses cyan→blue tint, not unbranded teal #2a9d8f.
+   • Icon-tile colors map to the 6-color categorical scale (navy, success, blue, orange, cyan).
+
+3. Hierarchy
+   • Eyebrow → display headline → subline → benefit tiles → checklist → CTA.
+   • Footer is one solid navy strip with an orange pill CTA &mdash; matches dashboard chrome.
+
+4. Voice / copy
+   • Captions trimmed of decorative emoji (kept one in the post graphic).
+   • CTA standardized: "See if you qualify → phillyresearch.com/find-a-trial".
+   • Sign-off "You belong here." kept &mdash; now in brand orange Market Pro, not teal.
+
+5. Format
+   • Both posts are 1080 &times; 1350 (Instagram portrait). Open the HTML, screenshot the .post element at 1&times; for the export.</pre>
+  </div>
+
+</div>
+</body>
+</html>
