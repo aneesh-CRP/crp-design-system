@@ -14,7 +14,7 @@
 
   <!-- Slide 1 · Title -->
   <section data-screen-label="01 Title" style="width:1280px;height:720px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#072061 0%,#1843AD 100%);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:72px 80px;position:relative">
-    <img src="../../assets/logos/crp-white.svg" alt="Clinical Research Philadelphia" style="height:56px;align-self:flex-start"/>
+    <img src="../../assets/logos/crp-white.svg" alt="Clinical Research Philadelphia" style="height:76px;align-self:flex-start"/>
     <div>
       <h1 style="font-size:72px;font-weight:800;line-height:1.02;letter-spacing:-0.02em;margin:0;color:#fff">The future of medicine</h1>
       <div style="font-family:'Market Pro','Caveat',cursive;color:#FF9933;font-size:76px;line-height:1.1;margin-top:6px">begins with you.</div>
@@ -38,6 +38,7 @@
   </section>
 
   <!-- Slide 3 · Story + quote -->
+  <sc-if value="{{showQuote}}" hint-placeholder-val="{{ true }}">
   <section data-screen-label="03 Quote" style="width:1280px;height:720px;border-radius:12px;overflow:hidden;background:#072061;color:#fff;padding:72px 80px;display:flex;flex-direction:column;justify-content:center">
     <div style="font-family:'Market Pro','Caveat',cursive;color:#FF9933;font-size:80px;line-height:.6;margin-bottom:18px">"</div>
     <p style="font-size:38px;font-weight:600;line-height:1.3;letter-spacing:-0.01em;max-width:960px;margin:0 0 36px;color:#fff">They answered every question — and I walked out knowing my numbers for the first time in my life.</p>
@@ -46,17 +47,40 @@
       <div><div style="font-weight:700;font-size:18px;color:#fff">Maria R.</div><div style="font-size:15px;color:rgba(255,255,255,.7)">Participant · lipid study · 2024</div></div>
     </div>
   </section>
+  </sc-if>
 
   <!-- Slide 4 · Closing CTA -->
+  <sc-if value="{{closeCyan}}" hint-placeholder-val="{{ true }}">
   <section data-screen-label="04 Closing" style="width:1280px;height:720px;border-radius:12px;overflow:hidden;background:#A2DCEB;color:#072061;padding:72px 80px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
     <img src="../../assets/logos/crp-icon.svg" alt="" style="height:88px;margin-bottom:32px"/>
     <h2 style="font-size:54px;font-weight:800;letter-spacing:-0.015em;margin:0 0 14px;color:#072061">Let's run your next study together.</h2>
     <p style="font-size:20px;color:#072061;opacity:.8;margin:0 0 36px;max-width:640px">sponsors@phillyresearch.com · 215-676-6696 · phillyresearch.com</p>
     <span style="background:#FF9933;color:#fff;font-weight:700;font-size:18px;padding:18px 40px;border-radius:999px">Schedule a site visit →</span>
   </section>
+  </sc-if>
+  <sc-if value="{{closeNavy}}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="04 Closing" style="width:1280px;height:720px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#072061 0%,#1843AD 100%);color:#fff;padding:72px 80px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+    <img src="../../assets/logos/crp-white.svg" alt="" style="height:80px;margin-bottom:32px"/>
+    <h2 style="font-size:54px;font-weight:800;letter-spacing:-0.015em;margin:0 0 14px;color:#ffffff">Let's run your next study together.</h2>
+    <p style="font-size:20px;color:#ffffff;opacity:.85;margin:0 0 36px;max-width:640px">sponsors@phillyresearch.com · 215-676-6696 · phillyresearch.com</p>
+    <span style="background:#FF9933;color:#fff;font-weight:700;font-size:18px;padding:18px 40px;border-radius:999px">Schedule a site visit →</span>
+  </section>
+  </sc-if>
 
 </div>
 
 </x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;closingTone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;cyan&quot;,&quot;navy&quot;],&quot;default&quot;:&quot;cyan&quot;,&quot;tsType&quot;:&quot;'cyan' | 'navy'&quot;,&quot;section&quot;:&quot;Closing slide&quot;},&quot;quoteSlide&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Slides&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const tone = this.props.closingTone ?? 'cyan';
+    return {
+      showQuote: this.props.quoteSlide ?? true,
+      closeCyan: tone !== 'navy',
+      closeNavy: tone === 'navy'
+    };
+  }
+}
+</script>
 </body>
 </html>

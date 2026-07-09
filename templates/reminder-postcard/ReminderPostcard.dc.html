@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Appointment Reminder Postcard" description="6×4in mailer — visit reminder front, address + prep checklist back" -->
+<helmet><script src="./ds-base.js"></script></helmet>
+
+<div style="font-family:'Area Normal',-apple-system,'Segoe UI',Arial,sans-serif;background:#e6ecf5;padding:36px;display:flex;gap:32px;flex-wrap:wrap;justify-content:center">
+
+  <!-- FRONT · 6×4in at 2x (864×576) -->
+  <section data-screen-label="Front" style="width:864px;height:576px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#072061 0%,#1843AD 100%);color:#fff;padding:56px;display:flex;flex-direction:column;justify-content:space-between;position:relative;box-shadow:0 4px 16px rgba(7,32,97,.10)">
+    <svg style="position:absolute;right:-70px;bottom:-90px;width:300px;height:300px;opacity:.08" viewBox="0 0 200 200"><g fill="#fff"><circle cx="70" cy="70" r="60"/><circle cx="130" cy="70" r="60"/><circle cx="70" cy="130" r="60"/><circle cx="130" cy="130" r="60"/></g></svg>
+    <sc-if value="{{chipOff}}" hint-placeholder-val="{{ true }}">
+      <img src="../../assets/logos/crp-white.svg" alt="Clinical Research Philadelphia" style="height:56px;align-self:flex-start;position:relative"/>
+    </sc-if>
+    <sc-if value="{{chipOn}}" hint-placeholder-val="{{ false }}">
+      <div style="background:#ffffff;border-radius:10px;padding:10px 14px;align-self:flex-start;position:relative;display:flex;align-items:center">
+        <img src="../../assets/logos/crp-long.svg" alt="Clinical Research Philadelphia" style="height:44px"/>
+      </div>
+    </sc-if>
+    <div style="position:relative">
+      <div style="font-size:15px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FFB98A;margin-bottom:12px">Your visit is coming up</div>
+      <div style="font-size:52px;font-weight:800;line-height:1.02;letter-spacing:-.02em;color:#fff">See you on</div>
+      <div style="font-family:'Market Pro','Caveat',cursive;color:#FF9933;font-size:56px;line-height:1.15;margin-top:4px">[DAY], [DATE] at [TIME]</div>
+    </div>
+    <div style="font-size:17px;color:rgba(255,255,255,.88);position:relative">Study [STUDY-ID] · Questions or need to reschedule? 215-676-6696</div>
+  </section>
+
+  <!-- BACK -->
+  <section data-screen-label="Back" style="width:864px;height:576px;border-radius:12px;overflow:hidden;background:#fff;color:#072061;padding:56px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;box-shadow:0 4px 16px rgba(7,32,97,.10)">
+    <div style="display:flex;flex-direction:column;justify-content:space-between">
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FF9933;margin-bottom:12px">Before your visit</div>
+        <div style="font-size:16px;color:#3d5373;line-height:1.9">
+          ✓ &nbsp;Arrive fasting if your coordinator told you to<br/>
+          ✓ &nbsp;Bring your current medication list<br/>
+          ✓ &nbsp;Bring a photo ID<br/>
+          ✓ &nbsp;Allow about [DURATION] for this visit
+        </div>
+      </div>
+      <div style="border-top:1px solid #c8d6e8;padding-top:18px">
+        <div style="font-size:18px;font-weight:800;color:#072061">9501 Roosevelt Blvd, Suite 208, Philadelphia, PA 19114</div>
+        <div style="font-size:14px;color:#3d5373;margin-top:4px">Free parking on site · second floor, elevator available</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;justify-content:space-between;border-left:1px solid #c8d6e8;padding-left:36px">
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3d5373;margin-bottom:10px">Mail to</div>
+        <div style="font-size:16px;color:#072061;line-height:1.7">[FIRST NAME] [LAST NAME]<br/>[STREET ADDRESS]<br/>[CITY], [STATE] [ZIP]</div>
+      </div>
+      <div style="font-size:12px;color:#5e7694;line-height:1.6">Clinical Research Philadelphia, LLC<br/>The future of medicine begins with you.</div>
+    </div>
+  </section>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;logoChip&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Front&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const chip = this.props.logoChip ?? false;
+    return { chipOn: chip, chipOff: !chip };
+  }
+}
+</script>
+</body>
+</html>
