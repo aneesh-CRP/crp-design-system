@@ -6,6 +6,16 @@ A design system for **Clinical Research Philadelphia, LLC (CRP)** — the brand,
 
 ---
 
+## Components
+
+- DashboardNav — sticky ops top-nav with tabs
+- Kpis — TimeBanner, HeroRow, KpiTile, KpiRow summary tiles
+- Panels — Card, Badge, Pill, RiskTag, Alert, Panel primitives
+- StudyCard — risk-bordered study card + CoordRow workload bar
+- Funnel — ProgressBar, RadioCard, ConsentBlock (eligibility funnel primitives)
+
+---
+
 ## Index
 
 | File / folder | What it is |
@@ -193,7 +203,7 @@ Never. Not in marketing, not in product, not in email.
 3. **Hand-drawn accent marks** — ✅ recreated from the brand PDF. See `assets/accents/` (6 SVG marks: scribble, underline, arrow, sparkle, circle, check) and `preview/accents.html`.
 4. **Iconography set** — ✅ recreated from the brand PDF. See `assets/icons/` (6 SVG icons: patient, clipboard, heart, shield, location, phone) and `preview/icons.html`.
 5. **Quatrefoil stencil** — ✅ recreated from the brand PDF. See `assets/stencils/quatrefoil.svg` and `preview/stencil.html`. Used as a `clip-path` or `mask` for photo/color moments.
-6. **Photography library** — we have no approved staff portraits, environment shots, or lifestyle photography. All photographic moments in the UI kits are placeholder color-blocks.
+6. **Photography library** — ✅ supplied by client. Nine approved staff photos in `assets/photos/` (brand-wall portraits, orange cut-out portrait, office/lab candids). See `preview/photography.html` for usage rules.
 7. **Full brand guidelines PDF** — ✅ committed at `brand/CRP Brand Guidelines.pdf`.
 
 ## Recent additions (Apr 2026)

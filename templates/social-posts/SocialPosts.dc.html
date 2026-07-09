@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Social Post Set" description="1080×1080 square posts — recruitment, tagline, stat" -->
+<helmet><script src="./ds-base.js"></script></helmet>
+
+<div style="font-family:'Area Normal',-apple-system,'Segoe UI',Arial,sans-serif;background:#0a1430;padding:40px;display:flex;gap:40px;flex-wrap:wrap;justify-content:center">
+
+  <!-- Post 1 · Recruitment -->
+  <section data-screen-label="Recruitment" style="width:540px;height:540px;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#072061 0%,#1843AD 100%);color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:space-between;position:relative">
+    <svg style="position:absolute;right:-60px;bottom:-80px;width:280px;height:280px;opacity:.07" viewBox="0 0 200 200"><g fill="#fff"><circle cx="70" cy="70" r="60"/><circle cx="130" cy="70" r="60"/><circle cx="70" cy="130" r="60"/><circle cx="130" cy="130" r="60"/></g></svg>
+    <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FFB98A;position:relative">Now enrolling · Philadelphia</div>
+    <div style="position:relative">
+      <div style="font-size:38px;font-weight:800;line-height:1.05;letter-spacing:-.02em;color:#fff">High cholesterol study.</div>
+      <div style="font-family:'Market Pro','Caveat',cursive;color:#FF9933;font-size:40px;line-height:1.1;margin-top:4px">Real pay. Real care.</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;position:relative">
+      <span style="font-size:14px;color:rgba(255,255,255,.85)">Up to $600 · free screening</span>
+      <span style="background:#FF9933;color:#fff;font-weight:700;font-size:13px;padding:10px 20px;border-radius:999px">joinresearchstudies.com</span>
+    </div>
+  </section>
+
+  <!-- Post 2 · Tagline -->
+  <section data-screen-label="Tagline" style="width:540px;height:540px;border-radius:8px;overflow:hidden;background:#1843AD;color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:center;text-align:center">
+    <div style="font-size:40px;font-weight:700;line-height:1.1;letter-spacing:-.015em;color:#fff">The future of medicine</div>
+    <div style="font-family:'Market Pro','Caveat',cursive;color:#FF9933;font-size:48px;line-height:1.2;margin-top:6px">begins with you</div>
+    <img src="../../assets/logos/crp-white.svg" alt="Clinical Research Philadelphia" style="height:44px;margin:48px auto 0"/>
+  </section>
+
+  <!-- Post 3 · Stat -->
+  <section data-screen-label="Stat" style="width:540px;height:540px;border-radius:8px;overflow:hidden;background:#A2DCEB;color:#072061;padding:48px;display:flex;flex-direction:column;justify-content:space-between">
+    <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#072061;opacity:.7">Twenty years in Philadelphia</div>
+    <div>
+      <div style="font-size:110px;font-weight:800;line-height:1;letter-spacing:-.03em;color:#072061">500+</div>
+      <div style="font-size:22px;font-weight:600;color:#072061;margin-top:8px">successful clinical trials, powered by neighbors like you.</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <img src="../../assets/logos/crp-long.svg" alt="Clinical Research Philadelphia" style="height:36px"/>
+      <span style="background:#FF9933;color:#fff;font-weight:700;font-size:13px;padding:10px 20px;border-radius:999px">Join a study →</span>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+</body>
+</html>

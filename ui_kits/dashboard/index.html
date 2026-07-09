@@ -1,3 +1,4 @@
+<!-- @dsCard group="UI Kits" viewport="1400x1000" name="Dashboard" subtitle="Ops overview — nav, KPIs, study cards, finance table" -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,11 +12,9 @@
 </head>
 <body>
 <div id="root"></div>
-<script type="text/babel" src="DashboardNav.jsx"></script>
-<script type="text/babel" src="Kpis.jsx"></script>
-<script type="text/babel" src="Panels.jsx"></script>
-<script type="text/babel" src="StudyCard.jsx"></script>
+<script src="../../_ds_bundle.js"></script>
 <script type="text/babel">
+const { DashboardNav, TimeBanner, HeroRow, KpiTile, KpiRow, Card, Badge, Pill, RiskTag, Alert, Panel, StudyCard, CoordRow } = window.CRPDesignSystem_3ec805;
 const { useState } = React;
 
 function Sparkline({points, color = 'var(--crp-blue)'}) {
