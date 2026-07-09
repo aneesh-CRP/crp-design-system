@@ -22,7 +22,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 1px 3px rgba(7,32,97,0.04);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 .nav-brand { display: flex; align-items: center; gap: 10px; margin-right: 12px; }
 .nav-logo-img { height: 28px; width: auto; }
@@ -65,8 +65,8 @@ body {
 }
 .tb-section {
   flex: 1; text-align: center; padding: 14px 10px;
-  background: #fafbfc; border: 1.5px solid var(--border);
-  border-radius: 10px; box-shadow: 0 1px 3px rgba(7,32,97,.06);
+  background: #fafbfc; border: 1.5px solid #cbd5e1;
+  border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,.06);
   min-width: 110px;
 }
 .tb-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--fg-2); margin-bottom: 4px; }

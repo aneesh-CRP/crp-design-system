@@ -1,5 +1,5 @@
 // Panels.jsx - cards, tables, badges
-function Card({title, meta, children, actions}) {
+export function Card({title, meta, children, actions}) {
   return (
     <div className="card">
       {(title || meta || actions) && (
@@ -16,19 +16,19 @@ function Card({title, meta, children, actions}) {
   );
 }
 
-function Badge({kind = 'gray', children}) {
+export function Badge({kind = 'gray', children}) {
   return <span className={'badge badge-' + kind}>{children}</span>;
 }
 
-function Pill({kind, children}) {
+export function Pill({kind, children}) {
   return <span className={'pill pill-' + kind}>{children}</span>;
 }
 
-function RiskTag({level}) {
+export function RiskTag({level}) {
   return <span className={'risk-tag risk-' + level}>{level}</span>;
 }
 
-function Alert({kind = 'info', icon, children}) {
+export function Alert({kind = 'info', icon, children}) {
   return (
     <div className={'alert-bar alert-' + kind}>
       {icon && <span>{icon}</span>}
@@ -37,7 +37,9 @@ function Alert({kind = 'info', icon, children}) {
   );
 }
 
-function Panel({title, actions, children, pad = true}) {
+export const Panels = { get Card(){return Card}, get Badge(){return Badge}, get Pill(){return Pill}, get RiskTag(){return RiskTag}, get Alert(){return Alert}, get Panel(){return Panel} };
+
+export function Panel({title, actions, children, pad = true}) {
   return (
     <div className="panel">
       <div className="panel-head">
@@ -48,5 +50,3 @@ function Panel({title, actions, children, pad = true}) {
     </div>
   );
 }
-
-Object.assign(window, { Card, Badge, Pill, RiskTag, Alert, Panel });

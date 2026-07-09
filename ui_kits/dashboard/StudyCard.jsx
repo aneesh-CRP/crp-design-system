@@ -1,5 +1,5 @@
 // StudyCard.jsx - risk-top study card
-function StudyCard({name, risk = 'low', stats, onClick}) {
+export function StudyCard({name, risk = 'low', stats, onClick}) {
   return (
     <div className={'study-card risk-' + risk} onClick={onClick}>
       <div className="study-card-name">{name}</div>
@@ -15,7 +15,7 @@ function StudyCard({name, risk = 'low', stats, onClick}) {
   );
 }
 
-function CoordRow({name, count, max = 10, initials}) {
+export function CoordRow({name, count, max = 10, initials}) {
   const pct = Math.min(100, (count / max) * 100);
   return (
     <div className="coord-row">
@@ -26,5 +26,3 @@ function CoordRow({name, count, max = 10, initials}) {
     </div>
   );
 }
-
-Object.assign(window, { StudyCard, CoordRow });
