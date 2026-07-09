@@ -15,7 +15,7 @@
 
     <!-- Masthead -->
     <div style="background:linear-gradient(135deg,#072061 0%,#1843AD 100%);color:#fff;padding:44px 48px">
-      <img src="../../assets/logos/crp-white.svg" alt="Clinical Research Philadelphia" style="height:42px;margin-bottom:28px"/>
+      <img src="../../assets/logos/crp-white.svg" alt="Clinical Research Philadelphia" style="height:60px;margin-bottom:28px"/>
       <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FFB98A;margin-bottom:10px">Paid research study · Now enrolling</div>
       <h1 style="font-size:40px;font-weight:800;line-height:1.05;letter-spacing:-0.02em;margin:0;color:#fff">Still fighting high cholesterol?</h1>
       <div style="font-family:'Market Pro','Caveat',cursive;color:#FF9933;font-size:42px;line-height:1.15;margin-top:4px">We'd like to meet you.</div>
@@ -40,13 +40,24 @@
     </div>
 
     <!-- Contact band -->
-    <div style="background:#A2DCEB;padding:26px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px">
-      <div>
-        <div style="font-size:20px;font-weight:800;color:#072061">Call 215-676-6696</div>
-        <div style="font-size:13px;color:#072061;opacity:.8">or visit joinresearchstudies.com — 3-minute screener</div>
+    <sc-if value="{{isCyan}}" hint-placeholder-val="{{ true }}">
+      <div style="background:#A2DCEB;padding:26px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+        <div>
+          <div style="font-size:20px;font-weight:800;color:#072061">Call 215-676-6696</div>
+          <div style="font-size:13px;color:#072061;opacity:.8">or visit joinresearchstudies.com — 3-minute screener</div>
+        </div>
+        <span style="background:#FF9933;color:#fff;font-weight:700;font-size:14px;padding:12px 24px;border-radius:999px;white-space:nowrap">See if you qualify</span>
       </div>
-      <span style="background:#FF9933;color:#fff;font-weight:700;font-size:14px;padding:12px 24px;border-radius:999px;white-space:nowrap">See if you qualify</span>
-    </div>
+    </sc-if>
+    <sc-if value="{{isNavy}}" hint-placeholder-val="{{ false }}">
+      <div style="background:#072061;padding:26px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+        <div>
+          <div style="font-size:20px;font-weight:800;color:#ffffff">Call 215-676-6696</div>
+          <div style="font-size:13px;color:#ffffff;opacity:.85">or visit joinresearchstudies.com — 3-minute screener</div>
+        </div>
+        <span style="background:#FF9933;color:#fff;font-weight:700;font-size:14px;padding:12px 24px;border-radius:999px;white-space:nowrap">See if you qualify</span>
+      </div>
+    </sc-if>
 
     <!-- Footer -->
     <div style="padding:16px 48px;display:flex;justify-content:space-between;font-size:11px;color:#5e7694">
@@ -57,5 +68,13 @@
   </div>
 </div>
 </x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;bandTone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;cyan&quot;,&quot;navy&quot;],&quot;default&quot;:&quot;cyan&quot;,&quot;tsType&quot;:&quot;'cyan' | 'navy'&quot;,&quot;section&quot;:&quot;Contact band&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const tone = this.props.bandTone ?? 'cyan';
+    return { isCyan: tone !== 'navy', isNavy: tone === 'navy' };
+  }
+}
+</script>
 </body>
 </html>
