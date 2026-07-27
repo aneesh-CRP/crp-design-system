@@ -775,6 +775,25 @@
   .icn-scard .sl { font-size: 11px; color: var(--fg-2); margin-top: 5px; letter-spacing: 0.04em; }
 
   .icn-note { max-width: 1120px; margin: 14px auto 0; font-size: 13px; color: var(--fg-2); line-height: 1.45; }
+
+  /* ═══ Therapeutic-area capability slides ═══ */
+  .icn-ta { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 22px; max-width: 1120px; margin: 0 auto; width: 100%; }
+  .icn-ta-left { display: flex; flex-direction: column; gap: 14px; }
+  .icn-team { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .icn-person { border: 1px solid var(--border); border-radius: 10px; padding: 11px 13px; background: #fff; }
+  .icn-person .pn { font-size: 13.5px; font-weight: 700; color: var(--crp-navy); line-height: 1.25; }
+  .icn-person .pr { font-size: 12px; color: var(--crp-blue); font-weight: 600; margin-top: 3px; letter-spacing: 0.03em; }
+  .icn-cap { border: 1px solid var(--border); border-left: 3px solid var(--crp-orange); border-radius: 10px; padding: 13px 16px; background: #fff; }
+  .icn-cap ul { margin: 0; padding: 0; list-style: none; }
+  .icn-cap li { font-size: 13.5px; line-height: 1.45; color: var(--crp-navy); padding-left: 15px; position: relative; margin-bottom: 7px; }
+  .icn-cap li:last-child { margin-bottom: 0; }
+  .icn-cap li:before { content: ""; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%; background: var(--crp-blue); }
+  .icn-exp { border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; background: #fff; box-shadow: var(--shadow-sm); }
+  .icn-exp h4 { font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--crp-blue); font-weight: 700; margin: 0 0 12px; }
+  .icn-exp ol { margin: 0; padding: 0; list-style: none; }
+  .icn-exp li { font-size: 13.5px; line-height: 1.4; color: var(--crp-navy); padding: 6px 0 6px 0; border-bottom: 1px solid var(--chart-grid-fine); }
+  .icn-exp li:last-child { border-bottom: none; }
+  .icn-exp li .ph { color: var(--fg-2); font-weight: 600; font-size: 12px; }
   .icn-ask { max-width: 1120px; margin: 0 auto; width: 100%; }
   .icn-ask ol { margin: 0; padding: 0; list-style: none; counter-reset: ask; }
   .icn-ask li { counter-increment: ask; position: relative; padding: 18px 0 18px 62px; border-bottom: 1px solid var(--chart-grid-fine); }
@@ -848,31 +867,28 @@
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
-      <div class="slide-eyebrow">Metabolic · delivered</div>
-      <h2 class="slide-h2">Eleven metabolic protocols have put 92 patients into treatment since 2021.</h2>
-      <p class="slide-lede">Lipids, heart failure, type 2 diabetes, obesity and MASH. Six sponsors. Both sites.</p>
+      <div class="slide-eyebrow">Metabolic · commitment versus delivery</div>
+      <h2 class="slide-h2">We exceeded the sponsor's enrollment target on all five of our recent cardiometabolic trials.</h2>
+      <p class="slide-lede">Target is the sponsor's allocation to this site. Retention is participants completing against those randomized.</p>
     </div>
     <div class="slide-body">
       <table class="icn-tbl">
         <thead>
-          <tr><th>Protocol</th><th>Sponsor and indication</th><th style="text-align:right">Randomized</th><th style="text-align:right">Screen fails</th><th style="text-align:right">Patients worked</th></tr>
+          <tr><th>Study</th><th style="text-align:right">Target</th><th style="text-align:right">Actual</th><th style="text-align:right">Vs target</th><th style="text-align:right">Retention</th><th>Status</th></tr>
         </thead>
         <tbody>
-          <tr class="hi"><td class="lead">J3L-MC-EZEF</td><td>Lilly — Lp(a), ASCVD outcomes</td><td class="num" style="text-align:right">52</td><td class="dim" style="text-align:right">210</td><td class="dim" style="text-align:right">1,180</td></tr>
-          <tr><td class="lead">J2A-MC-GZGS</td><td>Lilly — T2D and obesity, raised CV risk</td><td class="num" style="text-align:right">9</td><td class="dim" style="text-align:right">16</td><td class="dim" style="text-align:right">1,053</td></tr>
-          <tr><td class="lead">20230222</td><td>Amgen — olpasiran, Lp(a)</td><td class="num" style="text-align:right">6</td><td class="dim" style="text-align:right">22</td><td class="dim" style="text-align:right">826</td></tr>
-          <tr><td class="lead">D6973C00001</td><td>AstraZeneca — baxdrostat, heart failure prevention</td><td class="num" style="text-align:right">6</td><td class="dim" style="text-align:right">5</td><td class="dim" style="text-align:right">980</td></tr>
-          <tr><td class="lead">J2A-MC-GZPO</td><td>Lilly — obesity with and without T2D</td><td class="num" style="text-align:right">6</td><td class="dim" style="text-align:right">43</td><td class="dim" style="text-align:right">840</td></tr>
-          <tr><td class="lead">NN9535-4984</td><td>Novo Nordisk — T2D and obesity</td><td class="num" style="text-align:right">4</td><td class="dim" style="text-align:right">4</td><td class="dim" style="text-align:right">938</td></tr>
-          <tr><td class="lead">MALO / TZ01 / RT01</td><td>Lilly — MASH</td><td class="num" style="text-align:right">3</td><td class="dim" style="text-align:right">92</td><td class="dim" style="text-align:right">283</td></tr>
-          <tr><td class="dim">Four further protocols</td><td class="dim">Lilly, AstraZeneca — ASCVD, CKD, type 2 diabetes</td><td class="num" style="text-align:right">6</td><td class="dim" style="text-align:right">28</td><td class="dim" style="text-align:right">2,636</td></tr>
+          <tr class="hi"><td class="lead">Lp(a) ASCVD outcomes</td><td class="dim" style="text-align:right">15</td><td class="num" style="text-align:right">52</td><td class="num" style="text-align:right;color:var(--crp-orange)">347%</td><td class="num" style="text-align:right">95%</td><td class="dim">Enrolling</td></tr>
+          <tr><td class="lead">ASCVD + CKD</td><td class="dim" style="text-align:right">7</td><td class="num" style="text-align:right">13</td><td class="num" style="text-align:right;color:var(--crp-orange)">186%</td><td class="num" style="text-align:right">85%</td><td class="dim">Enrolling</td></tr>
+          <tr><td class="lead">T2DM + CV risk</td><td class="dim" style="text-align:right">5</td><td class="num" style="text-align:right">9</td><td class="num" style="text-align:right;color:var(--crp-orange)">180%</td><td class="num" style="text-align:right">85%</td><td class="dim">Closed</td></tr>
+          <tr><td class="lead">T2DM — GLP first line</td><td class="dim" style="text-align:right">5</td><td class="num" style="text-align:right">7</td><td class="num" style="text-align:right;color:var(--crp-orange)">140%</td><td class="num" style="text-align:right">80%</td><td class="dim">Maintenance</td></tr>
+          <tr><td class="lead">T2DM — GLP vs insulin</td><td class="dim" style="text-align:right">5</td><td class="num" style="text-align:right">5</td><td class="num" style="text-align:right;color:var(--crp-orange)">100%</td><td class="num" style="text-align:right">70%</td><td class="dim">Maintenance</td></tr>
         </tbody>
       </table>
-      <div class="icn-note">FibroScan on site pre-selects F2–F3 patients before biopsy, which is why MASH screen-fails land on us rather than on the sponsor's biopsy budget. Lp(a) and lipid panels run in house, so ASCVD eligibility is settled before a patient reaches screening.</div>
+      <div class="icn-note"><b>Eleven metabolic protocols in total</b> across lipids, heart failure, type 2 diabetes, obesity and MASH — Lilly, AstraZeneca, Amgen and Novo Nordisk. FibroScan on site pre-selects F2–F3 patients before biopsy, so MASH screen-fails land on us rather than on the sponsor's biopsy budget. Lp(a) and lipid panels run in house, so ASCVD eligibility is settled before a patient reaches screening.</div>
     </div>
   </div>
   <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Metabolic · distinct randomized participants, 2021 to date</span>
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Metabolic · target per sponsor site allocation</span>
     <span class="pageno">03</span>
   </div>
 </section>
@@ -919,7 +935,56 @@
   </div>
 </section>
 
-<!-- ═════════ ICON 5 — CNS ═════════ -->
+<!-- ═════════ ICON 5 — CARDIOMETABOLIC CAPABILITY ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Cardiometabolic capability</div>
+      <h2 class="slide-h2">A cardiology, lipidology and internal medicine bench with nine recent trials behind it.</h2>
+      <p class="slide-lede">Our anchor therapeutic area — the one where we have both the investigators and the referral base already in place.</p>
+    </div>
+    <div class="slide-body">
+      <div class="icn-ta">
+        <div class="icn-ta-left">
+          <div class="icn-team">
+            <div class="icn-person"><div class="pn">Joseph Heether, MD</div><div class="pr">CARDIOLOGY</div></div>
+            <div class="icn-person"><div class="pn">Taher Modarressi, MD, FNLA</div><div class="pr">ENDOCRINOLOGY / LIPIDOLOGY</div></div>
+            <div class="icn-person"><div class="pn">Hal Ganzman, DO</div><div class="pr">INTERNAL MEDICINE</div></div>
+            <div class="icn-person"><div class="pn">Lolita Vaughan, CRNP</div><div class="pr">GENERAL MEDICINE</div></div>
+          </div>
+          <div class="icn-cap">
+            <ul>
+              <li>Referral network across <b>endocrinology, cardiology and internal medicine</b></li>
+              <li><b>FibroScan, ultrasound, EKG, centrifuges and infusion pumps</b> on site</li>
+              <li>Lp(a) and lipid panels run in house before a patient reaches screening</li>
+              <li>Four coordinators, each with over ten years of experience</li>
+            </ul>
+          </div>
+        </div>
+        <div class="icn-exp">
+          <h4>Recent research experience</h4>
+          <ol>
+            <li>LDL-cholesterol reduction in high-risk ASCVD <span class="ph">· Phase III · 2025, ongoing</span></li>
+            <li>GIP/GLP-1 receptor agonist in MASLD <span class="ph">· Phase III · 2025, ongoing</span></li>
+            <li>ASCVD risk reduction with elevated lipoprotein <span class="ph">· Phase III · 2025, ongoing</span></li>
+            <li>Cardiovascular outcomes in chronic kidney disease <span class="ph">· Phase III · 2025, ongoing</span></li>
+            <li>Lipoprotein(a) lowering, primary and secondary prevention <span class="ph">· Phase III · 2025</span></li>
+            <li>Oral GLP-1 therapy for T2D and cardiometabolic risk <span class="ph">· Phase III · 2024</span></li>
+            <li>GLP-1 weight management in adults <span class="ph">· Phase III · 2024</span></li>
+            <li>Cardiometabolic prevention in insulin resistance <span class="ph">· Phase II · 2024</span></li>
+            <li>LDL-cholesterol reduction in high-risk ASCVD <span class="ph">· Phase III · 2024</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Cardiometabolic · team, equipment, recent trials</span>
+    <span class="pageno">05</span>
+  </div>
+</section>
+
+<!-- ═════════ ICON 6 — CNS ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -948,11 +1013,108 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> CNS · distinct randomized participants, 2021 to date</span>
-    <span class="pageno">05</span>
+    <span class="pageno">06</span>
   </div>
 </section>
 
-<!-- ═════════ ICON 6 — HOW WE FIND PATIENTS ═════════ -->
+<!-- ═════════ ICON 7 — EARLY AD CAPABILITY ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Early Alzheimer's capability</div>
+      <h2 class="slide-h2">Four certified raters are the reason we can take an early AD protocol at all.</h2>
+      <p class="slide-lede">Rater certification is the constraint most sites fail on. Ours are trained and current on the instruments these trials run.</p>
+    </div>
+    <div class="slide-body">
+      <div class="icn-ta">
+        <div class="icn-ta-left">
+          <div class="icn-cap" style="border-left-color:var(--crp-blue);">
+            <ul>
+              <li><b>4 certified raters</b> trained on MMSE, CDR, ADAS-Cog and FAQ</li>
+              <li><b>5 clinical research coordinators</b> experienced in cognitive assessment visits</li>
+              <li>Board-certified <b>neurologist and geriatrician</b> reached through our provider network</li>
+              <li>Referral base across <b>neurology, geriatrics and primary care</b></li>
+              <li>Study partner and caregiver scheduling handled by the same coordinator queue</li>
+            </ul>
+          </div>
+          <div class="icn-cap">
+            <ul>
+              <li>Our Alzheimer's pre-screening pathway worked <b>494 patients</b> for a Lilly protocol</li>
+              <li>Memory-complaint patients already sit in our database and are re-screened against each new protocol</li>
+            </ul>
+          </div>
+        </div>
+        <div class="icn-exp">
+          <h4>Investigator experience in Alzheimer's disease</h4>
+          <ol>
+            <li>Early Alzheimer's monoclonal antibody <span class="ph">· Phase III · 2025, ongoing</span></li>
+            <li>Sensory stimulation for Alzheimer's <span class="ph">· Phase III · 2024</span></li>
+            <li>Alzheimer's disease prevention <span class="ph">· Phase III · 2022</span></li>
+            <li>Early-stage Alzheimer's immunotherapy <span class="ph">· Phase I/II · 2022</span></li>
+            <li>Alzheimer's monoclonal antibody <span class="ph">· Phase III · 2021</span></li>
+            <li>Cognitive health and metabolic intervention <span class="ph">· Phase III · 2021</span></li>
+          </ol>
+          <div style="font-size:12px;color:var(--fg-2);margin-top:12px;line-height:1.45;">Investigator experience, including trials run by our investigators and network-affiliated specialists.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Early Alzheimer's · raters, team, investigator experience</span>
+    <span class="pageno">07</span>
+  </div>
+</section>
+
+<!-- ═════════ ICON 8 — DERM & RHEUM ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Also available to the program</div>
+      <h2 class="slide-h2">Dermatology and rheumatology run nine recent trials on the same operating model.</h2>
+      <p class="slide-lede">Outside what you asked for, but the same coordinators, regulatory function and referral engine — so placement here needs no new set-up.</p>
+    </div>
+    <div class="slide-body">
+      <div class="icn-ta">
+        <div class="icn-ta-left">
+          <div class="icn-team">
+            <div class="icn-person"><div class="pn">Michael Tomeo, MD</div><div class="pr">DERMATOLOGY</div></div>
+            <div class="icn-person"><div class="pn">Lawrence Leventhal, MD</div><div class="pr">RHEUMATOLOGY</div></div>
+            <div class="icn-person"><div class="pn">Parth Patel, PA</div><div class="pr">DERMATOLOGY</div></div>
+            <div class="icn-person"><div class="pn">Lolita Vaughan, CRNP</div><div class="pr">DERM / RHEUM</div></div>
+          </div>
+          <div class="icn-cap">
+            <ul>
+              <li>Referral network across <b>dermatology, rheumatology, internal medicine and allergy</b></li>
+              <li>Four coordinators, each with over ten years of experience</li>
+              <li>IGA and PASI scoring performed on site</li>
+              <li>Biologic-experienced and JAK-experienced patients already identified in our database</li>
+            </ul>
+          </div>
+        </div>
+        <div class="icn-exp">
+          <h4>Recent research experience, 2024 to 2025</h4>
+          <ol>
+            <li>Atopic dermatitis, unresponsive to biologics and JAK inhibitors <span class="ph">· Phase III</span></li>
+            <li>Plaque psoriasis, oral IL-23 receptor antagonist <span class="ph">· Phase III</span></li>
+            <li>Chronic spontaneous urticaria, antihistamine-refractory <span class="ph">· Phase III</span></li>
+            <li>Lichen simplex chronicus, chronic itch and lichenification <span class="ph">· Phase III</span></li>
+            <li>Atopic dermatitis, JAK1 inhibitor in biologic-experienced patients <span class="ph">· Phase III</span></li>
+            <li>Moderate-to-severe eczema, OX40 inhibition <span class="ph">· Phase II</span></li>
+            <li>Rheumatoid arthritis, methotrexate-inadequate responders <span class="ph">· Phase III</span></li>
+            <li>Sjögren's syndrome, BTK pathway <span class="ph">· Phase III</span></li>
+            <li>Systemic lupus erythematosus, ROCK inhibition <span class="ph">· Phase III</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Dermatology and rheumatology · same operating model</span>
+    <span class="pageno">08</span>
+  </div>
+</section>
+
+<!-- ═════════ ICON 9 — HOW WE FIND PATIENTS ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -986,7 +1148,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Provider network · database · eligibility engine</span>
-    <span class="pageno">06</span>
+    <span class="pageno">09</span>
   </div>
 </section>
 
@@ -1040,7 +1202,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Sponsors · protocols and randomized participants from our EDC</span>
-    <span class="pageno">07</span>
+    <span class="pageno">10</span>
   </div>
 </section>
 
@@ -1078,7 +1240,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> PA and NJ · one contracting entity, one system</span>
-    <span class="pageno">08</span>
+    <span class="pageno">11</span>
   </div>
 </section>
 
@@ -1112,7 +1274,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Next steps · Clinical Research Philadelphia</span>
-    <span class="pageno">09</span>
+    <span class="pageno">12</span>
   </div>
 </section>
 
@@ -1130,7 +1292,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> phillyresearch.com</span>
-    <span class="pageno">10</span>
+    <span class="pageno">13</span>
   </div>
 </section>
 
@@ -1181,7 +1343,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Clinical Research Philadelphia</span>
-    <span class="pageno">11</span>
+    <span class="pageno">14</span>
   </div>
 </section>
 
@@ -1191,7 +1353,7 @@
     <div class="slide-head">
       <div class="slide-eyebrow">Performance proof</div>
       <h2 class="slide-h2">We hit sponsor enrollment targets nine times out of ten.</h2>
-      <p class="slide-lede">Across our last ten trials. The cycle-time metrics below show how.</p>
+      <p class="slide-lede">Across our last ten trials. Cycle times measured against NIH guidelines (PubMed 30227522).</p>
     </div>
     <div class="slide-body">
       <div class="perf-grid">
@@ -1243,7 +1405,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Performance · last 10 trials</span>
-    <span class="pageno">12</span>
+    <span class="pageno">15</span>
   </div>
 </section>
 
@@ -1283,7 +1445,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Three pillars · Tech, Team, Start-up speed</span>
-    <span class="pageno">13</span>
+    <span class="pageno">16</span>
   </div>
 </section>
 
@@ -1338,7 +1500,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Selected studies · non-exhaustive</span>
-    <span class="pageno">14</span>
+    <span class="pageno">17</span>
   </div>
 </section>
 
@@ -1383,7 +1545,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Technology · what it removes from your workload</span>
-    <span class="pageno">15</span>
+    <span class="pageno">18</span>
   </div>
 </section>
 
@@ -1430,7 +1592,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Top of funnel to enrolled</span>
-    <span class="pageno">16</span>
+    <span class="pageno">19</span>
   </div>
 </section>
 
@@ -1440,7 +1602,7 @@
     <div class="slide-head">
       <div class="slide-eyebrow">Investigators</div>
       <h2 class="slide-h2">Eight investigators cover our therapeutic areas.</h2>
-      <p class="slide-lede">Combined 200+ years of clinical research experience. Most have been with CRP for over a decade.</p>
+      <p class="slide-lede">Combined 200+ years of clinical research experience, across cardiology, lipidology, hepatology, dermatology, rheumatology, internal medicine and women's health.</p>
     </div>
     <div class="slide-body">
       <div class="ppl-grid cols-4">
@@ -1459,7 +1621,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Investigators · across our therapeutic areas</span>
-    <span class="pageno">17</span>
+    <span class="pageno">20</span>
   </div>
 </section>
 
@@ -1484,16 +1646,16 @@
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1120px;margin:16px auto 0;width:100%;">
         <div style="border:1px solid var(--border);border-top:3px solid var(--crp-blue);border-radius:10px;padding:12px 16px;background:#fff;display:flex;align-items:baseline;gap:10px;">
-          <div style="font-size:26px;font-weight:800;color:var(--crp-navy);line-height:1;">5</div>
-          <div><div style="font-size:13.5px;font-weight:700;color:var(--crp-navy);">Recruiters</div><div style="font-size:12px;color:var(--fg-2);margin-top:2px;">Provider network and re-engagement</div></div>
+          <div style="font-size:26px;font-weight:800;color:var(--crp-navy);line-height:1;">6</div>
+          <div><div style="font-size:13.5px;font-weight:700;color:var(--crp-navy);">Recruitment</div><div style="font-size:12px;color:var(--fg-2);margin-top:2px;">Provider network and re-engagement</div></div>
         </div>
         <div style="border:1px solid var(--border);border-top:3px solid var(--crp-orange);border-radius:10px;padding:12px 16px;background:#fff;display:flex;align-items:baseline;gap:10px;">
-          <div style="font-size:26px;font-weight:800;color:var(--crp-navy);line-height:1;">8</div>
+          <div style="font-size:26px;font-weight:800;color:var(--crp-navy);line-height:1;">4</div>
           <div><div style="font-size:13.5px;font-weight:700;color:var(--crp-navy);">Regulatory</div><div style="font-size:12px;color:var(--fg-2);margin-top:2px;">Both sites submitted in parallel</div></div>
         </div>
         <div style="border:1px solid var(--border);border-top:3px solid var(--crp-blue);border-radius:10px;padding:12px 16px;background:#fff;display:flex;align-items:baseline;gap:10px;">
-          <div style="font-size:26px;font-weight:800;color:var(--crp-navy);line-height:1;">3</div>
-          <div><div style="font-size:13.5px;font-weight:700;color:var(--crp-navy);">Lab &amp; quality</div><div style="font-size:12px;color:var(--fg-2);margin-top:2px;">Two phlebotomy, one QA lead</div></div>
+          <div style="font-size:26px;font-weight:800;color:var(--crp-navy);line-height:1;">4</div>
+          <div><div style="font-size:13.5px;font-weight:700;color:var(--crp-navy);">Quality assurance</div><div style="font-size:12px;color:var(--fg-2);margin-top:2px;">Plus 2 phlebotomy and lab</div></div>
         </div>
         <div style="border:1px solid var(--border);border-top:3px solid var(--crp-orange);border-radius:10px;padding:12px 16px;background:#fff;display:flex;align-items:baseline;gap:10px;">
           <div style="font-size:19px;font-weight:800;color:var(--crp-navy);line-height:1.1;">In&nbsp;house</div>
@@ -1504,7 +1666,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Operations &amp; coordinators</span>
-    <span class="pageno">18</span>
+    <span class="pageno">21</span>
   </div>
 </section>
 
@@ -1568,7 +1730,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> PA + NJ · sponsor-ready, end-to-end</span>
-    <span class="pageno">19</span>
+    <span class="pageno">22</span>
   </div>
 </section>
 
@@ -1626,7 +1788,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Risk profile · what sponsors check first</span>
-    <span class="pageno">20</span>
+    <span class="pageno">23</span>
   </div>
 </section>
 
@@ -1670,7 +1832,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Demographics · all participants, 2021 to date</span>
-    <span class="pageno">21</span>
+    <span class="pageno">24</span>
   </div>
 </section>
 
@@ -1716,7 +1878,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Sponsors · what they say · what they advanced</span>
-    <span class="pageno">22</span>
+    <span class="pageno">25</span>
   </div>
 </section>
 
@@ -1753,7 +1915,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Approved treatments · trials we supported</span>
-    <span class="pageno">23</span>
+    <span class="pageno">26</span>
   </div>
 </section>
 
@@ -1793,7 +1955,7 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Clinical Research Philadelphia · July 2026</span>
-    <span class="pageno">24</span>
+    <span class="pageno">27</span>
   </div>
 </section>
 
