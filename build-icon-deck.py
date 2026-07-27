@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Compose the single ICON Elite Sites deck.
+"""Compose the ICON Elite Sites deck.
 
-Pulls slides from three sources — the ICON-authored front slides, the section
-dividers, and the canonical executive overview — and lays them out in one
-explicit order. Nothing is duplicated: each slide is placed exactly once and
-the script asserts every marker resolved.
+Hub and spoke: a home slide of takeaways with a button per section, seven
+section covers, and an in-slide nav bar on every page so a reader can move
+between sections or back home — on screen and in the PDF.
 """
-import pathlib, re
+import pathlib, re, sys
+sys.path.insert(0, str(pathlib.Path(__file__).parent))
+from icon_nav import nav_bar, SECTIONS
 
 DS = pathlib.Path.home() / "crp-design-system"
 SCRATCH = pathlib.Path(
@@ -14,121 +15,111 @@ SCRATCH = pathlib.Path(
 
 exec_html = (DS / "executive-overview.html").read_text()
 icon_html = (SCRATCH / "icon_slides.html").read_text()
-sect_html = (SCRATCH / "icon_sections.html").read_text()
-extra     = (SCRATCH / "icon_extra.html").read_text()
+hub_html  = (SCRATCH / "icon_hub.html").read_text()
+arch_html = (SCRATCH / "archived_slides.html").read_text()
 polish    = (SCRATCH / "icon_polish.html").read_text()
+extra     = (SCRATCH / "icon_extra.html").read_text()
 
-# --- content guards on the exec deck -------------------------------------
 for probe, why in [
     ("Eight investigators cover our therapeutic areas", "investigator count"),
     ("dr-rustgi.jpg", "Rustgi card"),
-    ("site-philadelphia.png", "Philadelphia site photo"),
-    ("site-pennington.jpg", "Pennington site photo"),
-    ("Patients across our referring provider panels", "1.5M framing"),
+    ("site-philadelphia.png", "site photos"),
     ("PubMed 30227522", "NIH cycle-time citation"),
-    ("July 2026", "date"),
 ]:
     assert probe in exec_html, "exec deck missing: " + why
-assert "no double entry" not in exec_html, "double-entry phrase should be gone"
 
 SECTION_RE = r'<section class="slide.*?</section>'
-
-def index(html):
-    """Map every slide to the markers it contains."""
-    return re.findall(SECTION_RE, html, re.S)
+def index(h): return re.findall(SECTION_RE, h, re.S)
 
 def take(pool, marker, label):
     hits = [s for s in pool if marker in s]
-    assert len(hits) == 1, "%s: expected 1 slide matching %r, got %d" % (
-        label, marker, len(hits))
-    pool.remove(hits[0])
-    return hits[0]
+    assert len(hits) == 1, "%s: %d matches for %r" % (label, len(hits), marker)
+    pool.remove(hits[0]); return hits[0]
 
-icon_pool = index(icon_html)
-sect_pool = index(sect_html)
-exec_pool = index(exec_html)
+POOLS = {"icon": index(icon_html), "hub": index(hub_html),
+         "exec": index(exec_html), "arch": index(arch_html)}
 
-# Explicit running order. (source, marker) — every slide placed exactly once.
+# (source, marker, section-id the slide belongs to)
 ORDER = [
-    ("icon", 'class="slide icn-cover"'),          # 01 cover
-    ("sect", ">Contents<"),                       # 02 contents
-    ("sect", 'id="sec-case"'),                    # 03 §1
-    ("icon", "The case in four numbers"),         # 04
-    ("sect", 'id="sec-ta"'),                      # 05 §2
-    ("icon", "Five for five"),                    # 06 cardiometabolic
-    ("icon", "three and a half"),                 # 07 footprint math
-    ("icon", "Four certified raters are why"),    # 08 neurology
-    ("sect", 'id="sec-deliver"'),                 # 09 §3
-    ("icon", "We do not buy patients"),           # 10 recruitment
-    ("exec", ">Performance proof<"),              # 11 cycle times
-    ("exec", ">Investigators<"),                  # 12
-    ("exec", ">Diversity in enrollment<"),        # 13
-    ("exec", ">Risk profile<"),                   # 14
-    ("sect", 'id="sec-record"'),                  # 15 §4
-    ("icon", "Sponsors come back"),               # 16
-    ("exec", ">Track record<"),                   # 17 logo wall
-    ("exec", "Treatments we've helped advance"),  # 18
-    ("sect", 'id="sec-together"'),                # 19 §5
-    ("icon", "Two locations. One contract"),      # 20 one network
-    ("icon", "Put a number on us"),               # 21 commitment
-    ("sect", 'id="sec-appendix"'),                # 22 appendix
-    ("icon", "Appendix &middot; adjacent"),       # 23 derm & rheum
-    ("exec", ">What our technology gets you<"),   # 24
-    ("exec", "Operations &amp; coordinators"),    # 25
-    ("exec", ">Facilities<"),                     # 26
+    ("icon", 'class="slide icn-cover"',            None),
+    ("hub",  'id="home"',                          None),
+
+    ("hub",  'id="sec-about"',                     "sec-about"),
+    ("arch", ">Executive snapshot<",               "sec-about"),
+    ("exec", ">Investigators<",                    "sec-about"),
+
+    ("hub",  'id="sec-metab"',                     "sec-metab"),
+    ("icon", "Five for five",                      "sec-metab"),
+    ("icon", "three and a half",                   "sec-metab"),
+    ("arch", "Cardiometabolic capability",         "sec-metab"),
+    ("arch", "what one site absorbed",             "sec-metab"),
+
+    ("hub",  'id="sec-neuro"',                     "sec-neuro"),
+    ("icon", "Four certified raters are why",      "sec-neuro"),
+    ("arch", "BHV3000-405",                        "sec-neuro"),
+    ("arch", "Early Alzheimer's &middot; depth",       "sec-neuro"),
+
+    ("hub",  'id="sec-derm"',                      "sec-derm"),
+    ("icon", "Appendix &middot; adjacent",         "sec-derm"),
+
+    ("hub",  'id="sec-deliver"',                   "sec-deliver"),
+    ("icon", "We do not buy patients",             "sec-deliver"),
+    ("exec", ">Performance proof<",                "sec-deliver"),
+    ("exec", ">What our technology gets you<",     "sec-deliver"),
+    ("exec", ">Facilities<",                       "sec-deliver"),
+    ("exec", "Operations &amp; coordinators",      "sec-deliver"),
+    ("exec", ">Risk profile<",                     "sec-deliver"),
+    ("exec", ">Diversity in enrollment<",          "sec-deliver"),
+
+    ("hub",  'id="sec-record"',                    "sec-record"),
+    ("icon", "Sponsors come back",                 "sec-record"),
+    ("exec", ">Track record<",                     "sec-record"),
+    ("exec", "Treatments we've helped advance",    "sec-record"),
+
+    ("hub",  'id="sec-partner"',                   "sec-partner"),
+    ("icon", "Two locations. One contract",        "sec-partner"),
+    ("icon", "Put a number on us",                 "sec-partner"),
 ]
 
-POOLS = {"icon": icon_pool, "sect": sect_pool, "exec": exec_pool}
-slides = [take(POOLS[src], marker, "%s/%s" % (src, marker)) for src, marker in ORDER]
+slides = []
+for src, marker, sec in ORDER:
+    s = take(POOLS[src], marker, "%s/%s" % (src, marker))
+    if 'class="nav"' not in s:                       # section covers already carry one
+        bar = nav_bar(sec)
+        if '<div class="slide-pad">' in s:
+            s = s.replace('<div class="slide-pad">', bar + '\n  <div class="slide-pad">', 1)
+        else:                                        # the cover slide
+            s = s.replace('<img class="quat"', bar + '\n  <img class="quat"', 1)
+    slides.append(s)
 
-# Anything left in the ICON or section pools is an authoring mistake.
-assert not icon_pool, "unplaced ICON slides: %d" % len(icon_pool)
-assert not sect_pool, "unplaced section slides: %d" % len(sect_pool)
+assert not POOLS["icon"], "unplaced icon slides: %d" % len(POOLS["icon"])
+assert not POOLS["hub"],  "unplaced hub slides: %d" % len(POOLS["hub"])
+assert not POOLS["arch"], "unplaced archived slides: %d" % len(POOLS["arch"])
 
-# Page numbers run 01..N across the assembled deck.
+# Running section marker, then page numbers across the whole deck
+label_by_id = {sid: ("%02d &middot; %s" % (i, lbl))
+               for i, (sid, lbl, *_rest) in enumerate(SECTIONS, 1)}
+stamped = []
+for (src, marker, sec), s in zip(ORDER, slides):
+    if sec and 'icn-sec' not in s:
+        s = s.replace('<span class="pageno">',
+                      '<span class="secmark">%s</span><span class="pageno">' % label_by_id[sec], 1)
+    stamped.append(s)
+
 n = [0]
 def renumber(_m):
     n[0] += 1
     return '<span class="pageno">%02d</span>' % n[0]
-# Stamp the running section marker into every slide's footer.
-sec_label, stamped = None, []
-for sec in slides:
-    if 'icn-sec' in sec:
-        h = re.search(r'<h2>(.*?)</h2>', sec, re.S).group(1)
-        m_num = re.search(r'SECTION (\d+)', sec)          # the appendix has no number
-        title = re.sub(r'<[^>]+>', '', h).strip()
-        sec_label = ("%s &middot; %s" % (m_num.group(1), title)) if m_num else title
-        stamped.append(sec)
-        continue
-    if sec_label:
-        sec = sec.replace('<span class="pageno">',
-                          '<span class="secmark">%s</span><span class="pageno">' % sec_label, 1)
-    stamped.append(sec)
-slides = stamped
-
-body = "\n\n".join(slides)
-body = re.sub(r'<span class="pageno">\d{2}</span>', renumber, body)
+body = re.sub(r'<span class="pageno">\d{2}</span>', renumber, "\n\n".join(stamped))
 assert n[0] == len(ORDER), "renumbered %d of %d" % (n[0], len(ORDER))
 
-# Reuse the exec deck's <head> and styles, swap in our slide body.
 head, _, _ = exec_html.partition('<div class="deck">')
 styles = (icon_html[:icon_html.index("<section")]
-          + sect_html[:sect_html.index("<section")] + "\n" + polish)
+          + hub_html[:hub_html.index("<section")] + "\n" + polish)
 core = head + '<div class="deck">\n' + styles + "\n" + body + "\n</div>\n"
-core = core.replace(
-    "<title>CRP — Executive Overview, July 2026</title>",
-    "<title>CRP — Metabolic and Neurology Experience · ICON Elite Sites Program</title>")
+core = core.replace("<title>CRP — Executive Overview, July 2026</title>",
+                    "<title>CRP — Metabolic and Neurology Experience · ICON Elite Sites Program</title>")
 
-# Two artifacts from one set of slides. The interactive build carries the nav,
-# keyboard handling and clickable contents; the print build is the same slides
-# with no screen chrome at all, so Chrome never shrink-to-fits the page box.
-interactive = core + extra + "\n</body>\n</html>"
-printable   = core + "</body>\n</html>"
-
-dest = DS / "crp-icon-elite-sites-metabolic-neurology.html"
-dest.write_text(interactive)
-print_dest = DS / "crp-icon-elite-sites-metabolic-neurology.print.html"
-print_dest.write_text(printable)
-print("wrote", dest)
-print("wrote", print_dest)
-print("slides:", interactive.count('<section class="slide'))
+(DS / "crp-icon-elite-sites-metabolic-neurology.html").write_text(core + extra + "\n</body>\n</html>")
+(DS / "crp-icon-elite-sites-metabolic-neurology.print.html").write_text(core + "</body>\n</html>")
+print("slides:", len(ORDER))

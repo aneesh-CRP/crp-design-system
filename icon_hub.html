@@ -1,0 +1,217 @@
+<style>
+
+  /* ═══ Section dividers ═══ */
+  .icn-sec {
+    background: var(--gradient-navy-blue); color: #fff;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 0 96px; position: relative;
+    /* .slide is content-box, so padding here would push the slide past 1280px
+       and make Chrome shrink-to-fit the whole deck when printing. */
+    box-sizing: border-box;
+  }
+  .icn-sec .quat { position: absolute; right: -140px; bottom: -180px; width: 640px; opacity: 0.07; }
+  .icn-sec .snum {
+    font-size: 15px; font-weight: 800; letter-spacing: 0.22em;
+    color: var(--crp-cyan); margin-bottom: 20px; position: relative; z-index: 2;
+  }
+  .icn-sec h2 {
+    font-size: 52px; line-height: 1.06; font-weight: 800; margin: 0 0 26px;
+    letter-spacing: -0.02em; color: #fff; max-width: 860px; position: relative; z-index: 2;
+  }
+  .icn-sec .sdesc {
+    font-size: 19px; line-height: 1.5; color: rgba(255,255,255,0.9);
+    max-width: 640px; position: relative; z-index: 2; padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.22);
+  }
+  /* Each divider carries the one number that section proves, so flipping
+     through the deck tells the story without reading a slide. */
+  .icn-sec .sstat { position: relative; z-index: 2; margin-top: 34px; }
+  .icn-sec .sstat .v {
+    font-size: 78px; font-weight: 800; color: var(--crp-orange);
+    line-height: 0.95; letter-spacing: -0.03em;
+  }
+  .icn-sec .sstat .k {
+    font-size: 16px; color: rgba(255,255,255,0.85); margin-top: 12px; max-width: 480px;
+  }
+  .icn-sec .footer { color: rgba(255,255,255,0.5); }
+
+  /* ═══ Contents ═══ */
+  .icn-toc { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; max-width: 1120px; margin: 0 auto; width: 100%; }
+  .icn-toc a {
+    display: block; text-decoration: none; border: 1px solid var(--border);
+    border-top: 3px solid var(--crp-blue); border-radius: 12px; padding: 20px 18px;
+    background: #fff; box-shadow: var(--shadow-sm); transition: box-shadow .15s, transform .15s;
+  }
+  .icn-toc a:nth-child(2n) { border-top-color: var(--crp-orange); }
+  .icn-toc a:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .icn-toc .tn { font-size: 12px; font-weight: 800; letter-spacing: 0.16em; color: var(--crp-blue); }
+  .icn-toc .tt { font-size: 17px; font-weight: 800; color: var(--crp-navy); margin-top: 12px; line-height: 1.22; }
+  .icn-toc .td { font-size: 12.5px; color: var(--fg-2); margin-top: 8px; line-height: 1.4; }
+
+
+  /* ═══ In-slide navigation — prints, and works as PDF links ═══ */
+  .nav {
+    position: absolute; left: 56px; right: 56px; top: 22px;
+    display: flex; align-items: center; gap: 5px; z-index: 40;
+  }
+  .nav a {
+    text-decoration: none; font-size: 9.5px; font-weight: 700;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    padding: 5px 10px; border-radius: 999px;
+    color: var(--fg-3); border: 1px solid transparent; white-space: nowrap;
+  }
+  .nav a.home {
+    color: var(--crp-blue); border-color: var(--border);
+    background: #fff; margin-right: 4px;
+  }
+  .nav a.on { background: var(--crp-navy); color: #fff; }
+  .nav a:hover { color: var(--crp-navy); }
+  .nav .sp { flex: 1; }
+  /* On navy slides the bar inverts */
+  .icn-sec .nav a, .icn-cover .nav a { color: rgba(255,255,255,0.55); }
+  .icn-sec .nav a.home, .icn-cover .nav a.home {
+    color: #fff; background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.25);
+  }
+  .icn-sec .nav a.on { background: var(--crp-orange); color: #fff; }
+  /* Slide bodies start below the bar */
+  .slide-pad { padding-top: 60px; }
+
+  /* ═══ Home hub ═══ */
+  .hub-top { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1140px; margin: 0 auto 26px; width: 100%; }
+  .hub-top .v { font-size: 50px; font-weight: 800; color: var(--crp-navy); line-height: 1; letter-spacing: -0.03em; }
+  .hub-top .v.on { color: var(--crp-orange); }
+  .hub-top .k { font-size: 13.5px; color: var(--crp-navy); margin-top: 10px; line-height: 1.35; }
+  .hub-rule { max-width: 1140px; margin: 0 auto 22px; height: 1px; background: var(--border); width: 100%; }
+  .hub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 1140px; margin: 0 auto; width: 100%; }
+  .hub-grid a {
+    display: block; text-decoration: none; padding: 16px 16px 15px;
+    border: 1px solid var(--border); border-top: 3px solid var(--crp-blue);
+    border-radius: 12px; background: #fff; box-shadow: var(--shadow-sm);
+  }
+  .hub-grid a .n { font-size: 15.5px; font-weight: 800; color: var(--crp-navy); line-height: 1.2; }
+  .hub-grid a .d { font-size: 12px; color: var(--fg-2); margin-top: 6px; line-height: 1.35; }
+  .hub-grid a .s { font-size: 11.5px; font-weight: 700; color: var(--crp-orange); margin-top: 9px; letter-spacing: 0.04em; }
+</style>
+
+<section class="slide" id="home">
+  <div class="nav"><a class="home" href="#home">&#8962; Home</a><a href="#sec-about">About CRP</a><a href="#sec-metab">Cardiometabolic</a><a href="#sec-neuro">Neurology</a><a href="#sec-derm">Derm &amp; Rheum</a><a href="#sec-deliver">How we deliver</a><a href="#sec-record">Track record</a><a href="#sec-partner">Partnership</a><span class="sp"></span></div>
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Clinical Research Philadelphia &middot; for ICON Elite Sites</div>
+      <h2 class="slide-h2">A two-site network that delivers more patients per site than the plan assumes.</h2>
+    </div>
+    <div class="slide-body">
+      <div class="hub-top">
+        <div><div class="v on">3.5&times;</div><div class="k">the patients per site the sponsor's plan assumed</div></div>
+        <div><div class="v">5 of 5</div><div class="k">recent cardiometabolic targets met or beaten</div></div>
+        <div><div class="v">70&ndash;95<span style="font-size:26px">%</span></div><div class="k">retention across those trials</div></div>
+        <div><div class="v">0</div><div class="k">FDA Form 483s in thirty years</div></div>
+      </div>
+      <div class="hub-rule"></div>
+      <div class="hub-grid">
+        <a href="#sec-about"><div class="n">About CRP</div><div class="d">Who we are and what we run</div><div class="s">30 &middot; years, two sites, 500+ trials</div></a>
+        <a href="#sec-metab"><div class="n">Cardiometabolic</div><div class="d">Our anchor area, and where we have delivered</div><div class="s">5 of 5 &middot; recent targets met or beaten</div></a>
+        <a href="#sec-neuro"><div class="n">Neurology</div><div class="d">Migraine and MCI to mild Alzheimer's</div><div class="s">4 &middot; certified raters on MMSE, CDR, ADAS-Cog, FAQ</div></a>
+        <a href="#sec-derm"><div class="n">Derm &amp; Rheum</div><div class="d">The adjacent bench, on the same model</div><div class="s">9 &middot; recent trials, 2024 to 2025</div></a>
+        <a href="#sec-deliver"><div class="n">How we deliver</div><div class="d">Recruitment, speed, quality, facilities</div><div class="s">&lt;21 &middot; days from selection to activation</div></a>
+        <a href="#sec-record"><div class="n">Track record</div><div class="d">Sponsors who came back</div><div class="s">15 &middot; protocols placed by Lilly alone</div></a>
+        <a href="#sec-partner"><div class="n">Partnership</div><div class="d">What we ask, and what we commit to</div><div class="s">1 &middot; contract covering both sites</div></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Start anywhere &mdash; every slide links back here</span>
+    <span class="pageno">02</span>
+  </div>
+</section>
+
+<section class="slide icn-sec" id="sec-about">
+  <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="nav"><a class="home" href="#home">&#8962; Home</a><a href="#sec-about" class="on">About CRP</a><a href="#sec-metab">Cardiometabolic</a><a href="#sec-neuro">Neurology</a><a href="#sec-derm">Derm &amp; Rheum</a><a href="#sec-deliver">How we deliver</a><a href="#sec-record">Track record</a><a href="#sec-partner">Partnership</a><span class="sp"></span></div>
+  <div class="snum">SECTION 01</div>
+  <h2>About CRP</h2>
+  <div class="sdesc">Who we are and what we run</div>
+  <div class="sstat"><div class="v">30</div><div class="k">years, two sites, 500+ trials</div></div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> About CRP</span>
+    <span class="pageno">00</span>
+  </div>
+</section>
+
+<section class="slide icn-sec" id="sec-metab">
+  <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="nav"><a class="home" href="#home">&#8962; Home</a><a href="#sec-about">About CRP</a><a href="#sec-metab" class="on">Cardiometabolic</a><a href="#sec-neuro">Neurology</a><a href="#sec-derm">Derm &amp; Rheum</a><a href="#sec-deliver">How we deliver</a><a href="#sec-record">Track record</a><a href="#sec-partner">Partnership</a><span class="sp"></span></div>
+  <div class="snum">SECTION 02</div>
+  <h2>Cardiometabolic</h2>
+  <div class="sdesc">Our anchor area, and where we have delivered</div>
+  <div class="sstat"><div class="v">5 of 5</div><div class="k">recent targets met or beaten</div></div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Cardiometabolic</span>
+    <span class="pageno">00</span>
+  </div>
+</section>
+
+<section class="slide icn-sec" id="sec-neuro">
+  <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="nav"><a class="home" href="#home">&#8962; Home</a><a href="#sec-about">About CRP</a><a href="#sec-metab">Cardiometabolic</a><a href="#sec-neuro" class="on">Neurology</a><a href="#sec-derm">Derm &amp; Rheum</a><a href="#sec-deliver">How we deliver</a><a href="#sec-record">Track record</a><a href="#sec-partner">Partnership</a><span class="sp"></span></div>
+  <div class="snum">SECTION 03</div>
+  <h2>Neurology</h2>
+  <div class="sdesc">Migraine and MCI to mild Alzheimer's</div>
+  <div class="sstat"><div class="v">4</div><div class="k">certified raters on MMSE, CDR, ADAS-Cog, FAQ</div></div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Neurology</span>
+    <span class="pageno">00</span>
+  </div>
+</section>
+
+<section class="slide icn-sec" id="sec-derm">
+  <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="nav"><a class="home" href="#home">&#8962; Home</a><a href="#sec-about">About CRP</a><a href="#sec-metab">Cardiometabolic</a><a href="#sec-neuro">Neurology</a><a href="#sec-derm" class="on">Derm &amp; Rheum</a><a href="#sec-deliver">How we deliver</a><a href="#sec-record">Track record</a><a href="#sec-partner">Partnership</a><span class="sp"></span></div>
+  <div class="snum">SECTION 04</div>
+  <h2>Derm &amp; Rheum</h2>
+  <div class="sdesc">The adjacent bench, on the same model</div>
+  <div class="sstat"><div class="v">9</div><div class="k">recent trials, 2024 to 2025</div></div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Derm and Rheum</span>
+    <span class="pageno">00</span>
+  </div>
+</section>
+
+<section class="slide icn-sec" id="sec-deliver">
+  <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="nav"><a class="home" href="#home">&#8962; Home</a><a href="#sec-about">About CRP</a><a href="#sec-metab">Cardiometabolic</a><a href="#sec-neuro">Neurology</a><a href="#sec-derm">Derm &amp; Rheum</a><a href="#sec-deliver" class="on">How we deliver</a><a href="#sec-record">Track record</a><a href="#sec-partner">Partnership</a><span class="sp"></span></div>
+  <div class="snum">SECTION 05</div>
+  <h2>How we deliver</h2>
+  <div class="sdesc">Recruitment, speed, quality, facilities</div>
+  <div class="sstat"><div class="v">&lt;21</div><div class="k">days from selection to activation</div></div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> How we deliver</span>
+    <span class="pageno">00</span>
+  </div>
+</section>
+
+<section class="slide icn-sec" id="sec-record">
+  <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="nav"><a class="home" href="#home">&#8962; Home</a><a href="#sec-about">About CRP</a><a href="#sec-metab">Cardiometabolic</a><a href="#sec-neuro">Neurology</a><a href="#sec-derm">Derm &amp; Rheum</a><a href="#sec-deliver">How we deliver</a><a href="#sec-record" class="on">Track record</a><a href="#sec-partner">Partnership</a><span class="sp"></span></div>
+  <div class="snum">SECTION 06</div>
+  <h2>Track record</h2>
+  <div class="sdesc">Sponsors who came back</div>
+  <div class="sstat"><div class="v">15</div><div class="k">protocols placed by Lilly alone</div></div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Track record</span>
+    <span class="pageno">00</span>
+  </div>
+</section>
+
+<section class="slide icn-sec" id="sec-partner">
+  <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="nav"><a class="home" href="#home">&#8962; Home</a><a href="#sec-about">About CRP</a><a href="#sec-metab">Cardiometabolic</a><a href="#sec-neuro">Neurology</a><a href="#sec-derm">Derm &amp; Rheum</a><a href="#sec-deliver">How we deliver</a><a href="#sec-record">Track record</a><a href="#sec-partner" class="on">Partnership</a><span class="sp"></span></div>
+  <div class="snum">SECTION 07</div>
+  <h2>Partnership</h2>
+  <div class="sdesc">What we ask, and what we commit to</div>
+  <div class="sstat"><div class="v">1</div><div class="k">contract covering both sites</div></div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Partnership</span>
+    <span class="pageno">00</span>
+  </div>
+</section>
