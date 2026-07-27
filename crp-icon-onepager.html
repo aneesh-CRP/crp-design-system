@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CRP — Metabolic and Neurology · ICON Elite Sites</title>
+<link rel="stylesheet" href="./colors_and_type.css">
+<style>
+  @page { size: 8.5in 11in; margin: 0; }
+  html, body { margin: 0; padding: 0; background: #55606f; }
+  body { font-family: var(--font-sans); color: var(--crp-navy); -webkit-font-smoothing: antialiased; }
+  :root { --fg-2: #2c4470; --fg-3: #55708f; }
+
+  .sheet {
+    width: 8.5in; height: 11in; box-sizing: border-box;
+    background: #fff; margin: 0 auto; padding: 0.46in 0.5in 0.4in;
+    display: flex; flex-direction: column;
+  }
+  @media print { .sheet { margin: 0; } }
+
+  /* ── masthead ── */
+  .top { display: flex; align-items: flex-start; justify-content: space-between; }
+  .top .who { font-size: 8.5pt; letter-spacing: 0.13em; text-transform: uppercase;
+              color: var(--crp-blue); font-weight: 700; }
+  .top .for { font-size: 8.5pt; color: var(--fg-3); text-align: right; line-height: 1.5; }
+  .top img { height: 34px; }
+
+  h1 { font-size: 20pt; line-height: 1.16; font-weight: 800; letter-spacing: -0.01em;
+       margin: 13px 0 3px; max-width: 6.6in; }
+  .sub { font-size: 9.5pt; color: var(--fg-2); line-height: 1.45; max-width: 6.9in; }
+
+  /* ── the four numbers ── */
+  .nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+          margin: 13px 0 0; padding: 11px 0 12px;
+          border-top: 2px solid var(--crp-navy); border-bottom: 1px solid var(--border); }
+  .nums .v { font-size: 21pt; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+  .nums .v.on { color: var(--crp-orange); }
+  .nums .k { font-size: 7.6pt; color: var(--fg-2); line-height: 1.34; margin-top: 5px; }
+
+  h2 { font-size: 8pt; letter-spacing: 0.13em; text-transform: uppercase;
+       color: var(--crp-blue); font-weight: 700; margin: 13px 0 7px; }
+
+  /* ── evidence table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 8.6pt; }
+  th { text-align: left; font-size: 6.8pt; letter-spacing: 0.09em; text-transform: uppercase;
+       color: var(--fg-3); font-weight: 700; padding-bottom: 4px; }
+  td { padding: 4.5px 0; border-top: 1px solid var(--chart-grid-fine); }
+  td.n { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
+  td.pct { text-align: right; font-weight: 800; color: var(--crp-orange); }
+  .bar { position: relative; height: 6px; border-radius: 99px; background: var(--chart-grid); }
+  .bar i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 99px;
+           background: var(--crp-orange); }
+  .bar u { position: absolute; top: -2px; bottom: -2px; width: 1.5px;
+           background: var(--crp-navy); opacity: 0.5; }
+
+  /* ── three columns ── */
+  .cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
+  .cols .c { font-size: 8.4pt; line-height: 1.44; color: var(--crp-navy); }
+  .cols .c b { display: block; font-size: 8pt; letter-spacing: 0.1em; text-transform: uppercase;
+               color: var(--crp-blue); margin-bottom: 5px; }
+  .cols li { list-style: none; padding-left: 9px; position: relative; margin-bottom: 3.5px; }
+  .cols li:before { content: ""; position: absolute; left: 0; top: 5px;
+                    width: 3.5px; height: 3.5px; border-radius: 50%; background: var(--crp-blue); }
+  .cols ul { margin: 0; padding: 0; }
+
+  /* ── sponsors ── */
+  .spon { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .spon > div { border: 1px solid var(--border); border-top: 2.5px solid var(--crp-blue);
+              border-radius: 7px; padding: 8px 10px; }
+  .spon .sp-name { font-size: 8.6pt; font-weight: 800; }
+  .spon .sp-num { font-size: 7.4pt; color: var(--fg-2); margin-top: 3px; }
+
+  /* ── commitment ── */
+  .commit { background: var(--crp-navy); color: #fff; border-radius: 9px;
+            padding: 12px 15px; margin-top: auto; }
+  .commit b { font-size: 8pt; letter-spacing: 0.13em; text-transform: uppercase;
+              color: var(--crp-cyan); display: block; margin-bottom: 7px; }
+  .commit ol { margin: 0; padding-left: 15px; }
+  .commit li { font-size: 8.6pt; line-height: 1.42; margin-bottom: 4px; }
+  .commit li:last-child { margin-bottom: 0; }
+
+  .foot { display: flex; justify-content: space-between; align-items: baseline;
+          margin-top: 9px; font-size: 7.6pt; color: var(--fg-3); }
+  .foot b { color: var(--crp-navy); font-size: 8.4pt; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div>
+      <img src="./assets/logos/crp-long.svg" alt="Clinical Research Philadelphia">
+    </div>
+    <div class="for">
+      Prepared for <b>Derek Griggs, BSN, RN</b><br>
+      ICON Elite Sites Program · July 2026
+    </div>
+  </div>
+
+  <h1>We beat the enrollment goal at both sites, and the data holds up.</h1>
+  <div class="sub">Two sites in Greater Philadelphia run as one operation — one contract, one EDC instance,
+  one coordinator queue. Metabolic is where we have delivered; neurology is migraine and MCI to mild
+  Alzheimer's, where certified raters are the barrier most sites cannot clear.</div>
+
+  <div class="nums">
+    <div><div class="v on">3.5&times;</div><div class="k">the enrollment goal on our largest recent trial</div></div>
+    <div><div class="v">5 of 5</div><div class="k">recent cardiometabolic targets met or beaten</div></div>
+    <div><div class="v">83%</div><div class="k">average retention across those trials</div></div>
+    <div><div class="v">0</div><div class="k">FDA 483s in thirty years, no sponsor audit findings</div></div>
+  </div>
+
+  <h2>Cardiometabolic — commitment versus delivery</h2>
+  <table>
+    <thead><tr>
+      <th style="width:31%">Study</th><th style="width:8%">Target</th><th style="width:8%">Actual</th>
+      <th style="width:27%">Versus target</th><th style="width:9%"></th><th style="width:17%">Retention</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>Lp(a) ASCVD outcomes</td><td class="n">15</td><td class="n">52</td>
+          <td><div class="bar"><i style="width:100%"></i><u style="left:28.8%"></u></div></td><td class="pct">347%</td><td class="n">95%</td></tr>
+      <tr><td>ASCVD + CKD</td><td class="n">7</td><td class="n">13</td>
+          <td><div class="bar"><i style="width:53.6%"></i><u style="left:28.8%"></u></div></td><td class="pct">186%</td><td class="n">85%</td></tr>
+      <tr><td>T2DM + CV risk</td><td class="n">5</td><td class="n">9</td>
+          <td><div class="bar"><i style="width:51.9%"></i><u style="left:28.8%"></u></div></td><td class="pct">180%</td><td class="n">85%</td></tr>
+      <tr><td>T2DM — GLP first line</td><td class="n">5</td><td class="n">7</td>
+          <td><div class="bar"><i style="width:40.3%"></i><u style="left:28.8%"></u></div></td><td class="pct">140%</td><td class="n">80%</td></tr>
+      <tr><td>T2DM — GLP vs insulin</td><td class="n">5</td><td class="n">5</td>
+          <td><div class="bar"><i style="width:28.8%"></i><u style="left:28.8%"></u></div></td><td class="pct">100%</td><td class="n">70%</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Why the results repeat</h2>
+  <div class="cols">
+    <div class="c"><b>Neurology</b><ul>
+      <li><b style="display:inline;font-size:8.4pt;letter-spacing:0;text-transform:none;color:inherit">4 certified raters</b> on MMSE, CDR, ADAS-Cog and FAQ</li>
+      <li>8 protocols across six sponsors, five separate migraine assets</li>
+      <li>Six Alzheimer's trials of investigator experience</li>
+      <li>Neurologist and geriatrician via our provider network</li>
+    </ul></div>
+    <div class="c"><b>Recruitment</b><ul>
+      <li>191 referring practices, 892 named providers</li>
+      <li>1.5M patients across those provider panels</li>
+      <li>37,000 in our own database, re-screened against every protocol</li>
+      <li>No per-study advertising spend</li>
+    </ul></div>
+    <div class="c"><b>Speed and quality</b><ul>
+      <li>&lt;21 days from selection to activation</li>
+      <li>&lt;7 days greenlight to first participant screened</li>
+      <li>Source-to-EDC same day; queries cleared within the week</li>
+      <li>24 protocols enrolling today, neither site at ceiling</li>
+    </ul></div>
+  </div>
+
+  <h2>Sponsors who place repeatedly</h2>
+  <div class="spon">
+    <div><div class="sp-name">Eli Lilly</div><div class="sp-num">15 protocols · 80 randomized</div></div>
+    <div><div class="sp-name">AbbVie</div><div class="sp-num">6 protocols · 25 randomized</div></div>
+    <div><div class="sp-name">Johnson &amp; Johnson</div><div class="sp-num">6 protocols · 11 randomized</div></div>
+    <div><div class="sp-name">AstraZeneca</div><div class="sp-num">3 protocols · 8 randomized</div></div>
+  </div>
+
+  <div class="commit">
+    <b>What we will commit to</b>
+    <ol>
+      <li>An enrollment number at feasibility, built from real-time mining of our whole patient database and broken down by therapeutic area — not a range, and not after the first month of screening.</li>
+      <li>Monthly reporting against it, sent automatically to your study and CRO contacts.</li>
+      <li>If we are tracking under by month two, you hear it from us first, with what we are changing.</li>
+    </ol>
+  </div>
+
+  <div class="foot">
+    <span><b>Aneesh Vaze</b>, Managing Director · aneesh@phillyresearch.com · (215) 676-6696</span>
+    <span>Philadelphia, PA · Pennington, NJ · phillyresearch.com</span>
+  </div>
+
+</div>
+</body>
+</html>

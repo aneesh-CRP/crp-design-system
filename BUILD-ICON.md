@@ -57,3 +57,19 @@ because SVG will not embed in PowerPoint. Regenerate it by screenshotting a
 grid of the SVGs at 1832x460.
 
 Verify with: `soffice --headless --convert-to pdf <file>.pptx`
+
+## One-page leave-behind
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless=new --disable-gpu --no-pdf-header-footer \
+  --print-to-pdf="$HOME/CRP-ICON-Onepager.pdf" --virtual-time-budget=9000 \
+  "file://$PWD/crp-icon-onepager.html"
+```
+
+US Letter portrait, for forwarding internally where a 29-slide deck would not
+survive. Same numbers as the deck — do not let the two drift.
+
+Trap: `colors_and_type.css` defines generic `.s` / `.d` classes, so scoped
+class names here are deliberately prefixed. And `.spon div` matches nested
+divs — the child combinator is load-bearing.
