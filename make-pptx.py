@@ -168,6 +168,9 @@ textbox(s, Inches(0.95), Inches(4.95), Inches(4), Inches(0.3), "PREPARED FOR", 1
 textbox(s, Inches(0.95), Inches(5.28), Inches(6), Inches(0.35), "Derek Griggs, BSN, RN", 15, bold=True, color=WHITE)
 textbox(s, Inches(0.95), Inches(5.66), Inches(6), Inches(0.3),
         "ICON Elite Sites Program · July 2026", 11.5, color=K.RGBColor(0xB9,0xC7,0xE6))
+_icon = DS / "assets/logos/iconplc-white.png"
+if _icon.exists():
+    s.shapes.add_picture(str(_icon), Inches(0.95), Inches(6.05), width=Inches(1.35))
 _logo = DS / "assets/logos/crp-white.png"
 if _logo.exists():
     s.shapes.add_picture(str(_logo), W - Inches(4.9), Inches(3.1), width=Inches(3.6))
