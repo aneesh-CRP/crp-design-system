@@ -37,6 +37,11 @@ if len(reader.pages) != len(sections):
     sys.exit("page/slide mismatch: %d pages vs %d slides" % (len(reader.pages), len(sections)))
 
 writer = PdfWriter(clone_from=str(PDF))
+# clone_from carries any outline already in the file, so a second run would
+# append a duplicate tree. Drop it and rebuild from scratch every time.
+if "/Outlines" in writer._root_object:
+    del writer._root_object["/Outlines"]
+writer._outline_item_counter = 0
 parent, added = None, 0
 for i, sec in enumerate(sections):
     title = title_of(sec)
