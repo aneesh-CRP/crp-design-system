@@ -4,7 +4,12 @@
 */
 
 /* ═══ Brand font faces ═══ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;800&display=swap');
+@font-face { font-family: 'Area Normal'; src: url('./assets/fonts/Area_Thin.otf') format('opentype'); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Area Normal'; src: url('./assets/fonts/Area_Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Area Normal'; src: url('./assets/fonts/Area_Regular_Italic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Area Normal'; src: url('./assets/fonts/Area_Semibold.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Area Normal'; src: url('./assets/fonts/Area_Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Area Normal'; src: url('./assets/fonts/Area_Extrabold.otf') format('opentype'); font-weight: 800; font-style: normal; font-display: swap; }
 @font-face { font-family: 'Market Pro'; src: url('./assets/fonts/MarketPro.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
 
 :root {
@@ -36,8 +41,8 @@
 
   /* Foreground text */
   --fg-1: #072061;  /* primary text — same as navy */
-  --fg-2: #4a6080;  /* muted body / secondary labels */
-  --fg-3: #7a90b0;  /* tertiary / captions */
+  --fg-2: #3d5373;  /* muted body / secondary labels — darker for readability */
+  --fg-3: #5e7694;  /* tertiary / captions */
 
   /* Status colors */
   --success:        #10b981;
@@ -60,8 +65,11 @@
   --blue-bg:        #E8EEFF;
 
   /* ═══ Type ═══ */
-  /* Brand primary: Inter (loaded via Google Fonts, see @import above). */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  /* Brand primary: Area Normal (licensed, not on Google Fonts).
+     Digital fallback per brand guide: system fonts. Dashboard uses
+     IBM Plex Sans. We list both; system is fastest, IBM Plex is the
+     dashboard standard. See README.md > CONTENT FUNDAMENTALS. */
+  --font-sans: 'Area Normal', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'IBM Plex Sans', Roboto, Arial, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Monaco, monospace;
   /* Market Pro: handwritten accent, always orange, sparingly */
   --font-script: 'Market Pro', 'Caveat', 'Brush Script MT', cursive;
@@ -102,7 +110,7 @@
   --shadow-sm: 0 1px 3px rgba(7,32,97,0.06);
   --shadow-md: 0 2px 12px rgba(26,39,68,0.08);
   --shadow-lg: 0 4px 16px rgba(7,32,97,0.10);
-  --shadow-xl: 0 24px 60px rgba(7,32,97,0.18);
+  --shadow-xl: 0 24px 60px rgba(0,0,0,0.22);
   --shadow-hover-blue: 0 4px 16px rgba(24,67,173,0.15);
 
   /* ═══ Spacing (4-based) ═══ */
@@ -163,7 +171,7 @@
   /* Chart chrome */
   --chart-grid:      #e5ecf5;   /* very pale, cool — major gridlines */
   --chart-grid-fine: #f1f5f9;   /* minor gridlines + table dividers */
-  --chart-axis:      #7a90b0;   /* axis labels, same as --fg-3 */
+  --chart-axis:      #5e7694;   /* axis labels, same as --fg-3 */
   --chart-axis-line: #c8d6e8;   /* axis rule — same as --border */
 }
 

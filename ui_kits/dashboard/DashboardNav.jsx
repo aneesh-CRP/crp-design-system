@@ -1,5 +1,5 @@
 // DashboardNav.jsx - sticky top nav
-function DashboardNav({active = 'Overview', onTab}) {
+export function DashboardNav({active = 'Overview', onTab}) {
   const tabs = ['Overview', 'Recruitment', 'Studies', 'Coordinators', 'Finance', 'Retention'];
   return (
     <div className="nav">
@@ -25,4 +25,3 @@ function DashboardNav({active = 'Overview', onTab}) {
     </div>
   );
 }
-Object.assign(window, { DashboardNav });

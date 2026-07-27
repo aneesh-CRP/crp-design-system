@@ -1,5 +1,5 @@
 // Kpis.jsx - KPI tiles, hero row, time banner
-function TimeBanner({items}) {
+export function TimeBanner({items}) {
   return (
     <div className="time-banner">
       {items.map((it, i) => (
@@ -13,7 +13,7 @@ function TimeBanner({items}) {
   );
 }
 
-function HeroRow({items}) {
+export function HeroRow({items}) {
   return (
     <div className="hero-row">
       {items.map((it, i) => (
@@ -27,7 +27,7 @@ function HeroRow({items}) {
   );
 }
 
-function KpiTile({label, value, sub, stripe}) {
+export function KpiTile({label, value, sub, stripe}) {
   return (
     <div className="kpi click">
       {stripe && <div className="kpi-stripe" style={{background: stripe}}/>}
@@ -38,12 +38,12 @@ function KpiTile({label, value, sub, stripe}) {
   );
 }
 
-function KpiRow({items}) {
+export const Kpis = { get TimeBanner(){return TimeBanner}, get HeroRow(){return HeroRow}, get KpiTile(){return KpiTile}, get KpiRow(){return KpiRow} };
+
+export function KpiRow({items}) {
   return (
     <div className="kpi-row">
       {items.map((it, i) => <KpiTile key={i} {...it}/>)}
     </div>
   );
 }
-
-Object.assign(window, { TimeBanner, HeroRow, KpiTile, KpiRow });

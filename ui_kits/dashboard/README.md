@@ -1,5 +1,12 @@
 # CRP Unified Dashboard — UI kit
 
+## Components
+
+- DashboardNav
+- Kpis (TimeBanner, HeroRow, KpiTile, KpiRow)
+- Panels (Card, Badge, Pill, RiskTag, Alert, Panel)
+- StudyCard (StudyCard, CoordRow)
+
 Hi-fi recreation of the internal operations dashboard at `crp-unified-dashboard`. The real app is a 1.9 MB single-page HTML with BigQuery feeds; this kit captures the visual vocabulary and interaction patterns so designs sit on top of the same system.
 
 ## Files

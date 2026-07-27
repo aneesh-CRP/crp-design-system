@@ -85,6 +85,25 @@ git commit -m "chore: bump design-system submodule"
 
 Both consumers must bump their submodule SHA to receive the change.
 
+<!-- deep-review f303: document the unified-dashboard mirror so edits here get resynced -->
+## Mirrored copies in crp-unified-dashboard (manual resync required)
+
+`crp-unified-dashboard` serves a **tracked mirror** of a subset of these
+files under `server/public/crp-design-system/` (the deployed
+`it-presentation.html` deck loads them from there):
+
+- `it-presentation.js` — deck behavior script (canonical copy lives HERE)
+- `crp-logo-white.svg` — white cover logo (canonical copy lives HERE)
+- `colors_and_type.css` / `components.css` — token + component CSS
+
+The mirror is **never auto-synced** (same policy as the finance mirror).
+After editing any of these files in this repo, manually copy the changed
+file into `crp-unified-dashboard/server/public/crp-design-system/` and
+commit it there, or the deployed deck silently diverges from canonical.
+
+`social-posts/` (Instagram/social HTML mockups) lives only in this repo —
+it has no mirror and no other copy anywhere; do not delete it.
+
 ## Out of scope (for now)
 
 - npm package distribution — the system is self-contained HTML/CSS/JS so

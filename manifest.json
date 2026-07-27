@@ -1,7 +1,7 @@
 {
   "$comment": "Machine-readable mirror of DOCTRINE.md §2. CI enforces sync — doctrine is the human source of truth, this file is what lint + audit consume.",
   "version": "1.0.0",
-  "lastSynced": "2026-04-27",
+  "lastSynced": "2026-06-11",
   "doctrine": "DOCTRINE.md",
   "components": {
     "button": {
@@ -226,6 +226,12 @@
       "sizes": ["16", "20", "24"],
       "classes": ["sparkline"]
     },
-    "trend-line": { "section": "§2.10", "classes": ["chart", "chart-trend"] }
+    "trend-line": { "section": "§2.10", "classes": ["chart", "chart-trend"] },
+    "phone-link": {
+      "section": "§2.11",
+      "anatomy": { "required": ["raw"], "optional": ["style", "color", "dataAttrs", "fallback"] },
+      "classes": [],
+      "helper": "ds.phoneLink"
+    }
   }
 }

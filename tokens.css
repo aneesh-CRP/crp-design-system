@@ -1,0 +1,219 @@
+/* CRP Design System — Tokens (single source of truth)
+   Clinical Research Philadelphia, LLC
+
+   Load this file FIRST in every surface (dashboard, landing pages, prototypes).
+   It defines:
+     - brand palette + gradients
+     - neutrals + semantic UI surfaces
+     - type scale (app + marketing tiers)
+     - radius / shadow / spacing / motion / focus-ring / chart palettes
+
+   It does NOT define semantic element styles (h1, p, .btn). Those live in
+   semantic stylesheets layered on top — colors_and_type.css for the app,
+   marketing.css for the landing site.
+
+   How to wire it up:
+     <link rel="stylesheet" href="/design-system/tokens.css" />
+     <link rel="stylesheet" href="/design-system/colors_and_type.css" /> <!-- app -->
+     <!-- OR -->
+     <link rel="stylesheet" href="/design-system/marketing.css" />        <!-- marketing -->
+*/
+
+/* ═══ Brand font faces ═══
+   Area Normal is licensed (not on Google Fonts). Market Pro is the script
+   accent. If a surface can't host the .otf files, system fallbacks kick in. */
+@font-face { font-family: 'Area Normal'; src: url('./assets/fonts/Area_Thin.otf') format('opentype'); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Area Normal'; src: url('./assets/fonts/Area_Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Area Normal'; src: url('./assets/fonts/Area_Regular_Italic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Area Normal'; src: url('./assets/fonts/Area_Semibold.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Area Normal'; src: url('./assets/fonts/Area_Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Area Normal'; src: url('./assets/fonts/Area_Extrabold.otf') format('opentype'); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Market Pro'; src: url('./assets/fonts/MarketPro.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url('./assets/fonts/IBMPlexMono-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url('./assets/fonts/IBMPlexMono-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url('./assets/fonts/IBMPlexMono-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url('./assets/fonts/IBMPlexMono-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url('./assets/fonts/IBMPlexMono-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+
+:root {
+  /* ═══ Primary brand palette ═══ */
+  --crp-navy:   #072061;  /* Primary — headers, buttons, body accents */
+  --crp-blue:   #1843AD;  /* Secondary blue — links, CTAs, active state */
+  --crp-cyan:   #A2DCEB;  /* Light accent — illustration backgrounds */
+  --crp-orange: #FF9933;  /* CTA / warmth — Market Pro script + hand-drawn marks */
+
+  /* ═══ Brand gradients (135deg, top-left → bottom-right only) ═══ */
+  --crp-navy-deep:        #0d2e7a;
+  --crp-blue-light:       #3a6bc5;
+  --gradient-navy-blue:   linear-gradient(135deg, #072061 0%, #1843AD 100%); /* @kind color */
+  --gradient-cyan-blue:   linear-gradient(135deg, #A2DCEB 0%, #1843AD 100%); /* @kind color */
+  --gradient-orange-navy: linear-gradient(135deg, #FF9933 0%, #072061 100%); /* @kind color */
+
+  /* ═══ Neutrals ═══ */
+  --crp-black:      #000000;
+  --crp-dark-gray:  #828282;
+  --crp-light-gray: #D2D2D2;
+  --crp-white:      #FFFFFF;
+
+  /* ═══ Semantic UI surfaces ═══ */
+  --bg:        #f0f4fa;  /* page background — cool blue-tinted */
+  --surface:   #FFFFFF;  /* card background */
+  --surface-2: #edf2f8;  /* secondary surface, table headers */
+  --border:    #c8d6e8;  /* default card border */
+  --border-2:  #b0c4d8;  /* stronger border */
+
+  /* Foreground text */
+  --fg-1: #072061;  /* primary text — same as navy */
+  --fg-2: #3d5373;  /* muted body / secondary labels — landing-tier darker for readability */
+  --fg-3: #5e7694;  /* tertiary / captions */
+
+  /* ═══ Status colors ═══
+     Success/danger use the deeper hexes (#059669 / #dc2626) that the
+     landing site and dashboard already share. The brighter Tailwind
+     defaults (#10b981 / #ef4444) read too playful for clinical context. */
+  --success:        #059669;
+  --success-bg:     #ecfdf5;
+  --success-border: #a7f3d0;
+
+  --warning:        #f59e0b;    /* semantic amber — distinct from brand orange */
+  --warning-bg:     #fff8f0;
+  --warning-border: #ffc57a;
+
+  --danger:         #dc2626;
+  --danger-bg:      #fef2f2;
+  --danger-border:  #fecaca;
+
+  /* Brand-orange tint (distinct from semantic warning) */
+  --orange-bg:      #fff3e0;
+  --orange-border:  #ffc57a;
+
+  /* Soft tint backgrounds for inline emphasis */
+  --blue-bg:        #E8EEFF;
+
+  /* ═══ Type — fonts ═══ */
+  --font-sans:   'Area Normal', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                 'IBM Plex Sans', Roboto, Arial, sans-serif;
+  --font-mono:   'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Monaco, monospace;
+  --font-script: 'Market Pro', 'Caveat', 'Brush Script MT', cursive;
+
+  /* ═══ Type — APP scale (data-dense surfaces: dashboard, ops UI) ═══
+     Body 15px, headings tighter. Used by colors_and_type.css. */
+  --fs-app-display: 48px;
+  --fs-app-h1:      32px;
+  --fs-app-h2:      24px;
+  --fs-app-h3:      18px;
+  --fs-app-h4:      15px;
+  --fs-app-body:    15px;
+  --fs-app-small:   13px;
+  --fs-app-xs:      11px;
+  --fs-app-micro:   10px;
+
+  /* ═══ Type — MARKETING scale (landing pages, hero, blog) ═══
+     Body 18px for readability, headings up to 64px. Used by marketing.css. */
+  --fs-mkt-display: 64px;   /* hero headline */
+  --fs-mkt-h1:      52px;
+  --fs-mkt-h2:      40px;
+  --fs-mkt-h3:      28px;
+  --fs-mkt-h4:      20px;
+  --fs-mkt-body:    18px;
+  --fs-mkt-small:   15px;
+  --fs-mkt-xs:      13px;
+  --fs-mkt-micro:   13px;
+
+  /* Legacy aliases — these resolve to the marketing scale, since the brand
+     guide's published type sizes are the marketing tier. App stylesheets
+     should reach for --fs-app-* explicitly. */
+  --fs-display:  var(--fs-mkt-display);
+  --fs-h1:       48px;     /* compromise: between app 32 and mkt 52 */
+  --fs-h2:       36px;
+  --fs-h3:       24px;
+  --fs-h4:       18px;
+  --fs-body:     15px;     /* APP default — marketing.css overrides to 18 */
+  --fs-small:    13px;
+  --fs-xs:       11px;
+  --fs-micro:    10px;
+
+  --fw-regular:   400; /* @kind font */
+  --fw-medium:    500; /* @kind font */
+  --fw-semibold:  600; /* @kind font */
+  --fw-bold:      700; /* @kind font */
+  --fw-extrabold: 800; /* @kind font */
+
+  --lh-tight:  1.15; /* @kind font */
+  --lh-snug:   1.35; /* @kind font */
+  --lh-normal: 1.5; /* @kind font */
+  --lh-loose:  1.65; /* @kind font */
+
+  /* ═══ Radii ═══ */
+  --radius-xs:   4px;
+  --radius-sm:   6px;    /* app buttons, small inputs */
+  --radius-md:   8px;    /* alerts, standard buttons */
+  --radius-lg:   10px;   /* cards (app) */
+  --radius-xl:   12px;   /* modal, hero card (app) */
+  --radius-2xl:  16px;   /* large container (marketing) */
+  --radius-pill: 999px;  /* marketing CTAs */
+
+  /* ═══ Shadows ═══ */
+  --shadow-xs:         0 1px 3px rgba(7,32,97,0.04);
+  --shadow-sm:         0 1px 3px rgba(7,32,97,0.06);
+  --shadow-md:         0 2px 12px rgba(26,39,68,0.08);
+  --shadow-lg:         0 4px 16px rgba(7,32,97,0.10);
+  --shadow-xl:         0 24px 60px rgba(0,0,0,0.22);
+  --shadow-hover-blue: 0 4px 16px rgba(24,67,173,0.15);
+
+  /* ═══ Spacing (4-based) ═══ */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ═══ Motion ═══ */
+  --ease-out:       cubic-bezier(.2,.8,.2,1); /* @kind other */
+  --ease-in-out:    cubic-bezier(.4,0,.2,1); /* @kind other */
+  --ease-spring:    cubic-bezier(.34,1.56,.64,1); /* @kind other */
+  --dur-instant:    100ms; /* @kind other */
+  --dur-fast:       150ms; /* @kind other */
+  --dur-base:       250ms; /* @kind other */
+  --dur-slow:       400ms; /* @kind other */
+  --dur-deliberate: 600ms; /* @kind other */
+
+  /* ═══ Focus ring (a11y, WCAG 2.2 SC 2.4.11) ═══ */
+  --ring-color: #1843AD; /* @kind color */
+  --ring-halo:  rgba(24,67,173,0.25); /* @kind color */
+  --ring: 0 0 0 2px var(--ring-color), 0 0 0 5px var(--ring-halo); /* @kind shadow */
+
+  /* ═══ Data viz — categorical (≤6 series) ═══ */
+  --chart-1: #1843AD;   /* brand blue   — primary series */
+  --chart-2: #FF9933;   /* brand orange — comparison / highlight */
+  --chart-3: #10b981;   /* emerald      — positive / growth */
+  --chart-4: #8b5cf6;   /* violet       — extra series */
+  --chart-5: #f59e0b;   /* amber        — caution / mixed */
+  --chart-6: #06b6d4;   /* cyan-dark    — extra series */
+
+  /* Sequential scale — single-hue navy, for heatmaps / density */
+  --chart-seq-1: #E8EEFF;
+  --chart-seq-2: #B8C8F0;
+  --chart-seq-3: #7B98DC;
+  --chart-seq-4: #3A6BC5;
+  --chart-seq-5: #1843AD;
+  --chart-seq-6: #072061;
+
+  /* Diverging scale — red ↔ neutral ↔ green, for variance / delta */
+  --chart-div-neg-2: #dc2626;
+  --chart-div-neg-1: #fca5a5;
+  --chart-div-zero:  #f1f5f9;
+  --chart-div-pos-1: #86efac;
+  --chart-div-pos-2: #16a34a;
+
+  /* Chart chrome */
+  --chart-grid:      #e5ecf5;
+  --chart-grid-fine: #f1f5f9;
+  --chart-axis:      #5e7694;
+  --chart-axis-line: #c8d6e8;
+}

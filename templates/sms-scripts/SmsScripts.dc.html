@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="SMS Scripts" description="Text-message copy library — outreach, reminders, results, compliance rules" -->
+<helmet><script src="./ds-base.js"></script></helmet>
+
+<div style="font-family:'Area Normal',-apple-system,'Segoe UI',Arial,sans-serif;background:#f0f4fa;color:#072061;padding:36px;max-width:960px;margin:0 auto">
+
+  <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FF9933;margin-bottom:8px">Template · SMS scripts</div>
+  <h1 style="font-size:32px;font-weight:800;letter-spacing:-0.015em;margin:0 0 6px">Text messages, on brand.</h1>
+  <p style="font-size:15px;color:#3d5373;line-height:1.55;margin:0 0 28px;max-width:640px">Every script ≤ 320 characters (2 SMS segments), plain English, second person, no exclamation marks. Swap the [BRACKETED] fields; everything else is locked.</p>
+
+  <!-- Scripts -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+
+    <div style="background:#fff;border:1px solid #c8d6e8;border-top:3px solid #1843AD;border-radius:10px;padding:20px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#1843AD;margin-bottom:10px">First outreach · after web screener</div>
+      <p style="font-size:14px;line-height:1.6;background:#f0f4fa;border-radius:10px;padding:14px;margin:0">Hi [FIRST NAME], this is [COORDINATOR] from Clinical Research Philadelphia. Thanks for your interest in our [CONDITION] study. Do you have 10 minutes today or tomorrow for a quick pre-screening call? Reply with a time that works, or call 215-676-6696.</p>
+    </div>
+
+    <div style="background:#fff;border:1px solid #c8d6e8;border-top:3px solid #FF9933;border-radius:10px;padding:20px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#FF9933;margin-bottom:10px">Visit reminder · day before</div>
+      <p style="font-size:14px;line-height:1.6;background:#f0f4fa;border-radius:10px;padding:14px;margin:0">Hi [FIRST NAME], reminder: your visit is tomorrow, [DAY] at [TIME] — 9501 Roosevelt Blvd, Suite 208. Free parking on site. Please arrive fasting if instructed. Need to reschedule? Reply here or call 215-676-6696.</p>
+    </div>
+
+    <div style="background:#fff;border:1px solid #c8d6e8;border-top:3px solid #059669;border-radius:10px;padding:20px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#059669;margin-bottom:10px">Compensation sent</div>
+      <p style="font-size:14px;line-height:1.6;background:#f0f4fa;border-radius:10px;padding:14px;margin:0">Hi [FIRST NAME], your visit payment of $[AMOUNT] was sent today by [METHOD]. Thank you for being part of the study — your time moves medicine forward. Questions? Call 215-676-6696.</p>
+    </div>
+
+    <div style="background:#fff;border:1px solid #c8d6e8;border-top:3px solid #A2DCEB;border-radius:10px;padding:20px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#1843AD;margin-bottom:10px">Re-engagement · missed call</div>
+      <p style="font-size:14px;line-height:1.6;background:#f0f4fa;border-radius:10px;padding:14px;margin:0">Hi [FIRST NAME], we tried reaching you about the [CONDITION] study you asked about. You may still qualify — compensation up to $[AMOUNT]. Reply YES for a call back, or STOP to opt out. Clinical Research Philadelphia.</p>
+    </div>
+
+  </div>
+
+  <!-- Rules -->
+  <div style="background:#fff;border:1px solid #c8d6e8;border-radius:10px;padding:20px;margin-top:16px">
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#3d5373;margin-bottom:10px">Compliance rules — locked</div>
+    <div style="font-size:13px;color:#3d5373;line-height:1.7">
+      · Identify as Clinical Research Philadelphia in the first message of any thread.<br/>
+      · Never include health conditions in a first unsolicited text — only after they've shared it via screener or call.<br/>
+      · Every marketing-class message carries an opt-out (Reply STOP). Reminders/logistics to enrolled participants don't.<br/>
+      · Send window 9 AM – 7 PM ET. No weekends for outreach; reminders OK.<br/>
+      · Never promise outcomes; comp is "up to $X." No emoji, no exclamation marks, no link shorteners.
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

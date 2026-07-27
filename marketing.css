@@ -1,0 +1,198 @@
+/* CRP Design System — Marketing Layer
+   Layered ON TOP of tokens.css. Provides the marketing-tier type scale
+   (18px body, 52–64px headlines), pill-shaped buttons (48–56px tall),
+   and the script-display headline treatment used on the landing site.
+
+   Load order:
+     <link rel="stylesheet" href="/design-system/tokens.css" />
+     <link rel="stylesheet" href="/design-system/marketing.css" />
+
+   Do NOT load this on app surfaces (dashboard, ops UI). The base body size
+   override (18px) and pill button shape are wrong for data-dense screens.
+*/
+
+/* ═══ Body — marketing reading size ═══ */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-mkt-body);    /* 18px */
+  line-height: var(--lh-loose);     /* 1.65 */
+  color: var(--fg-1);
+  background: var(--crp-white);
+}
+
+/* ═══ Headings — marketing tier ═══ */
+h1, .h1 {
+  font-size: var(--fs-mkt-h1);      /* 52px */
+  font-weight: var(--fw-semibold);  /* 600 */
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  color: var(--crp-navy);
+}
+h2, .h2 {
+  font-size: var(--fs-mkt-h2);      /* 40px */
+  font-weight: var(--fw-extrabold); /* 800 */
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  color: var(--crp-navy);
+}
+h3, .h3 {
+  font-size: var(--fs-mkt-h3);      /* 28px */
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  color: var(--crp-navy);
+}
+h4, .h4 {
+  font-size: var(--fs-mkt-h4);      /* 20px */
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  color: var(--crp-navy);
+}
+p {
+  font-size: var(--fs-mkt-body);
+  line-height: var(--lh-loose);
+  color: var(--fg-2);
+}
+
+/* ═══ Hero / display headline pair ═══
+   The signature CRP marketing layout: black-condensed h2 stacked above
+   an orange Market Pro script line. Use only once per page (hero or
+   page-header), never inside a card or section body. */
+.hero h2,
+.page-hero h1 {
+  color: #fff;
+  font-size: var(--fs-mkt-display);   /* 64px */
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.02em;
+  line-height: var(--lh-tight);
+}
+.hero h1,
+.page-hero .hero-script,
+.script-display {
+  color: var(--crp-orange);
+  font-family: var(--font-script);
+  font-size: 72px;
+  font-weight: var(--fw-regular);
+  line-height: 1.2;
+}
+
+/* The smaller in-line script accent ("section-header .script") */
+.script {
+  font-family: var(--font-script);
+  color: var(--crp-orange);
+  font-weight: var(--fw-regular);
+}
+
+/* ═══ Eyebrow / micro-label ═══ */
+.eyebrow {
+  font-size: var(--fs-mkt-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--fg-3);
+}
+
+/* ═══ Buttons — MARKETING variant (pill, 48–56px) ═══
+   The marketing button is a different recipe from the app button.
+   App buttons live in colors_and_type.css (.btn, 36px tall, 6px radius).
+   Marketing buttons are pill-shaped and considerably taller — they're
+   set on hero backgrounds and need to land at reading distance.
+
+   Class names use a `.btn-mkt-*` prefix to avoid colliding with the app
+   recipe. The landing-site stylesheet currently uses raw `.btn` for these;
+   migration plan in landing-migration.md handles the rename. */
+.btn-mkt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 32px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-weight: var(--fw-bold);
+  font-size: 17px;
+  line-height: 1;
+  border: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+.btn-mkt-lg { height: 56px; padding: 0 48px; min-width: 200px; font-size: 16px; }
+.btn-mkt-sm { height: 40px; padding: 0 24px; font-size: 15px; }
+
+.btn-mkt-primary {
+  background: var(--crp-orange);
+  color: #fff;
+  border-color: var(--crp-orange);
+}
+.btn-mkt-primary:hover {
+  background: #e6872e;
+  border-color: #e6872e;
+  box-shadow: 0 4px 12px rgba(255,153,51,.3);
+}
+
+.btn-mkt-navy {
+  background: var(--crp-navy);
+  color: #fff;
+  border-color: var(--crp-navy);
+}
+.btn-mkt-navy:hover {
+  background: #0a2a7a;
+  border-color: #0a2a7a;
+}
+
+.btn-mkt-outline {
+  background: transparent;
+  color: var(--crp-navy);
+  border-color: var(--border);
+}
+.btn-mkt-outline:hover {
+  border-color: var(--crp-blue);
+  color: var(--crp-blue);
+  box-shadow: var(--shadow-hover-blue);
+}
+
+/* On dark hero backgrounds */
+.btn-mkt-on-dark-primary {
+  background: #fff;
+  color: var(--crp-navy);
+  border-color: #fff;
+}
+.btn-mkt-on-dark-primary:hover {
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(255,255,255,0.9);
+}
+.btn-mkt-on-dark-secondary {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+.btn-mkt-on-dark-secondary:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* ═══ Section padding — marketing rhythm ═══ */
+.section { padding: 88px 0; }
+.section-alt { background: var(--bg); }
+.section-navy {
+  background: var(--gradient-navy-blue);
+  color: #fff;
+}
+.section-navy h2,
+.section-navy h3,
+.section-navy h4,
+.section-navy p,
+.section-navy li,
+.section-navy span { color: #fff; }
+.section-navy .script { color: var(--crp-orange); }
+
+@media (max-width: 768px) {
+  .section { padding: 48px 0; }
+  h1, .h1 { font-size: 28px; }
+  h2, .h2 { font-size: 24px; }
+  h3, .h3 { font-size: 22px; }
+  p       { font-size: 16px; line-height: 1.6; }
+}
