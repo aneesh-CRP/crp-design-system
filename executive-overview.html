@@ -529,6 +529,22 @@
   .fac-cap-cell li::before {
     content: '–'; position: absolute; left: 0; color: var(--crp-blue); font-weight: 700;
   }
+  /* Industry affiliations — recognition marks a CRO reads instantly. */
+  .affil {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    max-width: 1120px; margin: 24px auto 0; width: 100%;
+    padding-top: 18px; border-top: 1px solid var(--border);
+  }
+  /* Marks vary wildly in aspect, so each gets an identical box to sit in. */
+  .affil span.m {
+    width: 118px; height: 42px; display: flex;
+    align-items: center; justify-content: center;
+  }
+  .affil span.m img { max-height: 34px; max-width: 108px; width: auto; }
+  .affil .lbl {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--fg-3); font-weight: 700; margin-right: 6px;
+  }
   .fac-sites {
     display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   }
@@ -792,8 +808,8 @@
           <div class="label">Sponsor enrollment targets met or exceeded</div>
         </div>
         <div class="stat">
-          <div class="num">200<span class="unit">+</span></div>
-          <div class="label">Years of combined research experience on team</div>
+          <div class="num">10<span class="unit">k+</span></div>
+          <div class="label">Participants enrolled since 1996</div>
         </div>
         <div class="stat">
           <div class="num">41<span class="unit">%</span></div>
@@ -837,9 +853,9 @@
             </div>
           </div>
           <div class="perf-row">
-            <div class="v">3</div>
+            <div class="v">10</div>
             <div class="t">
-              <div class="ttl">Days from start-up packet to IRB submission</div>
+              <div class="ttl">Days to a complete regulatory package</div>
               <div class="desc">Regulatory turns documents in parallel, not in sequence.</div>
             </div>
           </div>
@@ -1004,7 +1020,7 @@
         <div class="row-cell"><div class="row-h">Fewer queries</div><div class="row-d">Source-to-EDC same day, so fewer discrepancies reach you</div></div>
         <div class="row-cell"><div class="row-h">Faster re-screening</div><div class="row-d">Prior I/E results carry forward instead of re-working a patient</div></div>
         <div class="row-cell"><div class="row-h">Clean patient contact</div><div class="row-d">Every outbound message reviewed before it is sent</div></div>
-        <div class="row-cell"><div class="row-h">Audit-ready</div><div class="row-d">Per-action audit log, BAA-ready, HIPAA-grade</div></div>
+        <div class="row-cell"><div class="row-h">Virtual trial capable</div><div class="row-d">Decentralised and hybrid visits supported end to end</div></div>
       </div>
     </div>
   </div>
@@ -1113,7 +1129,7 @@
         <div style="border:1px solid var(--border);border-top:3px solid var(--crp-blue);border-radius:10px;padding:12px 14px;background:#fff;">
           <div style="font-size:26px;font-weight:800;color:var(--crp-navy);line-height:1;">6</div>
           <div style="font-size:13px;font-weight:700;color:var(--crp-navy);margin-top:7px;">Recruitment</div>
-          <div style="font-size:11.5px;color:var(--fg-2);margin-top:2px;line-height:1.35;">Provider network and re-engagement</div>
+          <div style="font-size:11.5px;color:var(--fg-2);margin-top:2px;line-height:1.35;">Plus 6 remote coordinators</div>
         </div>
         <div style="border:1px solid var(--border);border-top:3px solid var(--crp-orange);border-radius:10px;padding:12px 14px;background:#fff;">
           <div style="font-size:26px;font-weight:800;color:var(--crp-navy);line-height:1;">4</div>
@@ -1186,6 +1202,7 @@
               <li>Dedicated monitor workstations</li>
               <li>Sponsor conference / training room</li>
               <li>Patient-only restrooms</li>
+              <li>Free transportation and parking</li>
             </ul>
           </div>
         </div>
@@ -1264,6 +1281,16 @@
           </ul>
         </div>
       </div>
+      <div class="affil">
+        <span class="lbl">Member</span>
+        <span class="m"><img src="./assets/affiliations/scrs.png" alt="SCRS"></span>
+        <span class="m"><img src="./assets/affiliations/acrp.png" alt="ACRP"></span>
+        <span class="m"><img src="./assets/affiliations/socra.png" alt="SOCRA"></span>
+        <span class="m"><img src="./assets/affiliations/sip.png" alt="SIP"></span>
+        <span class="m"><img src="./assets/affiliations/transcelerate.png" alt="TransCelerate"></span>
+        <span class="m"><img src="./assets/affiliations/vtc.png" alt="Virtual Trial Capable"></span>
+      </div>
+
     </div>
   </div>
   <div class="footer">
