@@ -160,6 +160,9 @@ def home_slide():
 </section>''' % (nav_bar(), "\n".join(cards))
 
 
+TRANSITIONS = {'Who we are and what we run': 'Thirty years at the same two addresses, with the investigators and coordinators who have been here for most of it.', 'Our anchor area, and where we have delivered': 'Start with the area where we have the longest record and the deepest bench.', "Migraine and MCI to mild Alzheimer's": "The same engine, pointed at migraine and early Alzheimer's &mdash; where certified raters are the barrier most sites cannot clear.", 'The adjacent bench, on the same model': 'One bench over, the same coordinators and regulatory function are already running nine trials.', 'Recruitment, speed, quality, facilities': 'None of that was luck. This is the machine that produces it, and the evidence that it holds.', 'Strategic partnerships with Lilly, J&amp;J, AbbVie and AstraZeneca': 'The sponsors who have seen all of this up close keep placing the next protocol with us.', 'Centralized operations, regulatory, recruitment, QA and finance across both sites': 'What we are asking ICON for, and what we will commit to in return.'}
+
+
 def section_cover(sid, label, desc, v, k, num):
     return '''<section class="slide icn-sec" id="%s">
   <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
@@ -172,7 +175,7 @@ def section_cover(sid, label, desc, v, k, num):
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> %s</span>
     <span class="pageno">00</span>
   </div>
-</section>''' % (sid, nav_bar(sid), num, label, desc, v, k,
+</section>''' % (sid, nav_bar(sid), num, label, TRANSITIONS.get(desc, desc), v, k,
                  label.replace("&amp;", "and"))
 
 

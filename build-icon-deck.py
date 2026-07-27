@@ -50,8 +50,8 @@ ORDER = [
 
     ("hub",  'id="sec-metab"',                     "sec-metab"),
     ("icon", "Five for five",                      "sec-metab"),
-    ("arch", "Cardiometabolic capability",         "sec-metab"),
     ("arch", "how the funnel converted",           "sec-metab"),
+    ("arch", "Cardiometabolic capability",         "sec-metab"),
 
     ("hub",  'id="sec-neuro"',                     "sec-neuro"),
     ("icon", "Four certified raters are why",      "sec-neuro"),
@@ -63,12 +63,12 @@ ORDER = [
 
     ("hub",  'id="sec-deliver"',                   "sec-deliver"),
     ("icon", "191 provider partnerships put",       "sec-deliver"),
+    ("exec", ">Diversity in enrollment<",          "sec-deliver"),
     ("exec", ">Performance proof<",                "sec-deliver"),
     ("exec", ">What our technology gets you<",     "sec-deliver"),
-    ("exec", ">Facilities<",                       "sec-deliver"),
-    ("exec", "Operations &amp; coordinators",      "sec-deliver"),
     ("exec", ">Risk profile<",                     "sec-deliver"),
-    ("exec", ">Diversity in enrollment<",          "sec-deliver"),
+    ("exec", "Operations &amp; coordinators",      "sec-deliver"),
+    ("exec", ">Facilities<",                       "sec-deliver"),
 
     ("hub",  'id="sec-record"',                    "sec-record"),
     ("icon", "Sponsors come back",                 "sec-record"),
