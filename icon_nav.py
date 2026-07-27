@@ -6,17 +6,15 @@ the same buttons work on screen and as real link annotations in the PDF.
 """
 
 SECTIONS = [
-    ("sec-about",   "About CRP",     "Who we are and what we run",
-     "30",     "years, two sites, 500+ trials"),
     ("sec-metab",   "Cardiometabolic", "Our anchor area, and where we have delivered",
      "5 of 5", "recent targets met or beaten"),
     ("sec-neuro",   "Neurology",     "Migraine and MCI to mild Alzheimer's",
      "4",      "certified raters on MMSE, CDR, ADAS-Cog, FAQ"),
     ("sec-derm",    "Derm &amp; Rheum",  "The adjacent bench, on the same model",
      "9",      "recent trials, 2024 to 2025"),
-    ("sec-deliver", "How we deliver", "Recruitment, speed, quality, facilities",
+    ("sec-deliver", "How we deliver", "Why the results repeat: recruitment, speed, quality",
      "&lt;21", "days from selection to activation"),
-    ("sec-record",  "Track record",  "Strategic partnerships with Lilly, J&amp;J, AbbVie and AstraZeneca",
+    ("sec-record",  "Track record",  "Thirty years, the bench, and the sponsors who return",
      "15",     "protocols placed by Lilly alone"),
     ("sec-partner", "Partnership",   "Centralized operations, regulatory, recruitment, QA and finance across both sites",
      "1",      "contract, one team, two addresses"),
@@ -105,7 +103,7 @@ NAV_CSS = """
   .hub-top .v.on { color: var(--crp-orange); }
   .hub-top .k { font-size: 13.5px; color: var(--crp-navy); margin-top: 10px; line-height: 1.35; }
   .hub-rule { max-width: 1140px; margin: 0 auto 22px; height: 1px; background: var(--border); width: 100%; }
-  .hub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 1140px; margin: 0 auto; width: 100%; }
+  .hub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 1140px; margin: 0 auto; width: 100%; }
   .hub-grid a {
     display: block; text-decoration: none; padding: 16px 16px 15px;
     border: 1px solid var(--border); border-top: 3px solid var(--crp-blue);
@@ -160,8 +158,22 @@ def home_slide():
 </section>''' % (nav_bar(), "\n".join(cards))
 
 
-TRANSITIONS = {'Who we are and what we run': 'Thirty years at the same two addresses, with the investigators and coordinators who have been here for most of it.', 'Our anchor area, and where we have delivered': 'Start with the area where we have the longest record and the deepest bench.', "Migraine and MCI to mild Alzheimer's": "The same engine, pointed at migraine and early Alzheimer's &mdash; where certified raters are the barrier most sites cannot clear.", 'The adjacent bench, on the same model': 'One bench over, the same coordinators and regulatory function are already running nine trials.', 'Recruitment, speed, quality, facilities': 'None of that was luck. This is the machine that produces it, and the evidence that it holds.', 'Strategic partnerships with Lilly, J&amp;J, AbbVie and AstraZeneca': 'The sponsors who have seen all of this up close keep placing the next protocol with us.', 'Centralized operations, regulatory, recruitment, QA and finance across both sites': 'What we are asking ICON for, and what we will commit to in return.'}
 
+
+TRANSITIONS = {
+ "Our anchor area, and where we have delivered":
+   "Start where the record is longest and the numbers are hardest.",
+ "Migraine and MCI to mild Alzheimer's":
+   "The same engine, pointed at migraine and early Alzheimer's &mdash; where certified raters are the barrier most sites cannot clear.",
+ "The adjacent bench, on the same model":
+   "One bench over, the same coordinators and regulatory function are already running nine trials.",
+ "Why the results repeat: recruitment, speed, quality":
+   "None of that was luck. This is the machine that produces it, and the evidence that it holds.",
+ "Thirty years, the bench, and the sponsors who return":
+   "Thirty years at the same two addresses, the people who did it, and the sponsors who keep coming back.",
+ "Centralized operations, regulatory, recruitment, QA and finance across both sites":
+   "What we are asking ICON for, and what we will commit to in return.",
+}
 
 def section_cover(sid, label, desc, v, k, num):
     return '''<section class="slide icn-sec" id="%s">

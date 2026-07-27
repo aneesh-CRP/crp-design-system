@@ -24,3 +24,15 @@ Traps:
   1280px and scales every page to ~93%. Use `box-sizing: border-box`.
 - The print HTML must sit in this directory or `./assets/` paths break silently
   (the PDF drops from ~4MB to ~700KB — check the file size).
+
+## PowerPoint
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install python-pptx   # once
+.venv/bin/python make-pptx.py
+```
+
+Renders each PDF page at 150 dpi and places it full-bleed on a 13.333×7.5in
+slide, with the slide's title in the notes so the outline pane is usable.
+Text is not editable — the trade is that it looks identical everywhere with
+no font dependency. Run it after the PDF is rebuilt.

@@ -44,10 +44,7 @@ ORDER = [
     ("icon", 'class="slide icn-cover"',            None),
     ("hub",  'id="home"',                          None),
 
-    ("hub",  'id="sec-about"',                     "sec-about"),
-    ("arch", "same two communities",              "sec-about"),
-    ("exec", ">Investigators<",                    "sec-about"),
-
+    # ── what we delivered ───────────────────────────────────────────────
     ("hub",  'id="sec-metab"',                     "sec-metab"),
     ("icon", "Five for five",                      "sec-metab"),
     ("arch", "cost 1,180 worked patients",         "sec-metab"),
@@ -61,6 +58,7 @@ ORDER = [
     ("hub",  'id="sec-derm"',                      "sec-derm"),
     ("icon", "Nine derm and rheum trials",        "sec-derm"),
 
+    # ── why it repeats ──────────────────────────────────────────────────
     ("hub",  'id="sec-deliver"',                   "sec-deliver"),
     ("icon", "191 provider partnerships put",       "sec-deliver"),
     ("exec", ">Diversity in enrollment<",          "sec-deliver"),
@@ -70,7 +68,10 @@ ORDER = [
     ("exec", "Operations &amp; coordinators",      "sec-deliver"),
     ("exec", ">Facilities<",                       "sec-deliver"),
 
+    # ── who confirms it ─────────────────────────────────────────────────
     ("hub",  'id="sec-record"',                    "sec-record"),
+    ("arch", "same two communities",               "sec-record"),
+    ("exec", ">Investigators<",                    "sec-record"),
     ("icon", "Sponsors come back",                 "sec-record"),
     ("exec", ">Track record<",                     "sec-record"),
     ("exec", "Treatments we've helped advance",    "sec-record"),
