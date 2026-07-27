@@ -21,7 +21,7 @@ polish    = (SCRATCH / "icon_polish.html").read_text()
 extra     = (SCRATCH / "icon_extra.html").read_text()
 
 for probe, why in [
-    ("Eight investigators cover our therapeutic areas", "investigator count"),
+    ("Eight investigators cover every therapeutic area we run", "investigator count"),
     ("dr-rustgi.jpg", "Rustgi card"),
     ("site-philadelphia.png", "site photos"),
     ("PubMed 30227522", "NIH cycle-time citation"),
@@ -45,21 +45,21 @@ ORDER = [
     ("hub",  'id="home"',                          None),
 
     ("hub",  'id="sec-about"',                     "sec-about"),
-    ("arch", ">Executive snapshot<",               "sec-about"),
+    ("arch", "same two communities",              "sec-about"),
     ("exec", ">Investigators<",                    "sec-about"),
 
     ("hub",  'id="sec-metab"',                     "sec-metab"),
     ("icon", "Five for five",                      "sec-metab"),
-    ("arch", "how the funnel converted",           "sec-metab"),
-    ("arch", "Cardiometabolic capability",         "sec-metab"),
+    ("arch", "cost 1,180 worked patients",         "sec-metab"),
+    ("arch", "Four specialists and nine recent",   "sec-metab"),
 
     ("hub",  'id="sec-neuro"',                     "sec-neuro"),
-    ("icon", "Four certified raters are why",      "sec-neuro"),
-    ("arch", "BHV3000-405",                        "sec-neuro"),
-    ("arch", "Early Alzheimer's &middot; depth",       "sec-neuro"),
+    ("icon", "an early Alzheimer's protocol can be placed", "sec-neuro"),
+    ("arch", "Six sponsors have placed migraine",  "sec-neuro"),
+    ("arch", "raters are not starting cold",       "sec-neuro"),
 
     ("hub",  'id="sec-derm"',                      "sec-derm"),
-    ("icon", "Dermatology and rheumatology",     "sec-derm"),
+    ("icon", "Nine derm and rheum trials",        "sec-derm"),
 
     ("hub",  'id="sec-deliver"',                   "sec-deliver"),
     ("icon", "191 provider partnerships put",       "sec-deliver"),
