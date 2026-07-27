@@ -57,7 +57,7 @@ ORDER = [
     ("sect", 'id="sec-ta"'),                      # 5  §2
     ("icon", "commitment versus delivery"),       # 6  cardiometabolic
     ("icon", "what one site absorbed"),           # 7  EZEF
-    ("icon", 'slide-eyebrow">CNS'),           # 8  CNS
+    ("icon", 'slide-eyebrow">Neurology'),          # 8  neurology
     ("icon", "Also available to the program"),    # 9  derm & rheum
     ("sect", 'id="sec-deliver"'),                 # 10 §3
     ("icon", ">Recruitment<"),                    # 11
@@ -100,7 +100,7 @@ styles = (icon_html.split("</style>")[0] + "</style>\n"
 core = head + '<div class="deck">\n' + styles + "\n" + body + "\n</div>\n"
 core = core.replace(
     "<title>CRP — Executive Overview, July 2026</title>",
-    "<title>CRP — Metabolic and CNS Experience · ICON Elite Sites Program</title>")
+    "<title>CRP — Metabolic and Neurology Experience · ICON Elite Sites Program</title>")
 
 # Two artifacts from one set of slides. The interactive build carries the nav,
 # keyboard handling and clickable contents; the print build is the same slides
@@ -108,9 +108,9 @@ core = core.replace(
 interactive = core + extra + "\n</body>\n</html>"
 printable   = core + "</body>\n</html>"
 
-dest = DS / "crp-icon-elite-sites-metabolic-cns.html"
+dest = DS / "crp-icon-elite-sites-metabolic-neurology.html"
 dest.write_text(interactive)
-print_dest = DS / "crp-icon-elite-sites-metabolic-cns.print.html"
+print_dest = DS / "crp-icon-elite-sites-metabolic-neurology.print.html"
 print_dest.write_text(printable)
 print("wrote", dest)
 print("wrote", print_dest)
