@@ -45,48 +45,37 @@
   .cover {
     background: var(--gradient-navy-blue);
     color: var(--crp-white);
-    display: grid; grid-template-columns: 1.25fr 1fr;
-    align-items: center;
-  }
-  .cover .quat {
-    position: absolute; right: -120px; bottom: -180px;
-    width: 720px; height: 720px; opacity: 0.07;
-  }
-  .cover .left {
-    padding: 96px 40px 96px 96px; position: relative; z-index: 2;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
     text-align: center;
   }
-  .cover .eyebrow {
-    font-size: 14.5px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--crp-cyan); margin-bottom: 28px; font-weight: 600;
+  .cover .quat {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 860px; height: 860px; opacity: 0.06;
   }
+  .cover .lockup { position: relative; z-index: 2; margin-bottom: 46px; }
+  .cover .lockup img { width: 300px; display: block; }
+  .cover .center { position: relative; z-index: 2; }
   .cover h1 {
     font-family: var(--font-sans); font-weight: 800;
-    font-size: 56px; line-height: 1.05; margin: 0 0 4px;
+    font-size: 58px; line-height: 1.05; margin: 0 0 2px;
     letter-spacing: -0.015em; color: var(--crp-white);
     white-space: nowrap;
   }
   .cover .script-line {
     font-family: var(--font-script); color: var(--crp-orange);
-    font-size: 96px; line-height: 1; margin: 0 0 32px;
+    font-size: 100px; line-height: 1; margin: 0 0 38px;
+  }
+  .cover .script-line .tm {
+    font-family: var(--font-sans); font-size: 20px; font-weight: 600;
+    vertical-align: super; margin-left: 4px; letter-spacing: 0;
   }
   .cover .year {
-    font-size: 16px; color: rgba(255,255,255,0.9);
-    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600;
+    font-size: 15px; color: rgba(255,255,255,0.85);
+    letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600;
   }
-  .cover .right {
-    padding: 96px; position: relative; z-index: 2; text-align: right;
-    display: flex; flex-direction: column; align-items: flex-end; gap: 18px;
-  }
-  .cover .right img { width: 100%; max-width: 330px; }
-  .cover .right .cover-tag {
-    font-size: 14.5px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--crp-cyan); font-weight: 700; margin-top: 8px;
-  }
-  .cover .right .cover-date {
-    font-family: var(--font-script); color: var(--crp-orange);
-    font-size: 44px; line-height: 1;
-  }
+  .cover .year .dot { color: var(--crp-cyan); margin: 0 10px; }
   .cover .footer { color: rgba(255,255,255,0.55); }
   .cover .footer .mark img { filter: brightness(0) invert(1); opacity: 0.6; }
 
@@ -1124,16 +1113,13 @@
 <!-- ═════════ SLIDE 1 — COVER (patient tagline) ═════════ -->
 <section class="slide cover">
   <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
-  <div class="left">
-    <div class="eyebrow">Clinical Research Philadelphia</div>
-    <h1>The future of medicine</h1>
-    <div class="script-line">begins with you</div>
-    <div class="year">Executive Overview · July 2026</div>
+  <div class="lockup">
+    <img src="./assets/logos/crp-white.svg" alt="Clinical Research Philadelphia">
   </div>
-  <div class="right">
-    <img src="./assets/logos/crp-white.svg" alt="CRP">
-    <div class="cover-tag">Sponsor &amp; CRO Capabilities</div>
-    <div class="cover-date">July 2026</div>
+  <div class="center">
+    <h1>The future of medicine</h1>
+    <div class="script-line">begins with you<span class="tm">&trade;</span></div>
+    <div class="year">Sponsor &amp; CRO Capabilities<span class="dot">·</span>July 2026</div>
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> phillyresearch.com</span>
@@ -1177,7 +1163,7 @@
         </div>
         <div class="stat">
           <div class="num">41<span class="unit">%</span></div>
-          <div class="label">Participants who are not White, where race is reported</div>
+          <div class="label">Participants from racially diverse backgrounds</div>
         </div>
         <div class="stat">
           <div class="num">7</div>
