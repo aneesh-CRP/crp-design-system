@@ -52,7 +52,7 @@ ORDER = [
     ("icon", "Five for five",                      "sec-metab"),
     ("icon", "three and a half",                   "sec-metab"),
     ("arch", "Cardiometabolic capability",         "sec-metab"),
-    ("arch", "what one site absorbed",             "sec-metab"),
+    ("arch", "how the funnel converted",           "sec-metab"),
 
     ("hub",  'id="sec-neuro"',                     "sec-neuro"),
     ("icon", "Four certified raters are why",      "sec-neuro"),
@@ -60,7 +60,7 @@ ORDER = [
     ("arch", "Early Alzheimer's &middot; depth",       "sec-neuro"),
 
     ("hub",  'id="sec-derm"',                      "sec-derm"),
-    ("icon", "Appendix &middot; adjacent",         "sec-derm"),
+    ("icon", "Dermatology and rheumatology",     "sec-derm"),
 
     ("hub",  'id="sec-deliver"',                   "sec-deliver"),
     ("icon", "We do not buy patients",             "sec-deliver"),
@@ -84,7 +84,7 @@ ORDER = [
 slides = []
 for src, marker, sec in ORDER:
     s = take(POOLS[src], marker, "%s/%s" % (src, marker))
-    if 'class="nav"' not in s:                       # section covers already carry one
+    if 'class="nav"' not in s and 'icn-cover' not in s:   # covers stay clean
         bar = nav_bar(sec)
         if '<div class="slide-pad">' in s:
             s = s.replace('<div class="slide-pad">', bar + '\n  <div class="slide-pad">', 1)

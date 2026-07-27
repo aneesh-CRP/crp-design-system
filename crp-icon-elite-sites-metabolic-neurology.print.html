@@ -988,8 +988,7 @@
     color: #fff; background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.25);
   }
   .icn-sec .nav a.on { background: var(--crp-orange); color: #fff; }
-  /* Slide bodies start below the bar */
-  .slide-pad { padding-top: 60px; }
+  /* The bar is absolutely positioned; the stock 56px pad already clears it. */
 
   /* ═══ Home hub ═══ */
   .hub-top { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1140px; margin: 0 auto 26px; width: 100%; }
@@ -1118,7 +1117,6 @@
 </style>
 
 <section class="slide icn-cover">
-  <div class="nav"><a class="home" href="#home">&#8962; Home</a><a href="#sec-about">About CRP</a><a href="#sec-metab">Cardiometabolic</a><a href="#sec-neuro">Neurology</a><a href="#sec-derm">Derm &amp; Rheum</a><a href="#sec-deliver">How we deliver</a><a href="#sec-record">Track record</a><a href="#sec-partner">Partnership</a><span class="sp"></span></div>
   <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
   <div class="l">
     <div class="icn-eyebrow">Clinical Research Philadelphia</div>
@@ -1354,8 +1352,8 @@
           <div class="icn-team">
             <div class="icn-person"><div class="pn">Joseph Heether, MD</div><div class="pr">CARDIOLOGY</div></div>
             <div class="icn-person"><div class="pn">Taher Modarressi, MD, FNLA</div><div class="pr">ENDOCRINOLOGY / LIPIDOLOGY</div></div>
-            <div class="icn-person"><div class="pn">Hal Ganzman, DO</div><div class="pr">INTERNAL MEDICINE</div></div>
-            <div class="icn-person"><div class="pn">Lolita Vaughan, CRNP</div><div class="pr">GENERAL MEDICINE</div></div>
+            <div class="icn-person"><div class="pn">Hal Ganzman, DO</div><div class="pr">SUB-I &middot; INTERNAL MEDICINE</div></div>
+            <div class="icn-person"><div class="pn">Vinod Rustgi, MD, MBA</div><div class="pr">HEPATOLOGY / LIVER</div></div>
           </div>
           <div class="icn-cap">
             <ul>
@@ -1393,9 +1391,9 @@
   <div class="nav"><a class="home" href="#home">&#8962; Home</a><a href="#sec-about">About CRP</a><a href="#sec-metab" class="on">Cardiometabolic</a><a href="#sec-neuro">Neurology</a><a href="#sec-derm">Derm &amp; Rheum</a><a href="#sec-deliver">How we deliver</a><a href="#sec-record">Track record</a><a href="#sec-partner">Partnership</a><span class="sp"></span></div>
   <div class="slide-pad">
     <div class="slide-head">
-      <div class="slide-eyebrow">Metabolic · what one site absorbed</div>
-      <h2 class="slide-h2">One site randomized 52 patients where the sponsor allocated 15.</h2>
-      <p class="slide-lede">Lilly J3L-MC-EZEF, Lp(a) cardiovascular outcomes. Opened May 2024, still enrolling in July 2026.</p>
+      <div class="slide-eyebrow">Cardiometabolic · how the funnel converted</div>
+      <h2 class="slide-h2">1,180 patients worked to find 52.</h2>
+      <p class="slide-lede">Lilly J3L-MC-EZEF. Where the volume came from, and where it fell away.</p>
     </div>
     <div class="slide-body">
       <div class="icn-funnel">
@@ -1415,10 +1413,8 @@
           </ul>
         </div>
         <div class="icn-panel dark">
-          <h4>What it means for a study footprint</h4>
+          <h4>Why the screen-fail rate is not a problem</h4>
           <ul>
-            <li>At 52 randomized against a 15-patient allocation, this one site carried the work of roughly three and a half average sites.</li>
-            <li>That is three fewer site activations, three fewer sets of regulatory packets, and three fewer monitoring routes for the same patient count.</li>
             <li>The 80% screen-fail rate is normal for an Lp(a) outcomes trial. We absorbed it rather than passing it back as a recruitment problem.</li>
           </ul>
         </div>
@@ -1426,7 +1422,7 @@
     </div>
   </div>
   <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> J3L-MC-EZEF · allocation per Lilly site agreement</span>
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> J3L-MC-EZEF · Lilly Lp(a) outcomes trial</span>
     <span class="secmark">02 &middot; Cardiometabolic</span><span class="pageno">10</span>
   </div>
 </section>
@@ -1498,7 +1494,7 @@
           <tr><td class="lead">AXS-07-304</td><td>Axsome — migraine</td><td class="num" style="text-align:right">0</td><td class="dim" style="text-align:right">1,044</td><td class="dim">Closed</td></tr>
         </tbody>
       </table>
-      <div class="icn-note"><b>Read this straight.</b> Our neurology randomized counts are smaller than our metabolic counts. What we have built is a migraine franchise five sponsors returned to and an Alzheimer's pre-screening pathway that worked 494 patients for Lilly. Four of the eight are open now. This is where ICON allocation would move our numbers fastest.</div>
+      <div class="icn-note"><b>Read this straight.</b> Our neurology randomized counts are smaller than our metabolic counts. What we have built is a migraine franchise five sponsors returned to and Four of the eight are open now. This is where ICON allocation would move our numbers fastest.</div>
     </div>
   </div>
   <div class="footer">
@@ -1572,7 +1568,7 @@
   <div class="nav"><a class="home" href="#home">&#8962; Home</a><a href="#sec-about">About CRP</a><a href="#sec-metab">Cardiometabolic</a><a href="#sec-neuro">Neurology</a><a href="#sec-derm" class="on">Derm &amp; Rheum</a><a href="#sec-deliver">How we deliver</a><a href="#sec-record">Track record</a><a href="#sec-partner">Partnership</a><span class="sp"></span></div>
   <div class="slide-pad">
     <div class="slide-head">
-      <div class="slide-eyebrow">Appendix &middot; adjacent capacity</div>
+      <div class="slide-eyebrow">Dermatology and rheumatology</div>
       <h2 class="slide-h2">Dermatology and rheumatology run nine recent trials on the same operating model.</h2>
       <p class="slide-lede">Outside what you asked for, but the same coordinators, regulatory function and referral engine — so placement here needs no new set-up.</p>
     </div>
