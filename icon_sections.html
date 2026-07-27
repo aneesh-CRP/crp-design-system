@@ -18,9 +18,19 @@
     letter-spacing: -0.02em; color: #fff; max-width: 860px; position: relative; z-index: 2;
   }
   .icn-sec .sdesc {
-    font-size: 18px; line-height: 1.5; color: rgba(255,255,255,0.88);
-    max-width: 700px; position: relative; z-index: 2; padding-top: 22px;
+    font-size: 19px; line-height: 1.5; color: rgba(255,255,255,0.9);
+    max-width: 640px; position: relative; z-index: 2; padding-top: 22px;
     border-top: 1px solid rgba(255,255,255,0.22);
+  }
+  /* Each divider carries the one number that section proves, so flipping
+     through the deck tells the story without reading a slide. */
+  .icn-sec .sstat { position: relative; z-index: 2; margin-top: 34px; }
+  .icn-sec .sstat .v {
+    font-size: 78px; font-weight: 800; color: var(--crp-orange);
+    line-height: 0.95; letter-spacing: -0.03em;
+  }
+  .icn-sec .sstat .k {
+    font-size: 16px; color: rgba(255,255,255,0.85); margin-top: 12px; max-width: 480px;
   }
   .icn-sec .footer { color: rgba(255,255,255,0.5); }
 
@@ -68,7 +78,8 @@
   <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
   <div class="snum">SECTION 01</div>
   <h2>The case</h2>
-  <div class="sdesc">We take metabolic volume off your study footprint today, and we are building neurology on the same engine. Everything after this slide is the evidence for that sentence.</div>
+  <div class="sdesc">Four numbers, then the evidence for each.</div>
+  <div class="sstat"><div class="v">3.5&times;</div><div class="k">the patients per site the plan assumed</div></div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Section 01 · the case</span>
     <span class="pageno">03</span>
@@ -80,7 +91,8 @@
   <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
   <div class="snum">SECTION 02</div>
   <h2>Therapeutic areas</h2>
-  <div class="sdesc">Cardiometabolic is where we have delivered. Neurology — migraine and early Alzheimer's — is where we have the raters, the investigators and the patient pool, and where allocation would move our numbers fastest. Dermatology and rheumatology run alongside on the same operating model.</div>
+  <div class="sdesc">Cardiometabolic is where we have delivered. Neurology is where allocation moves us fastest.</div>
+  <div class="sstat"><div class="v">5 of 5</div><div class="k">recent cardiometabolic targets met or beaten</div></div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Section 02 · therapeutic areas</span>
     <span class="pageno">05</span>
@@ -92,7 +104,8 @@
   <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
   <div class="snum">SECTION 03</div>
   <h2>How we deliver</h2>
-  <div class="sdesc">Where the patients come from, how fast we start, who does the work, and what a monitor finds when they arrive.</div>
+  <div class="sdesc">Where the patients come from, how fast we start, and what a monitor finds.</div>
+  <div class="sstat"><div class="v">&lt;21</div><div class="k">days from selection to site activation</div></div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Section 03 · how we deliver</span>
     <span class="pageno">10</span>
@@ -104,7 +117,8 @@
   <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
   <div class="snum">SECTION 04</div>
   <h2>Track record</h2>
-  <div class="sdesc">The strongest reference a site has is a sponsor who came back. Here is who returned, how often, and the medicines these trials helped bring to market.</div>
+  <div class="sdesc">The strongest reference a site has is a sponsor who came back.</div>
+  <div class="sstat"><div class="v">15</div><div class="k">protocols placed with us by Lilly alone</div></div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Section 04 · track record</span>
     <span class="pageno">18</span>
@@ -116,9 +130,22 @@
   <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
   <div class="snum">SECTION 05</div>
   <h2>Working together</h2>
-  <div class="sdesc">Two locations, one contracting entity, one system. What we are asking the program for, and what we can do in the next two weeks.</div>
+  <div class="sdesc">What we are asking for, and what we will commit to in return.</div>
+  <div class="sstat"><div class="v">1</div><div class="k">contract, covering both sites</div></div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Section 05 · working together</span>
+    <span class="pageno">22</span>
+  </div>
+</section>
+
+<!-- MARK:sec-appendix -->
+<section class="slide icn-sec" id="sec-appendix">
+  <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="snum">APPENDIX</div>
+  <h2>Detail</h2>
+  <div class="sdesc">For whoever runs feasibility: the wider bench, the operating detail and the facilities inventory.</div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Appendix</span>
     <span class="pageno">22</span>
   </div>
 </section>

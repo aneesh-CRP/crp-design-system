@@ -50,31 +50,32 @@ exec_pool = index(exec_html)
 
 # Explicit running order. (source, marker) — every slide placed exactly once.
 ORDER = [
-    ("icon", 'class="slide icn-cover"'),          # 1  cover
-    ("sect", ">Contents<"),                       # 2  contents
-    ("sect", 'id="sec-case"'),                    # 3  §1
-    ("icon", "The case in four numbers"),         # 4
-    ("sect", 'id="sec-ta"'),                      # 5  §2
-    ("icon", "commitment versus delivery"),       # 6  cardiometabolic
-    ("icon", "what one site absorbed"),           # 7  EZEF
-    ("icon", 'slide-eyebrow">Neurology'),          # 8  neurology
-    ("icon", "Also available to the program"),    # 9  derm & rheum
-    ("sect", 'id="sec-deliver"'),                 # 10 §3
-    ("icon", ">Recruitment<"),                    # 11
-    ("exec", ">Performance proof<"),              # 12 cycle times
-    ("exec", ">What our technology gets you<"),   # 13
-    ("exec", ">Investigators<"),                  # 14
-    ("exec", "Operations &amp; coordinators"),    # 15
-    ("exec", ">Facilities<"),                     # 16
-    ("exec", ">Risk profile<"),                   # 17
-    ("exec", ">Diversity in enrollment<"),        # 18
-    ("sect", 'id="sec-record"'),                  # 19 §4
-    ("icon", ">Sponsor relationships<"),          # 20
-    ("exec", ">Track record<"),                   # 21 sponsor logo wall
-    ("exec", "Treatments we've helped advance"),  # 22
-    ("sect", 'id="sec-together"'),                # 23 §5
-    ("icon", "How we would operate"),             # 24 one network
-    ("icon", ">Next steps<"),                     # 25
+    ("icon", 'class="slide icn-cover"'),          # 01 cover
+    ("sect", ">Contents<"),                       # 02 contents
+    ("sect", 'id="sec-case"'),                    # 03 §1
+    ("icon", "The case in four numbers"),         # 04
+    ("sect", 'id="sec-ta"'),                      # 05 §2
+    ("icon", "Five for five"),                    # 06 cardiometabolic
+    ("icon", "three and a half"),                 # 07 footprint math
+    ("icon", "Four certified raters are why"),    # 08 neurology
+    ("sect", 'id="sec-deliver"'),                 # 09 §3
+    ("icon", "We do not buy patients"),           # 10 recruitment
+    ("exec", ">Performance proof<"),              # 11 cycle times
+    ("exec", ">Investigators<"),                  # 12
+    ("exec", ">Diversity in enrollment<"),        # 13
+    ("exec", ">Risk profile<"),                   # 14
+    ("sect", 'id="sec-record"'),                  # 15 §4
+    ("icon", "Sponsors come back"),               # 16
+    ("exec", ">Track record<"),                   # 17 logo wall
+    ("exec", "Treatments we've helped advance"),  # 18
+    ("sect", 'id="sec-together"'),                # 19 §5
+    ("icon", "Two locations. One contract"),      # 20 one network
+    ("icon", "Put a number on us"),               # 21 commitment
+    ("sect", 'id="sec-appendix"'),                # 22 appendix
+    ("icon", "Appendix &middot; adjacent"),       # 23 derm & rheum
+    ("exec", ">What our technology gets you<"),   # 24
+    ("exec", "Operations &amp; coordinators"),    # 25
+    ("exec", ">Facilities<"),                     # 26
 ]
 
 POOLS = {"icon": icon_pool, "sect": sect_pool, "exec": exec_pool}
@@ -94,8 +95,9 @@ sec_label, stamped = None, []
 for sec in slides:
     if 'icn-sec' in sec:
         h = re.search(r'<h2>(.*?)</h2>', sec, re.S).group(1)
-        num = re.search(r'SECTION (\d+)', sec).group(1)
-        sec_label = "%s &middot; %s" % (num, re.sub(r'<[^>]+>', '', h).strip())
+        m_num = re.search(r'SECTION (\d+)', sec)          # the appendix has no number
+        title = re.sub(r'<[^>]+>', '', h).strip()
+        sec_label = ("%s &middot; %s" % (m_num.group(1), title)) if m_num else title
         stamped.append(sec)
         continue
     if sec_label:
@@ -110,8 +112,8 @@ assert n[0] == len(ORDER), "renumbered %d of %d" % (n[0], len(ORDER))
 
 # Reuse the exec deck's <head> and styles, swap in our slide body.
 head, _, _ = exec_html.partition('<div class="deck">')
-styles = (icon_html.split("</style>")[0] + "</style>\n"
-          + sect_html.split("<!-- MARK:toc -->")[0] + "\n" + polish)
+styles = (icon_html[:icon_html.index("<section")]
+          + sect_html[:sect_html.index("<section")] + "\n" + polish)
 core = head + '<div class="deck">\n' + styles + "\n" + body + "\n</div>\n"
 core = core.replace(
     "<title>CRP — Executive Overview, July 2026</title>",

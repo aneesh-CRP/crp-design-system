@@ -87,208 +87,349 @@
   .icn-ask .ad { font-size: 14.5px; color: var(--fg-2); margin-top: 4px; line-height: 1.5; }
 </style>
 
-<!-- ═════════ ICON 1 — COVER ═════════ -->
+<style>
+  /* ═══ Executive layer: one idea per slide, the number carries it ═══ */
+  .xl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1120px; margin: 0 auto; width: 100%; }
+  .xl-stat { text-align: left; }
+  .xl-stat .v {
+    font-size: 66px; font-weight: 800; color: var(--crp-navy);
+    line-height: 0.95; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;
+  }
+  .xl-stat .v .u { font-size: 30px; font-weight: 700; margin-left: 2px; }
+  .xl-stat .v.hero { color: var(--crp-orange); }
+  .xl-stat .k {
+    font-size: 15px; color: var(--crp-navy); margin-top: 16px;
+    line-height: 1.35; max-width: 230px;
+  }
+  .xl-stat .rule { width: 40px; height: 3px; background: var(--crp-blue); margin-top: 18px; border-radius: 2px; }
+  .xl-stat .rule.on { background: var(--crp-orange); }
+
+  /* Three big numbers, centred */
+  .xl-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1000px; margin: 0 auto; width: 100%; text-align: center; }
+  .xl-three .v { font-size: 68px; font-weight: 800; color: var(--crp-navy); line-height: 1; letter-spacing: -0.03em; }
+  .xl-three .v .u { font-size: 30px; }
+  .xl-three .k { font-size: 15.5px; color: var(--crp-navy); margin-top: 14px; line-height: 1.4; }
+
+  /* Footprint comparison */
+  .fp { display: flex; align-items: center; justify-content: center; gap: 54px; max-width: 1020px; margin: 0 auto 34px; width: 100%; }
+  .fp-side { text-align: center; }
+  .fp-blocks { display: flex; gap: 7px; align-items: flex-end; justify-content: center; height: 96px; }
+  .fp-blocks .blk { width: 38px; height: 96px; border-radius: 6px; background: var(--chart-grid); }
+  .fp-blocks .blk.half { width: 19px; }
+  .fp-blocks .blk.on { width: 38px; background: var(--crp-orange); }
+  .fp-lbl { font-size: 15px; color: var(--crp-navy); margin-top: 18px; line-height: 1.35; }
+  .fp-lbl b { display: block; font-size: 21px; font-weight: 800; margin-bottom: 4px; }
+  .fp-eq { font-size: 30px; font-weight: 300; color: var(--fg-3); }
+  .fp-out { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1020px; margin: 0 auto; width: 100%; }
+  .fp-out div {
+    text-align: center; padding: 15px 12px; border-radius: 10px;
+    background: var(--blue-bg); font-size: 14.5px; color: var(--crp-navy); line-height: 1.35;
+  }
+  .fp-out b { font-weight: 800; }
+
+  /* Rater hero */
+  .rt { display: grid; grid-template-columns: 0.72fr 1.28fr; gap: 44px; max-width: 1080px; margin: 0 auto; width: 100%; align-items: center; }
+  .rt .big { font-size: 112px; font-weight: 800; color: var(--crp-orange); line-height: 0.9; letter-spacing: -0.04em; }
+  .rt .big-k { font-size: 17px; color: var(--crp-navy); margin-top: 12px; line-height: 1.35; font-weight: 700; }
+  .rt-inst { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+  .rt-inst span {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
+    padding: 7px 13px; border-radius: 999px; background: var(--blue-bg); color: var(--crp-navy);
+  }
+  .rt-r { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .rt-r > div { border-left: 3px solid var(--crp-blue); padding-left: 15px; }
+  .rt-r .n { font-size: 38px; font-weight: 800; color: var(--crp-navy); line-height: 1; }
+  .rt-r .l { font-size: 14px; color: var(--crp-navy); margin-top: 9px; line-height: 1.35; }
+
+  /* Commitment close */
+  .cm { max-width: 1000px; margin: 0 auto; width: 100%; }
+  .cm-row { display: flex; align-items: flex-start; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--chart-grid-fine); }
+  .cm-row:last-child { border-bottom: none; }
+  .cm-row .num {
+    flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%;
+    background: var(--crp-navy); color: #fff; font-weight: 800; font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cm-row .tx { font-size: 19px; color: var(--crp-navy); line-height: 1.4; }
+  .cm-row .tx b { font-weight: 800; }
+  .cm-foot {
+    margin-top: 26px; padding-top: 20px; border-top: 2px solid var(--crp-navy);
+    font-size: 15.5px; color: var(--crp-navy); text-align: center;
+  }
+  .cm-foot b { font-weight: 800; }
+
+  /* Simple two-up statement panels */
+  .xl-two { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 1080px; margin: 0 auto; width: 100%; }
+  .xl-say { padding: 26px 28px; border-radius: 14px; background: var(--blue-bg); }
+  .xl-say.dark { background: var(--crp-navy); }
+  .xl-say.dark .h, .xl-say.dark .p { color: #fff; }
+  .xl-say .h { font-size: 22px; font-weight: 800; color: var(--crp-navy); line-height: 1.25; margin-bottom: 12px; }
+  .xl-say .p { font-size: 15.5px; color: var(--crp-navy); line-height: 1.5; }
+</style>
+
+<!-- ═════════ COVER ═════════ -->
 <section class="slide icn-cover">
   <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
   <div class="l">
     <div class="icn-eyebrow">Clinical Research Philadelphia</div>
     <h1>Metabolic and<br>Neurology experience</h1>
-    <div class="sub">Two sites in Greater Philadelphia, run as one operation. Every number in this deck comes from our own EDC.</div>
+    <div class="sub">Two sites in Greater Philadelphia, run as one operation.</div>
     <div class="for">Prepared for</div>
     <div class="who">Derek Griggs, BSN, RN</div>
-    <div class="when">ICON Elite Sites Program · Site &amp; Patient Solutions · July 2026</div>
+    <div class="when">ICON Elite Sites Program &middot; July 2026</div>
   </div>
-  <div class="r">
-    <img src="./assets/logos/crp-white.svg" alt="CRP">
-  </div>
+  <div class="r"><img src="./assets/logos/crp-white.svg" alt="CRP"></div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> phillyresearch.com</span>
     <span class="pageno">01</span>
   </div>
 </section>
 
-<!-- ═════════ ICON 2 — GOVERNING THOUGHT ═════════ -->
+<!-- ═════════ THE CASE — four numbers ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">The case in four numbers</div>
-      <h2 class="slide-h2">We take metabolic volume off your study footprint today, and we are building neurology on the same engine.</h2>
-      <p class="slide-lede">One site delivered 52 randomized patients on a Lilly cardiovascular outcomes trial. That is the capacity we are offering ICON.</p>
+      <h2 class="slide-h2">We deliver more patients per site than the plan assumes.</h2>
     </div>
-    <div class="slide-body">
-      <div class="icn-answer">
-        <div class="icn-chip">
-          <div class="n">52</div>
-          <div class="t">Randomized on one Lilly Lp(a) outcomes trial</div>
-          <div class="d">J3L-MC-EZEF, still enrolling. 1,180 patients worked to get there.</div>
+    <div class="slide-body" style="justify-content:center;">
+      <div class="xl-grid">
+        <div class="xl-stat">
+          <div class="v hero">52</div>
+          <div class="rule on"></div>
+          <div class="k">randomized where the sponsor allocated 15</div>
         </div>
-        <div class="icn-chip">
-          <div class="n">15</div>
-          <div class="t">Lilly protocols run to date</div>
-          <div class="d">80 randomized across them. AbbVie 6 protocols, J&amp;J 6, AstraZeneca 3.</div>
+        <div class="xl-stat">
+          <div class="v">5<span class="u">of 5</span></div>
+          <div class="rule"></div>
+          <div class="k">cardiometabolic targets met or exceeded</div>
         </div>
-        <div class="icn-chip">
-          <div class="n">191</div>
-          <div class="t">Referring practices, 1.5M patients in panel</div>
-          <div class="d">892 named providers across cardiology, endocrinology, primary care, neurology and derm.</div>
+        <div class="xl-stat">
+          <div class="v">15</div>
+          <div class="rule"></div>
+          <div class="k">Lilly protocols placed with us</div>
         </div>
-        <div class="icn-chip">
-          <div class="n">32<span class="u">%</span></div>
-          <div class="t">Participants who are Black or African American</div>
-          <div class="d">Where race is reported. Diversity Action Plan enrollment without a separate spend.</div>
+        <div class="xl-stat">
+          <div class="v">1.5<span class="u">M</span></div>
+          <div class="rule"></div>
+          <div class="k">patients across our referral network</div>
         </div>
       </div>
-      <div class="icn-note"><b>How to read this deck.</b> Section 2 covers the therapeutic areas — cardiometabolic first, where we have delivered, then migraine and early Alzheimer's. Section 3 is how we find and keep patients. Sections 4 and 5 are track record and the partnership mechanics. Counts are distinct randomized participants from our EDC, 2021 to date.</div>
     </div>
   </div>
   <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Answer first · everything after this is evidence</span>
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Answer first</span>
     <span class="pageno">02</span>
   </div>
 </section>
 
-<!-- ═════════ ICON 3 — METABOLIC TRACK RECORD ═════════ -->
+<!-- ═════════ METABOLIC — five for five ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
-      <div class="slide-eyebrow">Metabolic · commitment versus delivery</div>
-      <h2 class="slide-h2">We exceeded the sponsor's enrollment target on all five of our recent cardiometabolic trials.</h2>
-      <p class="slide-lede">Target is the sponsor's allocation to this site. Retention is participants completing against those randomized.</p>
+      <div class="slide-eyebrow">Cardiometabolic</div>
+      <h2 class="slide-h2">Five for five. Every recent target met or beaten.</h2>
+      <p class="slide-lede">Bar length is delivery against the sponsor's allocation to this site.</p>
     </div>
-    <div class="slide-body">
-      <table class="icn-tbl">
-        <thead>
-          <tr><th>Study</th><th style="text-align:right">Target</th><th style="text-align:right">Actual</th><th>Versus target</th><th style="text-align:right">&nbsp;</th><th>Retention</th><th>Status</th></tr>
-        </thead>
+    <div class="slide-body" style="justify-content:center;">
+      <table class="icn-tbl" style="max-width:980px;">
         <tbody>
-          <tr class='hi'><td class="lead">Lp(a) ASCVD outcomes</td><td class="dim" style="text-align:right">15</td><td class="num" style="text-align:right">52</td><td class="barcell"><div class="bar"><div class="bar-fill" style="width:100.0%"></div><span class="bar-target" style="left:28.8%"></span></div></td><td class="num pct" style="text-align:right">347%</td><td class="retcell"><div class="bar sm"><div class="bar-fill blue" style="width:95%"></div></div><span class="retnum">95%</span></td><td class="dim">Enrolling</td></tr>
-          <tr><td class="lead">ASCVD + CKD</td><td class="dim" style="text-align:right">7</td><td class="num" style="text-align:right">13</td><td class="barcell"><div class="bar"><div class="bar-fill" style="width:53.6%"></div><span class="bar-target" style="left:28.8%"></span></div></td><td class="num pct" style="text-align:right">186%</td><td class="retcell"><div class="bar sm"><div class="bar-fill blue" style="width:85%"></div></div><span class="retnum">85%</span></td><td class="dim">Enrolling</td></tr>
-          <tr><td class="lead">T2DM + CV risk</td><td class="dim" style="text-align:right">5</td><td class="num" style="text-align:right">9</td><td class="barcell"><div class="bar"><div class="bar-fill" style="width:51.9%"></div><span class="bar-target" style="left:28.8%"></span></div></td><td class="num pct" style="text-align:right">180%</td><td class="retcell"><div class="bar sm"><div class="bar-fill blue" style="width:85%"></div></div><span class="retnum">85%</span></td><td class="dim">Closed</td></tr>
-          <tr><td class="lead">T2DM — GLP first line</td><td class="dim" style="text-align:right">5</td><td class="num" style="text-align:right">7</td><td class="barcell"><div class="bar"><div class="bar-fill" style="width:40.3%"></div><span class="bar-target" style="left:28.8%"></span></div></td><td class="num pct" style="text-align:right">140%</td><td class="retcell"><div class="bar sm"><div class="bar-fill blue" style="width:80%"></div></div><span class="retnum">80%</span></td><td class="dim">Maintenance</td></tr>
-          <tr><td class="lead">T2DM — GLP vs insulin</td><td class="dim" style="text-align:right">5</td><td class="num" style="text-align:right">5</td><td class="barcell"><div class="bar"><div class="bar-fill" style="width:28.8%"></div><span class="bar-target" style="left:28.8%"></span></div></td><td class="num pct" style="text-align:right">100%</td><td class="retcell"><div class="bar sm"><div class="bar-fill blue" style="width:70%"></div></div><span class="retnum">70%</span></td><td class="dim">Maintenance</td></tr>
+          <tr class="hi"><td class="lead">Lp(a) ASCVD outcomes</td><td class="barcell"><div class="bar"><div class="bar-fill" style="width:100.0%"></div><span class="bar-target" style="left:28.8%"></span></div></td><td class="num pct" style="text-align:right">347%</td><td class="retcell"><div class="bar sm"><div class="bar-fill blue" style="width:95%"></div></div><span class="retnum">95%</span></td></tr>
+          <tr><td class="lead">ASCVD + CKD</td><td class="barcell"><div class="bar"><div class="bar-fill" style="width:53.6%"></div><span class="bar-target" style="left:28.8%"></span></div></td><td class="num pct" style="text-align:right">186%</td><td class="retcell"><div class="bar sm"><div class="bar-fill blue" style="width:85%"></div></div><span class="retnum">85%</span></td></tr>
+          <tr><td class="lead">T2DM + CV risk</td><td class="barcell"><div class="bar"><div class="bar-fill" style="width:51.9%"></div><span class="bar-target" style="left:28.8%"></span></div></td><td class="num pct" style="text-align:right">180%</td><td class="retcell"><div class="bar sm"><div class="bar-fill blue" style="width:85%"></div></div><span class="retnum">85%</span></td></tr>
+          <tr><td class="lead">T2DM &mdash; GLP first line</td><td class="barcell"><div class="bar"><div class="bar-fill" style="width:40.3%"></div><span class="bar-target" style="left:28.8%"></span></div></td><td class="num pct" style="text-align:right">140%</td><td class="retcell"><div class="bar sm"><div class="bar-fill blue" style="width:80%"></div></div><span class="retnum">80%</span></td></tr>
+          <tr><td class="lead">T2DM &mdash; GLP vs insulin</td><td class="barcell"><div class="bar"><div class="bar-fill" style="width:28.8%"></div><span class="bar-target" style="left:28.8%"></span></div></td><td class="num pct" style="text-align:right">100%</td><td class="retcell"><div class="bar sm"><div class="bar-fill blue" style="width:70%"></div></div><span class="retnum">70%</span></td></tr>
         </tbody>
       </table>
-      <div class="icn-team" style="grid-template-columns:repeat(4,1fr);max-width:1120px;margin:16px auto 0;width:100%;">
-        <div class="icn-person"><div class="pn">Joseph Heether, MD</div><div class="pr">CARDIOLOGY</div></div>
-        <div class="icn-person"><div class="pn">Taher Modarressi, MD, FNLA</div><div class="pr">ENDOCRINOLOGY / LIPIDOLOGY</div></div>
-        <div class="icn-person"><div class="pn">Hal Ganzman, DO</div><div class="pr">SUB-I &middot; INTERNAL MEDICINE</div></div>
-        <div class="icn-person"><div class="pn">Vinod Rustgi, MD, MBA</div><div class="pr">HEPATOLOGY / LIVER</div></div>
-      </div>
-      <div class="icn-note"><b>Eleven metabolic protocols in total</b> across lipids, heart failure, type 2 diabetes, obesity and MASH — Lilly, AstraZeneca, Amgen and Novo Nordisk. FibroScan, ultrasound and EKG on site; Lp(a) and lipid panels run in house, so ASCVD eligibility is settled before a patient reaches screening.</div>
+      <div class="icn-note" style="max-width:980px;text-align:center;">Eleven metabolic protocols in total &mdash; Lilly, AstraZeneca, Amgen, Novo Nordisk. Blue bar is retention.</div>
     </div>
   </div>
   <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Metabolic · target per sponsor site allocation</span>
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Target per sponsor site allocation</span>
     <span class="pageno">03</span>
   </div>
 </section>
 
-<!-- ═════════ ICON 4 — THE EZEF PROOF ═════════ -->
+<!-- ═════════ FOOTPRINT MATH ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
-      <div class="slide-eyebrow">Metabolic · what one site absorbed</div>
-      <h2 class="slide-h2">One site randomized 52 patients where the sponsor allocated 15.</h2>
-      <p class="slide-lede">Lilly J3L-MC-EZEF, Lp(a) cardiovascular outcomes. Opened May 2024, still enrolling in July 2026.</p>
+      <div class="slide-eyebrow">What that means for a study footprint</div>
+      <h2 class="slide-h2">One of our sites did the work of three and a half.</h2>
     </div>
-    <div class="slide-body">
-      <div class="icn-funnel">
-        <div class="icn-fstep"><div class="fn">1,180</div><div class="fl">Patients identified and worked</div></div>
-        <div class="icn-fstep"><div class="fn">262</div><div class="fl">Reached a screening outcome</div><div class="fp">22% of worked</div></div>
-        <div class="icn-fstep"><div class="fn">210</div><div class="fl">Screen failed</div><div class="fp">80% of screened</div></div>
-        <div class="icn-fstep"><div class="fn">52</div><div class="fl">Randomized</div><div class="fp">347% of allocation</div></div>
-      </div>
-      <div class="icn-two">
-        <div class="icn-panel">
-          <h4>What made it work</h4>
-          <ul>
-            <li><b>Lp(a) testing in house.</b> We settled the eligibility criterion before screening rather than during it.</li>
-            <li><b>Cardiology referral base.</b> The practices sending us ASCVD patients are the same ones we have worked with for years.</li>
-            <li><b>One coordinator queue.</b> Every identified patient has a single owner, so nobody is worked twice or dropped.</li>
-            <li><b>Both sites eligible.</b> Philadelphia and Pennington drew from separate catchments on the same protocol.</li>
-          </ul>
+    <div class="slide-body" style="justify-content:center;">
+      <div class="fp">
+        <div class="fp-side">
+          <div class="fp-blocks">
+            <span class="blk"></span><span class="blk"></span><span class="blk"></span><span class="blk half"></span>
+          </div>
+          <div class="fp-lbl"><b>3.5 sites</b>at the sponsor's plan</div>
         </div>
-        <div class="icn-panel dark">
-          <h4>What it means for a study footprint</h4>
-          <ul>
-            <li>At 52 randomized against a 15-patient allocation, this one site carried the work of roughly three and a half average sites.</li>
-            <li>That is three fewer site activations, three fewer sets of regulatory packets, and three fewer monitoring routes for the same patient count.</li>
-            <li>The 80% screen-fail rate is normal for an Lp(a) outcomes trial. We absorbed it rather than passing it back as a recruitment problem.</li>
-          </ul>
+        <div class="fp-eq">=</div>
+        <div class="fp-side">
+          <div class="fp-blocks"><span class="blk on"></span></div>
+          <div class="fp-lbl"><b>1 CRP site</b>on the same protocol</div>
         </div>
       </div>
+      <div class="fp-out">
+        <div>Fewer <b>activations</b></div>
+        <div>Fewer <b>regulatory packets</b></div>
+        <div>Fewer <b>monitoring routes</b></div>
+      </div>
+      <div class="icn-note" style="text-align:center;">Lilly J3L-MC-EZEF. 52 randomized against a 15-patient allocation, still enrolling.</div>
     </div>
   </div>
   <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> J3L-MC-EZEF · allocation per Lilly site agreement</span>
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Reduce the footprint, not the enrollment</span>
     <span class="pageno">04</span>
   </div>
 </section>
 
-<!-- ═════════ ICON 5 — CARDIOMETABOLIC CAPABILITY ═════════ -->
-
-
-<!-- ═════════ ICON 6 — NEUROLOGY ═════════ -->
+<!-- ═════════ NEUROLOGY ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
-      <div class="slide-eyebrow">Neurology &middot; migraine and early Alzheimer's</div>
-      <h2 class="slide-h2">We run two neurology indications deliberately, and four certified raters are why we can run the second one.</h2>
-      <p class="slide-lede">Eight protocols, six sponsors, five separate migraine assets. We run neurology, not psychiatry — no MDD, bipolar or schizophrenia.</p>
+      <div class="slide-eyebrow">Neurology</div>
+      <h2 class="slide-h2">Four certified raters are why we can take an early Alzheimer's protocol.</h2>
+      <p class="slide-lede">Migraine and MCI to mild Alzheimer's. We do not run psychiatry.</p>
     </div>
-    <div class="slide-body">
-      <div class="icn-ta">
-        <div class="icn-ta-left">
-          <div class="icn-cap" style="border-left-color:var(--crp-blue);">
-            <ul>
-              <li><b>4 certified raters</b> on MMSE, CDR, ADAS-Cog and FAQ</li>
-              <li><b>5 coordinators</b> experienced in cognitive assessment visits</li>
-              <li>Board-certified <b>neurologist and geriatrician</b> via our provider network</li>
-              <li>Referral base across <b>neurology, geriatrics and primary care</b></li>
-              <li>Caregiver and study-partner scheduling on the same coordinator queue</li>
-            </ul>
-          </div>
-          <div class="icn-cap">
-            <ul>
-              <li>Six Alzheimer's trials of investigator experience, 2021 to 2025, including a Phase III early-AD monoclonal antibody now ongoing</li>
-              <li>Our AD pre-screening pathway worked <b>494 patients</b> for a Lilly protocol</li>
-            </ul>
-          </div>
+    <div class="slide-body" style="justify-content:center;">
+      <div class="rt">
+        <div>
+          <div class="big">4</div>
+          <div class="big-k">certified raters</div>
+          <div class="rt-inst"><span>MMSE</span><span>CDR</span><span>ADAS-Cog</span><span>FAQ</span></div>
         </div>
-        <div class="icn-exp">
-          <h4>Migraine and Alzheimer's protocols at our sites</h4>
-          <table class="icn-tbl" style="font-size:13px;">
-            <tbody>
-              <tr class='hi'><td class="lead">Biohaven &mdash; episodic migraine</td><td class="num" style="text-align:right">8</td><td class="barcell tight"><div class="bar sm"><div class="bar-fill" style="width:100%"></div></div></td><td class="dim" style="text-align:right">1,304</td><td class="dim">Closed</td></tr>
-              <tr class='hi'><td class="lead">AbbVie &mdash; menstrual migraine</td><td class="num" style="text-align:right">7</td><td class="barcell tight"><div class="bar sm"><div class="bar-fill" style="width:88%"></div></div></td><td class="dim" style="text-align:right">486</td><td class="dim">Enrolling</td></tr>
-              <tr><td class="lead">Lilly &mdash; Alzheimer's disease</td><td class="num" style="text-align:right">6</td><td class="barcell tight"><div class="bar sm"><div class="bar-fill" style="width:75%"></div></div></td><td class="dim" style="text-align:right">494</td><td class="dim">Closed</td></tr>
-              <tr><td class="lead">Acute migraine</td><td class="num" style="text-align:right">2</td><td class="barcell tight"><div class="bar sm"><div class="bar-fill" style="width:25%"></div></div></td><td class="dim" style="text-align:right">284</td><td class="dim">Enrolling</td></tr>
-              <tr><td class="lead">Biohaven &mdash; migraine prevention</td><td class="num" style="text-align:right">1</td><td class="barcell tight"><div class="bar sm"><div class="bar-fill" style="width:12%"></div></div></td><td class="dim" style="text-align:right">1,141</td><td class="dim">Closed</td></tr>
-              <tr><td class="lead">Pfizer &mdash; menstrual migraine</td><td class="num" style="text-align:right">0</td><td class="barcell tight"><div class="bar sm"></div></td><td class="dim" style="text-align:right">235</td><td class="dim">Enrolling</td></tr>
-              <tr><td class="lead">Migraine, pivotal</td><td class="num" style="text-align:right">0</td><td class="barcell tight"><div class="bar sm"></div></td><td class="dim" style="text-align:right">107</td><td class="dim">Enrolling</td></tr>
-              <tr><td class="lead">Axsome &mdash; migraine</td><td class="num" style="text-align:right">0</td><td class="barcell tight"><div class="bar sm"></div></td><td class="dim" style="text-align:right">1,044</td><td class="dim">Closed</td></tr>
-            </tbody>
-          </table>
-          <div style="font-size:11.5px;color:var(--fg-2);margin-top:9px;letter-spacing:0.04em;">RANDOMIZED &middot; PATIENTS WORKED &middot; STATUS</div>
+        <div class="rt-r">
+          <div><div class="n">8</div><div class="l">protocols across six sponsors</div></div>
+          <div><div class="n">5</div><div class="l">separate migraine assets</div></div>
+          <div><div class="n">4</div><div class="l">open and enrolling now</div></div>
         </div>
       </div>
-      <div class="icn-note"><b>Read this straight.</b> 24 randomized across neurology against 92 in metabolic. Four of the eight are open now — this is where ICON allocation moves our numbers fastest.</div>
+      <div class="icn-note" style="text-align:center;max-width:900px;">Rater certification is the constraint most sites fail on. Our randomized volume here is smaller than metabolic &mdash; this is where ICON allocation moves our numbers fastest.</div>
     </div>
   </div>
   <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Neurology &middot; migraine and early Alzheimer's</span>
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Migraine &middot; MCI to mild Alzheimer's</span>
+    <span class="pageno">05</span>
+  </div>
+</section>
+
+<!-- ═════════ RECRUITMENT ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Recruitment</div>
+      <h2 class="slide-h2">We do not buy patients per study. We already have them.</h2>
+    </div>
+    <div class="slide-body" style="justify-content:center;">
+      <div class="xl-three">
+        <div><div class="v">191</div><div class="k">referring practices across PA and NJ</div></div>
+        <div><div class="v">1.5<span class="u">M</span></div><div class="k">patients in those provider panels</div></div>
+        <div><div class="v">37<span class="u">k</span></div><div class="k">patients in our own database, re-screened against every protocol</div></div>
+      </div>
+      <div class="icn-note" style="text-align:center;max-width:900px;">The network does not reset when a study closes, so the second protocol in an area is always cheaper to enroll than the first.</div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> A standing pool, not a campaign</span>
+    <span class="pageno">06</span>
+  </div>
+</section>
+
+<!-- ═════════ SPONSORS ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Sponsor relationships</div>
+      <h2 class="slide-h2">Sponsors come back. Lilly has placed fifteen protocols.</h2>
+      <p class="slide-lede">ICON already monitors protocols at our sites, including Lilly GZPO.</p>
+    </div>
+    <div class="slide-body" style="justify-content:center;">
+      <div class="icn-spon">
+        <div class="icn-scard">
+          <div class="sn">Eli Lilly</div>
+          <div class="smetric"><span class="sv">15</span><span class="sl">PROTOCOLS</span><div class="bar sm"><div class="bar-fill blue" style="width:100%"></div></div></div>
+          <div class="smetric"><span class="sv">80</span><span class="sl">RANDOMIZED</span><div class="bar sm"><div class="bar-fill" style="width:100%"></div></div></div>
+        </div>
+        <div class="icn-scard">
+          <div class="sn">AbbVie</div>
+          <div class="smetric"><span class="sv">6</span><span class="sl">PROTOCOLS</span><div class="bar sm"><div class="bar-fill blue" style="width:40%"></div></div></div>
+          <div class="smetric"><span class="sv">25</span><span class="sl">RANDOMIZED</span><div class="bar sm"><div class="bar-fill" style="width:31%"></div></div></div>
+        </div>
+        <div class="icn-scard">
+          <div class="sn">Johnson &amp; Johnson</div>
+          <div class="smetric"><span class="sv">6</span><span class="sl">PROTOCOLS</span><div class="bar sm"><div class="bar-fill blue" style="width:40%"></div></div></div>
+          <div class="smetric"><span class="sv">11</span><span class="sl">RANDOMIZED</span><div class="bar sm"><div class="bar-fill" style="width:14%"></div></div></div>
+        </div>
+        <div class="icn-scard">
+          <div class="sn">AstraZeneca</div>
+          <div class="smetric"><span class="sv">3</span><span class="sl">PROTOCOLS</span><div class="bar sm"><div class="bar-fill blue" style="width:20%"></div></div></div>
+          <div class="smetric"><span class="sv">8</span><span class="sl">RANDOMIZED</span><div class="bar sm"><div class="bar-fill" style="width:10%"></div></div></div>
+        </div>
+      </div>
+      <div class="icn-note" style="text-align:center;">A sponsor who came back is the one reference a site cannot write for itself.</div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Repeat placement</span>
+    <span class="pageno">07</span>
+  </div>
+</section>
+
+<!-- ═════════ ONE NETWORK ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">How we would operate</div>
+      <h2 class="slide-h2">Two locations. One contract, one system, one team.</h2>
+    </div>
+    <div class="slide-body" style="justify-content:center;">
+      <div class="xl-two">
+        <div class="xl-say">
+          <div class="h">You contract once</div>
+          <div class="p">A master agreement covers both sites. One budget process, one regulatory function, one EDC instance &mdash; a monitor sees the same source structure at either address.</div>
+        </div>
+        <div class="xl-say dark">
+          <div class="h">You open at both addresses</div>
+          <div class="p">Philadelphia and Pennington draw from separate catchments on one activation. 24 protocols are enrolling today and neither site is at ceiling.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> PA and NJ &middot; one operation</span>
     <span class="pageno">08</span>
   </div>
 </section>
 
-<!-- ═════════ ICON 7 — EARLY AD CAPABILITY ═════════ -->
-
-
-<!-- ═════════ ICON 8 — DERM & RHEUM ═════════ -->
+<!-- ═════════ THE COMMITMENT ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
-      <div class="slide-eyebrow">Also available to the program</div>
+      <div class="slide-eyebrow">What we will commit to</div>
+      <h2 class="slide-h2">Put a number on us, and hold us to it.</h2>
+    </div>
+    <div class="slide-body" style="justify-content:center;">
+      <div class="cm">
+        <div class="cm-row"><div class="num">1</div><div class="tx">We commit to an <b>enrollment number at feasibility</b> &mdash; not a range, and not after the first month of screening.</div></div>
+        <div class="cm-row"><div class="num">2</div><div class="tx">We <b>report against it monthly</b>, in your format.</div></div>
+        <div class="cm-row"><div class="num">3</div><div class="tx">If we are tracking under by month two, <b>you hear it from us first</b>, with what we are changing.</div></div>
+      </div>
+      <div class="cm-foot"><b>Aneesh Vaze</b>, Managing Director &middot; aneesh@phillyresearch.com &middot; (215) 676-6696 &middot; feasibility returned within 48 hours</div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Our commitment</span>
+    <span class="pageno">09</span>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Appendix &middot; adjacent capacity</div>
       <h2 class="slide-h2">Dermatology and rheumatology run nine recent trials on the same operating model.</h2>
       <p class="slide-lede">Outside what you asked for, but the same coordinators, regulatory function and referral engine — so placement here needs no new set-up.</p>
     </div>
@@ -330,170 +471,5 @@
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Dermatology and rheumatology · same operating model</span>
     <span class="pageno">08</span>
-  </div>
-</section>
-
-<!-- ═════════ ICON 9 — HOW WE FIND PATIENTS ═════════ -->
-<section class="slide">
-  <div class="slide-pad">
-    <div class="slide-head">
-      <div class="slide-eyebrow">Recruitment</div>
-      <h2 class="slide-h2">We do not buy patients per study. We screen a database we already own.</h2>
-      <p class="slide-lede">191 referring practices covering 1.5 million patients, and a rules engine that re-checks our own 37,000 against every open protocol.</p>
-    </div>
-    <div class="slide-body">
-      <div class="icn-two" style="margin-bottom:20px;">
-        <div class="icn-panel">
-          <h4>Referring provider network</h4>
-          <ul>
-            <li><b>191 practices, 892 named providers</b> across cardiology, endocrinology, primary care, neurology and dermatology in PA and NJ &mdash; <b>1.5 million patients</b> in their panels.</li>
-            <li><b>Direct EMR access at many of them</b>, so a diagnosis-driven candidate list for a new protocol comes back in a day rather than a month.</li>
-            <li><b>A provider portal</b> launched July 2026 lets a referring office send a patient and get the result back without phoning us.</li>
-            <li><b>Health information exchange</b> through HSX and NJHIN for clinical record retrieval before a patient arrives.</li>
-          </ul>
-        </div>
-        <div class="icn-panel">
-          <h4>Our own database</h4>
-          <ul>
-            <li><b>37,887 patients</b> in our EDC, built over 30 years of trials at the same two addresses.</li>
-            <li><b>Every open protocol is scored against every patient</b> by an eligibility engine, so a new study starts with a candidate list instead of an empty funnel.</li>
-            <li><b>Prior inclusion and exclusion results carry forward.</b> A patient cleared for one lipid trial does not get re-worked from zero for the next one.</li>
-            <li><b>One coordinator queue with a single owner per patient</b>, so nobody is worked twice, dropped between channels, or called by two people in a week.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="icn-note"><b>This is the part that transfers.</b> The network and the database do not reset when a study closes, so the second protocol in a therapeutic area is always cheaper to enroll than the first.</div>
-    </div>
-  </div>
-  <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Provider network · database · eligibility engine</span>
-    <span class="pageno">09</span>
-  </div>
-</section>
-
-<!-- ═════════ ICON 7 — SPONSOR RELATIONSHIPS ═════════ -->
-<section class="slide">
-  <div class="slide-pad">
-    <div class="slide-head">
-      <div class="slide-eyebrow">Sponsor relationships</div>
-      <h2 class="slide-h2">Four sponsors place studies with us repeatedly, and Lilly has placed fifteen.</h2>
-      <p class="slide-lede">Strategic site relationships with Eli Lilly, Johnson &amp; Johnson, AbbVie and AstraZeneca, including AstraZeneca's PIC program.</p>
-    </div>
-    <div class="slide-body">
-      <div class="icn-spon">
-        <div class="icn-scard">
-          <div class="sn">Eli Lilly</div>
-          <div class="smetric"><span class="sv">15</span><span class="sl">PROTOCOLS</span>
-            <div class="bar sm"><div class="bar-fill blue" style="width:100%"></div></div></div>
-          <div class="smetric"><span class="sv">80</span><span class="sl">RANDOMIZED</span>
-            <div class="bar sm"><div class="bar-fill" style="width:100%"></div></div></div>
-        </div>
-        <div class="icn-scard">
-          <div class="sn">AbbVie</div>
-          <div class="smetric"><span class="sv">6</span><span class="sl">PROTOCOLS</span>
-            <div class="bar sm"><div class="bar-fill blue" style="width:40%"></div></div></div>
-          <div class="smetric"><span class="sv">25</span><span class="sl">RANDOMIZED</span>
-            <div class="bar sm"><div class="bar-fill" style="width:31%"></div></div></div>
-        </div>
-        <div class="icn-scard">
-          <div class="sn">Johnson &amp; Johnson</div>
-          <div class="smetric"><span class="sv">6</span><span class="sl">PROTOCOLS</span>
-            <div class="bar sm"><div class="bar-fill blue" style="width:40%"></div></div></div>
-          <div class="smetric"><span class="sv">11</span><span class="sl">RANDOMIZED</span>
-            <div class="bar sm"><div class="bar-fill" style="width:14%"></div></div></div>
-        </div>
-        <div class="icn-scard">
-          <div class="sn">AstraZeneca</div>
-          <div class="smetric"><span class="sv">3</span><span class="sl">PROTOCOLS</span>
-            <div class="bar sm"><div class="bar-fill blue" style="width:20%"></div></div></div>
-          <div class="smetric"><span class="sv">8</span><span class="sl">RANDOMIZED</span>
-            <div class="bar sm"><div class="bar-fill" style="width:10%"></div></div></div>
-        </div>
-      </div>
-      <div class="icn-panel" style="max-width:1120px;margin:0 auto;width:100%;">
-          <h4>What repeat placement tells you</h4>
-          <ul>
-            <li>These sponsors have monitored us, audited our source, and come back with the next protocol &mdash; the only site reference that cannot be written by the site.</li>
-            <li>Lilly alone spans lipids, diabetes, obesity, MASH and Alzheimer's with us. That is the same span ICON would be placing, already proven at one address.</li>
-            <li>We already work inside CRO-run studies, including ICON-monitored protocols, so the operating model needs no explaining.</li>
-          </ul>
-        </div>
-      </div>
-  </div>
-  <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Sponsors · protocols and randomized participants from our EDC</span>
-    <span class="pageno">10</span>
-  </div>
-</section>
-
-<!-- ═════════ ICON 8 — ONE NETWORK ═════════ -->
-<section class="slide">
-  <div class="slide-pad">
-    <div class="slide-head">
-      <div class="slide-eyebrow">How we would operate inside the program</div>
-      <h2 class="slide-h2">Two locations, one operation — so you contract once and monitor one set of processes.</h2>
-      <p class="slide-lede">Philadelphia, PA and Pennington, NJ. Roughly 50 miles apart, drawing from separate catchments, run off a single system.</p>
-    </div>
-    <div class="slide-body">
-      <div class="icn-two" style="margin-bottom:20px;">
-        <div class="icn-panel">
-          <h4>What is shared across both sites</h4>
-          <ul>
-            <li><b>One contracting entity and one budget process.</b> A master agreement covers both sites; there is no second negotiation.</li>
-            <li><b>One EDC instance and one set of SOPs</b> maintained to ICH-GCP E6 (R3), so a monitor sees the same source structure at either address.</li>
-            <li><b>One coordinator queue and one investigator roster.</b> Seven investigators cover both sites; patients move between them when a protocol needs it.</li>
-            <li><b>One regulatory function</b> submitting to the same standing IRBs for both locations in parallel.</li>
-          </ul>
-        </div>
-        <div class="icn-panel dark">
-          <h4>What we are asking the program for</h4>
-          <ul>
-            <li><b>A master agreement executed up front</b>, so protocol-level start-up is a budget conversation and nothing else.</li>
-            <li><b>Metabolic placement now</b>, where our delivery record is established.</li>
-            <li><b>Neurology placement in migraine and early Alzheimer's</b>, where we have the investigators, the pool and the sponsor history but need the volume.</li>
-            <li><b>A named contact on each side</b> and a quarterly review against agreed enrollment commitments.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="icn-note"><b>Capacity to take work now.</b> 24 protocols are currently enrolling across both sites, with coordinator rotation across studies and no site running at ceiling. Two sites operating in parallel means an ICON study can open at both addresses under a single activation.</div>
-    </div>
-  </div>
-  <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> PA and NJ · one contracting entity, one system</span>
-    <span class="pageno">11</span>
-  </div>
-</section>
-
-<!-- ═════════ ICON 9 — NEXT STEPS ═════════ -->
-<section class="slide">
-  <div class="slide-pad">
-    <div class="slide-head">
-      <div class="slide-eyebrow">Next steps</div>
-      <h2 class="slide-h2">Three things we can do in the next two weeks.</h2>
-      <p class="slide-lede">Whichever you want to start with, we can move this week.</p>
-    </div>
-    <div class="slide-body">
-      <div class="icn-ask">
-        <ol>
-          <li>
-            <div class="at">Send us your metabolic and neurology feasibility questionnaires</div>
-            <div class="ad">We return completed feasibility within 48 hours, including patient counts from our database against your inclusion and exclusion criteria rather than an estimate.</div>
-          </li>
-          <li>
-            <div class="at">Put a master agreement in front of our contracting team</div>
-            <div class="ad">Budget and contracting sit in house. We can redline and execute without waiting on an external finance queue.</div>
-          </li>
-          <li>
-            <div class="at">Book a site qualification visit at either address</div>
-            <div class="ad">Philadelphia and Pennington are both equipped for Phase II to IV, with on-site drug storage, monitored refrigeration and dedicated monitor workstations.</div>
-          </li>
-        </ol>
-      </div>
-      <div class="icn-note" style="margin-top:26px;"><b>Aneesh Vaze</b>, Managing Director · aneesh@phillyresearch.com · (215) 676-6696 · 9501 Roosevelt Blvd #208, Philadelphia PA 19114 · 21 Route 31 North, Suite A8, Pennington NJ 08534</div>
-    </div>
-  </div>
-  <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Next steps · Clinical Research Philadelphia</span>
-    <span class="pageno">12</span>
   </div>
 </section>
