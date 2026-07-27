@@ -89,6 +89,21 @@ n = [0]
 def renumber(_m):
     n[0] += 1
     return '<span class="pageno">%02d</span>' % n[0]
+# Stamp the running section marker into every slide's footer.
+sec_label, stamped = None, []
+for sec in slides:
+    if 'icn-sec' in sec:
+        h = re.search(r'<h2>(.*?)</h2>', sec, re.S).group(1)
+        num = re.search(r'SECTION (\d+)', sec).group(1)
+        sec_label = "%s &middot; %s" % (num, re.sub(r'<[^>]+>', '', h).strip())
+        stamped.append(sec)
+        continue
+    if sec_label:
+        sec = sec.replace('<span class="pageno">',
+                          '<span class="secmark">%s</span><span class="pageno">' % sec_label, 1)
+    stamped.append(sec)
+slides = stamped
+
 body = "\n\n".join(slides)
 body = re.sub(r'<span class="pageno">\d{2}</span>', renumber, body)
 assert n[0] == len(ORDER), "renumbered %d of %d" % (n[0], len(ORDER))
