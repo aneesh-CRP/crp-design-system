@@ -16,10 +16,10 @@ SECTIONS = [
      "9",      "recent trials, 2024 to 2025"),
     ("sec-deliver", "How we deliver", "Recruitment, speed, quality, facilities",
      "&lt;21", "days from selection to activation"),
-    ("sec-record",  "Track record",  "Sponsors who came back",
+    ("sec-record",  "Track record",  "Strategic partnerships with Lilly, J&amp;J, AbbVie and AstraZeneca",
      "15",     "protocols placed by Lilly alone"),
-    ("sec-partner", "Partnership",   "What we ask, and what we commit to",
-     "1",      "contract covering both sites"),
+    ("sec-partner", "Partnership",   "Centralized operations, regulatory, recruitment, QA and finance across both sites",
+     "1",      "contract, one team, two addresses"),
 ]
 
 NAV_CSS = """
@@ -132,20 +132,20 @@ def home_slide():
     for sid, label, desc, v, k in SECTIONS:
         cards.append(
             '        <a href="#%s"><div class="n">%s</div><div class="d">%s</div>'
-            '<div class="s">%s &middot; %s</div></a>' % (sid, label, desc, v, k))
+            '<div class="s">%s %s</div></a>' % (sid, label, desc, v, k))
     return '''<section class="slide" id="home">
   %s
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Clinical Research Philadelphia &middot; for ICON Elite Sites</div>
-      <h2 class="slide-h2">A two-site network that delivers more patients per site than the plan assumes.</h2>
+      <h2 class="slide-h2">We beat the enrollment goal at both sites, and the data holds up.</h2>
     </div>
     <div class="slide-body">
       <div class="hub-top">
-        <div><div class="v on">3.5&times;</div><div class="k">the patients per site the sponsor's plan assumed</div></div>
+        <div><div class="v on">3.5&times;</div><div class="k">the enrollment goal, on our largest recent trial</div></div>
         <div><div class="v">5 of 5</div><div class="k">recent cardiometabolic targets met or beaten</div></div>
-        <div><div class="v">70&ndash;95<span style="font-size:26px">%%</span></div><div class="k">retention across those trials</div></div>
-        <div><div class="v">0</div><div class="k">FDA Form 483s in thirty years</div></div>
+        <div><div class="v">83<span style="font-size:26px">%%</span></div><div class="k">average retention across those trials</div></div>
+        <div><div class="v">0</div><div class="k">FDA 483s and no sponsor audit findings &mdash; our data has never been cited</div></div>
       </div>
       <div class="hub-rule"></div>
       <div class="hub-grid">

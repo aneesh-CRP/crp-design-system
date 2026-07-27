@@ -50,7 +50,6 @@ ORDER = [
 
     ("hub",  'id="sec-metab"',                     "sec-metab"),
     ("icon", "Five for five",                      "sec-metab"),
-    ("icon", "three and a half",                   "sec-metab"),
     ("arch", "Cardiometabolic capability",         "sec-metab"),
     ("arch", "how the funnel converted",           "sec-metab"),
 
@@ -63,7 +62,7 @@ ORDER = [
     ("icon", "Dermatology and rheumatology",     "sec-derm"),
 
     ("hub",  'id="sec-deliver"',                   "sec-deliver"),
-    ("icon", "We do not buy patients",             "sec-deliver"),
+    ("icon", "191 provider partnerships put",       "sec-deliver"),
     ("exec", ">Performance proof<",                "sec-deliver"),
     ("exec", ">What our technology gets you<",     "sec-deliver"),
     ("exec", ">Facilities<",                       "sec-deliver"),

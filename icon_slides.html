@@ -11,6 +11,9 @@
   .icn-cover .for { font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #7FD4F5; font-weight: 700; }
   .icn-cover .who { font-size: 20px; font-weight: 700; margin-top: 6px; }
   .icn-cover .when { font-size: 14.5px; opacity: 0.8; margin-top: 4px; }
+  /* Footer sits on navy, so it has to be light — including the page number. */
+  .icn-cover .footer { color: rgba(255,255,255,0.72); }
+  .icn-cover .footer .pageno { color: rgba(255,255,255,0.72); }
 
   .icn-answer { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1120px; margin: 0 auto; width: 100%; }
   .icn-chip { border: 1px solid var(--border); border-top: 3px solid var(--crp-blue); border-radius: 12px; padding: 22px 20px; background: #fff; box-shadow: var(--shadow-sm); }
@@ -180,7 +183,7 @@
   </div>
   <div class="r"><img src="./assets/logos/crp-white.svg" alt="CRP"></div>
   <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> phillyresearch.com</span>
+    <span class="mark">phillyresearch.com</span>
     <span class="pageno">01</span>
   </div>
 </section>
@@ -194,7 +197,7 @@
     <div class="slide-head">
       <div class="slide-eyebrow">Cardiometabolic</div>
       <h2 class="slide-h2">Five for five. Every recent target met or beaten.</h2>
-      <p class="slide-lede">Bar length is delivery against the sponsor's allocation to this site.</p>
+      <p class="slide-lede">Our five most recent cardiometabolic trials. Bar length is delivery against the sponsor's allocation; counts are from our CTMS.</p>
     </div>
     <div class="slide-body" style="justify-content:center;">
       <table class="icn-tbl" style="max-width:980px;">
@@ -216,39 +219,7 @@
 </section>
 
 <!-- ═════════ FOOTPRINT MATH ═════════ -->
-<section class="slide">
-  <div class="slide-pad">
-    <div class="slide-head">
-      <div class="slide-eyebrow">What that means for a study footprint</div>
-      <h2 class="slide-h2">One of our sites did the work of three and a half.</h2>
-    </div>
-    <div class="slide-body" style="justify-content:center;">
-      <div class="fp">
-        <div class="fp-side">
-          <div class="fp-blocks">
-            <span class="blk"></span><span class="blk"></span><span class="blk"></span><span class="blk half"></span>
-          </div>
-          <div class="fp-lbl"><b>3.5 sites</b>at the sponsor's plan</div>
-        </div>
-        <div class="fp-eq">=</div>
-        <div class="fp-side">
-          <div class="fp-blocks"><span class="blk on"></span></div>
-          <div class="fp-lbl"><b>1 CRP site</b>on the same protocol</div>
-        </div>
-      </div>
-      <div class="fp-out">
-        <div>Fewer <b>activations</b></div>
-        <div>Fewer <b>regulatory packets</b></div>
-        <div>Fewer <b>monitoring routes</b></div>
-      </div>
-      <div class="icn-note" style="text-align:center;">Lilly J3L-MC-EZEF. 52 randomized against a 15-patient allocation, still enrolling.</div>
-    </div>
-  </div>
-  <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Reduce the footprint, not the enrollment</span>
-    <span class="pageno">04</span>
-  </div>
-</section>
+
 
 <!-- ═════════ NEUROLOGY ═════════ -->
 <section class="slide">
@@ -285,7 +256,7 @@
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Recruitment</div>
-      <h2 class="slide-h2">We do not buy patients per study. We already have them.</h2>
+      <h2 class="slide-h2">191 provider partnerships put patients in front of us before recruitment starts.</h2>
     </div>
     <div class="slide-body" style="justify-content:center;">
       <div class="xl-three">
@@ -293,7 +264,7 @@
         <div><div class="v">1.5<span class="u">M</span></div><div class="k">patients in those provider panels</div></div>
         <div><div class="v">37<span class="u">k</span></div><div class="k">patients in our own database, re-screened against every protocol</div></div>
       </div>
-      <div class="icn-note" style="text-align:center;max-width:900px;">The network does not reset when a study closes, so the second protocol in an area is always cheaper to enroll than the first.</div>
+      <div class="icn-note" style="text-align:center;max-width:900px;">Referring physicians send us diagnosed patients directly, and the network does not reset when a study closes &mdash; so the second protocol in an area enrolls faster than the first.</div>
     </div>
   </div>
   <div class="footer">
@@ -377,8 +348,8 @@
     </div>
     <div class="slide-body" style="justify-content:center;">
       <div class="cm">
-        <div class="cm-row"><div class="num">1</div><div class="tx">We commit to an <b>enrollment number at feasibility</b> &mdash; not a range, and not after the first month of screening.</div></div>
-        <div class="cm-row"><div class="num">2</div><div class="tx">We <b>report against it monthly</b>, in your format.</div></div>
+        <div class="cm-row"><div class="num">1</div><div class="tx">We commit to an <b>enrollment number at feasibility</b>, built from real-time mining of our whole patient database and broken down by therapeutic area &mdash; not a range, and not after the first month of screening.</div></div>
+        <div class="cm-row"><div class="num">2</div><div class="tx">We <b>report against it monthly</b>, sent automatically to your study and CRO contacts.</div></div>
         <div class="cm-row"><div class="num">3</div><div class="tx">If we are tracking under by month two, <b>you hear it from us first</b>, with what we are changing.</div></div>
       </div>
       <div class="cm-foot"><b>Aneesh Vaze</b>, Managing Director &middot; aneesh@phillyresearch.com &middot; (215) 676-6696 &middot; feasibility returned within 48 hours</div>
