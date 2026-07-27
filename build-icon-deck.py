@@ -21,7 +21,7 @@ polish    = (SCRATCH / "icon_polish.html").read_text()
 extra     = (SCRATCH / "icon_extra.html").read_text()
 
 for probe, why in [
-    ("Eight investigators cover every therapeutic area we run", "investigator count"),
+    ("Eight investigators on staff", "investigator count"),
     ("dr-rustgi.jpg", "Rustgi card"),
     ("site-philadelphia.png", "site photos"),
     ("PubMed 30227522", "NIH cycle-time citation"),
@@ -55,7 +55,7 @@ ORDER = [
 
     ("hub",  'id="sec-neuro"',                     "sec-neuro"),
     ("icon", "an early Alzheimer's protocol can be placed", "sec-neuro"),
-    ("arch", "Six sponsors have placed migraine",  "sec-neuro"),
+    ("arch", "have each placed neurology work",     "sec-neuro"),
     ("arch", "raters are not starting cold",       "sec-neuro"),
 
     ("hub",  'id="sec-derm"',                      "sec-derm"),
