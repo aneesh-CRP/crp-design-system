@@ -430,8 +430,29 @@
 
   /* ═══ SLIDE — team (with headshots) ═══ */
   .ppl-grid { display: grid; gap: 18px; max-width: 1120px; margin: 0 auto; width: 100%; }
+  /* Sub-investigators sit below the investigator grid, labelled as such, so the
+     headline count stays exactly the number of investigators. */
+  .subi-strip {
+    display: flex; align-items: center; gap: 12px;
+    margin: 20px auto 0; padding: 9px 22px;
+    border: 1px solid var(--border); border-radius: 999px;
+    background: var(--surface);
+    /* .slide-body is a flex column, so the pill must opt out of stretch and
+       refuse to wrap or it collapses to the narrowest column it can find. */
+    align-self: center; flex: 0 0 auto; white-space: nowrap;
+  }
+  .subi-strip img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; }
+  .subi-strip .lbl {
+    font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--crp-blue); font-weight: 700;
+  }
+  .subi-strip .nm { font-size: 14.5px; color: var(--crp-navy); }
+  .subi-strip .nm b { font-weight: 700; }
   /* Ops slide carries an extra team-aggregate strip — tighten the cards to fit. */
   .ops-people .ppl-card { padding: 12px 14px 10px; }
+  .inv-people .ppl-card { padding: 13px 14px 11px; }
+  .inv-people .ppl-card .head { width: 70px; height: 70px; margin-bottom: 9px; }
+  .inv-people .subi-strip { margin-top: 14px; }
   .ops-people .ppl-card .head { width: 66px; height: 66px; margin-bottom: 8px; }
   .ppl-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
   .ppl-grid.cols-5 { grid-template-columns: repeat(5, 1fr); gap: 14px; }
@@ -1077,7 +1098,7 @@
       <div class="icn-team" style="grid-template-columns:repeat(4,1fr);max-width:1120px;margin:16px auto 0;width:100%;">
         <div class="icn-person"><div class="pn">Joseph Heether, MD</div><div class="pr">CARDIOLOGY</div></div>
         <div class="icn-person"><div class="pn">Taher Modarressi, MD, FNLA</div><div class="pr">ENDOCRINOLOGY / LIPIDOLOGY</div></div>
-        <div class="icn-person"><div class="pn">Hal Ganzman, DO</div><div class="pr">INTERNAL MEDICINE</div></div>
+        <div class="icn-person"><div class="pn">Hal Ganzman, DO</div><div class="pr">SUB-I &middot; INTERNAL MEDICINE</div></div>
         <div class="icn-person"><div class="pn">Vinod Rustgi, MD, MBA</div><div class="pr">HEPATOLOGY / LIVER</div></div>
       </div>
       <div class="icn-note"><b>Eleven metabolic protocols in total</b> across lipids, heart failure, type 2 diabetes, obesity and MASH — Lilly, AstraZeneca, Amgen and Novo Nordisk. FibroScan, ultrasound and EKG on site; Lp(a) and lipid panels run in house, so ASCVD eligibility is settled before a patient reaches screening.</div>
@@ -1390,7 +1411,7 @@
       <h2 class="slide-h2">Eight investigators cover our therapeutic areas.</h2>
       <p class="slide-lede">Combined 200+ years of clinical research experience, across cardiology, lipidology, hepatology, dermatology, rheumatology, internal medicine and women's health.</p>
     </div>
-    <div class="slide-body">
+    <div class="slide-body inv-people">
       <div class="ppl-grid cols-4">
         <div class="ppl-card"><div class="head"><img src="./assets/team/dr-andruczyk.png" alt="Eugene Andruczyk"></div><div class="name">Eugene Andruczyk, MBA, DO</div><div class="role">Investigator</div><div class="specialty">OB / GYN</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/lolita.jpg" alt="Lolita Vaughan"></div><div class="name">Lolita Vaughan, CRNP, CCRC</div><div class="role">Investigator</div><div class="specialty">Women's Health</div></div>
@@ -1402,6 +1423,11 @@
         <div class="ppl-card"><div class="head"><img src="./assets/team/dr-modarressi.png" alt="Taher Modarressi"></div><div class="name">Taher Modarressi, MD</div><div class="role">Investigator</div><div class="specialty">Endo / Lipidology</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/dr-tomeo.jpg" alt="Michael Tomeo"></div><div class="name">Michael Tomeo, MD</div><div class="role">Investigator</div><div class="specialty">Dermatology</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/dr-leventhal.png" alt="Lawrence Leventhal"></div><div class="name">Lawrence Leventhal, MD</div><div class="role">Investigator</div><div class="specialty">Rheumatology</div></div>
+      </div>
+      <div class="subi-strip">
+        <img src="./assets/team/dr-ganzman.png" alt="Hal Ganzman">
+        <span class="lbl">Sub-investigator</span>
+        <span class="nm"><b>Hal Ganzman, DO</b> &middot; Internal Medicine</span>
       </div>
     </div>
   </div>
