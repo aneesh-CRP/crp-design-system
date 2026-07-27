@@ -1,0 +1,104 @@
+<style>
+  /* ═══ Interactive chrome — screen only, never printed ═══ */
+  .deck-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 18px; background: rgba(7,32,97,0.96);
+    backdrop-filter: blur(8px); box-shadow: 0 2px 14px rgba(0,0,0,0.22);
+  }
+  .deck-nav .brand { display: flex; align-items: center; gap: 9px; margin-right: 14px; }
+  .deck-nav .brand img { height: 20px; }
+  .deck-nav .brand span { color: #fff; font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; }
+  .deck-nav a {
+    color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px;
+    transition: background .15s, color .15s; white-space: nowrap;
+  }
+  .deck-nav a:hover { background: rgba(255,255,255,0.13); color: #fff; }
+  .deck-nav a.on { background: var(--crp-orange); color: #fff; }
+  .deck-nav .spacer { flex: 1; }
+  .deck-nav .count { color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.05em; }
+  .deck-nav .hint { color: rgba(255,255,255,0.45); font-size: 11px; margin-left: 14px; letter-spacing: 0.04em; }
+  .deck-prog { position: fixed; top: 0; left: 0; height: 3px; background: var(--crp-orange); z-index: 901; width: 0; transition: width .12s linear; }
+  /* The nav overlays rather than displaces, so print pagination is untouched.
+     scroll-margin keeps anchor jumps clear of the bar. */
+  .slide { scroll-margin-top: 74px; }
+  html { scroll-padding-top: 74px; }
+
+  /* The PDF is rendered from the print variant of this deck, which omits the
+     nav entirely — so nothing here has to survive pagination. */
+  @media print {
+    .deck-nav, .deck-prog { display: none !important; }
+    .icn-toc a { box-shadow: none; transform: none; }
+  }
+</style>
+
+<div class="deck-prog" id="deckProg"></div>
+<nav class="deck-nav" id="deckNav">
+  <span class="brand"><img src="./assets/logos/crp-white.svg" alt="CRP"><span>CRP &times; ICON</span></span>
+  <a href="#sec-case">The case</a>
+  <a href="#sec-ta">Therapeutic areas</a>
+  <a href="#sec-deliver">How we deliver</a>
+  <a href="#sec-record">Track record</a>
+  <a href="#sec-together">Working together</a>
+  <span class="spacer"></span>
+  <span class="count" id="deckCount">1 / 1</span>
+  <span class="hint">&larr; &rarr; to move</span>
+</nav>
+
+<script>
+(function () {
+  document.body.classList.add('has-nav');
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var links  = Array.prototype.slice.call(document.querySelectorAll('.deck-nav a'));
+  var countEl = document.getElementById('deckCount');
+  var progEl  = document.getElementById('deckProg');
+  if (!slides.length) return;
+
+  function currentIndex() {
+    var mid = window.innerHeight / 2, best = 0, bestD = Infinity;
+    slides.forEach(function (s, i) {
+      var r = s.getBoundingClientRect();
+      var d = Math.abs((r.top + r.height / 2) - mid);
+      if (d < bestD) { bestD = d; best = i; }
+    });
+    return best;
+  }
+
+  function sync() {
+    var i = currentIndex();
+    countEl.textContent = (i + 1) + ' / ' + slides.length;
+    progEl.style.width = ((i + 1) / slides.length * 100) + '%';
+    // Highlight the section whose divider most recently passed.
+    var activeId = null;
+    slides.slice(0, i + 1).forEach(function (s) { if (s.id) activeId = s.id; });
+    links.forEach(function (a) {
+      a.classList.toggle('on', activeId && a.getAttribute('href') === '#' + activeId);
+    });
+  }
+
+  function go(delta) {
+    var i = Math.min(slides.length - 1, Math.max(0, currentIndex() + delta));
+    slides[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(-1); }
+    else if (e.key === 'Home') { e.preventDefault(); slides[0].scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    else if (e.key === 'End') { e.preventDefault(); slides[slides.length - 1].scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+
+  var tick = false;
+  window.addEventListener('scroll', function () {
+    if (tick) return;
+    tick = true;
+    window.requestAnimationFrame(function () { sync(); tick = false; });
+  }, { passive: true });
+
+  sync();
+})();
+</script>

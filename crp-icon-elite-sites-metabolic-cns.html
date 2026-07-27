@@ -362,6 +362,10 @@
     position: relative;
     display: flex; flex-direction: column; gap: 10px;
   }
+  /* Keep the eyebrow / heading / body rows on the same baseline across all four
+     boxes even when a label wraps to two lines. */
+  .stack-node .stack-eyebrow { min-height: 2.4em; display: flex; align-items: flex-start; }
+  .stack-node h4 { min-height: 2.2em; }
   .stack-node:nth-child(2) { border-top-color: var(--crp-orange); }
   .stack-node:nth-child(4) { border-top-color: var(--crp-orange); }
   .stack-node + .stack-node::before {
@@ -510,14 +514,18 @@
   .fac-site {
     background: var(--blue-bg);
     border-radius: var(--radius-md);
-    padding: 14px 18px;
-    display: flex; align-items: baseline; gap: 12px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
   }
+  .fac-site img {
+    width: 100%; height: 118px; object-fit: cover; display: block;
+  }
+  .fac-site .fac-site-body { padding: 12px 16px 14px; }
   .fac-site strong {
-    font-size: 16px; font-weight: 800; color: var(--crp-navy); flex-shrink: 0;
+    font-size: 15.5px; font-weight: 800; color: var(--crp-navy); display: block; margin-bottom: 3px;
   }
   .fac-site span {
-    font-size: 14.5px; color: var(--crp-navy); opacity: 0.92; line-height: 1.4;
+    font-size: 13.5px; color: var(--crp-navy); opacity: 0.92; line-height: 1.4;
   }
 
   /* ═══ SLIDE — treatments grid (drug logos) ═══ */
@@ -802,8 +810,48 @@
   .icn-ask .at { font-size: 17px; font-weight: 700; color: var(--crp-navy); }
   .icn-ask .ad { font-size: 14.5px; color: var(--fg-2); margin-top: 4px; line-height: 1.5; }
 </style>
+<style>
+  /* ═══ Section dividers ═══ */
+  .icn-sec {
+    background: var(--gradient-navy-blue); color: #fff;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 0 96px; position: relative;
+    /* .slide is content-box, so padding here would push the slide past 1280px
+       and make Chrome shrink-to-fit the whole deck when printing. */
+    box-sizing: border-box;
+  }
+  .icn-sec .quat { position: absolute; right: -140px; bottom: -180px; width: 640px; opacity: 0.07; }
+  .icn-sec .snum {
+    font-size: 15px; font-weight: 800; letter-spacing: 0.22em;
+    color: var(--crp-cyan); margin-bottom: 20px; position: relative; z-index: 2;
+  }
+  .icn-sec h2 {
+    font-size: 52px; line-height: 1.06; font-weight: 800; margin: 0 0 26px;
+    letter-spacing: -0.02em; color: #fff; max-width: 860px; position: relative; z-index: 2;
+  }
+  .icn-sec .sdesc {
+    font-size: 18px; line-height: 1.5; color: rgba(255,255,255,0.88);
+    max-width: 700px; position: relative; z-index: 2; padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.22);
+  }
+  .icn-sec .footer { color: rgba(255,255,255,0.5); }
 
-<!-- ═════════ ICON 1 — COVER ═════════ -->
+  /* ═══ Contents ═══ */
+  .icn-toc { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; max-width: 1120px; margin: 0 auto; width: 100%; }
+  .icn-toc a {
+    display: block; text-decoration: none; border: 1px solid var(--border);
+    border-top: 3px solid var(--crp-blue); border-radius: 12px; padding: 20px 18px;
+    background: #fff; box-shadow: var(--shadow-sm); transition: box-shadow .15s, transform .15s;
+  }
+  .icn-toc a:nth-child(2n) { border-top-color: var(--crp-orange); }
+  .icn-toc a:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .icn-toc .tn { font-size: 12px; font-weight: 800; letter-spacing: 0.16em; color: var(--crp-blue); }
+  .icn-toc .tt { font-size: 17px; font-weight: 800; color: var(--crp-navy); margin-top: 12px; line-height: 1.22; }
+  .icn-toc .td { font-size: 12.5px; color: var(--fg-2); margin-top: 8px; line-height: 1.4; }
+
+</style>
+
+
 <section class="slide icn-cover">
   <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
   <div class="l">
@@ -823,7 +871,40 @@
   </div>
 </section>
 
-<!-- ═════════ ICON 2 — GOVERNING THOUGHT ═════════ -->
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Contents</div>
+      <h2 class="slide-h2">Five sections. The therapeutic areas you asked about are section two.</h2>
+      <p class="slide-lede">Click a section to jump, or use the arrow keys.</p>
+    </div>
+    <div class="slide-body">
+      <div class="icn-toc">
+        <a href="#sec-case"><div class="tn">01</div><div class="tt">The case</div><div class="td">What we are offering ICON, in four numbers.</div></a>
+        <a href="#sec-ta"><div class="tn">02</div><div class="tt">Therapeutic areas</div><div class="td">Cardiometabolic, CNS, and the derm and rheum bench.</div></a>
+        <a href="#sec-deliver"><div class="tn">03</div><div class="tt">How we deliver</div><div class="td">Recruitment, cycle times, people, facilities, risk.</div></a>
+        <a href="#sec-record"><div class="tn">04</div><div class="tt">Track record</div><div class="td">Sponsors who return, and medicines we helped approve.</div></a>
+        <a href="#sec-together"><div class="tn">05</div><div class="tt">Working together</div><div class="td">How a two-site network plugs into the program.</div></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Contents</span>
+    <span class="pageno">02</span>
+  </div>
+</section>
+
+<section class="slide icn-sec" id="sec-case">
+  <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="snum">SECTION 01</div>
+  <h2>The case</h2>
+  <div class="sdesc">We take metabolic volume off your study footprint today, and we are building CNS on the same engine. Everything after this slide is the evidence for that sentence.</div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Section 01 · the case</span>
+    <span class="pageno">03</span>
+  </div>
+</section>
+
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -854,16 +935,26 @@
           <div class="d">Where race is reported. Diversity Action Plan enrollment without a separate spend.</div>
         </div>
       </div>
-      <div class="icn-note"><b>How to read this deck.</b> Slides 3 and 4 cover metabolic, where we have delivered. Slide 5 covers migraine and early Alzheimer's, where we are investing. Slide 6 is how we find patients. Slides 7 and 8 are the partnership mechanics. Counts are distinct randomized participants from our EDC, 2021 to date.</div>
+      <div class="icn-note"><b>How to read this deck.</b> Section 2 covers the therapeutic areas — cardiometabolic first, where we have delivered, then migraine and early Alzheimer's. Section 3 is how we find and keep patients. Sections 4 and 5 are track record and the partnership mechanics. Counts are distinct randomized participants from our EDC, 2021 to date.</div>
     </div>
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Answer first · everything after this is evidence</span>
-    <span class="pageno">02</span>
+    <span class="pageno">04</span>
   </div>
 </section>
 
-<!-- ═════════ ICON 3 — METABOLIC TRACK RECORD ═════════ -->
+<section class="slide icn-sec" id="sec-ta">
+  <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="snum">SECTION 02</div>
+  <h2>Therapeutic areas</h2>
+  <div class="sdesc">Cardiometabolic is where we have delivered. CNS — migraine and early Alzheimer's — is where we have the raters, the investigators and the patient pool, and where allocation would move our numbers fastest. Dermatology and rheumatology run alongside on the same operating model.</div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Section 02 · therapeutic areas</span>
+    <span class="pageno">05</span>
+  </div>
+</section>
+
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -884,16 +975,21 @@
           <tr><td class="lead">T2DM — GLP vs insulin</td><td class="dim" style="text-align:right">5</td><td class="num" style="text-align:right">5</td><td class="num" style="text-align:right;color:var(--crp-orange)">100%</td><td class="num" style="text-align:right">70%</td><td class="dim">Maintenance</td></tr>
         </tbody>
       </table>
-      <div class="icn-note"><b>Eleven metabolic protocols in total</b> across lipids, heart failure, type 2 diabetes, obesity and MASH — Lilly, AstraZeneca, Amgen and Novo Nordisk. FibroScan on site pre-selects F2–F3 patients before biopsy, so MASH screen-fails land on us rather than on the sponsor's biopsy budget. Lp(a) and lipid panels run in house, so ASCVD eligibility is settled before a patient reaches screening.</div>
+      <div class="icn-team" style="grid-template-columns:repeat(4,1fr);max-width:1120px;margin:16px auto 0;width:100%;">
+        <div class="icn-person"><div class="pn">Joseph Heether, MD</div><div class="pr">CARDIOLOGY</div></div>
+        <div class="icn-person"><div class="pn">Taher Modarressi, MD, FNLA</div><div class="pr">ENDOCRINOLOGY / LIPIDOLOGY</div></div>
+        <div class="icn-person"><div class="pn">Hal Ganzman, DO</div><div class="pr">INTERNAL MEDICINE</div></div>
+        <div class="icn-person"><div class="pn">Vinod Rustgi, MD, MBA</div><div class="pr">HEPATOLOGY / LIVER</div></div>
+      </div>
+      <div class="icn-note"><b>Eleven metabolic protocols in total</b> across lipids, heart failure, type 2 diabetes, obesity and MASH — Lilly, AstraZeneca, Amgen and Novo Nordisk. FibroScan, ultrasound and EKG on site; Lp(a) and lipid panels run in house, so ASCVD eligibility is settled before a patient reaches screening.</div>
     </div>
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Metabolic · target per sponsor site allocation</span>
-    <span class="pageno">03</span>
+    <span class="pageno">06</span>
   </div>
 </section>
 
-<!-- ═════════ ICON 4 — THE EZEF PROOF ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -931,141 +1027,62 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> J3L-MC-EZEF · allocation per Lilly site agreement</span>
-    <span class="pageno">04</span>
+    <span class="pageno">07</span>
   </div>
 </section>
 
-<!-- ═════════ ICON 5 — CARDIOMETABOLIC CAPABILITY ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
-      <div class="slide-eyebrow">Cardiometabolic capability</div>
-      <h2 class="slide-h2">A cardiology, lipidology and internal medicine bench with nine recent trials behind it.</h2>
-      <p class="slide-lede">Our anchor therapeutic area — the one where we have both the investigators and the referral base already in place.</p>
-    </div>
-    <div class="slide-body">
-      <div class="icn-ta">
-        <div class="icn-ta-left">
-          <div class="icn-team">
-            <div class="icn-person"><div class="pn">Joseph Heether, MD</div><div class="pr">CARDIOLOGY</div></div>
-            <div class="icn-person"><div class="pn">Taher Modarressi, MD, FNLA</div><div class="pr">ENDOCRINOLOGY / LIPIDOLOGY</div></div>
-            <div class="icn-person"><div class="pn">Hal Ganzman, DO</div><div class="pr">INTERNAL MEDICINE</div></div>
-            <div class="icn-person"><div class="pn">Lolita Vaughan, CRNP</div><div class="pr">GENERAL MEDICINE</div></div>
-          </div>
-          <div class="icn-cap">
-            <ul>
-              <li>Referral network across <b>endocrinology, cardiology and internal medicine</b></li>
-              <li><b>FibroScan, ultrasound, EKG, centrifuges and infusion pumps</b> on site</li>
-              <li>Lp(a) and lipid panels run in house before a patient reaches screening</li>
-              <li>Four coordinators, each with over ten years of experience</li>
-            </ul>
-          </div>
-        </div>
-        <div class="icn-exp">
-          <h4>Recent research experience</h4>
-          <ol>
-            <li>LDL-cholesterol reduction in high-risk ASCVD <span class="ph">· Phase III · 2025, ongoing</span></li>
-            <li>GIP/GLP-1 receptor agonist in MASLD <span class="ph">· Phase III · 2025, ongoing</span></li>
-            <li>ASCVD risk reduction with elevated lipoprotein <span class="ph">· Phase III · 2025, ongoing</span></li>
-            <li>Cardiovascular outcomes in chronic kidney disease <span class="ph">· Phase III · 2025, ongoing</span></li>
-            <li>Lipoprotein(a) lowering, primary and secondary prevention <span class="ph">· Phase III · 2025</span></li>
-            <li>Oral GLP-1 therapy for T2D and cardiometabolic risk <span class="ph">· Phase III · 2024</span></li>
-            <li>GLP-1 weight management in adults <span class="ph">· Phase III · 2024</span></li>
-            <li>Cardiometabolic prevention in insulin resistance <span class="ph">· Phase II · 2024</span></li>
-            <li>LDL-cholesterol reduction in high-risk ASCVD <span class="ph">· Phase III · 2024</span></li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Cardiometabolic · team, equipment, recent trials</span>
-    <span class="pageno">05</span>
-  </div>
-</section>
-
-<!-- ═════════ ICON 6 — CNS ═════════ -->
-<section class="slide">
-  <div class="slide-pad">
-    <div class="slide-head">
-      <div class="slide-eyebrow">CNS · migraine and early Alzheimer's</div>
-      <h2 class="slide-h2">We run two CNS indications deliberately: migraine and MCI to mild Alzheimer's.</h2>
-      <p class="slide-lede">Eight protocols, six sponsors, five separate migraine assets. 24 randomized and roughly 5,000 patients worked to date.</p>
-    </div>
-    <div class="slide-body">
-      <table class="icn-tbl">
-        <thead>
-          <tr><th>Protocol</th><th>Sponsor and indication</th><th style="text-align:right">Randomized</th><th style="text-align:right">Patients worked</th><th>Status</th></tr>
-        </thead>
-        <tbody>
-          <tr class="hi"><td class="lead">BHV3000-405</td><td>Biohaven — episodic migraine</td><td class="num" style="text-align:right">8</td><td class="dim" style="text-align:right">1,304</td><td class="dim">Closed</td></tr>
-          <tr class="hi"><td class="lead">M23-714</td><td>AbbVie — menstrual migraine</td><td class="num" style="text-align:right">7</td><td class="dim" style="text-align:right">486</td><td class="dim">Enrolling</td></tr>
-          <tr><td class="lead">J1G-MC-LAKI</td><td>Lilly — Alzheimer's disease</td><td class="num" style="text-align:right">6</td><td class="dim" style="text-align:right">494</td><td class="dim">Closed</td></tr>
-          <tr><td class="lead">KAL-K304-P001</td><td>Acute migraine</td><td class="num" style="text-align:right">2</td><td class="dim" style="text-align:right">284</td><td class="dim">Enrolling</td></tr>
-          <tr><td class="lead">BHV3500-302</td><td>Biohaven — migraine prevention</td><td class="num" style="text-align:right">1</td><td class="dim" style="text-align:right">1,141</td><td class="dim">Closed</td></tr>
-          <tr><td class="lead">C4951063</td><td>Pfizer — menstrual migraine</td><td class="num" style="text-align:right">0</td><td class="dim" style="text-align:right">235</td><td class="dim">Enrolling</td></tr>
-          <tr><td class="lead">K-304 P003</td><td>Migraine, pivotal</td><td class="num" style="text-align:right">0</td><td class="dim" style="text-align:right">107</td><td class="dim">Enrolling, opened March 2026</td></tr>
-          <tr><td class="lead">AXS-07-304</td><td>Axsome — migraine</td><td class="num" style="text-align:right">0</td><td class="dim" style="text-align:right">1,044</td><td class="dim">Closed</td></tr>
-        </tbody>
-      </table>
-      <div class="icn-note"><b>Read this straight.</b> Our CNS randomized counts are smaller than our metabolic counts. What we have built is a migraine franchise five sponsors returned to and an Alzheimer's pre-screening pathway that worked 494 patients for Lilly. Four of the eight are open now. This is where ICON allocation would move our numbers fastest.</div>
-    </div>
-  </div>
-  <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> CNS · distinct randomized participants, 2021 to date</span>
-    <span class="pageno">06</span>
-  </div>
-</section>
-
-<!-- ═════════ ICON 7 — EARLY AD CAPABILITY ═════════ -->
-<section class="slide">
-  <div class="slide-pad">
-    <div class="slide-head">
-      <div class="slide-eyebrow">Early Alzheimer's capability</div>
-      <h2 class="slide-h2">Four certified raters are the reason we can take an early AD protocol at all.</h2>
-      <p class="slide-lede">Rater certification is the constraint most sites fail on. Ours are trained and current on the instruments these trials run.</p>
+      <div class="slide-eyebrow">CNS &middot; migraine and early Alzheimer's</div>
+      <h2 class="slide-h2">We run two CNS indications deliberately, and four certified raters are why we can run the second one.</h2>
+      <p class="slide-lede">Eight protocols, six sponsors, five separate migraine assets. Rater certification is the constraint most sites fail on.</p>
     </div>
     <div class="slide-body">
       <div class="icn-ta">
         <div class="icn-ta-left">
           <div class="icn-cap" style="border-left-color:var(--crp-blue);">
             <ul>
-              <li><b>4 certified raters</b> trained on MMSE, CDR, ADAS-Cog and FAQ</li>
-              <li><b>5 clinical research coordinators</b> experienced in cognitive assessment visits</li>
-              <li>Board-certified <b>neurologist and geriatrician</b> reached through our provider network</li>
+              <li><b>4 certified raters</b> on MMSE, CDR, ADAS-Cog and FAQ</li>
+              <li><b>5 coordinators</b> experienced in cognitive assessment visits</li>
+              <li>Board-certified <b>neurologist and geriatrician</b> via our provider network</li>
               <li>Referral base across <b>neurology, geriatrics and primary care</b></li>
-              <li>Study partner and caregiver scheduling handled by the same coordinator queue</li>
+              <li>Caregiver and study-partner scheduling on the same coordinator queue</li>
             </ul>
           </div>
           <div class="icn-cap">
             <ul>
-              <li>Our Alzheimer's pre-screening pathway worked <b>494 patients</b> for a Lilly protocol</li>
-              <li>Memory-complaint patients already sit in our database and are re-screened against each new protocol</li>
+              <li>Six Alzheimer's trials of investigator experience, 2021 to 2025, including a Phase III early-AD monoclonal antibody now ongoing</li>
+              <li>Our AD pre-screening pathway worked <b>494 patients</b> for a Lilly protocol</li>
             </ul>
           </div>
         </div>
         <div class="icn-exp">
-          <h4>Investigator experience in Alzheimer's disease</h4>
-          <ol>
-            <li>Early Alzheimer's monoclonal antibody <span class="ph">· Phase III · 2025, ongoing</span></li>
-            <li>Sensory stimulation for Alzheimer's <span class="ph">· Phase III · 2024</span></li>
-            <li>Alzheimer's disease prevention <span class="ph">· Phase III · 2022</span></li>
-            <li>Early-stage Alzheimer's immunotherapy <span class="ph">· Phase I/II · 2022</span></li>
-            <li>Alzheimer's monoclonal antibody <span class="ph">· Phase III · 2021</span></li>
-            <li>Cognitive health and metabolic intervention <span class="ph">· Phase III · 2021</span></li>
-          </ol>
-          <div style="font-size:12px;color:var(--fg-2);margin-top:12px;line-height:1.45;">Investigator experience, including trials run by our investigators and network-affiliated specialists.</div>
+          <h4>Migraine and Alzheimer's protocols at our sites</h4>
+          <table class="icn-tbl" style="font-size:13px;">
+            <tbody>
+              <tr class="hi"><td class="lead">Biohaven &mdash; episodic migraine</td><td class="num" style="text-align:right">8</td><td class="dim" style="text-align:right">1,304</td><td class="dim">Closed</td></tr>
+              <tr class="hi"><td class="lead">AbbVie &mdash; menstrual migraine</td><td class="num" style="text-align:right">7</td><td class="dim" style="text-align:right">486</td><td class="dim">Enrolling</td></tr>
+              <tr><td class="lead">Lilly &mdash; Alzheimer's disease</td><td class="num" style="text-align:right">6</td><td class="dim" style="text-align:right">494</td><td class="dim">Closed</td></tr>
+              <tr><td class="lead">Acute migraine</td><td class="num" style="text-align:right">2</td><td class="dim" style="text-align:right">284</td><td class="dim">Enrolling</td></tr>
+              <tr><td class="lead">Biohaven &mdash; migraine prevention</td><td class="num" style="text-align:right">1</td><td class="dim" style="text-align:right">1,141</td><td class="dim">Closed</td></tr>
+              <tr><td class="lead">Pfizer &mdash; menstrual migraine</td><td class="num" style="text-align:right">0</td><td class="dim" style="text-align:right">235</td><td class="dim">Enrolling</td></tr>
+              <tr><td class="lead">Migraine, pivotal</td><td class="num" style="text-align:right">0</td><td class="dim" style="text-align:right">107</td><td class="dim">Enrolling</td></tr>
+              <tr><td class="lead">Axsome &mdash; migraine</td><td class="num" style="text-align:right">0</td><td class="dim" style="text-align:right">1,044</td><td class="dim">Closed</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size:11.5px;color:var(--fg-2);margin-top:9px;letter-spacing:0.04em;">RANDOMIZED &middot; PATIENTS WORKED &middot; STATUS</div>
         </div>
       </div>
+      <div class="icn-note"><b>Read this straight.</b> 24 randomized across CNS against 92 in metabolic, on roughly 5,000 patients worked. Four of the eight are open now. This is where ICON allocation would move our numbers fastest.</div>
     </div>
   </div>
   <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Early Alzheimer's · raters, team, investigator experience</span>
-    <span class="pageno">07</span>
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> CNS &middot; migraine and early Alzheimer's</span>
+    <span class="pageno">08</span>
   </div>
 </section>
 
-<!-- ═════════ ICON 8 — DERM & RHEUM ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -1110,11 +1127,21 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Dermatology and rheumatology · same operating model</span>
-    <span class="pageno">08</span>
+    <span class="pageno">09</span>
   </div>
 </section>
 
-<!-- ═════════ ICON 9 — HOW WE FIND PATIENTS ═════════ -->
+<section class="slide icn-sec" id="sec-deliver">
+  <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="snum">SECTION 03</div>
+  <h2>How we deliver</h2>
+  <div class="sdesc">Where the patients come from, how fast we start, who does the work, and what a monitor finds when they arrive.</div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Section 03 · how we deliver</span>
+    <span class="pageno">10</span>
+  </div>
+</section>
+
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -1148,144 +1175,10 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Provider network · database · eligibility engine</span>
-    <span class="pageno">09</span>
-  </div>
-</section>
-
-<!-- ═════════ ICON 7 — SPONSOR RELATIONSHIPS ═════════ -->
-<section class="slide">
-  <div class="slide-pad">
-    <div class="slide-head">
-      <div class="slide-eyebrow">Sponsor relationships</div>
-      <h2 class="slide-h2">Four sponsors place studies with us repeatedly, and Lilly has placed fifteen.</h2>
-      <p class="slide-lede">Strategic site relationships with Eli Lilly, Johnson &amp; Johnson, AbbVie and AstraZeneca, including AstraZeneca's PIC program.</p>
-    </div>
-    <div class="slide-body">
-      <div class="icn-spon">
-        <div class="icn-scard">
-          <div class="sn">Eli Lilly</div>
-          <div class="sr"><div><div class="sv">15</div><div class="sl">PROTOCOLS</div></div><div><div class="sv">80</div><div class="sl">RANDOMIZED</div></div></div>
-        </div>
-        <div class="icn-scard">
-          <div class="sn">AbbVie</div>
-          <div class="sr"><div><div class="sv">6</div><div class="sl">PROTOCOLS</div></div><div><div class="sv">25</div><div class="sl">RANDOMIZED</div></div></div>
-        </div>
-        <div class="icn-scard">
-          <div class="sn">Johnson &amp; Johnson</div>
-          <div class="sr"><div><div class="sv">6</div><div class="sl">PROTOCOLS</div></div><div><div class="sv">11</div><div class="sl">RANDOMIZED</div></div></div>
-        </div>
-        <div class="icn-scard">
-          <div class="sn">AstraZeneca</div>
-          <div class="sr"><div><div class="sv">3</div><div class="sl">PROTOCOLS</div></div><div><div class="sv">8</div><div class="sl">RANDOMIZED</div></div></div>
-        </div>
-      </div>
-      <div class="icn-two">
-        <div class="icn-panel">
-          <h4>What repeat placement tells you</h4>
-          <ul>
-            <li>These sponsors have monitored us, audited our source, and come back with the next protocol.</li>
-            <li>Lilly spans lipids, diabetes, obesity, MASH and Alzheimer's with us, which is the same span ICON would be placing.</li>
-            <li>We already work inside CRO-run studies, including ICON-monitored protocols, so the operating model is not new to us.</li>
-          </ul>
-        </div>
-        <div class="icn-panel">
-          <h4>Compliance position</h4>
-          <ul>
-            <li><b>Zero FDA Form 483s</b> across 30 years of continuous operation.</li>
-            <li><b>Standing IRB relationships</b> with Advarra, WCG and Sterling.</li>
-            <li><b>Budget and contracting in house</b>, which is why our contract turnaround does not wait on an external finance queue.</li>
-            <li><b>eSource throughout</b>, with source-to-EDC entry inside a day and queries cleared within the same business week.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Sponsors · protocols and randomized participants from our EDC</span>
-    <span class="pageno">10</span>
-  </div>
-</section>
-
-<!-- ═════════ ICON 8 — ONE NETWORK ═════════ -->
-<section class="slide">
-  <div class="slide-pad">
-    <div class="slide-head">
-      <div class="slide-eyebrow">How we would operate inside the program</div>
-      <h2 class="slide-h2">Two locations, one operation — so you contract once and monitor one set of processes.</h2>
-      <p class="slide-lede">Philadelphia, PA and Pennington, NJ. Roughly 50 miles apart, drawing from separate catchments, run off a single system.</p>
-    </div>
-    <div class="slide-body">
-      <div class="icn-two" style="margin-bottom:20px;">
-        <div class="icn-panel">
-          <h4>What is shared across both sites</h4>
-          <ul>
-            <li><b>One contracting entity and one budget process.</b> A master agreement covers both sites; there is no second negotiation.</li>
-            <li><b>One EDC instance and one set of SOPs</b> maintained to ICH-GCP E6 (R3), so a monitor sees the same source structure at either address.</li>
-            <li><b>One coordinator queue and one investigator roster.</b> Seven investigators cover both sites; patients move between them when a protocol needs it.</li>
-            <li><b>One regulatory function</b> submitting to the same standing IRBs for both locations in parallel.</li>
-          </ul>
-        </div>
-        <div class="icn-panel dark">
-          <h4>What we are asking the program for</h4>
-          <ul>
-            <li><b>A master agreement executed up front</b>, so protocol-level start-up is a budget conversation and nothing else.</li>
-            <li><b>Metabolic placement now</b>, where our delivery record is established.</li>
-            <li><b>CNS placement in migraine and early Alzheimer's</b>, where we have the investigators, the pool and the sponsor history but need the volume.</li>
-            <li><b>A named contact on each side</b> and a quarterly review against agreed enrollment commitments.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="icn-note"><b>Capacity to take work now.</b> 24 protocols are currently enrolling across both sites, with coordinator rotation across studies and no site running at ceiling. Two sites operating in parallel means an ICON study can open at both addresses under a single activation.</div>
-    </div>
-  </div>
-  <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> PA and NJ · one contracting entity, one system</span>
     <span class="pageno">11</span>
   </div>
 </section>
 
-<!-- ═════════ ICON 9 — NEXT STEPS ═════════ -->
-<section class="slide">
-  <div class="slide-pad">
-    <div class="slide-head">
-      <div class="slide-eyebrow">Next steps</div>
-      <h2 class="slide-h2">Three things we can do in the next two weeks.</h2>
-      <p class="slide-lede">The pages that follow are our full site capabilities overview, unchanged from what we give sponsors.</p>
-    </div>
-    <div class="slide-body">
-      <div class="icn-ask">
-        <ol>
-          <li>
-            <div class="at">Send us your metabolic and CNS feasibility questionnaires</div>
-            <div class="ad">We return completed feasibility within 48 hours, including patient counts from our database against your inclusion and exclusion criteria rather than an estimate.</div>
-          </li>
-          <li>
-            <div class="at">Put a master agreement in front of our contracting team</div>
-            <div class="ad">Budget and contracting sit in house. We can redline and execute without waiting on an external finance queue.</div>
-          </li>
-          <li>
-            <div class="at">Book a site qualification visit at either address</div>
-            <div class="ad">Philadelphia and Pennington are both equipped for Phase II to IV, with on-site drug storage, monitored refrigeration and dedicated monitor workstations.</div>
-          </li>
-        </ol>
-      </div>
-      <div class="icn-note" style="margin-top:26px;"><b>Aneesh Vaze</b>, Managing Director · aneesh@phillyresearch.com · (215) 676-6696 · 9501 Roosevelt Blvd #208, Philadelphia PA 19114 · 21 Route 31 North, Suite A8, Pennington NJ 08534</div>
-    </div>
-  </div>
-  <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Next steps · Clinical Research Philadelphia</span>
-    <span class="pageno">12</span>
-  </div>
-</section>
-
-
-<!-- ═════════ SLIDE 1 — COVER (patient tagline) ═════════ -->
-
-
-<!-- ═════════ SLIDE 2 — WHO WE ARE (8-stat exec snapshot) ═════════ -->
-
-
-<!-- ═════════ SLIDE 3 — PERFORMANCE PROOF ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -1343,17 +1236,10 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Performance · last 10 trials</span>
-    <span class="pageno">15</span>
+    <span class="pageno">12</span>
   </div>
 </section>
 
-<!-- ═════════ SLIDE 4 — THREE PILLARS ═════════ -->
-
-
-<!-- ═════════ SLIDE 5 — THERAPEUTIC DEPTH ═════════ -->
-
-
-<!-- ═════════ SLIDE 6 — TECH STACK (themes only, no numbers) ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -1366,22 +1252,22 @@
         <div class="stack-node">
           <div class="stack-eyebrow">For your monitors</div>
           <h4>Nothing to chase</h4>
-          <p>Source is entered the day of the visit and queries clear within the business week, so monitoring visits review data instead of waiting on it.</p>
+          <p>Source entered the day of the visit. Monitoring visits review data instead of waiting on it.</p>
         </div>
         <div class="stack-node">
           <div class="stack-eyebrow">For your study manager</div>
           <h4>Answers the same day</h4>
-          <p>Enrollment, screen-fail reasons and visit compliance are queryable on demand, so a status request does not become a week of email.</p>
+          <p>Enrollment, screen-fail reasons and visit compliance on demand. No week of email.</p>
         </div>
         <div class="stack-node">
           <div class="stack-eyebrow">For your enrollment</div>
-          <h4>A candidate list on day one</h4>
-          <p>Every open protocol is scored against our whole patient database, so recruitment starts with named candidates rather than an advertising spend.</p>
+          <h4>A list on day one</h4>
+          <p>Every protocol scored against our whole database. Named candidates, not ad spend.</p>
         </div>
         <div class="stack-node">
           <div class="stack-eyebrow">For your risk</div>
           <h4>Problems surface early</h4>
-          <p>Missed visits, drifting screen-fail rates and lapsing documents raise a flag while they are still fixable, not at the next monitoring visit.</p>
+          <p>Missed visits and drifting screen-fail rates flag while they are still fixable.</p>
         </div>
       </div>
       <div class="stack-row" style="max-width:1120px;margin:24px auto 0;width:100%;">
@@ -1394,14 +1280,10 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Technology · what it removes from your workload</span>
-    <span class="pageno">18</span>
+    <span class="pageno">13</span>
   </div>
 </section>
 
-<!-- ═════════ SLIDE 7 — RECRUITMENT FUNNEL (themes, fits in slide) ═════════ -->
-
-
-<!-- ═════════ SLIDE 8 — INVESTIGATORS (with headshots) ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -1426,11 +1308,10 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Investigators · across our therapeutic areas</span>
-    <span class="pageno">20</span>
+    <span class="pageno">14</span>
   </div>
 </section>
 
-<!-- ═════════ SLIDE 9 — OPERATIONS & COORDINATORS (with headshots) ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -1480,11 +1361,10 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Operations &amp; coordinators</span>
-    <span class="pageno">21</span>
+    <span class="pageno">15</span>
   </div>
 </section>
 
-<!-- ═════════ SLIDE 10 — FACILITIES (combined) ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -1531,12 +1411,18 @@
         </div>
         <div class="fac-sites">
           <div class="fac-site">
-            <strong>Philadelphia, PA</strong>
-            <span>9501 Roosevelt Blvd #208 · Class-A medical building, 24-hour urgent care on campus, SEPTA accessible</span>
+            <img src="./assets/photos/site-philadelphia.png" alt="CRP Philadelphia">
+            <div class="fac-site-body">
+              <strong>Philadelphia, PA</strong>
+              <span>9501 Roosevelt Blvd #208 &middot; Class-A medical building, 24-hour urgent care on campus, SEPTA accessible</span>
+            </div>
           </div>
           <div class="fac-site">
-            <strong>Pennington, NJ</strong>
-            <span>21 Route 31 North, Suite A8 · Off I-95 / US-1, suburban location, free parking</span>
+            <img src="./assets/photos/site-pennington.jpg" alt="CRP Pennington">
+            <div class="fac-site-body">
+              <strong>Pennington, NJ</strong>
+              <span>21 Route 31 North, Suite A8 &middot; Off I-95 / US-1, suburban location, free parking</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1544,11 +1430,10 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> PA + NJ · sponsor-ready, end-to-end</span>
-    <span class="pageno">22</span>
+    <span class="pageno">16</span>
   </div>
 </section>
 
-<!-- ═════════ SLIDE 11 — RISK / QUALITY / CAPACITY ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -1602,11 +1487,10 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Risk profile · what sponsors check first</span>
-    <span class="pageno">23</span>
+    <span class="pageno">17</span>
   </div>
 </section>
 
-<!-- ═════════ SLIDE 12 — DIVERSITY & ACCESS ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -1646,11 +1530,74 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Demographics · all participants, 2021 to date</span>
-    <span class="pageno">24</span>
+    <span class="pageno">18</span>
   </div>
 </section>
 
-<!-- ═════════ SLIDE 13 — TRACK RECORD (real logo wall + testimonials) ═════════ -->
+<section class="slide icn-sec" id="sec-record">
+  <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="snum">SECTION 04</div>
+  <h2>Track record</h2>
+  <div class="sdesc">Four sponsors place studies with us repeatedly. Lilly has placed fifteen. The medicines on the last slide of this section are ones our trials helped bring to market.</div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Section 04 · track record</span>
+    <span class="pageno">19</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Sponsor relationships</div>
+      <h2 class="slide-h2">Four sponsors place studies with us repeatedly, and Lilly has placed fifteen.</h2>
+      <p class="slide-lede">Strategic site relationships with Eli Lilly, Johnson &amp; Johnson, AbbVie and AstraZeneca, including AstraZeneca's PIC program.</p>
+    </div>
+    <div class="slide-body">
+      <div class="icn-spon">
+        <div class="icn-scard">
+          <div class="sn">Eli Lilly</div>
+          <div class="sr"><div><div class="sv">15</div><div class="sl">PROTOCOLS</div></div><div><div class="sv">80</div><div class="sl">RANDOMIZED</div></div></div>
+        </div>
+        <div class="icn-scard">
+          <div class="sn">AbbVie</div>
+          <div class="sr"><div><div class="sv">6</div><div class="sl">PROTOCOLS</div></div><div><div class="sv">25</div><div class="sl">RANDOMIZED</div></div></div>
+        </div>
+        <div class="icn-scard">
+          <div class="sn">Johnson &amp; Johnson</div>
+          <div class="sr"><div><div class="sv">6</div><div class="sl">PROTOCOLS</div></div><div><div class="sv">11</div><div class="sl">RANDOMIZED</div></div></div>
+        </div>
+        <div class="icn-scard">
+          <div class="sn">AstraZeneca</div>
+          <div class="sr"><div><div class="sv">3</div><div class="sl">PROTOCOLS</div></div><div><div class="sv">8</div><div class="sl">RANDOMIZED</div></div></div>
+        </div>
+      </div>
+      <div class="icn-two">
+        <div class="icn-panel">
+          <h4>What repeat placement tells you</h4>
+          <ul>
+            <li>These sponsors have monitored us, audited our source, and come back with the next protocol.</li>
+            <li>Lilly spans lipids, diabetes, obesity, MASH and Alzheimer's with us, which is the same span ICON would be placing.</li>
+            <li>We already work inside CRO-run studies, including ICON-monitored protocols, so the operating model is not new to us.</li>
+          </ul>
+        </div>
+        <div class="icn-panel">
+          <h4>Compliance position</h4>
+          <ul>
+            <li><b>Zero FDA Form 483s</b> across 30 years of continuous operation.</li>
+            <li><b>Standing IRB relationships</b> with Advarra, WCG and Sterling.</li>
+            <li><b>Budget and contracting in house</b>, which is why our contract turnaround does not wait on an external finance queue.</li>
+            <li><b>eSource throughout</b>, with source-to-EDC entry inside a day and queries cleared within the same business week.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Sponsors · protocols and randomized participants from our EDC</span>
+    <span class="pageno">20</span>
+  </div>
+</section>
+
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -1692,11 +1639,10 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Sponsors · what they say · what they advanced</span>
-    <span class="pageno">25</span>
+    <span class="pageno">21</span>
   </div>
 </section>
 
-<!-- ═════════ SLIDE 14 — TREATMENTS WE'VE HELPED ADVANCE ═════════ -->
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
@@ -1729,13 +1675,195 @@
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Approved treatments · trials we supported</span>
-    <span class="pageno">26</span>
+    <span class="pageno">22</span>
   </div>
 </section>
 
-<!-- ═════════ SLIDE 15 — CONTACT / NEXT STEP ═════════ -->
+<section class="slide icn-sec" id="sec-together">
+  <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
+  <div class="snum">SECTION 05</div>
+  <h2>Working together</h2>
+  <div class="sdesc">Two locations, one contracting entity, one system. What we are asking the program for, and what we can do in the next two weeks.</div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Section 05 · working together</span>
+    <span class="pageno">23</span>
+  </div>
+</section>
 
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">How we would operate inside the program</div>
+      <h2 class="slide-h2">Two locations, one operation — so you contract once and monitor one set of processes.</h2>
+      <p class="slide-lede">Philadelphia, PA and Pennington, NJ. Roughly 50 miles apart, drawing from separate catchments, run off a single system.</p>
+    </div>
+    <div class="slide-body">
+      <div class="icn-two" style="margin-bottom:20px;">
+        <div class="icn-panel">
+          <h4>What is shared across both sites</h4>
+          <ul>
+            <li><b>One contracting entity and one budget process.</b> A master agreement covers both sites; there is no second negotiation.</li>
+            <li><b>One EDC instance and one set of SOPs</b> maintained to ICH-GCP E6 (R3), so a monitor sees the same source structure at either address.</li>
+            <li><b>One coordinator queue and one investigator roster.</b> Seven investigators cover both sites; patients move between them when a protocol needs it.</li>
+            <li><b>One regulatory function</b> submitting to the same standing IRBs for both locations in parallel.</li>
+          </ul>
+        </div>
+        <div class="icn-panel dark">
+          <h4>What we are asking the program for</h4>
+          <ul>
+            <li><b>A master agreement executed up front</b>, so protocol-level start-up is a budget conversation and nothing else.</li>
+            <li><b>Metabolic placement now</b>, where our delivery record is established.</li>
+            <li><b>CNS placement in migraine and early Alzheimer's</b>, where we have the investigators, the pool and the sponsor history but need the volume.</li>
+            <li><b>A named contact on each side</b> and a quarterly review against agreed enrollment commitments.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="icn-note"><b>Capacity to take work now.</b> 24 protocols are currently enrolling across both sites, with coordinator rotation across studies and no site running at ceiling. Two sites operating in parallel means an ICON study can open at both addresses under a single activation.</div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> PA and NJ · one contracting entity, one system</span>
+    <span class="pageno">24</span>
+  </div>
+</section>
 
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Next steps</div>
+      <h2 class="slide-h2">Three things we can do in the next two weeks.</h2>
+      <p class="slide-lede">Whichever you want to start with, we can move this week.</p>
+    </div>
+    <div class="slide-body">
+      <div class="icn-ask">
+        <ol>
+          <li>
+            <div class="at">Send us your metabolic and CNS feasibility questionnaires</div>
+            <div class="ad">We return completed feasibility within 48 hours, including patient counts from our database against your inclusion and exclusion criteria rather than an estimate.</div>
+          </li>
+          <li>
+            <div class="at">Put a master agreement in front of our contracting team</div>
+            <div class="ad">Budget and contracting sit in house. We can redline and execute without waiting on an external finance queue.</div>
+          </li>
+          <li>
+            <div class="at">Book a site qualification visit at either address</div>
+            <div class="ad">Philadelphia and Pennington are both equipped for Phase II to IV, with on-site drug storage, monitored refrigeration and dedicated monitor workstations.</div>
+          </li>
+        </ol>
+      </div>
+      <div class="icn-note" style="margin-top:26px;"><b>Aneesh Vaze</b>, Managing Director · aneesh@phillyresearch.com · (215) 676-6696 · 9501 Roosevelt Blvd #208, Philadelphia PA 19114 · 21 Route 31 North, Suite A8, Pennington NJ 08534</div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Next steps · Clinical Research Philadelphia</span>
+    <span class="pageno">25</span>
+  </div>
+</section>
 </div>
+<style>
+  /* ═══ Interactive chrome — screen only, never printed ═══ */
+  .deck-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 18px; background: rgba(7,32,97,0.96);
+    backdrop-filter: blur(8px); box-shadow: 0 2px 14px rgba(0,0,0,0.22);
+  }
+  .deck-nav .brand { display: flex; align-items: center; gap: 9px; margin-right: 14px; }
+  .deck-nav .brand img { height: 20px; }
+  .deck-nav .brand span { color: #fff; font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; }
+  .deck-nav a {
+    color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px;
+    transition: background .15s, color .15s; white-space: nowrap;
+  }
+  .deck-nav a:hover { background: rgba(255,255,255,0.13); color: #fff; }
+  .deck-nav a.on { background: var(--crp-orange); color: #fff; }
+  .deck-nav .spacer { flex: 1; }
+  .deck-nav .count { color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.05em; }
+  .deck-nav .hint { color: rgba(255,255,255,0.45); font-size: 11px; margin-left: 14px; letter-spacing: 0.04em; }
+  .deck-prog { position: fixed; top: 0; left: 0; height: 3px; background: var(--crp-orange); z-index: 901; width: 0; transition: width .12s linear; }
+  /* The nav overlays rather than displaces, so print pagination is untouched.
+     scroll-margin keeps anchor jumps clear of the bar. */
+  .slide { scroll-margin-top: 74px; }
+  html { scroll-padding-top: 74px; }
+
+  /* The PDF is rendered from the print variant of this deck, which omits the
+     nav entirely — so nothing here has to survive pagination. */
+  @media print {
+    .deck-nav, .deck-prog { display: none !important; }
+    .icn-toc a { box-shadow: none; transform: none; }
+  }
+</style>
+
+<div class="deck-prog" id="deckProg"></div>
+<nav class="deck-nav" id="deckNav">
+  <span class="brand"><img src="./assets/logos/crp-white.svg" alt="CRP"><span>CRP &times; ICON</span></span>
+  <a href="#sec-case">The case</a>
+  <a href="#sec-ta">Therapeutic areas</a>
+  <a href="#sec-deliver">How we deliver</a>
+  <a href="#sec-record">Track record</a>
+  <a href="#sec-together">Working together</a>
+  <span class="spacer"></span>
+  <span class="count" id="deckCount">1 / 1</span>
+  <span class="hint">&larr; &rarr; to move</span>
+</nav>
+
+<script>
+(function () {
+  document.body.classList.add('has-nav');
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var links  = Array.prototype.slice.call(document.querySelectorAll('.deck-nav a'));
+  var countEl = document.getElementById('deckCount');
+  var progEl  = document.getElementById('deckProg');
+  if (!slides.length) return;
+
+  function currentIndex() {
+    var mid = window.innerHeight / 2, best = 0, bestD = Infinity;
+    slides.forEach(function (s, i) {
+      var r = s.getBoundingClientRect();
+      var d = Math.abs((r.top + r.height / 2) - mid);
+      if (d < bestD) { bestD = d; best = i; }
+    });
+    return best;
+  }
+
+  function sync() {
+    var i = currentIndex();
+    countEl.textContent = (i + 1) + ' / ' + slides.length;
+    progEl.style.width = ((i + 1) / slides.length * 100) + '%';
+    // Highlight the section whose divider most recently passed.
+    var activeId = null;
+    slides.slice(0, i + 1).forEach(function (s) { if (s.id) activeId = s.id; });
+    links.forEach(function (a) {
+      a.classList.toggle('on', activeId && a.getAttribute('href') === '#' + activeId);
+    });
+  }
+
+  function go(delta) {
+    var i = Math.min(slides.length - 1, Math.max(0, currentIndex() + delta));
+    slides[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(-1); }
+    else if (e.key === 'Home') { e.preventDefault(); slides[0].scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    else if (e.key === 'End') { e.preventDefault(); slides[slides.length - 1].scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+
+  var tick = false;
+  window.addEventListener('scroll', function () {
+    if (tick) return;
+    tick = true;
+    window.requestAnimationFrame(function () { sync(); tick = false; });
+  }, { passive: true });
+
+  sync();
+})();
+</script>
+
 </body>
 </html>
