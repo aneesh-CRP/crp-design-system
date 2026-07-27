@@ -16,6 +16,7 @@ exec_html = (DS / "executive-overview.html").read_text()
 icon_html = (SCRATCH / "icon_slides.html").read_text()
 sect_html = (SCRATCH / "icon_sections.html").read_text()
 extra     = (SCRATCH / "icon_extra.html").read_text()
+polish    = (SCRATCH / "icon_polish.html").read_text()
 
 # --- content guards on the exec deck -------------------------------------
 for probe, why in [
@@ -94,7 +95,8 @@ assert n[0] == len(ORDER), "renumbered %d of %d" % (n[0], len(ORDER))
 
 # Reuse the exec deck's <head> and styles, swap in our slide body.
 head, _, _ = exec_html.partition('<div class="deck">')
-styles = icon_html.split("</style>")[0] + "</style>\n" + sect_html.split("<!-- MARK:toc -->")[0]
+styles = (icon_html.split("</style>")[0] + "</style>\n"
+          + sect_html.split("<!-- MARK:toc -->")[0] + "\n" + polish)
 core = head + '<div class="deck">\n' + styles + "\n" + body + "\n</div>\n"
 core = core.replace(
     "<title>CRP — Executive Overview, July 2026</title>",

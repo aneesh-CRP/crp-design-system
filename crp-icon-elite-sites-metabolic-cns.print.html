@@ -852,6 +852,105 @@
 </style>
 
 
+<style>
+  /* ═══════════════════════════════════════════════════════════════════
+     UNIFIED LAYER — loaded last so it settles every surface in the deck.
+
+     Two rules run through all of it:
+       1. One card. Same 1px border, 12px radius, soft shadow, white fill.
+          Depth comes from the accent rule on top, never from the box.
+       2. Orange means a result WE delivered. Blue means structure — a
+          label, a category, an axis. Nothing is orange for rhythm.
+     ═══════════════════════════════════════════════════════════════════ */
+
+  /* ── 1. One card ───────────────────────────────────────────────────── */
+  .icn-chip, .icn-panel, .icn-exp, .icn-scard, .icn-person, .icn-cap, .icn-toc a {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: var(--shadow-sm);
+  }
+  .icn-chip, .icn-panel, .icn-exp, .icn-scard { padding: 20px 22px; }
+  .icn-person, .icn-cap { padding: 12px 15px; box-shadow: none; }
+
+  /* Accent discipline: a single blue hairline on top of every card. The
+     one exception is the metric chips, where orange marks the numbers that
+     are ours to claim. */
+  .icn-chip, .icn-panel, .icn-exp, .icn-scard, .icn-toc a {
+    border-top: 3px solid var(--crp-blue);
+  }
+  .icn-chip:nth-child(2n), .icn-toc a:nth-child(2n) { border-top-color: var(--crp-blue); }
+  .icn-chip:first-child { border-top-color: var(--crp-orange); }
+  .icn-cap { border-left: 3px solid var(--crp-blue); border-top: 1px solid var(--border); }
+  .icn-panel.dark { background: var(--crp-navy); border-color: var(--crp-navy); border-top-color: var(--crp-orange); }
+
+  /* ── 2. Bars ───────────────────────────────────────────────────────── */
+  .bar {
+    position: relative; height: 9px; border-radius: 999px;
+    background: var(--chart-grid); overflow: visible; min-width: 90px;
+  }
+  .bar.sm { height: 6px; min-width: 60px; }
+  .bar-fill {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    border-radius: 999px; background: var(--crp-orange);
+  }
+  .bar-fill.blue { background: var(--crp-blue); opacity: 0.55; }
+  /* The target line — everything to its right is delivery beyond commitment. */
+  .bar-target {
+    position: absolute; top: -4px; bottom: -4px; width: 2px;
+    background: var(--crp-navy); opacity: 0.55;
+  }
+  .bar-target:after {
+    content: "TARGET"; position: absolute; top: -13px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 7.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--fg-3); white-space: nowrap;
+  }
+  .icn-tbl tr:not(:first-child) .bar-target:after { content: none; }
+  .icn-tbl td.barcell { width: 210px; padding-right: 6px; vertical-align: middle; }
+  .icn-tbl td.barcell.tight { width: 92px; }
+  .icn-tbl td.pct { color: var(--crp-orange); }
+  .icn-tbl td.retcell { white-space: nowrap; vertical-align: middle; width: 132px; }
+  .icn-tbl td.retcell .bar { display: inline-block; width: 62px; min-width: 0; vertical-align: middle; }
+  .icn-tbl td.retcell .retnum {
+    display: inline-block; margin-left: 9px; font-weight: 700;
+    font-variant-numeric: tabular-nums; font-size: 13px; vertical-align: middle;
+  }
+
+  /* Sponsor cards become small bar charts rather than number pairs. */
+  .icn-scard { text-align: left; }
+  .icn-scard .sn { font-size: 15px; margin-bottom: 14px; }
+  .icn-scard .smetric { margin-bottom: 12px; }
+  .icn-scard .smetric:last-child { margin-bottom: 0; }
+  .icn-scard .sv {
+    font-size: 24px; font-weight: 800; color: var(--crp-navy);
+    line-height: 1; font-variant-numeric: tabular-nums;
+  }
+  .icn-scard .sl {
+    font-size: 10px; color: var(--fg-3); letter-spacing: 0.1em;
+    font-weight: 700; margin-left: 7px;
+  }
+  .icn-scard .bar { margin-top: 7px; }
+
+  /* ── 3. Type rhythm ────────────────────────────────────────────────── */
+  .icn-chip .t, .icn-panel h4, .icn-exp h4, .icn-cap li, .icn-person .pn { letter-spacing: 0; }
+  .icn-panel h4, .icn-exp h4 {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--crp-blue); font-weight: 700; margin: 0 0 13px;
+  }
+  .icn-panel.dark h4 { color: var(--crp-cyan); }
+  .icn-panel li, .icn-exp li, .icn-cap li { font-size: 13.5px; line-height: 1.45; }
+  .icn-panel li:before, .icn-cap li:before { background: var(--crp-blue); }
+  .icn-panel.dark li:before { background: var(--crp-orange); }
+
+  /* Funnel: the last step is the outcome, so it carries the accent. */
+  .icn-fstep .fp { color: var(--fg-3); }
+  .icn-fstep:last-child .fp { color: var(--crp-orange); }
+
+  /* Tables sit on the page, not in a box. */
+  .icn-exp .icn-tbl th { border-bottom-width: 1px; }
+</style>
+
 <section class="slide icn-cover">
   <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
   <div class="l">
@@ -965,14 +1064,14 @@
     <div class="slide-body">
       <table class="icn-tbl">
         <thead>
-          <tr><th>Study</th><th style="text-align:right">Target</th><th style="text-align:right">Actual</th><th style="text-align:right">Vs target</th><th style="text-align:right">Retention</th><th>Status</th></tr>
+          <tr><th>Study</th><th style="text-align:right">Target</th><th style="text-align:right">Actual</th><th>Versus target</th><th style="text-align:right">&nbsp;</th><th>Retention</th><th>Status</th></tr>
         </thead>
         <tbody>
-          <tr class="hi"><td class="lead">Lp(a) ASCVD outcomes</td><td class="dim" style="text-align:right">15</td><td class="num" style="text-align:right">52</td><td class="num" style="text-align:right;color:var(--crp-orange)">347%</td><td class="num" style="text-align:right">95%</td><td class="dim">Enrolling</td></tr>
-          <tr><td class="lead">ASCVD + CKD</td><td class="dim" style="text-align:right">7</td><td class="num" style="text-align:right">13</td><td class="num" style="text-align:right;color:var(--crp-orange)">186%</td><td class="num" style="text-align:right">85%</td><td class="dim">Enrolling</td></tr>
-          <tr><td class="lead">T2DM + CV risk</td><td class="dim" style="text-align:right">5</td><td class="num" style="text-align:right">9</td><td class="num" style="text-align:right;color:var(--crp-orange)">180%</td><td class="num" style="text-align:right">85%</td><td class="dim">Closed</td></tr>
-          <tr><td class="lead">T2DM — GLP first line</td><td class="dim" style="text-align:right">5</td><td class="num" style="text-align:right">7</td><td class="num" style="text-align:right;color:var(--crp-orange)">140%</td><td class="num" style="text-align:right">80%</td><td class="dim">Maintenance</td></tr>
-          <tr><td class="lead">T2DM — GLP vs insulin</td><td class="dim" style="text-align:right">5</td><td class="num" style="text-align:right">5</td><td class="num" style="text-align:right;color:var(--crp-orange)">100%</td><td class="num" style="text-align:right">70%</td><td class="dim">Maintenance</td></tr>
+          <tr class='hi'><td class="lead">Lp(a) ASCVD outcomes</td><td class="dim" style="text-align:right">15</td><td class="num" style="text-align:right">52</td><td class="barcell"><div class="bar"><div class="bar-fill" style="width:100.0%"></div><span class="bar-target" style="left:28.8%"></span></div></td><td class="num pct" style="text-align:right">347%</td><td class="retcell"><div class="bar sm"><div class="bar-fill blue" style="width:95%"></div></div><span class="retnum">95%</span></td><td class="dim">Enrolling</td></tr>
+          <tr><td class="lead">ASCVD + CKD</td><td class="dim" style="text-align:right">7</td><td class="num" style="text-align:right">13</td><td class="barcell"><div class="bar"><div class="bar-fill" style="width:53.6%"></div><span class="bar-target" style="left:28.8%"></span></div></td><td class="num pct" style="text-align:right">186%</td><td class="retcell"><div class="bar sm"><div class="bar-fill blue" style="width:85%"></div></div><span class="retnum">85%</span></td><td class="dim">Enrolling</td></tr>
+          <tr><td class="lead">T2DM + CV risk</td><td class="dim" style="text-align:right">5</td><td class="num" style="text-align:right">9</td><td class="barcell"><div class="bar"><div class="bar-fill" style="width:51.9%"></div><span class="bar-target" style="left:28.8%"></span></div></td><td class="num pct" style="text-align:right">180%</td><td class="retcell"><div class="bar sm"><div class="bar-fill blue" style="width:85%"></div></div><span class="retnum">85%</span></td><td class="dim">Closed</td></tr>
+          <tr><td class="lead">T2DM — GLP first line</td><td class="dim" style="text-align:right">5</td><td class="num" style="text-align:right">7</td><td class="barcell"><div class="bar"><div class="bar-fill" style="width:40.3%"></div><span class="bar-target" style="left:28.8%"></span></div></td><td class="num pct" style="text-align:right">140%</td><td class="retcell"><div class="bar sm"><div class="bar-fill blue" style="width:80%"></div></div><span class="retnum">80%</span></td><td class="dim">Maintenance</td></tr>
+          <tr><td class="lead">T2DM — GLP vs insulin</td><td class="dim" style="text-align:right">5</td><td class="num" style="text-align:right">5</td><td class="barcell"><div class="bar"><div class="bar-fill" style="width:28.8%"></div><span class="bar-target" style="left:28.8%"></span></div></td><td class="num pct" style="text-align:right">100%</td><td class="retcell"><div class="bar sm"><div class="bar-fill blue" style="width:70%"></div></div><span class="retnum">70%</span></td><td class="dim">Maintenance</td></tr>
         </tbody>
       </table>
       <div class="icn-team" style="grid-template-columns:repeat(4,1fr);max-width:1120px;margin:16px auto 0;width:100%;">
@@ -1061,20 +1160,20 @@
           <h4>Migraine and Alzheimer's protocols at our sites</h4>
           <table class="icn-tbl" style="font-size:13px;">
             <tbody>
-              <tr class="hi"><td class="lead">Biohaven &mdash; episodic migraine</td><td class="num" style="text-align:right">8</td><td class="dim" style="text-align:right">1,304</td><td class="dim">Closed</td></tr>
-              <tr class="hi"><td class="lead">AbbVie &mdash; menstrual migraine</td><td class="num" style="text-align:right">7</td><td class="dim" style="text-align:right">486</td><td class="dim">Enrolling</td></tr>
-              <tr><td class="lead">Lilly &mdash; Alzheimer's disease</td><td class="num" style="text-align:right">6</td><td class="dim" style="text-align:right">494</td><td class="dim">Closed</td></tr>
-              <tr><td class="lead">Acute migraine</td><td class="num" style="text-align:right">2</td><td class="dim" style="text-align:right">284</td><td class="dim">Enrolling</td></tr>
-              <tr><td class="lead">Biohaven &mdash; migraine prevention</td><td class="num" style="text-align:right">1</td><td class="dim" style="text-align:right">1,141</td><td class="dim">Closed</td></tr>
-              <tr><td class="lead">Pfizer &mdash; menstrual migraine</td><td class="num" style="text-align:right">0</td><td class="dim" style="text-align:right">235</td><td class="dim">Enrolling</td></tr>
-              <tr><td class="lead">Migraine, pivotal</td><td class="num" style="text-align:right">0</td><td class="dim" style="text-align:right">107</td><td class="dim">Enrolling</td></tr>
-              <tr><td class="lead">Axsome &mdash; migraine</td><td class="num" style="text-align:right">0</td><td class="dim" style="text-align:right">1,044</td><td class="dim">Closed</td></tr>
+              <tr class='hi'><td class="lead">Biohaven &mdash; episodic migraine</td><td class="num" style="text-align:right">8</td><td class="barcell tight"><div class="bar sm"><div class="bar-fill" style="width:100%"></div></div></td><td class="dim" style="text-align:right">1,304</td><td class="dim">Closed</td></tr>
+              <tr class='hi'><td class="lead">AbbVie &mdash; menstrual migraine</td><td class="num" style="text-align:right">7</td><td class="barcell tight"><div class="bar sm"><div class="bar-fill" style="width:88%"></div></div></td><td class="dim" style="text-align:right">486</td><td class="dim">Enrolling</td></tr>
+              <tr><td class="lead">Lilly &mdash; Alzheimer's disease</td><td class="num" style="text-align:right">6</td><td class="barcell tight"><div class="bar sm"><div class="bar-fill" style="width:75%"></div></div></td><td class="dim" style="text-align:right">494</td><td class="dim">Closed</td></tr>
+              <tr><td class="lead">Acute migraine</td><td class="num" style="text-align:right">2</td><td class="barcell tight"><div class="bar sm"><div class="bar-fill" style="width:25%"></div></div></td><td class="dim" style="text-align:right">284</td><td class="dim">Enrolling</td></tr>
+              <tr><td class="lead">Biohaven &mdash; migraine prevention</td><td class="num" style="text-align:right">1</td><td class="barcell tight"><div class="bar sm"><div class="bar-fill" style="width:12%"></div></div></td><td class="dim" style="text-align:right">1,141</td><td class="dim">Closed</td></tr>
+              <tr><td class="lead">Pfizer &mdash; menstrual migraine</td><td class="num" style="text-align:right">0</td><td class="barcell tight"><div class="bar sm"></div></td><td class="dim" style="text-align:right">235</td><td class="dim">Enrolling</td></tr>
+              <tr><td class="lead">Migraine, pivotal</td><td class="num" style="text-align:right">0</td><td class="barcell tight"><div class="bar sm"></div></td><td class="dim" style="text-align:right">107</td><td class="dim">Enrolling</td></tr>
+              <tr><td class="lead">Axsome &mdash; migraine</td><td class="num" style="text-align:right">0</td><td class="barcell tight"><div class="bar sm"></div></td><td class="dim" style="text-align:right">1,044</td><td class="dim">Closed</td></tr>
             </tbody>
           </table>
           <div style="font-size:11.5px;color:var(--fg-2);margin-top:9px;letter-spacing:0.04em;">RANDOMIZED &middot; PATIENTS WORKED &middot; STATUS</div>
         </div>
       </div>
-      <div class="icn-note"><b>Read this straight.</b> 24 randomized across CNS against 92 in metabolic, on roughly 5,000 patients worked. Four of the eight are open now. This is where ICON allocation would move our numbers fastest.</div>
+      <div class="icn-note"><b>Read this straight.</b> 24 randomized across CNS against 92 in metabolic. Four of the eight are open now — this is where ICON allocation moves our numbers fastest.</div>
     </div>
   </div>
   <div class="footer">
@@ -1556,19 +1655,31 @@
       <div class="icn-spon">
         <div class="icn-scard">
           <div class="sn">Eli Lilly</div>
-          <div class="sr"><div><div class="sv">15</div><div class="sl">PROTOCOLS</div></div><div><div class="sv">80</div><div class="sl">RANDOMIZED</div></div></div>
+          <div class="smetric"><span class="sv">15</span><span class="sl">PROTOCOLS</span>
+            <div class="bar sm"><div class="bar-fill blue" style="width:100%"></div></div></div>
+          <div class="smetric"><span class="sv">80</span><span class="sl">RANDOMIZED</span>
+            <div class="bar sm"><div class="bar-fill" style="width:100%"></div></div></div>
         </div>
         <div class="icn-scard">
           <div class="sn">AbbVie</div>
-          <div class="sr"><div><div class="sv">6</div><div class="sl">PROTOCOLS</div></div><div><div class="sv">25</div><div class="sl">RANDOMIZED</div></div></div>
+          <div class="smetric"><span class="sv">6</span><span class="sl">PROTOCOLS</span>
+            <div class="bar sm"><div class="bar-fill blue" style="width:40%"></div></div></div>
+          <div class="smetric"><span class="sv">25</span><span class="sl">RANDOMIZED</span>
+            <div class="bar sm"><div class="bar-fill" style="width:31%"></div></div></div>
         </div>
         <div class="icn-scard">
           <div class="sn">Johnson &amp; Johnson</div>
-          <div class="sr"><div><div class="sv">6</div><div class="sl">PROTOCOLS</div></div><div><div class="sv">11</div><div class="sl">RANDOMIZED</div></div></div>
+          <div class="smetric"><span class="sv">6</span><span class="sl">PROTOCOLS</span>
+            <div class="bar sm"><div class="bar-fill blue" style="width:40%"></div></div></div>
+          <div class="smetric"><span class="sv">11</span><span class="sl">RANDOMIZED</span>
+            <div class="bar sm"><div class="bar-fill" style="width:14%"></div></div></div>
         </div>
         <div class="icn-scard">
           <div class="sn">AstraZeneca</div>
-          <div class="sr"><div><div class="sv">3</div><div class="sl">PROTOCOLS</div></div><div><div class="sv">8</div><div class="sl">RANDOMIZED</div></div></div>
+          <div class="smetric"><span class="sv">3</span><span class="sl">PROTOCOLS</span>
+            <div class="bar sm"><div class="bar-fill blue" style="width:20%"></div></div></div>
+          <div class="smetric"><span class="sv">8</span><span class="sl">RANDOMIZED</span>
+            <div class="bar sm"><div class="bar-fill" style="width:10%"></div></div></div>
         </div>
       </div>
       <div class="icn-two">

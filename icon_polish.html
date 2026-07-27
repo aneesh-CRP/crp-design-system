@@ -1,0 +1,98 @@
+<style>
+  /* ═══════════════════════════════════════════════════════════════════
+     UNIFIED LAYER — loaded last so it settles every surface in the deck.
+
+     Two rules run through all of it:
+       1. One card. Same 1px border, 12px radius, soft shadow, white fill.
+          Depth comes from the accent rule on top, never from the box.
+       2. Orange means a result WE delivered. Blue means structure — a
+          label, a category, an axis. Nothing is orange for rhythm.
+     ═══════════════════════════════════════════════════════════════════ */
+
+  /* ── 1. One card ───────────────────────────────────────────────────── */
+  .icn-chip, .icn-panel, .icn-exp, .icn-scard, .icn-person, .icn-cap, .icn-toc a {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: var(--shadow-sm);
+  }
+  .icn-chip, .icn-panel, .icn-exp, .icn-scard { padding: 20px 22px; }
+  .icn-person, .icn-cap { padding: 12px 15px; box-shadow: none; }
+
+  /* Accent discipline: a single blue hairline on top of every card. The
+     one exception is the metric chips, where orange marks the numbers that
+     are ours to claim. */
+  .icn-chip, .icn-panel, .icn-exp, .icn-scard, .icn-toc a {
+    border-top: 3px solid var(--crp-blue);
+  }
+  .icn-chip:nth-child(2n), .icn-toc a:nth-child(2n) { border-top-color: var(--crp-blue); }
+  .icn-chip:first-child { border-top-color: var(--crp-orange); }
+  .icn-cap { border-left: 3px solid var(--crp-blue); border-top: 1px solid var(--border); }
+  .icn-panel.dark { background: var(--crp-navy); border-color: var(--crp-navy); border-top-color: var(--crp-orange); }
+
+  /* ── 2. Bars ───────────────────────────────────────────────────────── */
+  .bar {
+    position: relative; height: 9px; border-radius: 999px;
+    background: var(--chart-grid); overflow: visible; min-width: 90px;
+  }
+  .bar.sm { height: 6px; min-width: 60px; }
+  .bar-fill {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    border-radius: 999px; background: var(--crp-orange);
+  }
+  .bar-fill.blue { background: var(--crp-blue); opacity: 0.55; }
+  /* The target line — everything to its right is delivery beyond commitment. */
+  .bar-target {
+    position: absolute; top: -4px; bottom: -4px; width: 2px;
+    background: var(--crp-navy); opacity: 0.55;
+  }
+  .bar-target:after {
+    content: "TARGET"; position: absolute; top: -13px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 7.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--fg-3); white-space: nowrap;
+  }
+  .icn-tbl tr:not(:first-child) .bar-target:after { content: none; }
+  .icn-tbl td.barcell { width: 210px; padding-right: 6px; vertical-align: middle; }
+  .icn-tbl td.barcell.tight { width: 92px; }
+  .icn-tbl td.pct { color: var(--crp-orange); }
+  .icn-tbl td.retcell { white-space: nowrap; vertical-align: middle; width: 132px; }
+  .icn-tbl td.retcell .bar { display: inline-block; width: 62px; min-width: 0; vertical-align: middle; }
+  .icn-tbl td.retcell .retnum {
+    display: inline-block; margin-left: 9px; font-weight: 700;
+    font-variant-numeric: tabular-nums; font-size: 13px; vertical-align: middle;
+  }
+
+  /* Sponsor cards become small bar charts rather than number pairs. */
+  .icn-scard { text-align: left; }
+  .icn-scard .sn { font-size: 15px; margin-bottom: 14px; }
+  .icn-scard .smetric { margin-bottom: 12px; }
+  .icn-scard .smetric:last-child { margin-bottom: 0; }
+  .icn-scard .sv {
+    font-size: 24px; font-weight: 800; color: var(--crp-navy);
+    line-height: 1; font-variant-numeric: tabular-nums;
+  }
+  .icn-scard .sl {
+    font-size: 10px; color: var(--fg-3); letter-spacing: 0.1em;
+    font-weight: 700; margin-left: 7px;
+  }
+  .icn-scard .bar { margin-top: 7px; }
+
+  /* ── 3. Type rhythm ────────────────────────────────────────────────── */
+  .icn-chip .t, .icn-panel h4, .icn-exp h4, .icn-cap li, .icn-person .pn { letter-spacing: 0; }
+  .icn-panel h4, .icn-exp h4 {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--crp-blue); font-weight: 700; margin: 0 0 13px;
+  }
+  .icn-panel.dark h4 { color: var(--crp-cyan); }
+  .icn-panel li, .icn-exp li, .icn-cap li { font-size: 13.5px; line-height: 1.45; }
+  .icn-panel li:before, .icn-cap li:before { background: var(--crp-blue); }
+  .icn-panel.dark li:before { background: var(--crp-orange); }
+
+  /* Funnel: the last step is the outcome, so it carries the accent. */
+  .icn-fstep .fp { color: var(--fg-3); }
+  .icn-fstep:last-child .fp { color: var(--crp-orange); }
+
+  /* Tables sit on the page, not in a box. */
+  .icn-exp .icn-tbl th { border-bottom-width: 1px; }
+</style>
