@@ -200,9 +200,12 @@
     background: var(--gradient-navy-blue);
     color: var(--crp-white);
     border-radius: var(--radius-xl);
-    padding: 28px 30px 26px;
+    padding: 28px 34px;
     box-shadow: var(--shadow-lg);
     position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
   }
   .hero-stat .quat-bg {
     position: absolute; right: -60px; bottom: -80px; width: 240px; height: 240px;
@@ -213,10 +216,11 @@
     letter-spacing: -0.03em;
   }
   .hero-stat .num .pct { font-size: 56px; color: var(--crp-cyan); margin-left: 4px; vertical-align: top; }
-  .hero-stat .label { font-size: 17px; line-height: 1.4; margin-top: 14px; max-width: 380px; opacity: 0.95; }
+  .hero-stat .label { font-size: 17px; line-height: 1.4; margin-top: 14px; max-width: 360px; opacity: 0.95; }
   .hero-stat .bench {
-    margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.18);
-    font-size: 14.5px; color: rgba(255,255,255,0.85);
+    margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.18);
+    font-size: 15px; line-height: 1.45; color: rgba(255,255,255,0.85);
+    max-width: 360px;
   }
   .hero-stat .bench strong { color: var(--crp-cyan); font-weight: 700; }
 
@@ -422,6 +426,9 @@
 
   /* ═══ SLIDE — team (with headshots) ═══ */
   .ppl-grid { display: grid; gap: 18px; max-width: 1120px; margin: 0 auto; width: 100%; }
+  /* Ops slide carries an extra team-aggregate strip — tighten the cards to fit. */
+  .ops-people .ppl-card { padding: 12px 14px 10px; }
+  .ops-people .ppl-card .head { width: 66px; height: 66px; margin-bottom: 8px; }
   .ppl-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
   .ppl-grid.cols-5 { grid-template-columns: repeat(5, 1fr); gap: 14px; }
   /* 4-column grid where row 2 has only 3 cards: offset to columns 2-4 so widths match row 1 */
@@ -1133,7 +1140,7 @@
     <div class="slide-head">
       <div class="slide-eyebrow">Executive snapshot</div>
       <h2 class="slide-h2">Thirty years of clinical research in Greater Philadelphia.</h2>
-      <p class="slide-lede">Two sites, more than 500 trials, and a referral network of 191 practices feeding one patient database.</p>
+      <p class="slide-lede">Two sites, more than 500 trials, and a referral network of 191 practices covering 1.5 million patients.</p>
     </div>
     <div class="slide-body">
       <div class="stat-row stat-row-8">
@@ -1146,8 +1153,8 @@
           <div class="label">Clinical trials across diverse therapeutic areas</div>
         </div>
         <div class="stat">
-          <div class="num">37<span class="unit">k</span></div>
-          <div class="label">Patients in our own research database</div>
+          <div class="num">1.5<span class="unit">M</span></div>
+          <div class="label">Patients across our referring provider panels</div>
         </div>
         <div class="stat">
           <div class="num">191</div>
@@ -1166,7 +1173,7 @@
           <div class="label">Participants from racially diverse backgrounds</div>
         </div>
         <div class="stat">
-          <div class="num">7</div>
+          <div class="num">8</div>
           <div class="label">Investigators across our therapeutic areas</div>
         </div>
       </div>
@@ -1227,7 +1234,7 @@
             <div class="v">1</div>
             <div class="t">
               <div class="ttl">Day average EDC data entry</div>
-              <div class="desc">CRIO source-to-EDC — no double entry.</div>
+              <div class="desc">CRIO source-to-EDC.</div>
             </div>
           </div>
         </div>
@@ -1260,16 +1267,16 @@
         <div class="pillar">
           <div class="pillar-eyebrow">Team</div>
           <h3>Two hundred years of combined experience under one roof.</h3>
-          <div class="pillar-stat">7</div>
+          <div class="pillar-stat">8</div>
           <div class="pillar-stat-label">Investigators on staff</div>
-          <p>Investigators across cardiology, endocrinology, derm, rheum, internal medicine, and OB/GYN. Coordinators average eight years on platform — studies see the same staff visit-to-visit.</p>
+          <p>Investigators across cardiology, endocrinology, hepatology, derm, rheum, internal medicine, and OB/GYN. Coordinators average eight years on platform — studies see the same staff visit-to-visit.</p>
         </div>
         <div class="pillar">
           <div class="pillar-eyebrow">Start-up speed</div>
           <h3>Built to mobilize the moment we are selected.</h3>
           <div class="pillar-stat">21<span class="unit">days</span></div>
           <div class="pillar-stat-label">Start-up · first patient screened &lt;7 days after greenlight</div>
-          <p>Parallel regulatory and recruitment workflows, two facilities ready to run, and a provider partnership network we pulse the day a study opens.</p>
+          <p>Parallel regulatory and recruitment workflows, two facilities ready to run, and a provider partnership network we pulse the day the site is selected.</p>
         </div>
       </div>
     </div>
@@ -1339,43 +1346,43 @@
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
-      <div class="slide-eyebrow">The tech moat</div>
-      <h2 class="slide-h2">We built our own data layer on top of CRIO.</h2>
-      <p class="slide-lede">CRIO is the source of truth. Everything else is automation we built to compress cycle times and surface risk in real time.</p>
+      <div class="slide-eyebrow">What our technology gets you</div>
+      <h2 class="slide-h2">Our data layer exists to save your team work, not to impress you.</h2>
+      <p class="slide-lede">CRIO is our source of truth. Everything we built on top of it earns its place by removing a task from a monitor, a coordinator, or a study manager.</p>
     </div>
     <div class="slide-body">
       <div class="stack" style="max-width:1120px;margin:0 auto;width:100%;">
         <div class="stack-node">
-          <div class="stack-eyebrow">Source of truth</div>
-          <h4>CRIO</h4>
-          <p>eSource CTMS. Every visit, query, status change, and document lives here.</p>
+          <div class="stack-eyebrow">For your monitors</div>
+          <h4>Nothing to chase</h4>
+          <p>Source is entered the day of the visit and queries clear within the business week, so monitoring visits review data instead of waiting on it.</p>
         </div>
         <div class="stack-node">
-          <div class="stack-eyebrow">Warehouse</div>
-          <h4>BigQuery</h4>
-          <p>All CRIO tables synced. Joined with ClickUp, finance, and our lead CRM for live operational queries.</p>
+          <div class="stack-eyebrow">For your study manager</div>
+          <h4>Answers the same day</h4>
+          <p>Enrollment, screen-fail reasons and visit compliance are queryable on demand, so a status request does not become a week of email.</p>
         </div>
         <div class="stack-node">
-          <div class="stack-eyebrow">Automation</div>
-          <h4>Agents</h4>
-          <p>Reconcile leads, sync medical records, compose sponsor chase emails, watch for scheduling gaps.</p>
+          <div class="stack-eyebrow">For your enrollment</div>
+          <h4>A candidate list on day one</h4>
+          <p>Every open protocol is scored against our whole patient database, so recruitment starts with named candidates rather than an advertising spend.</p>
         </div>
         <div class="stack-node">
-          <div class="stack-eyebrow">Last mile</div>
-          <h4>Dashboard + HIE</h4>
-          <p>Live ops dashboard for the team. HSX and NJHIN integration for clinical record retrieval.</p>
+          <div class="stack-eyebrow">For your risk</div>
+          <h4>Problems surface early</h4>
+          <p>Missed visits, drifting screen-fail rates and lapsing documents raise a flag while they are still fixable, not at the next monitoring visit.</p>
         </div>
       </div>
       <div class="stack-row" style="max-width:1120px;margin:24px auto 0;width:100%;">
-        <div class="row-cell"><div class="row-h">Reach</div><div class="row-d">Patient records reachable across partner EMRs</div></div>
-        <div class="row-cell"><div class="row-h">Re-engagement</div><div class="row-d">Cross-study matching surfaces prior I/E-cleared candidates</div></div>
-        <div class="row-cell"><div class="row-h">QA agent</div><div class="row-d">Every outbound comm reviewed before send</div></div>
-        <div class="row-cell"><div class="row-h">Audit</div><div class="row-d">Per-action audit log, BAA-ready, HIPAA-grade</div></div>
+        <div class="row-cell"><div class="row-h">Fewer queries</div><div class="row-d">Source-to-EDC same day, so fewer discrepancies reach you</div></div>
+        <div class="row-cell"><div class="row-h">Faster re-screening</div><div class="row-d">Prior I/E results carry forward instead of re-working a patient</div></div>
+        <div class="row-cell"><div class="row-h">Clean patient contact</div><div class="row-d">Every outbound message reviewed before it is sent</div></div>
+        <div class="row-cell"><div class="row-h">Audit-ready</div><div class="row-d">Per-action audit log, BAA-ready, HIPAA-grade</div></div>
       </div>
     </div>
   </div>
   <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> CRIO · BigQuery · Agents · Dashboard</span>
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Technology · what it removes from your workload</span>
     <span class="pageno">15</span>
   </div>
 </section>
@@ -1394,14 +1401,14 @@
           <div class="fnum">191</div>
           <div class="fbody">
             <div class="ftitle">Referring practices, 892 named providers</div>
-            <div class="fdesc">Cardiology, endocrinology, primary care, dermatology. Direct EMR access at most.</div>
+            <div class="fdesc">Cardiology, endocrinology, primary care, neurology, dermatology. Direct EMR access at most.</div>
           </div>
         </div>
         <div class="funnel-step">
-          <div class="fnum">37<span class="unit">k</span></div>
+          <div class="fnum">1.5<span class="unit">M</span></div>
           <div class="fbody">
-            <div class="ftitle">Patients in our research database</div>
-            <div class="fdesc">Screened against every open protocol by an eligibility engine. Candidate lists per protocol within a day of greenlight.</div>
+            <div class="ftitle">Patients across those provider panels</div>
+            <div class="fdesc">Diagnosis-driven candidate lists per protocol, generated within a day of selection. 37,000 of them are already in our own database.</div>
           </div>
         </div>
         <div class="funnel-step">
@@ -1432,7 +1439,7 @@
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Investigators</div>
-      <h2 class="slide-h2">Seven investigators cover our therapeutic areas.</h2>
+      <h2 class="slide-h2">Eight investigators cover our therapeutic areas.</h2>
       <p class="slide-lede">Combined 200+ years of clinical research experience. Most have been with CRP for over a decade.</p>
     </div>
     <div class="slide-body">
@@ -1442,7 +1449,8 @@
         <div class="ppl-card"><div class="head"><img src="./assets/team/dr-heether.png" alt="Joseph Heether"></div><div class="name">Joseph Heether, MD</div><div class="role">Investigator</div><div class="specialty">Cardiothoracic</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/dr-shaffer.png" alt="Brian Shaffer"></div><div class="name">Brian Shaffer, MD</div><div class="role">Investigator</div><div class="specialty">Internal Medicine</div></div>
       </div>
-      <div class="ppl-grid cols-4-3" style="margin-top:18px;">
+      <div class="ppl-grid cols-4" style="margin-top:18px;">
+        <div class="ppl-card"><div class="head"><img src="./assets/team/dr-rustgi.jpg" alt="Vinod Rustgi"></div><div class="name">Vinod Rustgi, MD, MBA</div><div class="role">Investigator</div><div class="specialty">Hepatology / Liver</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/dr-modarressi.png" alt="Taher Modarressi"></div><div class="name">Taher Modarressi, MD</div><div class="role">Investigator</div><div class="specialty">Endo / Lipidology</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/dr-tomeo.jpg" alt="Michael Tomeo"></div><div class="name">Michael Tomeo, MD</div><div class="role">Investigator</div><div class="specialty">Dermatology</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/dr-leventhal.png" alt="Lawrence Leventhal"></div><div class="name">Lawrence Leventhal, MD</div><div class="role">Investigator</div><div class="specialty">Rheumatology</div></div>
@@ -1463,7 +1471,7 @@
       <h2 class="slide-h2">Coordinators who average eight years on platform.</h2>
       <p class="slide-lede">Continuity of staff across visits — your study sees the same faces from screening to closeout.</p>
     </div>
-    <div class="slide-body">
+    <div class="slide-body ops-people">
       <div class="ppl-grid cols-4">
         <div class="ppl-card"><div class="head"><img src="./assets/team/liz.png" alt="Liz Usmiani"></div><div class="name">Liz Usmiani</div><div class="role">Recruitment &amp; Ops Lead</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/leticia.png" alt="Leticia Denato"></div><div class="name">Leticia Denato, MPH</div><div class="role">Operations Manager</div></div>
@@ -1474,7 +1482,24 @@
         <div class="ppl-card"><div class="head"><img src="./assets/team/cady.jpg" alt="Cady Chilensky"></div><div class="name">Cady Chilensky</div><div class="role">Coordinator</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/angelina.jpg" alt="Angelina McMullen"></div><div class="name">Angelina McMullen</div><div class="role">Coordinator</div></div>
       </div>
-      <p style="text-align:center;font-size:14px;color:var(--crp-navy);opacity:0.85;margin-top:22px;">Plus six recruiters, eight regulatory specialists, two phlebotomy and lab staff, one quality assurance lead.</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1120px;margin:16px auto 0;width:100%;">
+        <div style="border:1px solid var(--border);border-top:3px solid var(--crp-blue);border-radius:10px;padding:12px 16px;background:#fff;display:flex;align-items:baseline;gap:10px;">
+          <div style="font-size:26px;font-weight:800;color:var(--crp-navy);line-height:1;">5</div>
+          <div><div style="font-size:13.5px;font-weight:700;color:var(--crp-navy);">Recruiters</div><div style="font-size:12px;color:var(--fg-2);margin-top:2px;">Provider network and re-engagement</div></div>
+        </div>
+        <div style="border:1px solid var(--border);border-top:3px solid var(--crp-orange);border-radius:10px;padding:12px 16px;background:#fff;display:flex;align-items:baseline;gap:10px;">
+          <div style="font-size:26px;font-weight:800;color:var(--crp-navy);line-height:1;">8</div>
+          <div><div style="font-size:13.5px;font-weight:700;color:var(--crp-navy);">Regulatory</div><div style="font-size:12px;color:var(--fg-2);margin-top:2px;">Both sites submitted in parallel</div></div>
+        </div>
+        <div style="border:1px solid var(--border);border-top:3px solid var(--crp-blue);border-radius:10px;padding:12px 16px;background:#fff;display:flex;align-items:baseline;gap:10px;">
+          <div style="font-size:26px;font-weight:800;color:var(--crp-navy);line-height:1;">3</div>
+          <div><div style="font-size:13.5px;font-weight:700;color:var(--crp-navy);">Lab &amp; quality</div><div style="font-size:12px;color:var(--fg-2);margin-top:2px;">Two phlebotomy, one QA lead</div></div>
+        </div>
+        <div style="border:1px solid var(--border);border-top:3px solid var(--crp-orange);border-radius:10px;padding:12px 16px;background:#fff;display:flex;align-items:baseline;gap:10px;">
+          <div style="font-size:19px;font-weight:800;color:var(--crp-navy);line-height:1.1;">In&nbsp;house</div>
+          <div><div style="font-size:13.5px;font-weight:700;color:var(--crp-navy);">Finance &amp; contracting</div><div style="font-size:12px;color:var(--fg-2);margin-top:2px;">No external finance queue</div></div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="footer">
