@@ -36,3 +36,24 @@ Renders each PDF page at 150 dpi and places it full-bleed on a 13.333×7.5in
 slide, with the slide's title in the notes so the outline pane is usable.
 Text is not editable — the trade is that it looks identical everywhere with
 no font dependency. Run it after the PDF is rebuilt.
+
+## PowerPoint (editable)
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install python-pptx   # once
+.venv/bin/python make-pptx.py
+```
+
+Emits real shapes and text — editable in PowerPoint and Keynote. Content lives
+in `make-pptx.py`; `pptx_kit.py` holds the layout vocabulary (head, card, stat,
+bar, bullets, panels, section cover).
+
+Set in Arial rather than Area Normal: the brand face is licensed and will not
+be on a recipient's machine, and a missing font reflows a text-native deck into
+something unrecognisable.
+
+The sponsor logo wall is one pre-rendered PNG (`assets/sponsors/_wall.png`)
+because SVG will not embed in PowerPoint. Regenerate it by screenshotting a
+grid of the SVGs at 1832x460.
+
+Verify with: `soffice --headless --convert-to pdf <file>.pptx`
