@@ -6,25 +6,30 @@ sidebar and no way to jump between sections. This walks the built HTML for the
 section dividers, works out their page numbers, and writes a two-level outline:
 each section, with its slides nested underneath.
 """
-import pathlib, re, sys
+import html, pathlib, re, sys
 from pypdf import PdfReader, PdfWriter
 
 DS  = pathlib.Path.home() / "crp-design-system"
 SRC = DS / "crp-icon-elite-sites-metabolic-neurology.print.html"
 PDF = pathlib.Path.home() / "CRP-ICON-Elite-Sites-Metabolic-Neurology.pdf"
 
-html = SRC.read_text()
-sections = re.findall(r'<section class="slide.*?</section>', html, re.S)
+doc = SRC.read_text()          # not "html" — that shadows the stdlib module
+sections = re.findall(r'<section class="slide.*?</section>', doc, re.S)
+
+def clean(frag):
+    """Bookmarks are plain text, so entities must be decoded, not stripped."""
+    return re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', '', frag))).strip()
+
 
 def title_of(sec):
     if 'icn-sec' in sec:
-        return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', re.search(r'<h2>(.*?)</h2>', sec, re.S).group(1))).strip()
+        return clean(re.search(r'<h2>(.*?)</h2>', sec, re.S).group(1))
     if 'icn-cover' in sec:
         return "Cover"
     h = re.search(r'<h[12][^>]*>(.*?)</h[12]>', sec, re.S)
     if not h:
         return "Slide"
-    t = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', h.group(1))).strip()
+    t = clean(h.group(1))
     return (t[:68] + "…") if len(t) > 69 else t
 
 reader = PdfReader(str(PDF))
