@@ -307,8 +307,8 @@ slide_list("Dermatology and rheumatology",
 
 # §4 how we deliver
 cover(3)
-slide_stats("Recruitment", "191 provider partnerships put patients in front of us before recruitment starts.", None,
-  [("191", "referring practices and 892 named providers across PA and NJ"),
+slide_stats("Recruitment", "215 provider partnerships put patients in front of us before recruitment starts.", None,
+  [("215", "referring practices and 903 named providers across PA and NJ"),
    ("1.5M", "patients in those provider panels"),
    ("37k", "patients in our own database, re-screened against every protocol")],
   "Referring physicians send us diagnosed patients directly, and the network does not reset when a study closes — so the second protocol in an area enrolls faster than the first.", size=44)
@@ -375,10 +375,10 @@ slide_panels("Facilities", "Both sites are equipped for Phase II to IV, so a pro
 # §5 track record
 cover(4)
 slide_stats("Executive snapshot", "Thirty years in the same two communities is what built the referral network.",
-  "Two sites, more than 500 trials, and a referral network of 191 practices covering 1.5 million patients.",
+  "Two sites, more than 500 trials, and a referral network of 215 practices covering 1.5 million patients.",
   [("30", "years continuously operating since 1996"),
    ("500+", "clinical trials across diverse therapeutic areas"),
-   ("191", "referring practices and 892 named providers across PA and NJ"),
+   ("215", "referring practices and 903 named providers across PA and NJ"),
    ("200+", "years of combined research experience on team")],
   None, size=38)
 slide_people("Investigators",

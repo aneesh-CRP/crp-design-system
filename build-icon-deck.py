@@ -10,8 +10,9 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from icon_nav import nav_bar, SECTIONS
 
 DS = pathlib.Path.home() / "crp-design-system"
-SCRATCH = pathlib.Path(
-    "/private/tmp/claude-501/-Users-aneeshvaze/87a944af-9de1-4676-a628-87aed6874952/scratchpad")
+# The slide fragments were authored in a session scratchpad and later committed
+# here; a scratchpad is deleted with its session, so read them from the repo.
+SCRATCH = DS
 
 exec_html = (DS / "executive-overview.html").read_text()
 icon_html = (SCRATCH / "icon_slides.html").read_text()
@@ -60,7 +61,7 @@ ORDER = [
 
     # ── why it repeats ──────────────────────────────────────────────────
     ("hub",  'id="sec-deliver"',                   "sec-deliver"),
-    ("icon", "191 provider partnerships put",       "sec-deliver"),
+    ("icon", "215 provider partnerships put",       "sec-deliver"),
     ("exec", ">Diversity in enrollment<",          "sec-deliver"),
     ("exec", ">Performance proof<",                "sec-deliver"),
     ("exec", ">What our technology gets you<",     "sec-deliver"),
