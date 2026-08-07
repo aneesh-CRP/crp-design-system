@@ -185,7 +185,7 @@ def cta_slide(h2, lede, need, give, cta_t, cta_c, who, tag):
     </div>
     <div class="sx-cta-two">
       <div><div class="sx-h">What we'd need from you</div><ul class="sx-list big">{need_html}</ul></div>
-      <div><div class="sx-h">What you'll get back &mdash; fast</div><ul class="sx-list big tealdot">{give_html}</ul></div>
+      <div><div class="sx-h">What you get back</div><ul class="sx-list big tealdot">{give_html}</ul></div>
     </div>
     <div class="sx-bigcta">
       <div><div class="t">{cta_t}</div><div class="c">{cta_c}</div></div>
@@ -193,7 +193,7 @@ def cta_slide(h2, lede, need, give, cta_t, cta_c, who, tag):
     </div>
     <div class="sx-cred"><div class="c"><div class="n">30 yrs</div><div class="l">Operating since 1996</div></div><div class="c"><div class="n">500+</div><div class="l">Clinical trials run</div></div><div class="c"><div class="n">2 sites</div><div class="l">Philadelphia + Pennington</div></div><div class="c"><div class="n">95%</div><div class="l">Hit enrollment target</div></div><div class="c"><div class="n">&lt;21d</div><div class="l">Study start-up</div></div></div>
   </div>
-  <div class="footer"><span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Let's build the future of medicine</span><span class="pageno">{tag} &middot; S5</span></div>
+  <div class="footer"><span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Clinical Research Philadelphia</span><span class="pageno">{tag} &middot; S5</span></div>
 </section>
 """
 

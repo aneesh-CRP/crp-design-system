@@ -43,16 +43,16 @@ leo = [
           "<b>IGA, EASI, %BSA, vIGA-AD, DLQI and POEM</b> are scored in our own eSource today; IGA-LS is the same discipline."),
          ("Screening needs cytology, hrHPV and STD/BV testing.",
           "On-site phlebotomy, sample-processing lab and an OB/GYN workflow. Cervical cytology and "
-          "hrHPV are <b>routine collections here, not outbound referrals</b> &mdash; which protects "
-          "your screening window."),
+          "hrHPV are <b>routine collections here</b>. Nothing in that panel leaves the building, "
+          "which protects your screening window."),
          ("Can you hold participants for 55 weeks?",
           "Dermatology is a standing book here &mdash; <b>3,400+ patients worked across 13 protocols</b>, "
           "1,200+ in atopic dermatitis, with <b>no discontinuations from our current atopic-dermatitis programs</b>. "
-          "Coordinators average eight years, so a 55-week schedule sees the same faces."),
+          "Coordinators average eight years here, which is what a 55-week schedule needs."),
          ("Sponsor relationship and drug class?",
           "New to LEO's site network, but <b>not to your CRO</b> &mdash; three delivered programs "
           "with <b>ICON</b>. And delgocitinib's topical JAK mechanism is the class our derm bench "
-          "works in daily, so nothing about the IMP is unfamiliar here.")],
+          "works in daily.")],
         ["<b>PI</b> &middot; Michael Tomeo, MD &mdash; Dermatology",
          "<b>Sub-I</b> &middot; Melissa Richart &mdash; Dermatology",
          "<b>Sub-I</b> &middot; Eugene Andruczyk, DO &mdash; OB / GYN",
@@ -86,8 +86,8 @@ leo = [
     funnel_slide(
         "Projected enrollment &middot; grounded in real CRP data",
         "Projected enrollment for DELTA CARE 1",
-        "Conversion rates below are CRP <b>actuals</b> from our mature comparator studies &mdash; "
-        "not estimates.",
+        "Conversion rates below are CRP <b>actuals</b>, "
+        "drawn from our mature comparator studies.",
         [("500", "Prospects", "gyn + derm network, EMR-mined"),
          ("360", "Interested", "contacted / opt-in"),
          ("95", "Eligible", "pass pre-screen"),
@@ -107,7 +107,7 @@ leo = [
         "How we protect the bottom of funnel",
         ["<b>We pre-select on documented histology</b> &mdash; candidates are drawn from records "
          "where LS is already biopsy-confirmed, so the protocol's diagnostic gate is cleared "
-         "before the screening visit rather than at it",
+         "before the screening visit",
          "On-site cytology, hrHPV and STD/BV collection removes an outbound referral loop",
          "Eight-year-average coordinators protect a 55-week treatment period"],
         "DELTA CARE 1", "Recruitment projection &middot; real CRP conversion"),
@@ -137,7 +137,7 @@ ucb = [
         "Neurology Site Overview",
         "A Philadelphia site with an early Alzheimer's study open now, and an investigator who has "
         "worked nine Alzheimer's protocols since 2020. Our existing UCB study is dermatology "
-        "&mdash; it speeds start-up, not science.",
+        "Our existing UCB study, ATD002, is a dermatology protocol.",
         "Prepared for consideration on early Alzheimer's protocols.",
         [("9", "Alzheimer's protocols, PI or Sub-I"),
          ("484", "Worked on an Alzheimer's trial"),
@@ -163,8 +163,8 @@ ucb = [
           "non-pharmacologic mechanism. We do <b>not</b> run psychiatry: no MDD, bipolar or schizophrenia."),
          ("Cognitive assessment and rater workflow?",
           "<b>Certified cognitive raters</b> in post, with <b>MMSE, CDR and FAQ</b> configured and "
-          "post, not to be recruited. Rater certification and the imaging-referral workflow are "
-          "things we have run, not things we would be learning on your protocol."),
+          "post. We have run rater certification and the imaging-referral workflow on prior "
+          "Alzheimer's protocols."),
          ("Participant and study-partner logistics?",
           "Free transportation and parking, private exam rooms and patient-only restrooms. "
           "Roosevelt Boulevard is SEPTA-accessible; Pennington is off I-95 with free parking &mdash; "
@@ -221,7 +221,7 @@ ucb = [
         [("72%", "reached"), ("20%", "qualify"), ("25%", "sched&times;show"), ("17%", "randomize")],
         "Biomarker-confirmed early Alzheimer's screen-fails heavily at every site, and we model it that way: "
         "on TRAILRUNNER-ALZ 3 we ran <b>484 patients</b> through this funnel and <b>140 through full screening</b> "
-        "to randomize 6. These projections assume that same burden, not a friendlier one.",
+        "to randomize 6. These projections assume that same burden.",
         "How we fill the top of funnel",
         ["<b>6,258 patients aged 65+</b> with verified DOB &mdash; a standing, re-contactable pool",
          "<b>289-patient Alzheimer's prescreening funnel</b> already built from prior Alzheimer's work",
@@ -229,9 +229,9 @@ ucb = [
          "Valley, Walk to End Alzheimer's, Philadelphia Corporation for Aging"],
         "How we protect the bottom of funnel",
         ["<b>We are absorbing Alzheimer's screening burden now</b> &mdash; 140 screened on TRAILRUNNER-ALZ 3, so the "
-         "attrition is budgeted for rather than discovered",
+         "attrition is already budgeted for",
          "<b>Nine Alzheimer's protocols of rater and imaging-referral workflow</b> &mdash; the long visit "
-         "schedule is familiar to this team, not new to it",
+         "schedule is familiar to this team",
          "Eight-year-average coordinators &mdash; continuity matters most to a participant with MCI"],
         "UCB NEUROLOGY", "Recruitment projection &middot; anchored on TRAILRUNNER-ALZ 3"),
 
@@ -242,7 +242,7 @@ ucb = [
          "Protocol synopsis and I/E under our existing CDA",
          "Rater-certification and imaging requirements, so we can pre-stage",
          "Introductions for dapirolizumab pegol (SLE) and bimekizumab (PPP)"],
-        ["Feasibility returned in days, not weeks",
+        ["Feasibility returned in days",
          "65+ and MCI candidate counts against your exact I/E",
          "&lt;7 days budget &rarr; contract &middot; &lt;21-day activation",
          "An existing UCB contract and regulatory desk, already open"],
