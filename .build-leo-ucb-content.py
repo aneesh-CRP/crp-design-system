@@ -40,13 +40,13 @@ leo = [
          ("Right investigators, and can you score IGA-LS?",
           "A <b>dermatology bench</b> (Dr. Tomeo, Melissa Richart, Lolita Vaughan CRNP) alongside a "
           "<b>board-certified OB/GYN</b> (Dr. Andruczyk) &mdash; most derm sites have no gynecologist. "
-          "Six vulvovaginal programs behind us; IGA, BSA and PASI scored daily."),
+          "Six vulvovaginal programs behind us. <b>IGA, EASI, %BSA, vIGA-AD, DLQI and POEM</b> are configured and scored in our own eSource today &mdash; IGA-LS is the same discipline."),
          ("Screening needs cytology, hrHPV and STD/BV testing.",
           "On-site phlebotomy, sample-processing lab and an OB/GYN workflow. Cervical cytology and "
           "hrHPV are <b>routine collections here, not outbound referrals</b> &mdash; which protects "
           "your screening window."),
          ("Can you hold participants for 55 weeks?",
-          "Our atopic-dermatitis program is <b>4 of 4 completers with zero discontinuations</b>. "
+          "Our atopic-dermatitis programs are <b>4 of 4 still on treatment, zero discontinuations</b>. "
           "Coordinators average eight years here, so a year-long visit schedule sees the same faces."),
          ("Sponsor relationship and drug class?",
           "New to LEO's site network, but <b>not to your CRO</b> &mdash; three delivered programs "
@@ -70,13 +70,13 @@ leo = [
          ("Moderate-to-severe eczema with OX40 inhibition", "II"),
          ("Plaque psoriasis with a novel oral IL-23 receptor antagonist", "III"),
          ("Chronic spontaneous urticaria unresponsive to antihistamines", "III")],
-        "Rheumatology &mdash; active pipeline",
+        "Rheumatology &mdash; active pipeline, no randomization record claimed",
         [("Rheumatoid arthritis in methotrexate-inadequate responders "
           "&mdash; upadacitinib vs adalimumab (AbbVie M23-700)", "III"),
          ("Sj&ouml;gren's syndrome &mdash; nipocalimab, FcRn blockade (Janssen)", "III"),
          ("Systemic lupus erythematosus &mdash; four protocols across "
           "JAK1, TYK2, FcRn and IL-2 mutein", "II/III")],
-        [("16", "Dermatology protocols", "since 2021 &middot; 32 randomized"),
+        [("13", "Dermatology protocols", "since 2021, across 8 sponsors"),
          ("4", "Dedicated coordinators", "10+ years each"),
          ("100%", "eSource via CRIO", "real-time remote monitor access"),
          ("&lt;21d", "Study start-up", "95% hit the enrollment target")],
@@ -140,7 +140,7 @@ ucb = [
         [("ATD002", "Active UCB site, enrolling"),
          ("9", "AD protocols, PI or Sub-I"),
          ("484", "Patients worked on an AD trial"),
-         ("5,853", "Patients aged 65+ in database"),
+         ("6,258", "Patients aged 65+ in database"),
          ("&lt;21d", "Study start-up")],
         "UCB", "begins with you", "UCB NEUROLOGY"),
 
@@ -153,14 +153,14 @@ ucb = [
           "early AD: <b>484 patients worked, 140 through full screening, 6 randomized</b>. Our "
           "investigator, <b>Joseph Heether, MD</b>, has worked <b>nine AD protocols since 2020</b>."),
          ("Right patients for early AD / MCI?",
-          "<b>5,853 patients aged 65+</b> with verified date of birth inside a live 35,000-patient "
+          "<b>6,258 patients aged 65+</b> with verified date of birth inside a live 37,500-patient "
           "database, plus a 289-patient Alzheimer's prescreening funnel already built."),
          ("Is Alzheimer's a real programme here, or a one-off?",
           "<b>Nine AD protocols since 2020</b>, across four sponsors, without a gap year &mdash; the "
           "record is overleaf. Three distinct anti-amyloid antibodies, plus a metabolic and a "
           "non-pharmacologic mechanism. We do <b>not</b> run psychiatry: no MDD, bipolar or schizophrenia."),
          ("Cognitive assessment and rater workflow?",
-          "<b>Four certified raters</b> trained in <b>MMSE, CDR, ADAS-Cog and FAQ</b> &mdash; in "
+          "<b>Certified cognitive raters</b> in post, with <b>MMSE, CDR and FAQ</b> configured and "
           "post, not to be recruited. Rater certification and the imaging-referral workflow are "
           "things we have run, not things we would be learning on your protocol."),
          ("Participant and study-partner logistics?",
@@ -172,7 +172,7 @@ ucb = [
           "participant randomized in April. Same coordinators, regulatory team and contracting "
           "counterparty. We have also delivered three programs with <b>ICON</b> as CRO.")],
         ["<b>Joseph Heether, MD</b> &middot; 9 AD protocols since 2020",
-         "<b>4 certified raters</b> &middot; MMSE, CDR, ADAS-Cog, FAQ",
+         "<b>Certified raters</b> &middot; MMSE, CDR, FAQ in eSource",
          "<b>Active UCB study</b> &middot; ATD002",
          "<b>5 coordinators</b> &middot; 10+ yrs each"],
         "UCB NEUROLOGY"),
@@ -198,8 +198,8 @@ ucb = [
          ("<b>Continuous Alzheimer's enrolment every year since 2020</b>", "&mdash;")],
         [("9", "Alzheimer's protocols", "as PI or Sub-I since 2020"),
          ("4", "Sponsors", "Lilly &middot; Novo Nordisk &middot; Cognito &middot; Prothena"),
-         ("4", "Certified raters", "MMSE &middot; CDR &middot; ADAS-Cog &middot; FAQ"),
-         ("5,853", "Patients aged 65+", "verified DOB, live database")],
+         ("MMSE", "CDR &middot; FAQ", "cognitive scales live in our eSource"),
+         ("6,258", "Patients aged 65+", "verified DOB, live database")],
         "UCB NEUROLOGY", "Investigator experience &middot; Alzheimer's disease",
         partners=["Alzheimer's Association, Delaware Valley Chapter",
                   "Walk to End Alzheimer's Philadelphia",
@@ -220,7 +220,7 @@ ucb = [
         "on TRAILRUNNER-ALZ 3 we ran <b>484 patients</b> through this funnel and <b>140 through full screening</b> "
         "to randomize 6. These projections assume that same burden, not a friendlier one.",
         "How we fill the top of funnel",
-        ["<b>5,853 patients aged 65+</b> with verified DOB &mdash; a standing, re-contactable pool",
+        ["<b>6,258 patients aged 65+</b> with verified DOB &mdash; a standing, re-contactable pool",
          "<b>289-patient Alzheimer's prescreening funnel</b> already built from prior AD work",
          "<b>Community referral channels built for AD</b> &mdash; Alzheimer's Association Delaware "
          "Valley, Walk to End Alzheimer's, Philadelphia Corporation for Aging"],
