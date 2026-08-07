@@ -14,7 +14,7 @@ import pathlib
 from pptx import Presentation
 from pptx.dml.color import RGBColor
 from pptx.enum.shapes import MSO_SHAPE
-from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
+from pptx.enum.text import MSO_ANCHOR, MSO_AUTO_SIZE, PP_ALIGN
 from pptx.util import Emu, Pt
 
 DS = pathlib.Path(__file__).resolve().parent
@@ -57,6 +57,28 @@ def set_alpha(fill, alpha):
 # the sanctioned fallbacks, and both are on Google Fonts.
 SLIDES_SANS, SLIDES_SCRIPT = "IBM Plex Sans", "Caveat"
 SLIDES_MODE = False
+
+# The HTML is a 1280px screen document, so a 1:1 px->pt conversion puts 58% of
+# the text at 11pt or under — fine to read at a desk, unreadable on a 13.3in
+# slide. Lift the bottom of the scale without touching headings, so the
+# hierarchy is preserved and only the illegible end moves.
+MIN_PT = 11.5
+
+
+def scale_pt(px_size, can_reflow=False):
+    """Lift the small end of the scale; leave headings alone.
+
+    A single-line label cannot reflow, so it can go all the way to the floor —
+    it just overflows into the card padding. A wrapping paragraph gains a line
+    every time it grows, which pushes into whatever sits below, so it only gets
+    a token lift.
+    """
+    pt = px_size * 0.75
+    if pt >= MIN_PT:
+        return pt
+    if can_reflow:
+        return min(MIN_PT, pt * 1.06)
+    return MIN_PT - (MIN_PT - pt) * 0.35
 
 
 def font_for(weight, family):
@@ -221,12 +243,33 @@ def add_text(slide, t):
 
     # Give the box slack so PowerPoint's slightly different metrics do not
     # re-wrap a line that fits in the browser. Centred text grows symmetrically.
+    body = "".join(r["t"] for r in t["runs"])
+    # One browser line -> never wrap (it can only overflow into padding).
+    # Two or more -> it must keep wrapping inside its card.
+    wraps = t["h"] > t["lh"] * 1.45
+    # A block whose type was lifted needs a proportionally wider box, or the
+    # renderer wraps it anyway and it collides with whatever sits below.
+    grow = max(1.0, scale_pt(t["size"], wraps) / max(t["size"] * 0.75, 0.1))
     pad = 26 if t["align"] == "center" else 14
-    dx = pad / 2 if t["align"] == "center" else 2
-    box = slide.shapes.add_textbox(px(t["x"] - dx), px(t["y"] - 3),
-                                   px(t["w"] + pad), px(t["h"] + 8))
+    extra = 0 if wraps else t["w"] * (grow - 1) + 8
+    w = t["w"] + pad + extra
+    if t["align"] == "center":
+        x = t["x"] - (w - t["w"]) / 2
+    elif t["align"] == "right":
+        x = t["x"] - (w - t["w"])
+    else:
+        x = t["x"] - 2
+    # keep the widened box on the canvas
+    if x < 0:
+        w += x
+        x = 0
+    if x + w > 1280:
+        w = 1280 - x
+    box = slide.shapes.add_textbox(px(x), px(t["y"] - 3), px(max(w, 8)),
+                                   px(t["h"] * grow + 8))
     tf = box.text_frame
-    tf.word_wrap = t["h"] > t["lh"] * 1.45
+    tf.word_wrap = wraps
+    tf.auto_size = MSO_AUTO_SIZE.NONE
     tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
     tf.vertical_anchor = MSO_ANCHOR.TOP
     para = tf.paragraphs[0]
@@ -257,7 +300,7 @@ def add_text(slide, t):
         f = run.font
         fam, bold = font_for(r["weight"], t.get("family"))
         f.name = fam
-        f.size = Pt(r["size"] * 0.75)
+        f.size = Pt(scale_pt(r["size"], wraps))
         f.bold = bold
         f.italic = r["italic"]
         if r["color"]:
