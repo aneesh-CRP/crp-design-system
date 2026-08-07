@@ -311,13 +311,15 @@
 
   /* ═══ SLIDE — therapeutic depth (4 columns w/ marquee studies) ═══ */
   .ta-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  /* The tallest column carries four studies; padding and gaps are sized so it
+     clears the footer band rather than running into it. */
   .ta-block {
     background: var(--surface);
     border: 1px solid var(--border);
     border-top: 3px solid var(--crp-blue);
     border-radius: var(--radius-lg);
-    padding: 22px 22px;
-    display: flex; flex-direction: column; gap: 14px;
+    padding: 13px 17px;
+    display: flex; flex-direction: column; gap: 8px;
     box-shadow: var(--shadow-md);
   }
   .ta-block:nth-child(2) { border-top-color: var(--crp-orange); }
@@ -328,21 +330,45 @@
   }
   .ta-study {
     border-top: 1px solid var(--border);
-    padding-top: 12px;
+    padding-top: 7px;
   }
-  .ta-study .ta-name { font-size: 15.5px; font-weight: 600; color: var(--crp-navy); margin-bottom: 6px; line-height: 1.25; }
+  .ta-study .ta-name { font-size: 14.5px; font-weight: 600; color: var(--crp-navy); margin-bottom: 3px; line-height: 1.25; }
   .ta-status {
     display: inline-block;
-    font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em;
-    padding: 3px 9px; border-radius: 999px;
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em;
+    padding: 2px 8px; border-radius: 999px;
     background: var(--blue-bg); color: var(--crp-blue);
   }
   .ta-status.live { background: var(--orange-bg, #fff3e0); color: var(--crp-orange); font-weight: 800; }
   .ta-actual {
-    margin-top: 6px;
-    font-size: 13.5px; color: var(--fg-2); line-height: 1.3;
+    margin-top: 4px;
+    font-size: 12.5px; color: var(--fg-2); line-height: 1.3;
   }
   .ta-actual strong { color: var(--crp-orange); font-weight: 800; }
+  /* Second tier — areas with real depth but no live marquee study to name.
+     Lighter weight on purpose: the eye should land on the top row first. */
+  .ta-cols-2 {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    margin-top: 14px;
+  }
+  .ta-block.compact {
+    padding: 11px 15px; gap: 5px;
+    border-top-width: 2px; box-shadow: var(--shadow-sm);
+  }
+  .ta-block.compact h4 { font-size: 12px; letter-spacing: 0.12em; }
+  /* Conditions and the evidence for them run as one paragraph — two stacked
+     blocks with a rule between them cost ~45px the slide does not have. */
+  .ta-block.compact .ta-conds {
+    font-size: 12px; line-height: 1.4; color: var(--fg-2);
+  }
+  .ta-block.compact .ta-conds b { color: var(--crp-navy); font-weight: 700; }
+  /* Tail line inside a top-row block: "and N more like this", so the column
+     shows three named studies instead of growing a fourth row. */
+  .ta-more {
+    margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border);
+    font-size: 11.5px; line-height: 1.35; color: var(--fg-2);
+  }
+  .ta-more b { color: var(--crp-navy); font-weight: 700; }
 
   /* ═══ SLIDE — tech stack architecture ═══ */
   .stack {
@@ -501,30 +527,32 @@
 
   /* ═══ SLIDE — combined facilities ═══ */
   .fac-wrap { max-width: 1120px; margin: 0 auto; width: 100%; }
+  /* Capability lists plus two site photos is the densest slide in the deck —
+     every vertical value here is tuned to keep it inside the 720px canvas. */
   .fac-cap-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
   }
   .fac-cap-cell {
     background: var(--surface);
     border: 1px solid var(--border);
     border-top: 3px solid var(--crp-blue);
     border-radius: var(--radius-lg);
-    padding: 22px 22px;
+    padding: 15px 20px;
     box-shadow: var(--shadow-md);
   }
   .fac-cap-cell:nth-child(2) { border-top-color: var(--crp-orange); }
   .fac-cap-cell h4 {
     font-size: 13.5px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--crp-blue); margin: 0 0 10px; font-weight: 700;
+    color: var(--crp-blue); margin: 0 0 7px; font-weight: 700;
   }
   .fac-cap-cell ul {
     list-style: none; padding: 0; margin: 0;
-    display: flex; flex-direction: column; gap: 5px;
+    display: flex; flex-direction: column; gap: 3px;
   }
   .fac-cap-cell li {
-    font-size: 14.5px; color: var(--crp-navy); opacity: 0.92;
-    line-height: 1.4; padding-left: 12px; position: relative;
+    font-size: 13.5px; color: var(--crp-navy); opacity: 0.92;
+    line-height: 1.35; padding-left: 12px; position: relative;
   }
   .fac-cap-cell li::before {
     content: '–'; position: absolute; left: 0; color: var(--crp-blue); font-weight: 700;
@@ -555,14 +583,14 @@
     display: flex; flex-direction: column;
   }
   .fac-site img {
-    width: 100%; height: 118px; object-fit: cover; display: block;
+    width: 100%; height: 84px; object-fit: cover; display: block;
   }
-  .fac-site .fac-site-body { padding: 12px 16px 14px; }
+  .fac-site .fac-site-body { padding: 9px 16px 11px; }
   .fac-site strong {
-    font-size: 15.5px; font-weight: 800; color: var(--crp-navy); display: block; margin-bottom: 3px;
+    font-size: 15px; font-weight: 800; color: var(--crp-navy); display: block; margin-bottom: 2px;
   }
   .fac-site span {
-    font-size: 13.5px; color: var(--crp-navy); opacity: 0.92; line-height: 1.4;
+    font-size: 13px; color: var(--crp-navy); opacity: 0.92; line-height: 1.35;
   }
 
   /* ═══ SLIDE — treatments grid (drug logos) ═══ */
@@ -601,22 +629,24 @@
 
   /* ═══ SLIDE — track record / logo wall ═══ */
   .logo-wall-wrap { max-width: 1120px; margin: 0 auto; width: 100%; }
+  /* Three rows of logos plus two quote cards — cell height carries the slide's
+     vertical budget, so it is set to clear the footer, not to fill the space. */
   .logo-wall {
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
-    margin-bottom: 24px;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
+    margin-bottom: 16px;
   }
   .logo-cell {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    height: 80px;
+    height: 64px;
     display: flex; align-items: center; justify-content: center;
     padding: 12px 16px;
     box-shadow: var(--shadow-xs);
     position: relative;
   }
   .logo-cell img {
-    max-width: 100%; max-height: 74px;
+    max-width: 100%; max-height: 58px;
     width: auto; height: auto;
     filter: grayscale(100%);
     opacity: 0.92;
@@ -635,11 +665,11 @@
     border: 1px solid var(--border);
     border-top: 3px solid var(--crp-orange);
     border-radius: var(--radius-lg);
-    padding: 18px 22px;
+    padding: 14px 20px;
     box-shadow: var(--shadow-md);
   }
   .quote-card blockquote {
-    margin: 0 0 8px; font-size: 15.5px; line-height: 1.45;
+    margin: 0 0 6px; font-size: 15px; line-height: 1.45;
     color: var(--crp-navy); font-style: italic;
   }
   .quote-card cite {
@@ -856,9 +886,9 @@
   <div class="sx-cov-left">
     <div class="eyebrow">Neurology &middot; Early Alzheimer's &amp; MCI &middot; Program positioning</div>
     <h1>Neurology Site Overview</h1>
-    <div class="sub">An active UCB site in Philadelphia, currently enrolling ATD002, with a neurology bench in migraine and early Alzheimer's disease.</div>
+    <div class="sub">An active UCB site in Philadelphia, currently enrolling ATD002, with an Alzheimer's investigator who has worked nine AD protocols since 2020.</div>
     <div class="why">Prepared for consideration on future neurology protocols.</div>
-    <div class="sx-strip"><div class="sx-chip"><div class="n">ATD002</div><div class="l">Active UCB site, enrolling</div></div><div class="sx-chip"><div class="n">25+</div><div class="l">Migraine protocols since 2005</div></div><div class="sx-chip"><div class="n">484</div><div class="l">Patients worked on an AD trial</div></div><div class="sx-chip"><div class="n">5,850+</div><div class="l">Patients aged 65+ in database</div></div><div class="sx-chip"><div class="n">&lt;21d</div><div class="l">Study start-up</div></div></div>
+    <div class="sx-strip"><div class="sx-chip"><div class="n">ATD002</div><div class="l">Active UCB site, enrolling</div></div><div class="sx-chip"><div class="n">9</div><div class="l">AD protocols, PI or Sub-I</div></div><div class="sx-chip"><div class="n">484</div><div class="l">Patients worked on an AD trial</div></div><div class="sx-chip"><div class="n">5,853</div><div class="l">Patients aged 65+ in database</div></div><div class="sx-chip"><div class="n">&lt;21d</div><div class="l">Study start-up</div></div></div>
   </div>
   <div class="sx-cov-right">
     <img class="sx-logo" src="./assets/logos/crp-white.svg" alt="Clinical Research Philadelphia">
@@ -877,8 +907,8 @@
       <h2 class="slide-h2">Site fit for an early Alzheimer's protocol</h2>
       <p class="slide-lede">The questions a neurology feasibility team asks &mdash; answered with our own numbers.</p>
     </div>
-    <div class="sx-qa"><div class="sx-row"><div class="q">Have you actually run an Alzheimer's trial?</div><div class="a">Yes &mdash; and it is open now. Lilly <b>TRAILRUNNER-ALZ 3</b> (remternetug, NCT06653153), early AD: <b>484 patients worked, 140 through full screening, 6 randomized</b>. We know what amyloid-era screening burden costs a site, because we are paying it.</div></div><div class="sx-row"><div class="q">Right patients for early AD / MCI?</div><div class="a"><b>5,853 patients aged 65+</b> with verified date of birth inside a live 35,000-patient database, plus a 289-patient Alzheimer's prescreening funnel already built.</div></div><div class="sx-row"><div class="q">Is neurology a real TA here, or a one-off?</div><div class="a">Continuous since 2005 &mdash; there has not been a year without a neurology protocol on site (the record is overleaf). Our neurology is <b>migraine and MCI / mild Alzheimer's</b>. We do <b>not</b> run psychiatry: no MDD, bipolar or schizophrenia.</div></div><div class="sx-row"><div class="q">Cognitive assessment and rater workflow?</div><div class="a"><b>Four certified raters</b> trained in <b>MMSE, CDR, ADAS-Cog and FAQ</b> &mdash; in post, not to be recruited. Rater certification and the imaging-referral workflow are things we have run, not things we would be learning on your protocol.</div></div><div class="sx-row"><div class="q">Participant and study-partner logistics?</div><div class="a">Free transportation and parking, private exam rooms and patient-only restrooms. Roosevelt Boulevard is SEPTA-accessible; Pennington is off I-95 with free parking &mdash; both workable for an elderly participant travelling with a study partner.</div></div><div class="sx-row"><div class="q">What does the relationship save you?</div><div class="a">We are enrolling <b>ATD002</b> for UCB now &mdash; site-initiated February 2026, first participant randomized in April. Same coordinators, regulatory team and contracting counterparty. We have also delivered three programs with <b>ICON</b> as CRO.</div></div></div>
-    <div class="sx-people"><div class="sx-person"><b>3 investigators</b> &middot; incl. board-certified neurologist &amp; geriatrician</div><div class="sx-person"><b>4 certified raters</b> &middot; MMSE, CDR, ADAS-Cog, FAQ</div><div class="sx-person"><b>Active UCB study</b> &middot; ATD002</div><div class="sx-person"><b>5 coordinators</b> &middot; 10+ yrs each</div></div>
+    <div class="sx-qa"><div class="sx-row"><div class="q">Have you actually run an Alzheimer's trial?</div><div class="a">Yes &mdash; and one is open now. Lilly <b>TRAILRUNNER-ALZ 3</b> (remternetug, NCT06653153), early AD: <b>484 patients worked, 140 through full screening, 6 randomized</b>. Our investigator, <b>Joseph Heether, MD</b>, has worked <b>nine AD protocols since 2020</b>.</div></div><div class="sx-row"><div class="q">Right patients for early AD / MCI?</div><div class="a"><b>5,853 patients aged 65+</b> with verified date of birth inside a live 35,000-patient database, plus a 289-patient Alzheimer's prescreening funnel already built.</div></div><div class="sx-row"><div class="q">Is Alzheimer's a real programme here, or a one-off?</div><div class="a"><b>Nine AD protocols since 2020</b>, across four sponsors, without a gap year &mdash; the record is overleaf. Three distinct anti-amyloid antibodies, plus a metabolic and a non-pharmacologic mechanism. We do <b>not</b> run psychiatry: no MDD, bipolar or schizophrenia.</div></div><div class="sx-row"><div class="q">Cognitive assessment and rater workflow?</div><div class="a"><b>Four certified raters</b> trained in <b>MMSE, CDR, ADAS-Cog and FAQ</b> &mdash; in post, not to be recruited. Rater certification and the imaging-referral workflow are things we have run, not things we would be learning on your protocol.</div></div><div class="sx-row"><div class="q">Participant and study-partner logistics?</div><div class="a">Free transportation and parking, private exam rooms and patient-only restrooms. Roosevelt Boulevard is SEPTA-accessible; Pennington is off I-95 with free parking &mdash; both workable for an elderly participant travelling with a study partner.</div></div><div class="sx-row"><div class="q">What does the relationship save you?</div><div class="a">We are enrolling <b>ATD002</b> for UCB now &mdash; site-initiated February 2026, first participant randomized in April. Same coordinators, regulatory team and contracting counterparty. We have also delivered three programs with <b>ICON</b> as CRO.</div></div></div>
+    <div class="sx-people"><div class="sx-person"><b>Joseph Heether, MD</b> &middot; 9 AD protocols since 2020</div><div class="sx-person"><b>4 certified raters</b> &middot; MMSE, CDR, ADAS-Cog, FAQ</div><div class="sx-person"><b>Active UCB study</b> &middot; ATD002</div><div class="sx-person"><b>5 coordinators</b> &middot; 10+ yrs each</div></div>
   </div>
   <div class="footer"><span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Clinical Research Philadelphia</span><span class="pageno">UCB NEUROLOGY &middot; S2</span></div>
 </section>
@@ -887,18 +917,18 @@
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
-      <div class="slide-eyebrow">Investigator experience &middot; neurology</div>
-      <h2 class="slide-h2">Alzheimer's and migraine experience</h2>
-      <p class="slide-lede">Alzheimer's below is investigator experience; migraine is this site's own delivery record.</p>
+      <div class="slide-eyebrow">Investigator experience &middot; Alzheimer's disease</div>
+      <h2 class="slide-h2">Alzheimer's disease experience</h2>
+      <p class="slide-lede"><b>Joseph Heether, MD</b> has served as principal or sub-investigator on nine Alzheimer's protocols since 2020. TRAILRUNNER-ALZ 3 is open at this site now.</p>
     </div>
     <div class="sx-exp">
-      <div><div class="col-h">Alzheimer's disease &mdash; investigator experience</div><div class="sx-trial"><span class="ph">III</span><span class="tx"><b>Early AD monoclonal antibody &mdash; TRAILRUNNER-ALZ 3, open here</b></span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">Sensory stimulation for Alzheimer's &mdash; 2024</span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">Alzheimer's disease prevention &mdash; 2022</span></div><div class="sx-trial"><span class="ph two">I/II</span><span class="tx">Early-stage Alzheimer's immunotherapy &mdash; 2022</span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">Alzheimer's disease monoclonal antibody &mdash; 2021</span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">Cognitive health and metabolic intervention &mdash; 2021</span></div></div>
-      <div><div class="col-h">Migraine &mdash; delivered at this site since 2005</div><div class="sx-trial"><span class="ph">II/III</span><span class="tx">Merck telcagepant programme &mdash; 13 protocols</span></div><div class="sx-trial"><span class="ph">II/III</span><span class="tx">Biohaven rimegepant and zavegepant &mdash; 7 protocols</span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">GSK sumatriptan / naproxen &mdash; 5 protocols</span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">Allergan ubrogepant, now Ubrelvy &mdash; 2 protocols</span></div><div class="sx-trial"><span class="ph">II/III</span><span class="tx">Amgen erenumab &middot; BMS &middot; Axsome &middot; Kallyope</span></div><div class="sx-trial"><span class="ph">&mdash;</span><span class="tx"><b>More than 25 protocols, nine sponsors, 77% completion</b></span></div></div>
+      <div><div class="col-h">Amyloid-targeting immunotherapy &mdash; 6 protocols</div><div class="sx-trial"><span class="ph two">II</span><span class="tx"><b>TRAILRUNNER-ALZ 3</b> &middot; remternetug &middot; Lilly &mdash; <b>open at this site</b></span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">TRAILRUNNER-ALZ 1 &middot; remternetug &middot; Lilly &mdash; 2022</span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">TRAILBLAZER-ALZ 2 &middot; donanemab &middot; Lilly &mdash; 2020</span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">TRAILBLAZER-ALZ 3 &middot; donanemab &middot; Lilly &mdash; 2021</span></div><div class="sx-trial"><span class="ph">I</span><span class="tx">PRX012 &middot; Prothena &mdash; 2022</span></div><div class="sx-trial"><span class="ph two">II</span><span class="tx">PRX012-103 open-label extension &middot; Prothena &mdash; 2022</span></div></div>
+      <div><div class="col-h">Metabolic and device-based approaches &mdash; 3 protocols</div><div class="sx-trial"><span class="ph">III</span><span class="tx">EVOKE &middot; oral semaglutide &middot; Novo Nordisk &mdash; 2021</span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">HOPE study &middot; gamma sensory stimulation &middot; Cognito &mdash; 2022</span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">HOPE open-label extension &middot; Cognito &mdash; 2024</span></div><div class="sx-trial"><span class="ph">&mdash;</span><span class="tx"><b>Three distinct anti-amyloid antibodies, plus a metabolic and a non-pharmacologic mechanism</b></span></div><div class="sx-trial"><span class="ph">&mdash;</span><span class="tx"><b>Continuous Alzheimer's enrolment every year since 2020</b></span></div></div>
     </div>
-    <div class="sx-credstrip"><div class="sx-credcell"><div class="n">4</div><div class="k">Certified raters</div><div class="d">MMSE &middot; CDR &middot; ADAS-Cog &middot; FAQ</div></div><div class="sx-credcell"><div class="n">3</div><div class="k">Investigators</div><div class="d">incl. neurologist &amp; geriatrician</div></div><div class="sx-credcell"><div class="n">5,853</div><div class="k">Patients aged 65+</div><div class="d">verified DOB, live database</div></div><div class="sx-credcell"><div class="n">&lt;21d</div><div class="k">Study start-up</div><div class="d">95% hit the enrollment target</div></div></div>
+    <div class="sx-credstrip"><div class="sx-credcell"><div class="n">9</div><div class="k">Alzheimer's protocols</div><div class="d">as PI or Sub-I since 2020</div></div><div class="sx-credcell"><div class="n">4</div><div class="k">Sponsors</div><div class="d">Lilly &middot; Novo Nordisk &middot; Cognito &middot; Prothena</div></div><div class="sx-credcell"><div class="n">4</div><div class="k">Certified raters</div><div class="d">MMSE &middot; CDR &middot; ADAS-Cog &middot; FAQ</div></div><div class="sx-credcell"><div class="n">5,853</div><div class="k">Patients aged 65+</div><div class="d">verified DOB, live database</div></div></div>
     <div class="sx-partners"><span class="lbl">Community</span><span class="p">Alzheimer's Association, Delaware Valley Chapter</span><span class="p">Walk to End Alzheimer's Philadelphia</span><span class="p">Philadelphia Corporation for Aging</span></div>
   </div>
-  <div class="footer"><span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Investigator experience &middot; neurology</span><span class="pageno">UCB NEUROLOGY &middot; S3</span></div>
+  <div class="footer"><span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Investigator experience &middot; Alzheimer's disease</span><span class="pageno">UCB NEUROLOGY &middot; S3</span></div>
 </section>
 
 
@@ -912,8 +942,8 @@
     <div class="sx-funnel"><div class="sx-stage"><div class="sx-bar" style="background:#072061;"><span class="sn">800</span><span class="sl">Prospects</span></div><div class="sx-conv">65+ / MCI-flagged pool</div></div><div class="sx-arrow"><span class="pc">72%</span>reached</div><div class="sx-stage"><div class="sx-bar" style="background:#1843AD;"><span class="sn">575</span><span class="sl">Interested</span></div><div class="sx-conv">contacted / opt-in</div></div><div class="sx-arrow"><span class="pc">20%</span>qualify</div><div class="sx-stage"><div class="sx-bar" style="background:#3a6bc5;"><span class="sn">115</span><span class="sl">Eligible</span></div><div class="sx-conv">pass cognitive pre-screen</div></div><div class="sx-arrow"><span class="pc">25%</span>sched&times;show</div><div class="sx-stage"><div class="sx-bar" style="background:#5b86d6;"><span class="sn">29</span><span class="sl">Screened</span></div><div class="sx-conv">on-site + biomarker referral</div></div><div class="sx-arrow"><span class="pc">17%</span>randomize</div><div class="sx-stage"><div class="sx-bar" style="background:#FF9933;"><span class="sn">~5</span><span class="sl">Randomized</span></div><div class="sx-conv">range 4&ndash;7</div></div></div>
     <div class="sx-capline">Biomarker-confirmed early AD screen-fails heavily at every site, and we model it that way: on TRAILRUNNER-ALZ 3 we ran <b>484 patients</b> through this funnel and <b>140 through full screening</b> to randomize 6. These projections assume that same burden, not a friendlier one.</div>
     <div class="sx-two">
-      <div><div class="sx-h">How we fill the top of funnel</div><ul class="sx-list"><li><b>5,853 patients aged 65+</b> with verified DOB &mdash; a standing, re-contactable pool</li><li><b>289-patient Alzheimer's prescreening funnel</b> already built from prior AD work</li><li><b>Twenty years of migraine recruiting</b> &mdash; the same neurology referral channels, already warm</li></ul></div>
-      <div><div class="sx-h">How we protect the bottom of funnel</div><ul class="sx-list tealdot"><li><b>We are absorbing AD screening burden now</b> &mdash; 140 screened on TRAILRUNNER-ALZ 3, so the attrition is budgeted for rather than discovered</li><li>77% completion across our migraine programs on long visit schedules</li><li>Eight-year-average coordinators &mdash; continuity matters most to a participant with MCI</li></ul></div>
+      <div><div class="sx-h">How we fill the top of funnel</div><ul class="sx-list"><li><b>5,853 patients aged 65+</b> with verified DOB &mdash; a standing, re-contactable pool</li><li><b>289-patient Alzheimer's prescreening funnel</b> already built from prior AD work</li><li><b>Community referral channels built for AD</b> &mdash; Alzheimer's Association Delaware Valley, Walk to End Alzheimer's, Philadelphia Corporation for Aging</li></ul></div>
+      <div><div class="sx-h">How we protect the bottom of funnel</div><ul class="sx-list tealdot"><li><b>We are absorbing AD screening burden now</b> &mdash; 140 screened on TRAILRUNNER-ALZ 3, so the attrition is budgeted for rather than discovered</li><li><b>Nine AD protocols of rater and imaging-referral workflow</b> &mdash; the long visit schedule is familiar to this team, not new to it</li><li>Eight-year-average coordinators &mdash; continuity matters most to a participant with MCI</li></ul></div>
     </div>
   </div>
   <div class="footer"><span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Recruitment projection &middot; anchored on TRAILRUNNER-ALZ 3</span><span class="pageno">UCB NEUROLOGY &middot; S4</span></div>
@@ -1118,8 +1148,8 @@
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Therapeutic depth</div>
-      <h2 class="slide-h2">Cardiometabolic is our anchor. We run four other areas alongside it.</h2>
-      <p class="slide-lede">Verified actuals shown for cardiometabolic. Other columns mix live status with recent trial experience.</p>
+      <h2 class="slide-h2">Therapeutic depth across eight areas</h2>
+      <p class="slide-lede">Verified actuals shown for cardiometabolic. Other areas mix live status with recent and historical delivery.</p>
     </div>
     <div class="slide-body">
       <div class="ta-cols" style="max-width:1120px;margin:0 auto;width:100%;">
@@ -1140,33 +1170,54 @@
             <span class="ta-status">Recently closed</span>
             <div class="ta-actual">Target 5 · <strong>Actual 9 · 180%</strong></div>
           </div>
-          <div class="ta-study">
-            <div class="ta-name">+ 6 more Phase II–III</div>
-            <span class="ta-status">2024–25</span>
-          </div>
+          <div class="ta-more"><b>+ 6 more Phase II–III</b> · 2024–25</div>
         </div>
         <div class="ta-block">
-          <h4>Derm &amp; Rheum</h4>
+          <h4>Dermatology</h4>
           <div class="ta-study"><div class="ta-name">Plaque Psoriasis</div><span class="ta-status live">Currently enrolling</span></div>
           <div class="ta-study"><div class="ta-name">Atopic Dermatitis</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Sjögren's Disease</div><span class="ta-status live">Currently enrolling</span></div>
           <div class="ta-study"><div class="ta-name">Hidradenitis Suppurativa</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Rheumatoid Arthritis</div><span class="ta-status">In start-up</span></div>
+          <div class="ta-more"><b>16 protocols since 2021</b> · chronic urticaria, lichen sclerosus</div>
+        </div>
+        <div class="ta-block">
+          <h4>Rheumatology</h4>
+          <div class="ta-study"><div class="ta-name">Sjögren's Disease</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-study"><div class="ta-name">Psoriatic Arthritis</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-study"><div class="ta-name">Systemic Lupus Erythematosus</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-more"><b>12 protocols since 2021</b> · rheumatoid arthritis in start-up</div>
         </div>
         <div class="ta-block">
           <h4>Neurology</h4>
-          <div class="ta-study"><div class="ta-name">Migraine Prevention</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-study">
+            <div class="ta-name">Migraine Prevention</div>
+            <span class="ta-status live">Currently enrolling</span>
+            <div class="ta-actual">More than 25 protocols since 2005</div>
+          </div>
           <div class="ta-study">
             <div class="ta-name">Alzheimer's Disease</div>
-            <span class="ta-status">Long-running</span>
-            <div class="ta-actual">6 trials since 2021 · raters certified in MMSE, CDR, ADAS-Cog, FAQ</div>
+            <span class="ta-status live">Currently enrolling</span>
+            <div class="ta-actual">9 protocols since 2020 · raters certified in MMSE, CDR, ADAS-Cog, FAQ</div>
           </div>
         </div>
-        <div class="ta-block">
+      </div>
+      <!-- Second tier: real depth, but historical or prescreening rather than a
+           named live study. Kept visually lighter so the live book reads first. -->
+      <div class="ta-cols-2" style="max-width:1120px;margin-left:auto;margin-right:auto;width:100%;">
+        <div class="ta-block compact">
           <h4>Women's Health</h4>
-          <div class="ta-study"><div class="ta-name">Contraception / Birth Control</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Menstrual Migraine</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Hot Flashes</div><span class="ta-status">Long-running</span></div>
+          <div class="ta-conds">Contraception, menopause, uterine bleeding, HSDD — <b>117 protocols, 2001–2019</b>; contraceptive prescreening open</div>
+        </div>
+        <div class="ta-block compact">
+          <h4>Hepatology &amp; Liver</h4>
+          <div class="ta-conds">MASH, liver fibrosis — <b>FibroScan on site</b>, hepatologist on staff, MASH prescreening open</div>
+        </div>
+        <div class="ta-block compact">
+          <h4>Urology &amp; Pelvic Health</h4>
+          <div class="ta-conds">Overactive bladder, nocturia, stress incontinence — <b>28 protocols</b>; SUI prescreening open</div>
+        </div>
+        <div class="ta-block compact">
+          <h4>Endocrine &amp; Bone</h4>
+          <div class="ta-conds">Type 2 diabetes, obesity, osteoporosis — <b>endocrinologist on staff</b>; T2DM and obesity prescreening open</div>
         </div>
       </div>
     </div>

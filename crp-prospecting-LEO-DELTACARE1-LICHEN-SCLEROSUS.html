@@ -311,13 +311,15 @@
 
   /* ═══ SLIDE — therapeutic depth (4 columns w/ marquee studies) ═══ */
   .ta-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  /* The tallest column carries four studies; padding and gaps are sized so it
+     clears the footer band rather than running into it. */
   .ta-block {
     background: var(--surface);
     border: 1px solid var(--border);
     border-top: 3px solid var(--crp-blue);
     border-radius: var(--radius-lg);
-    padding: 22px 22px;
-    display: flex; flex-direction: column; gap: 14px;
+    padding: 13px 17px;
+    display: flex; flex-direction: column; gap: 8px;
     box-shadow: var(--shadow-md);
   }
   .ta-block:nth-child(2) { border-top-color: var(--crp-orange); }
@@ -328,21 +330,45 @@
   }
   .ta-study {
     border-top: 1px solid var(--border);
-    padding-top: 12px;
+    padding-top: 7px;
   }
-  .ta-study .ta-name { font-size: 15.5px; font-weight: 600; color: var(--crp-navy); margin-bottom: 6px; line-height: 1.25; }
+  .ta-study .ta-name { font-size: 14.5px; font-weight: 600; color: var(--crp-navy); margin-bottom: 3px; line-height: 1.25; }
   .ta-status {
     display: inline-block;
-    font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em;
-    padding: 3px 9px; border-radius: 999px;
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em;
+    padding: 2px 8px; border-radius: 999px;
     background: var(--blue-bg); color: var(--crp-blue);
   }
   .ta-status.live { background: var(--orange-bg, #fff3e0); color: var(--crp-orange); font-weight: 800; }
   .ta-actual {
-    margin-top: 6px;
-    font-size: 13.5px; color: var(--fg-2); line-height: 1.3;
+    margin-top: 4px;
+    font-size: 12.5px; color: var(--fg-2); line-height: 1.3;
   }
   .ta-actual strong { color: var(--crp-orange); font-weight: 800; }
+  /* Second tier — areas with real depth but no live marquee study to name.
+     Lighter weight on purpose: the eye should land on the top row first. */
+  .ta-cols-2 {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    margin-top: 14px;
+  }
+  .ta-block.compact {
+    padding: 11px 15px; gap: 5px;
+    border-top-width: 2px; box-shadow: var(--shadow-sm);
+  }
+  .ta-block.compact h4 { font-size: 12px; letter-spacing: 0.12em; }
+  /* Conditions and the evidence for them run as one paragraph — two stacked
+     blocks with a rule between them cost ~45px the slide does not have. */
+  .ta-block.compact .ta-conds {
+    font-size: 12px; line-height: 1.4; color: var(--fg-2);
+  }
+  .ta-block.compact .ta-conds b { color: var(--crp-navy); font-weight: 700; }
+  /* Tail line inside a top-row block: "and N more like this", so the column
+     shows three named studies instead of growing a fourth row. */
+  .ta-more {
+    margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border);
+    font-size: 11.5px; line-height: 1.35; color: var(--fg-2);
+  }
+  .ta-more b { color: var(--crp-navy); font-weight: 700; }
 
   /* ═══ SLIDE — tech stack architecture ═══ */
   .stack {
@@ -501,30 +527,32 @@
 
   /* ═══ SLIDE — combined facilities ═══ */
   .fac-wrap { max-width: 1120px; margin: 0 auto; width: 100%; }
+  /* Capability lists plus two site photos is the densest slide in the deck —
+     every vertical value here is tuned to keep it inside the 720px canvas. */
   .fac-cap-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
   }
   .fac-cap-cell {
     background: var(--surface);
     border: 1px solid var(--border);
     border-top: 3px solid var(--crp-blue);
     border-radius: var(--radius-lg);
-    padding: 22px 22px;
+    padding: 15px 20px;
     box-shadow: var(--shadow-md);
   }
   .fac-cap-cell:nth-child(2) { border-top-color: var(--crp-orange); }
   .fac-cap-cell h4 {
     font-size: 13.5px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--crp-blue); margin: 0 0 10px; font-weight: 700;
+    color: var(--crp-blue); margin: 0 0 7px; font-weight: 700;
   }
   .fac-cap-cell ul {
     list-style: none; padding: 0; margin: 0;
-    display: flex; flex-direction: column; gap: 5px;
+    display: flex; flex-direction: column; gap: 3px;
   }
   .fac-cap-cell li {
-    font-size: 14.5px; color: var(--crp-navy); opacity: 0.92;
-    line-height: 1.4; padding-left: 12px; position: relative;
+    font-size: 13.5px; color: var(--crp-navy); opacity: 0.92;
+    line-height: 1.35; padding-left: 12px; position: relative;
   }
   .fac-cap-cell li::before {
     content: '–'; position: absolute; left: 0; color: var(--crp-blue); font-weight: 700;
@@ -555,14 +583,14 @@
     display: flex; flex-direction: column;
   }
   .fac-site img {
-    width: 100%; height: 118px; object-fit: cover; display: block;
+    width: 100%; height: 84px; object-fit: cover; display: block;
   }
-  .fac-site .fac-site-body { padding: 12px 16px 14px; }
+  .fac-site .fac-site-body { padding: 9px 16px 11px; }
   .fac-site strong {
-    font-size: 15.5px; font-weight: 800; color: var(--crp-navy); display: block; margin-bottom: 3px;
+    font-size: 15px; font-weight: 800; color: var(--crp-navy); display: block; margin-bottom: 2px;
   }
   .fac-site span {
-    font-size: 13.5px; color: var(--crp-navy); opacity: 0.92; line-height: 1.4;
+    font-size: 13px; color: var(--crp-navy); opacity: 0.92; line-height: 1.35;
   }
 
   /* ═══ SLIDE — treatments grid (drug logos) ═══ */
@@ -601,22 +629,24 @@
 
   /* ═══ SLIDE — track record / logo wall ═══ */
   .logo-wall-wrap { max-width: 1120px; margin: 0 auto; width: 100%; }
+  /* Three rows of logos plus two quote cards — cell height carries the slide's
+     vertical budget, so it is set to clear the footer, not to fill the space. */
   .logo-wall {
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
-    margin-bottom: 24px;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
+    margin-bottom: 16px;
   }
   .logo-cell {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    height: 80px;
+    height: 64px;
     display: flex; align-items: center; justify-content: center;
     padding: 12px 16px;
     box-shadow: var(--shadow-xs);
     position: relative;
   }
   .logo-cell img {
-    max-width: 100%; max-height: 74px;
+    max-width: 100%; max-height: 58px;
     width: auto; height: auto;
     filter: grayscale(100%);
     opacity: 0.92;
@@ -635,11 +665,11 @@
     border: 1px solid var(--border);
     border-top: 3px solid var(--crp-orange);
     border-radius: var(--radius-lg);
-    padding: 18px 22px;
+    padding: 14px 20px;
     box-shadow: var(--shadow-md);
   }
   .quote-card blockquote {
-    margin: 0 0 8px; font-size: 15.5px; line-height: 1.45;
+    margin: 0 0 6px; font-size: 15px; line-height: 1.45;
     color: var(--crp-navy); font-style: italic;
   }
   .quote-card cite {
@@ -1118,8 +1148,8 @@
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Therapeutic depth</div>
-      <h2 class="slide-h2">Cardiometabolic is our anchor. We run four other areas alongside it.</h2>
-      <p class="slide-lede">Verified actuals shown for cardiometabolic. Other columns mix live status with recent trial experience.</p>
+      <h2 class="slide-h2">Therapeutic depth across eight areas</h2>
+      <p class="slide-lede">Verified actuals shown for cardiometabolic. Other areas mix live status with recent and historical delivery.</p>
     </div>
     <div class="slide-body">
       <div class="ta-cols" style="max-width:1120px;margin:0 auto;width:100%;">
@@ -1140,33 +1170,54 @@
             <span class="ta-status">Recently closed</span>
             <div class="ta-actual">Target 5 · <strong>Actual 9 · 180%</strong></div>
           </div>
-          <div class="ta-study">
-            <div class="ta-name">+ 6 more Phase II–III</div>
-            <span class="ta-status">2024–25</span>
-          </div>
+          <div class="ta-more"><b>+ 6 more Phase II–III</b> · 2024–25</div>
         </div>
         <div class="ta-block">
-          <h4>Derm &amp; Rheum</h4>
+          <h4>Dermatology</h4>
           <div class="ta-study"><div class="ta-name">Plaque Psoriasis</div><span class="ta-status live">Currently enrolling</span></div>
           <div class="ta-study"><div class="ta-name">Atopic Dermatitis</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Sjögren's Disease</div><span class="ta-status live">Currently enrolling</span></div>
           <div class="ta-study"><div class="ta-name">Hidradenitis Suppurativa</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Rheumatoid Arthritis</div><span class="ta-status">In start-up</span></div>
+          <div class="ta-more"><b>16 protocols since 2021</b> · chronic urticaria, lichen sclerosus</div>
+        </div>
+        <div class="ta-block">
+          <h4>Rheumatology</h4>
+          <div class="ta-study"><div class="ta-name">Sjögren's Disease</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-study"><div class="ta-name">Psoriatic Arthritis</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-study"><div class="ta-name">Systemic Lupus Erythematosus</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-more"><b>12 protocols since 2021</b> · rheumatoid arthritis in start-up</div>
         </div>
         <div class="ta-block">
           <h4>Neurology</h4>
-          <div class="ta-study"><div class="ta-name">Migraine Prevention</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-study">
+            <div class="ta-name">Migraine Prevention</div>
+            <span class="ta-status live">Currently enrolling</span>
+            <div class="ta-actual">More than 25 protocols since 2005</div>
+          </div>
           <div class="ta-study">
             <div class="ta-name">Alzheimer's Disease</div>
-            <span class="ta-status">Long-running</span>
-            <div class="ta-actual">6 trials since 2021 · raters certified in MMSE, CDR, ADAS-Cog, FAQ</div>
+            <span class="ta-status live">Currently enrolling</span>
+            <div class="ta-actual">9 protocols since 2020 · raters certified in MMSE, CDR, ADAS-Cog, FAQ</div>
           </div>
         </div>
-        <div class="ta-block">
+      </div>
+      <!-- Second tier: real depth, but historical or prescreening rather than a
+           named live study. Kept visually lighter so the live book reads first. -->
+      <div class="ta-cols-2" style="max-width:1120px;margin-left:auto;margin-right:auto;width:100%;">
+        <div class="ta-block compact">
           <h4>Women's Health</h4>
-          <div class="ta-study"><div class="ta-name">Contraception / Birth Control</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Menstrual Migraine</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Hot Flashes</div><span class="ta-status">Long-running</span></div>
+          <div class="ta-conds">Contraception, menopause, uterine bleeding, HSDD — <b>117 protocols, 2001–2019</b>; contraceptive prescreening open</div>
+        </div>
+        <div class="ta-block compact">
+          <h4>Hepatology &amp; Liver</h4>
+          <div class="ta-conds">MASH, liver fibrosis — <b>FibroScan on site</b>, hepatologist on staff, MASH prescreening open</div>
+        </div>
+        <div class="ta-block compact">
+          <h4>Urology &amp; Pelvic Health</h4>
+          <div class="ta-conds">Overactive bladder, nocturia, stress incontinence — <b>28 protocols</b>; SUI prescreening open</div>
+        </div>
+        <div class="ta-block compact">
+          <h4>Endocrine &amp; Bone</h4>
+          <div class="ta-conds">Type 2 diabetes, obesity, osteoporosis — <b>endocrinologist on staff</b>; T2DM and obesity prescreening open</div>
         </div>
       </div>
     </div>
