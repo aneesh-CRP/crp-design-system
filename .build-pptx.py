@@ -165,6 +165,9 @@ def add_text(slide, t):
             continue
         run = para.add_run()
         run.text = text.upper() if t["upper"] else text
+        href = r.get("href") or t.get("href")
+        if href:
+            run.hyperlink.address = href
         f = run.font
         fam, bold = font_for(r["weight"], t.get("family"))
         f.name = fam
