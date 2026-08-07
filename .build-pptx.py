@@ -51,6 +51,14 @@ def set_alpha(fill, alpha):
     clr.append(node)
 
 
+# Google Slides can only use fonts from the Google Fonts library — there is no
+# upload — so Area and Market Pro always substitute there, and Slides falls back
+# to Arial, which is wider and re-wraps every heading. tokens.css already names
+# the sanctioned fallbacks, and both are on Google Fonts.
+SLIDES_SANS, SLIDES_SCRIPT = "IBM Plex Sans", "Caveat"
+SLIDES_MODE = False
+
+
 def font_for(weight, family):
     """Map CSS weight onto the Area family names PowerPoint actually sees.
 
@@ -61,9 +69,11 @@ def font_for(weight, family):
     Returns (family_name, use_bold_flag).
     """
     if "Market Pro" in (family or ""):
-        return "Market Pro", False  # the orange script tagline
+        return (SLIDES_SCRIPT if SLIDES_MODE else "Market Pro"), False
     if "Plex Mono" in (family or ""):
         return "IBM Plex Mono", weight >= 700
+    if SLIDES_MODE:
+        return SLIDES_SANS, weight >= 600
     if weight >= 800:
         return "Area Normal ExtraBold", False
     if weight >= 700:
@@ -71,6 +81,70 @@ def font_for(weight, family):
     if weight >= 600:
         return "Area Normal SemiBold", False
     return "Area Normal", False
+
+
+CACHE = DS / ".pptx-imgcache"
+
+
+def downscale(src, box_w, box_h, factor=2):
+    """Embed images at ~2x their placed size.
+
+    Sponsor marks are rasterised at 600px tall but placed at ~30-56px, so the
+    file carried roughly an order of magnitude more pixels than it renders.
+    Caps each image at `factor` x its box and caches the result.
+    """
+    try:
+        from PIL import Image
+        im = Image.open(src)
+        target_w, target_h = int(box_w * factor), int(box_h * factor)
+        if im.width <= target_w * 1.15 and im.height <= target_h * 1.15:
+            return src
+        scale = max(target_w / im.width, target_h / im.height)
+        new = (max(1, int(im.width * scale)), max(1, int(im.height * scale)))
+        CACHE.mkdir(exist_ok=True)
+        out = CACHE / f"{src.stem}-{new[0]}x{new[1]}{src.suffix}"
+        if not out.exists():
+            im.convert("RGBA" if src.suffix.lower() == ".png" else "RGB") \
+              .resize(new, Image.LANCZOS).save(out, optimize=True)
+        return out
+    except Exception:
+        return src
+
+
+def script_image(text, size_px, color_hex):
+    """Rasterise the Market Pro tagline for the Google Slides build.
+
+    Market Pro is a compact script; at the same point size Caveat or Arial set
+    two to three times wider, so the cover lockup overflows and collides. It is
+    a brand mark rather than editable copy, so the Slides variant ships it as a
+    picture and keeps the layout exact.
+    """
+    try:
+        from PIL import Image, ImageDraw, ImageFont
+    except Exception:
+        return None
+    face = pathlib.Path.home() / "Library/Fonts/MarketPro.otf"
+    if not face.exists():
+        face = DS / "assets/fonts/MarketPro.otf"
+    if not face.exists():
+        return None
+    S = 3  # supersample
+    try:
+        font = ImageFont.truetype(str(face), int(size_px * S))
+    except Exception:
+        return None
+    probe = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
+    box = probe.textbbox((0, 0), text, font=font)
+    w, h = max(1, box[2] - box[0]), max(1, box[3] - box[1])
+    pad = int(size_px * S * 0.2)
+    img = Image.new("RGBA", (w + pad * 2, h + pad * 2), (0, 0, 0, 0))
+    ImageDraw.Draw(img).text((pad - box[0], pad - box[1]), text, font=font,
+                             fill="#" + color_hex.upper())
+    CACHE.mkdir(exist_ok=True)
+    safe = "".join(c for c in text if c.isalnum())[:24]
+    out = CACHE / f"script-{safe}-{int(size_px)}-{color_hex}.png"
+    img.resize((img.width // S, img.height // S), Image.LANCZOS).save(out)
+    return out, img.width // S, img.height // S
 
 
 def add_shape(slide, s):
@@ -133,6 +207,18 @@ def add_shape(slide, s):
 
 
 def add_text(slide, t):
+    if SLIDES_MODE and "Market Pro" in (t.get("family") or ""):
+        txt = "".join(r["t"] for r in t["runs"]).strip()
+        col = next((r["color"]["hex"] for r in t["runs"] if r.get("color")), "FF9933")
+        made = script_image(txt, t["size"], col)
+        if made:
+            path, iw, ih = made
+            scale = min(t["w"] / iw, t["h"] / ih) if iw and ih else 1
+            w, h = iw * scale, ih * scale
+            return slide.shapes.add_picture(
+                str(path), px(t["x"] + (t["w"] - w) / 2), px(t["y"] + (t["h"] - h) / 2),
+                px(w), px(h))
+
     # Give the box slack so PowerPoint's slightly different metrics do not
     # re-wrap a line that fits in the browser. Centred text grows symmetrically.
     pad = 26 if t["align"] == "center" else 14
@@ -140,7 +226,7 @@ def add_text(slide, t):
     box = slide.shapes.add_textbox(px(t["x"] - dx), px(t["y"] - 3),
                                    px(t["w"] + pad), px(t["h"] + 8))
     tf = box.text_frame
-    tf.word_wrap = True
+    tf.word_wrap = t["h"] > t["lh"] * 1.45
     tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
     tf.vertical_anchor = MSO_ANCHOR.TOP
     para = tf.paragraphs[0]
@@ -203,6 +289,7 @@ def add_image(slide, im):
         grey = src.with_name(src.stem + "-gray.png")
         if grey.exists():
             src = grey
+    src = downscale(src, im["w"], im["h"])
     try:
         pic = slide.shapes.add_picture(str(src), px(im["x"]), px(im["y"]),
                                        px(im["w"]), px(im["h"]))
@@ -244,8 +331,16 @@ def build(json_name, out_name):
 
 
 if __name__ == "__main__":
-    for src, out in [(".pptx-overview.json", "CRP-Executive-Overview-Aug-2026.pptx"),
-                     (".pptx-derm.json", "CRP-Dermatology-Site-Capabilities.pptx"),
-                     (".pptx-alz.json", "CRP-Alzheimers-Site-Capabilities.pptx")]:
-        path, n = build(src, out)
-        print(f"  {path.name:<44} {n} slides")
+    import sys
+    decks = [(".pptx-overview.json", "CRP-Executive-Overview-Aug-2026"),
+             (".pptx-derm.json", "CRP-Dermatology-Site-Capabilities"),
+             (".pptx-alz.json", "CRP-Alzheimers-Site-Capabilities")]
+    for src, stem in decks:
+        path, n = build(src, stem + ".pptx")
+        print(f"  {path.name:<50} {n} slides")
+    if "--slides" in sys.argv:
+        SLIDES_MODE = True
+        globals()["SLIDES_MODE"] = True
+        for src, stem in decks:
+            path, n = build(src, stem + "-GoogleSlides.pptx")
+            print(f"  {path.name:<50} {n} slides  (Google Fonts)")
