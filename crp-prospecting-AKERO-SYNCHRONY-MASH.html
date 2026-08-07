@@ -45,48 +45,37 @@
   .cover {
     background: var(--gradient-navy-blue);
     color: var(--crp-white);
-    display: grid; grid-template-columns: 1.25fr 1fr;
-    align-items: center;
-  }
-  .cover .quat {
-    position: absolute; right: -120px; bottom: -180px;
-    width: 720px; height: 720px; opacity: 0.07;
-  }
-  .cover .left {
-    padding: 96px 40px 96px 96px; position: relative; z-index: 2;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
     text-align: center;
   }
-  .cover .eyebrow {
-    font-size: 14.5px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--crp-cyan); margin-bottom: 28px; font-weight: 600;
+  .cover .quat {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 860px; height: 860px; opacity: 0.06;
   }
+  .cover .lockup { position: relative; z-index: 2; margin-bottom: 46px; }
+  .cover .lockup img { width: 300px; display: block; }
+  .cover .center { position: relative; z-index: 2; }
   .cover h1 {
     font-family: var(--font-sans); font-weight: 800;
-    font-size: 56px; line-height: 1.05; margin: 0 0 4px;
+    font-size: 58px; line-height: 1.05; margin: 0 0 2px;
     letter-spacing: -0.015em; color: var(--crp-white);
     white-space: nowrap;
   }
   .cover .script-line {
     font-family: var(--font-script); color: var(--crp-orange);
-    font-size: 96px; line-height: 1; margin: 0 0 32px;
+    font-size: 100px; line-height: 1; margin: 0 0 38px;
+  }
+  .cover .script-line .tm {
+    font-family: var(--font-sans); font-size: 20px; font-weight: 600;
+    vertical-align: super; margin-left: 4px; letter-spacing: 0;
   }
   .cover .year {
-    font-size: 16px; color: rgba(255,255,255,0.9);
-    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600;
+    font-size: 15px; color: rgba(255,255,255,0.85);
+    letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600;
   }
-  .cover .right {
-    padding: 96px; position: relative; z-index: 2; text-align: right;
-    display: flex; flex-direction: column; align-items: flex-end; gap: 18px;
-  }
-  .cover .right img { width: 100%; max-width: 330px; }
-  .cover .right .cover-tag {
-    font-size: 14.5px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--crp-cyan); font-weight: 700; margin-top: 8px;
-  }
-  .cover .right .cover-date {
-    font-family: var(--font-script); color: var(--crp-orange);
-    font-size: 44px; line-height: 1;
-  }
+  .cover .year .dot { color: var(--crp-cyan); margin: 0 10px; }
   .cover .footer { color: rgba(255,255,255,0.55); }
   .cover .footer .mark img { filter: brightness(0) invert(1); opacity: 0.6; }
 
@@ -211,9 +200,12 @@
     background: var(--gradient-navy-blue);
     color: var(--crp-white);
     border-radius: var(--radius-xl);
-    padding: 28px 30px 26px;
+    padding: 28px 34px;
     box-shadow: var(--shadow-lg);
     position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
   }
   .hero-stat .quat-bg {
     position: absolute; right: -60px; bottom: -80px; width: 240px; height: 240px;
@@ -224,10 +216,11 @@
     letter-spacing: -0.03em;
   }
   .hero-stat .num .pct { font-size: 56px; color: var(--crp-cyan); margin-left: 4px; vertical-align: top; }
-  .hero-stat .label { font-size: 17px; line-height: 1.4; margin-top: 14px; max-width: 380px; opacity: 0.95; }
+  .hero-stat .label { font-size: 17px; line-height: 1.4; margin-top: 14px; max-width: 360px; opacity: 0.95; }
   .hero-stat .bench {
-    margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.18);
-    font-size: 14.5px; color: rgba(255,255,255,0.85);
+    margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.18);
+    font-size: 15px; line-height: 1.45; color: rgba(255,255,255,0.85);
+    max-width: 360px;
   }
   .hero-stat .bench strong { color: var(--crp-cyan); font-weight: 700; }
 
@@ -318,13 +311,15 @@
 
   /* ═══ SLIDE — therapeutic depth (4 columns w/ marquee studies) ═══ */
   .ta-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  /* The tallest column carries four studies; padding and gaps are sized so it
+     clears the footer band rather than running into it. */
   .ta-block {
     background: var(--surface);
     border: 1px solid var(--border);
     border-top: 3px solid var(--crp-blue);
     border-radius: var(--radius-lg);
-    padding: 22px 22px;
-    display: flex; flex-direction: column; gap: 14px;
+    padding: 13px 17px;
+    display: flex; flex-direction: column; gap: 8px;
     box-shadow: var(--shadow-md);
   }
   .ta-block:nth-child(2) { border-top-color: var(--crp-orange); }
@@ -335,21 +330,45 @@
   }
   .ta-study {
     border-top: 1px solid var(--border);
-    padding-top: 12px;
+    padding-top: 7px;
   }
-  .ta-study .ta-name { font-size: 15.5px; font-weight: 600; color: var(--crp-navy); margin-bottom: 6px; line-height: 1.25; }
+  .ta-study .ta-name { font-size: 14.5px; font-weight: 600; color: var(--crp-navy); margin-bottom: 3px; line-height: 1.25; }
   .ta-status {
     display: inline-block;
-    font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em;
-    padding: 3px 9px; border-radius: 999px;
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em;
+    padding: 2px 8px; border-radius: 999px;
     background: var(--blue-bg); color: var(--crp-blue);
   }
   .ta-status.live { background: var(--orange-bg, #fff3e0); color: var(--crp-orange); font-weight: 800; }
   .ta-actual {
-    margin-top: 6px;
-    font-size: 13.5px; color: var(--fg-2); line-height: 1.3;
+    margin-top: 4px;
+    font-size: 12.5px; color: var(--fg-2); line-height: 1.3;
   }
   .ta-actual strong { color: var(--crp-orange); font-weight: 800; }
+  /* Second tier — areas with real depth but no live marquee study to name.
+     Lighter weight on purpose: the eye should land on the top row first. */
+  .ta-cols-2 {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    margin-top: 14px;
+  }
+  .ta-block.compact {
+    padding: 11px 15px; gap: 5px;
+    border-top-width: 2px; box-shadow: var(--shadow-sm);
+  }
+  .ta-block.compact h4 { font-size: 12px; letter-spacing: 0.12em; }
+  /* Conditions and the evidence for them run as one paragraph — two stacked
+     blocks with a rule between them cost ~45px the slide does not have. */
+  .ta-block.compact .ta-conds {
+    font-size: 12px; line-height: 1.4; color: var(--fg-2);
+  }
+  .ta-block.compact .ta-conds b { color: var(--crp-navy); font-weight: 700; }
+  /* Tail line inside a top-row block: "and N more like this", so the column
+     shows three named studies instead of growing a fourth row. */
+  .ta-more {
+    margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border);
+    font-size: 11.5px; line-height: 1.35; color: var(--fg-2);
+  }
+  .ta-more b { color: var(--crp-navy); font-weight: 700; }
 
   /* ═══ SLIDE — tech stack architecture ═══ */
   .stack {
@@ -369,6 +388,10 @@
     position: relative;
     display: flex; flex-direction: column; gap: 10px;
   }
+  /* Keep the eyebrow / heading / body rows on the same baseline across all four
+     boxes even when a label wraps to two lines. */
+  .stack-node .stack-eyebrow { min-height: 2.4em; display: flex; align-items: flex-start; }
+  .stack-node h4 { min-height: 2.2em; }
   .stack-node:nth-child(2) { border-top-color: var(--crp-orange); }
   .stack-node:nth-child(4) { border-top-color: var(--crp-orange); }
   .stack-node + .stack-node::before {
@@ -433,6 +456,30 @@
 
   /* ═══ SLIDE — team (with headshots) ═══ */
   .ppl-grid { display: grid; gap: 18px; max-width: 1120px; margin: 0 auto; width: 100%; }
+  /* Sub-investigators sit below the investigator grid, labelled as such, so the
+     headline count stays exactly the number of investigators. */
+  .subi-strip {
+    display: flex; align-items: center; gap: 12px;
+    margin: 20px auto 0; padding: 9px 22px;
+    border: 1px solid var(--border); border-radius: 999px;
+    background: var(--surface);
+    /* .slide-body is a flex column, so the pill must opt out of stretch and
+       refuse to wrap or it collapses to the narrowest column it can find. */
+    align-self: center; flex: 0 0 auto; white-space: nowrap;
+  }
+  .subi-strip img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; }
+  .subi-strip .lbl {
+    font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--crp-blue); font-weight: 700;
+  }
+  .subi-strip .nm { font-size: 14.5px; color: var(--crp-navy); }
+  .subi-strip .nm b { font-weight: 700; }
+  /* Ops slide carries an extra team-aggregate strip — tighten the cards to fit. */
+  .ops-people .ppl-card { padding: 12px 14px 10px; }
+  .inv-people .ppl-card { padding: 13px 14px 11px; }
+  .inv-people .ppl-card .head { width: 70px; height: 70px; margin-bottom: 9px; }
+  .inv-people .subi-strip { margin-top: 14px; }
+  .ops-people .ppl-card .head { width: 66px; height: 66px; margin-bottom: 8px; }
   .ppl-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
   .ppl-grid.cols-5 { grid-template-columns: repeat(5, 1fr); gap: 14px; }
   /* 4-column grid where row 2 has only 3 cards: offset to columns 2-4 so widths match row 1 */
@@ -480,33 +527,51 @@
 
   /* ═══ SLIDE — combined facilities ═══ */
   .fac-wrap { max-width: 1120px; margin: 0 auto; width: 100%; }
+  /* Capability lists plus two site photos is the densest slide in the deck —
+     every vertical value here is tuned to keep it inside the 720px canvas. */
   .fac-cap-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
   }
   .fac-cap-cell {
     background: var(--surface);
     border: 1px solid var(--border);
     border-top: 3px solid var(--crp-blue);
     border-radius: var(--radius-lg);
-    padding: 22px 22px;
+    padding: 15px 20px;
     box-shadow: var(--shadow-md);
   }
   .fac-cap-cell:nth-child(2) { border-top-color: var(--crp-orange); }
   .fac-cap-cell h4 {
     font-size: 13.5px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--crp-blue); margin: 0 0 10px; font-weight: 700;
+    color: var(--crp-blue); margin: 0 0 7px; font-weight: 700;
   }
   .fac-cap-cell ul {
     list-style: none; padding: 0; margin: 0;
-    display: flex; flex-direction: column; gap: 5px;
+    display: flex; flex-direction: column; gap: 3px;
   }
   .fac-cap-cell li {
-    font-size: 14.5px; color: var(--crp-navy); opacity: 0.92;
-    line-height: 1.4; padding-left: 12px; position: relative;
+    font-size: 13.5px; color: var(--crp-navy); opacity: 0.92;
+    line-height: 1.35; padding-left: 12px; position: relative;
   }
   .fac-cap-cell li::before {
     content: '–'; position: absolute; left: 0; color: var(--crp-blue); font-weight: 700;
+  }
+  /* Industry affiliations — recognition marks a CRO reads instantly. */
+  .affil {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    max-width: 1120px; margin: 24px auto 0; width: 100%;
+    padding-top: 18px; border-top: 1px solid var(--border);
+  }
+  /* Marks vary wildly in aspect, so each gets an identical box to sit in. */
+  .affil span.m {
+    width: 130px; height: 58px; display: flex;
+    align-items: center; justify-content: center;
+  }
+  .affil span.m img { max-width: 120px; width: auto; height: auto; }
+  .affil .lbl {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--fg-3); font-weight: 700; margin-right: 6px;
   }
   .fac-sites {
     display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
@@ -514,14 +579,18 @@
   .fac-site {
     background: var(--blue-bg);
     border-radius: var(--radius-md);
-    padding: 14px 18px;
-    display: flex; align-items: baseline; gap: 12px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
   }
+  .fac-site img {
+    width: 100%; height: 84px; object-fit: cover; display: block;
+  }
+  .fac-site .fac-site-body { padding: 9px 16px 11px; }
   .fac-site strong {
-    font-size: 16px; font-weight: 800; color: var(--crp-navy); flex-shrink: 0;
+    font-size: 15px; font-weight: 800; color: var(--crp-navy); display: block; margin-bottom: 2px;
   }
   .fac-site span {
-    font-size: 14.5px; color: var(--crp-navy); opacity: 0.92; line-height: 1.4;
+    font-size: 13px; color: var(--crp-navy); opacity: 0.92; line-height: 1.35;
   }
 
   /* ═══ SLIDE — treatments grid (drug logos) ═══ */
@@ -530,7 +599,7 @@
     max-width: 1120px; margin: 0 auto; width: 100%;
   }
   .tx-cell {
-    height: 88px;
+    height: 112px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
@@ -538,7 +607,7 @@
     padding: 10px 16px;
     box-shadow: var(--shadow-sm);
   }
-  .tx-cell img { max-height: 82px; max-width: 100%; width: auto; }
+  .tx-cell img { max-width: 330px; width: auto; height: auto; }
   .tx-cell .tx-fb {
     display: none; flex-direction: column; align-items: center; gap: 4px;
     text-align: center;
@@ -556,13 +625,15 @@
     color: var(--crp-blue); font-weight: 700;
     text-align: center; margin-bottom: 14px;
   }
-  .tx-col { display: flex; flex-direction: column; gap: 10px; }
+  .tx-col { display: flex; flex-direction: column; gap: 8px; }
 
   /* ═══ SLIDE — track record / logo wall ═══ */
   .logo-wall-wrap { max-width: 1120px; margin: 0 auto; width: 100%; }
+  /* Three rows of logos plus two quote cards — cell height carries the slide's
+     vertical budget, so it is set to clear the footer, not to fill the space. */
   .logo-wall {
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
-    margin-bottom: 24px;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
+    margin-bottom: 16px;
   }
   .logo-cell {
     background: var(--surface);
@@ -575,8 +646,7 @@
     position: relative;
   }
   .logo-cell img {
-    max-width: 100%; max-height: 74px;
-    width: auto; height: auto;
+    max-width: 184px; width: auto; height: auto;
     filter: grayscale(100%);
     opacity: 0.92;
   }
@@ -594,11 +664,11 @@
     border: 1px solid var(--border);
     border-top: 3px solid var(--crp-orange);
     border-radius: var(--radius-lg);
-    padding: 18px 22px;
+    padding: 14px 20px;
     box-shadow: var(--shadow-md);
   }
   .quote-card blockquote {
-    margin: 0 0 8px; font-size: 15.5px; line-height: 1.45;
+    margin: 0 0 6px; font-size: 15px; line-height: 1.45;
     color: var(--crp-navy); font-style: italic;
   }
   .quote-card cite {
@@ -606,6 +676,46 @@
     font-style: normal; letter-spacing: 0.05em; text-transform: uppercase;
   }
 
+  /* ═══ Logo optical sizing ═══
+     Equal max-height makes a 6:1 wordmark look three times bigger than a
+     square mark. These heights give every logo the same rendered AREA
+     instead, capped by its cell. Regenerate if a logo asset changes. */
+  /* sponsors — target ~3000px² */
+  .logo-cell img[src$="_wall.png"] { height: 27px; }
+  .logo-cell img[src$="abbott.svg"] { height: 21px; }
+  .logo-cell img[src$="abbvie.svg"] { height: 24px; }
+  .logo-cell img[src$="amgen.svg"] { height: 28px; }
+  .logo-cell img[src$="bayer.svg"] { height: 55px; }
+  .logo-cell img[src$="bms.svg"] { height: 22px; }
+  .logo-cell img[src$="daiichi-sankyo.svg"] { height: 54px; }
+  .logo-cell img[src$="gsk.svg"] { height: 51px; }
+  .logo-cell img[src$="janssen.svg"] { height: 36px; }
+  .logo-cell img[src$="lilly.svg"] { height: 40px; }
+  .logo-cell img[src$="merck.svg"] { height: 30px; }
+  .logo-cell img[src$="novartis.svg"] { height: 21px; }
+  .logo-cell img[src$="novo-nordisk.svg"] { height: 47px; }
+  .logo-cell img[src$="pfizer.svg"] { height: 35px; }
+  .logo-cell img[src$="sanofi.svg"] { height: 28px; }
+  .logo-cell img[src$="takeda.svg"] { height: 32px; }
+  .logo-cell img[src$="teva.svg"] { height: 33px; }
+  .logo-cell img[src$="viatris.svg"] { height: 28px; }
+  /* treatments — target ~12400px² */
+  .tx-cell img[src$="dupixent.png"] { height: 70px; }
+  .tx-cell img[src$="mounjaro.png"] { height: 87px; }
+  .tx-cell img[src$="nurtec.png"] { height: 84px; }
+  .tx-cell img[src$="olumiant.png"] { height: 92px; }
+  .tx-cell img[src$="ozempic.png"] { height: 84px; }
+  .tx-cell img[src$="qulipta.png"] { height: 90px; }
+  .tx-cell img[src$="rinvoq.png"] { height: 76px; }
+  .tx-cell img[src$="ubrelvy.png"] { height: 62px; }
+  .tx-cell img[src$="wegovy.png"] { height: 74px; }
+  /* affiliations — target ~3000px² */
+  .affil span.m img[src$="acrp.png"] { height: 30px; }
+  .affil span.m img[src$="scrs.png"] { height: 35px; }
+  .affil span.m img[src$="sip.png"] { height: 39px; }
+  .affil span.m img[src$="socra.png"] { height: 55px; }
+  .affil span.m img[src$="transcelerate.png"] { height: 46px; }
+  .affil span.m img[src$="vtc.png"] { height: 55px; }
   /* ═══ SLIDE — facilities ═══ */
   .fac-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
   .fac-card {
@@ -718,7 +828,6 @@
 </head>
 <body>
 <div class="deck">
-
 <!-- ════════════ STUDY-SPECIFIC SITE BRIEF (prepended) ════════════ -->
 <style>
   .sx-cover{box-sizing:border-box;height:720px;overflow:hidden;background:var(--gradient-navy-blue);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:64px 96px;}
@@ -918,20 +1027,16 @@
 </section>
 <!-- ════════════ END STUDY BRIEF — GENERAL CAPABILITIES FOLLOW ════════════ -->
 
-
 <!-- ═════════ SLIDE 1 — COVER (patient tagline) ═════════ -->
 <section class="slide cover">
   <img class="quat" src="./assets/stencils/quatrefoil.svg" alt="">
-  <div class="left">
-    <div class="eyebrow">Clinical Research Philadelphia</div>
-    <h1>The future of medicine</h1>
-    <div class="script-line">begins with you</div>
-    <div class="year">Executive Overview · April 2026</div>
+  <div class="lockup">
+    <img src="./assets/logos/crp-white.svg" alt="Clinical Research Philadelphia">
   </div>
-  <div class="right">
-    <img src="./assets/logos/crp-white.svg" alt="CRP">
-    <div class="cover-tag">Sponsor &amp; CRO Capabilities</div>
-    <div class="cover-date">April 2026</div>
+  <div class="center">
+    <h1>The future of medicine</h1>
+    <div class="script-line">begins with you<span class="tm">&trade;</span></div>
+    <div class="year">Sponsor &amp; CRO Capabilities<span class="dot">·</span>August 2026</div>
   </div>
   <div class="footer">
     <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> phillyresearch.com</span>
@@ -944,8 +1049,8 @@
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Executive snapshot</div>
-      <h2 class="slide-h2">Thirty years of clinical research in Greater Philadelphia.</h2>
-      <p class="slide-lede">Two sites, more than 500 trials, and a recruitment engine reaching well over a million patients.</p>
+      <h2 class="slide-h2">Two sites and a 215-practice referral network</h2>
+      <p class="slide-lede">Operating in Philadelphia and Pennington since 1996.</p>
     </div>
     <div class="slide-body">
       <div class="stat-row stat-row-8">
@@ -959,11 +1064,11 @@
         </div>
         <div class="stat">
           <div class="num">1.5<span class="unit">M</span></div>
-          <div class="label">Patient records reachable through partner EMRs</div>
+          <div class="label">Patients across our referring provider panels</div>
         </div>
         <div class="stat">
-          <div class="num">50<span class="unit">+</span></div>
-          <div class="label">Referring provider partnerships across PA &amp; NJ</div>
+          <div class="num">215</div>
+          <div class="label">Referring practices across PA &amp; NJ</div>
         </div>
         <div class="stat">
           <div class="num">95<span class="unit">%</span></div>
@@ -971,15 +1076,15 @@
         </div>
         <div class="stat">
           <div class="num">200<span class="unit">+</span></div>
-          <div class="label">Years of combined research experience on team</div>
+          <div class="label">Years of combined research experience</div>
         </div>
         <div class="stat">
-          <div class="num">37<span class="unit">%</span></div>
-          <div class="label">Enrollment from racial or ethnic minorities</div>
+          <div class="num">41<span class="unit">%</span></div>
+          <div class="label">Participants from racially diverse backgrounds</div>
         </div>
         <div class="stat">
           <div class="num">8</div>
-          <div class="label">Board-certified investigators across our therapeutic areas</div>
+          <div class="label">Investigators across our therapeutic areas</div>
         </div>
       </div>
     </div>
@@ -995,8 +1100,8 @@
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Performance proof</div>
-      <h2 class="slide-h2">We hit sponsor enrollment targets nine times out of ten.</h2>
-      <p class="slide-lede">Across our last ten trials. The cycle-time metrics below show how.</p>
+      <h2 class="slide-h2">Enrollment performance across our last ten trials</h2>
+      <p class="slide-lede">Cycle times measured against NIH guidelines (PubMed 30227522).</p>
     </div>
     <div class="slide-body">
       <div class="perf-grid">
@@ -1015,9 +1120,9 @@
             </div>
           </div>
           <div class="perf-row">
-            <div class="v">3</div>
+            <div class="v">10</div>
             <div class="t">
-              <div class="ttl">Days from start-up packet to IRB submission</div>
+              <div class="ttl">Days to a complete regulatory package</div>
               <div class="desc">Regulatory turns documents in parallel, not in sequence.</div>
             </div>
           </div>
@@ -1039,7 +1144,7 @@
             <div class="v">1</div>
             <div class="t">
               <div class="ttl">Day average EDC data entry</div>
-              <div class="desc">CRIO source-to-EDC — no double entry.</div>
+              <div class="desc">CRIO source-to-EDC.</div>
             </div>
           </div>
         </div>
@@ -1057,8 +1162,8 @@
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Why CRP</div>
-      <h2 class="slide-h2">Tech, team, and start-up speed are how we get there.</h2>
-      <p class="slide-lede">Three reasons sponsors hand us their toughest enrollment targets.</p>
+      <h2 class="slide-h2">Three pillars: technology, team, and start-up speed</h2>
+      <p class="slide-lede">Why sponsors hand us their toughest enrollment targets.</p>
     </div>
     <div class="slide-body">
       <div class="pillar-grid pillar-grid-wrap">
@@ -1073,15 +1178,15 @@
           <div class="pillar-eyebrow">Team</div>
           <h3>Two hundred years of combined experience under one roof.</h3>
           <div class="pillar-stat">8</div>
-          <div class="pillar-stat-label">Board-certified investigators</div>
-          <p>Investigators across cardiology, endocrinology, derm, rheum, internal medicine, and OB/GYN. Coordinators average eight years on platform — studies see the same staff visit-to-visit.</p>
+          <div class="pillar-stat-label">Investigators on staff</div>
+          <p>Investigators across cardiology, endocrinology, hepatology, derm, rheum, internal medicine, and OB/GYN. Coordinators average eight years on platform — studies see the same staff visit-to-visit.</p>
         </div>
         <div class="pillar">
           <div class="pillar-eyebrow">Start-up speed</div>
           <h3>Built to mobilize the moment we are selected.</h3>
           <div class="pillar-stat">21<span class="unit">days</span></div>
           <div class="pillar-stat-label">Start-up · first patient screened &lt;7 days after greenlight</div>
-          <p>Parallel regulatory and recruitment workflows, two facilities ready to run, and a provider partnership network we pulse the day a study opens.</p>
+          <p>Parallel regulatory and recruitment workflows, two facilities ready to run, and a provider partnership network we pulse the day the site is selected.</p>
         </div>
       </div>
     </div>
@@ -1097,8 +1202,8 @@
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Therapeutic depth</div>
-      <h2 class="slide-h2">Cardiometabolic is our anchor. We run four other areas alongside it.</h2>
-      <p class="slide-lede">Verified actuals shown for cardiometabolic. Other columns show current enrollment status.</p>
+      <h2 class="slide-h2">Eight therapeutic areas</h2>
+      <p class="slide-lede">Verified actuals shown for cardiometabolic. Other areas mix live status with recent and historical delivery.</p>
     </div>
     <div class="slide-body">
       <div class="ta-cols" style="max-width:1120px;margin:0 auto;width:100%;">
@@ -1106,7 +1211,7 @@
           <h4>Cardiometabolic</h4>
           <div class="ta-study">
             <div class="ta-name">Lp(a) ASCVD CVOT</div>
-            <span class="ta-status live">Currently enrolling</span>
+            <span class="ta-status">Enrollment complete</span>
             <div class="ta-actual">Target 15 · <strong>Actual 51 · 340%</strong></div>
           </div>
           <div class="ta-study">
@@ -1119,24 +1224,54 @@
             <span class="ta-status">Recently closed</span>
             <div class="ta-actual">Target 5 · <strong>Actual 9 · 180%</strong></div>
           </div>
+          <div class="ta-more"><b>+ 6 more Phase II–III</b> · 2024–25</div>
         </div>
         <div class="ta-block">
-          <h4>Derm &amp; Rheum</h4>
+          <h4>Dermatology</h4>
           <div class="ta-study"><div class="ta-name">Plaque Psoriasis</div><span class="ta-status live">Currently enrolling</span></div>
           <div class="ta-study"><div class="ta-name">Atopic Dermatitis</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Sjögren's Disease</div><span class="ta-status live">Currently enrolling</span></div>
           <div class="ta-study"><div class="ta-name">Hidradenitis Suppurativa</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-more"><b>13 protocols, 8 sponsors</b> · since 2021</div>
+        </div>
+        <div class="ta-block">
+          <h4>Rheumatology</h4>
+          <div class="ta-study"><div class="ta-name">Sjögren's Disease</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-study"><div class="ta-name">Psoriatic Arthritis</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-study"><div class="ta-name">Systemic Lupus Erythematosus</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-more"><b>Active pipeline</b> · rheumatoid arthritis in start-up</div>
         </div>
         <div class="ta-block">
           <h4>Neurology</h4>
-          <div class="ta-study"><div class="ta-name">Migraine Prevention</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Alzheimer's Disease</div><span class="ta-status">Long-running</span></div>
+          <div class="ta-study">
+            <div class="ta-name">Migraine Prevention</div>
+            <span class="ta-status live">Currently enrolling</span>
+            <div class="ta-actual">More than 25 protocols since 2005</div>
+          </div>
+          <div class="ta-study">
+            <div class="ta-name">Alzheimer's Disease</div>
+            <span class="ta-status live">Currently enrolling</span>
+            <div class="ta-actual">9 protocols since 2020 · MMSE, CDR and FAQ live in our eSource</div>
+          </div>
         </div>
-        <div class="ta-block">
+      </div>
+      <!-- Second tier: real depth, but historical or prescreening rather than a
+           named live study. Kept visually lighter so the live book reads first. -->
+      <div class="ta-cols-2" style="max-width:1120px;margin-left:auto;margin-right:auto;width:100%;">
+        <div class="ta-block compact">
           <h4>Women's Health</h4>
-          <div class="ta-study"><div class="ta-name">Contraception / Birth Control</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Menstrual Migraine</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Hot Flashes</div><span class="ta-status">Long-running</span></div>
+          <div class="ta-conds">Contraception, menopause, uterine bleeding, HSDD — <b>117 protocols, 2001–2019</b>; contraceptive prescreening open</div>
+        </div>
+        <div class="ta-block compact">
+          <h4>Hepatology &amp; Liver</h4>
+          <div class="ta-conds">MASH, liver fibrosis — <b>FibroScan on site</b>, hepatologist on staff, MASH prescreening open</div>
+        </div>
+        <div class="ta-block compact">
+          <h4>Urology &amp; Pelvic Health</h4>
+          <div class="ta-conds">Overactive bladder, nocturia, stress incontinence — <b>28 protocols</b>; SUI prescreening open</div>
+        </div>
+        <div class="ta-block compact">
+          <h4>Endocrine &amp; Bone</h4>
+          <div class="ta-conds">Type 2 diabetes, obesity, osteoporosis — <b>endocrinologist on staff</b>; T2DM and obesity prescreening open</div>
         </div>
       </div>
     </div>
@@ -1151,43 +1286,43 @@
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
-      <div class="slide-eyebrow">The tech moat</div>
-      <h2 class="slide-h2">We built our own data layer on top of CRIO.</h2>
-      <p class="slide-lede">CRIO is the source of truth. Everything else is automation we built to compress cycle times and surface risk in real time.</p>
+      <div class="slide-eyebrow">What our technology gets you</div>
+      <h2 class="slide-h2">How study data is captured and monitored</h2>
+      <p class="slide-lede">Every visit, query and document is captured electronically in CRIO. What we built on top reads that data continuously so problems surface while they are still fixable.</p>
     </div>
     <div class="slide-body">
       <div class="stack" style="max-width:1120px;margin:0 auto;width:100%;">
         <div class="stack-node">
-          <div class="stack-eyebrow">Source of truth</div>
-          <h4>CRIO</h4>
-          <p>eSource CTMS. Every visit, query, status change, and document lives here.</p>
+          <div class="stack-eyebrow">For your monitors</div>
+          <h4>Nothing to chase</h4>
+          <p>Source entered the day of the visit. Monitoring visits review data instead of waiting on it.</p>
         </div>
         <div class="stack-node">
-          <div class="stack-eyebrow">Warehouse</div>
-          <h4>BigQuery</h4>
-          <p>All CRIO tables synced. Joined with ClickUp, finance, and our lead CRM for live operational queries.</p>
+          <div class="stack-eyebrow">For your study manager</div>
+          <h4>Answers the same day</h4>
+          <p>Enrollment, screen-fail reasons and visit compliance on demand. No week of email.</p>
         </div>
         <div class="stack-node">
-          <div class="stack-eyebrow">Automation</div>
-          <h4>Agents</h4>
-          <p>Reconcile leads, sync medical records, compose sponsor chase emails, watch for scheduling gaps.</p>
+          <div class="stack-eyebrow">For your enrollment</div>
+          <h4>A list on day one</h4>
+          <p>Every protocol scored against our whole database. Named candidates, not ad spend.</p>
         </div>
         <div class="stack-node">
-          <div class="stack-eyebrow">Last mile</div>
-          <h4>Dashboard + HIE</h4>
-          <p>Live ops dashboard for the team. HSX and NJHIN integration for clinical record retrieval.</p>
+          <div class="stack-eyebrow">For your risk</div>
+          <h4>Problems surface early</h4>
+          <p>Missed visits and drifting screen-fail rates flag while they are still fixable.</p>
         </div>
       </div>
       <div class="stack-row" style="max-width:1120px;margin:24px auto 0;width:100%;">
-        <div class="row-cell"><div class="row-h">Reach</div><div class="row-d">Patient records reachable across partner EMRs</div></div>
-        <div class="row-cell"><div class="row-h">Re-engagement</div><div class="row-d">Cross-study matching surfaces prior I/E-cleared candidates</div></div>
-        <div class="row-cell"><div class="row-h">QA agent</div><div class="row-d">Every outbound comm reviewed before send</div></div>
-        <div class="row-cell"><div class="row-h">Audit</div><div class="row-d">Per-action audit log, BAA-ready, HIPAA-grade</div></div>
+        <div class="row-cell"><div class="row-h">Fewer queries</div><div class="row-d">Source-to-EDC same day, so fewer discrepancies reach you</div></div>
+        <div class="row-cell"><div class="row-h">Faster re-screening</div><div class="row-d">Prior I/E results carry forward instead of re-working a patient</div></div>
+        <div class="row-cell"><div class="row-h">Clean patient contact</div><div class="row-d">Every outbound message reviewed before it is sent</div></div>
+        <div class="row-cell"><div class="row-h">Virtual trial capable</div><div class="row-d">Decentralised and hybrid visits supported end to end</div></div>
       </div>
     </div>
   </div>
   <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> CRIO · BigQuery · Agents · Dashboard</span>
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Technology · what it removes from your workload</span>
     <span class="pageno">06</span>
   </div>
 </section>
@@ -1197,23 +1332,23 @@
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Recruitment engine</div>
-      <h2 class="slide-h2">Three lead channels feed one coordinator queue.</h2>
-      <p class="slide-lede">Provider EMR mining, paid digital, and our cross-study re-engagement pool. One pipeline. One owner.</p>
+      <h2 class="slide-h2">Three recruitment channels, one coordinator queue</h2>
+      <p class="slide-lede">Provider EMR mining, paid digital, and our cross-study re-engagement pool.</p>
     </div>
     <div class="slide-body">
       <div class="funnel" style="max-width:880px;margin:0 auto;width:100%;">
         <div class="funnel-step">
-          <div class="fnum">50<span class="unit">+</span></div>
+          <div class="fnum">215</div>
           <div class="fbody">
-            <div class="ftitle">Referring provider partnerships</div>
-            <div class="fdesc">Cardiology, endocrinology, primary care, dermatology. Direct EMR access at most.</div>
+            <div class="ftitle">Referring practices, 903 named providers</div>
+            <div class="fdesc">Cardiology, endocrinology, primary care, neurology, dermatology. Direct EMR access at most.</div>
           </div>
         </div>
         <div class="funnel-step">
           <div class="fnum">1.5<span class="unit">M</span></div>
           <div class="fbody">
-            <div class="ftitle">Patient records reachable via partner EMRs</div>
-            <div class="fdesc">Diagnosis-driven candidate lists per protocol, generated within a day of greenlight.</div>
+            <div class="ftitle">Patients across those provider panels</div>
+            <div class="fdesc">Diagnosis-driven candidate lists per protocol, generated within a day of selection. 37,000 of them are already in our own database.</div>
           </div>
         </div>
         <div class="funnel-step">
@@ -1224,9 +1359,9 @@
           </div>
         </div>
         <div class="funnel-step">
-          <div class="fnum">10<span class="unit">k+</span></div>
+          <div class="fnum">500<span class="unit">+</span></div>
           <div class="fbody">
-            <div class="ftitle">Lifetime enrollments — 500+ studies, 30 years</div>
+            <div class="ftitle">Trials run since 1996</div>
             <div class="fdesc">Coordinator queue is single-owner so nothing falls through the cracks.</div>
           </div>
         </div>
@@ -1243,19 +1378,19 @@
 <section class="slide">
   <div class="slide-pad">
     <div class="slide-head">
-      <div class="slide-eyebrow">Investigators</div>
-      <h2 class="slide-h2">Eight board-certified investigators across our therapeutic areas.</h2>
-      <p class="slide-lede">Combined 200+ years of clinical research experience. Most have been with CRP for over a decade.</p>
+      <div class="slide-eyebrow">Medical staff</div>
+      <h2 class="slide-h2">Eight investigators on staff</h2>
+      <p class="slide-lede">Combined 200+ years of clinical research experience, across cardiology, lipidology, hepatology, dermatology, rheumatology, internal medicine and women's health.</p>
     </div>
-    <div class="slide-body">
+    <div class="slide-body inv-people">
       <div class="ppl-grid cols-4">
-        <div class="ppl-card"><div class="head"><img src="./assets/team/aneesh.png" alt="Aneesh Vaze"></div><div class="name">Aneesh Vaze, MBA</div><div class="role">Managing Director</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/dr-andruczyk.png" alt="Eugene Andruczyk"></div><div class="name">Eugene Andruczyk, MBA, DO</div><div class="role">Investigator</div><div class="specialty">OB / GYN</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/lolita.jpg" alt="Lolita Vaughan"></div><div class="name">Lolita Vaughan, CRNP, CCRC</div><div class="role">Investigator</div><div class="specialty">Women's Health</div></div>
-        <div class="ppl-card"><div class="head"><img src="./assets/team/dr-heether.png" alt="Joseph Heether"></div><div class="name">Joseph Heether, MD</div><div class="role">Investigator</div><div class="specialty">Cardiothoracic</div></div>
+        <div class="ppl-card"><div class="head"><img src="./assets/team/dr-heether.png" alt="Joseph Heether"></div><div class="name">Joseph Heether, MD</div><div class="role">Investigator</div><div class="specialty">Cardiothoracic &middot; Alzheimer's</div></div>
+        <div class="ppl-card"><div class="head"><img src="./assets/team/dr-shaffer.png" alt="Brian Shaffer"></div><div class="name">Brian Shaffer, MD</div><div class="role">Investigator</div><div class="specialty">Internal Medicine</div></div>
       </div>
       <div class="ppl-grid cols-4" style="margin-top:18px;">
-        <div class="ppl-card"><div class="head"><img src="./assets/team/dr-shaffer.png" alt="Brian Shaffer"></div><div class="name">Brian Shaffer, MD</div><div class="role">Investigator</div><div class="specialty">Internal Medicine</div></div>
+        <div class="ppl-card"><div class="head"><img src="./assets/team/dr-rustgi.jpg" alt="Vinod Rustgi"></div><div class="name">Vinod Rustgi, MD, MBA</div><div class="role">Investigator</div><div class="specialty">Hepatology / Liver</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/dr-modarressi.png" alt="Taher Modarressi"></div><div class="name">Taher Modarressi, MD</div><div class="role">Investigator</div><div class="specialty">Endo / Lipidology</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/dr-tomeo.jpg" alt="Michael Tomeo"></div><div class="name">Michael Tomeo, MD</div><div class="role">Investigator</div><div class="specialty">Dermatology</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/dr-leventhal.png" alt="Lawrence Leventhal"></div><div class="name">Lawrence Leventhal, MD</div><div class="role">Investigator</div><div class="specialty">Rheumatology</div></div>
@@ -1263,7 +1398,7 @@
     </div>
   </div>
   <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Investigators · board-certified across our TAs</span>
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Investigators · across our therapeutic areas</span>
     <span class="pageno">08</span>
   </div>
 </section>
@@ -1273,10 +1408,10 @@
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Operations &amp; coordinators</div>
-      <h2 class="slide-h2">Coordinators who average eight years on platform.</h2>
-      <p class="slide-lede">Continuity of staff across visits — your study sees the same faces from screening to closeout.</p>
+      <h2 class="slide-h2">Coordinators and staff continuity</h2>
+      <p class="slide-lede">Your study sees the same faces from screening to closeout.</p>
     </div>
-    <div class="slide-body">
+    <div class="slide-body ops-people">
       <div class="ppl-grid cols-4">
         <div class="ppl-card"><div class="head"><img src="./assets/team/liz.png" alt="Liz Usmiani"></div><div class="name">Liz Usmiani</div><div class="role">Recruitment &amp; Ops Lead</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/leticia.png" alt="Leticia Denato"></div><div class="name">Leticia Denato, MPH</div><div class="role">Operations Manager</div></div>
@@ -1287,7 +1422,33 @@
         <div class="ppl-card"><div class="head"><img src="./assets/team/cady.jpg" alt="Cady Chilensky"></div><div class="name">Cady Chilensky</div><div class="role">Coordinator</div></div>
         <div class="ppl-card"><div class="head"><img src="./assets/team/angelina.jpg" alt="Angelina McMullen"></div><div class="name">Angelina McMullen</div><div class="role">Coordinator</div></div>
       </div>
-      <p style="text-align:center;font-size:14px;color:var(--crp-navy);opacity:0.85;margin-top:22px;">Plus six recruiters, eight regulatory specialists, two phlebotomy and lab staff, one quality assurance lead.</p>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:1120px;margin:16px auto 0;width:100%;">
+        <div style="border:1px solid var(--border);border-top:3px solid var(--crp-blue);border-radius:10px;padding:12px 14px;background:#fff;">
+          <div style="font-size:26px;font-weight:800;color:var(--crp-navy);line-height:1;">6</div>
+          <div style="font-size:13px;font-weight:700;color:var(--crp-navy);margin-top:7px;">Recruitment</div>
+          <div style="font-size:11.5px;color:var(--fg-2);margin-top:2px;line-height:1.35;">Plus 6 remote coordinators</div>
+        </div>
+        <div style="border:1px solid var(--border);border-top:3px solid var(--crp-orange);border-radius:10px;padding:12px 14px;background:#fff;">
+          <div style="font-size:26px;font-weight:800;color:var(--crp-navy);line-height:1;">4</div>
+          <div style="font-size:13px;font-weight:700;color:var(--crp-navy);margin-top:7px;">Regulatory</div>
+          <div style="font-size:11.5px;color:var(--fg-2);margin-top:2px;line-height:1.35;">Both sites submitted in parallel</div>
+        </div>
+        <div style="border:1px solid var(--border);border-top:3px solid var(--crp-blue);border-radius:10px;padding:12px 14px;background:#fff;">
+          <div style="font-size:26px;font-weight:800;color:var(--crp-navy);line-height:1;">4</div>
+          <div style="font-size:13px;font-weight:700;color:var(--crp-navy);margin-top:7px;">Quality assurance</div>
+          <div style="font-size:11.5px;color:var(--fg-2);margin-top:2px;line-height:1.35;">Monitoring readiness and CAPA</div>
+        </div>
+        <div style="border:1px solid var(--border);border-top:3px solid var(--crp-orange);border-radius:10px;padding:12px 14px;background:#fff;">
+          <div style="font-size:26px;font-weight:800;color:var(--crp-navy);line-height:1;">2</div>
+          <div style="font-size:13px;font-weight:700;color:var(--crp-navy);margin-top:7px;">Phlebotomy &amp; lab</div>
+          <div style="font-size:11.5px;color:var(--fg-2);margin-top:2px;line-height:1.35;">Sample processing and shipping on site</div>
+        </div>
+        <div style="border:1px solid var(--border);border-top:3px solid var(--crp-blue);border-radius:10px;padding:12px 14px;background:#fff;">
+          <div style="font-size:19px;font-weight:800;color:var(--crp-navy);line-height:1.1;">In&nbsp;house</div>
+          <div style="font-size:13px;font-weight:700;color:var(--crp-navy);margin-top:9px;">Finance &amp; contracting</div>
+          <div style="font-size:11.5px;color:var(--fg-2);margin-top:2px;line-height:1.35;">No external finance queue</div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="footer">
@@ -1301,8 +1462,8 @@
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Facilities</div>
-      <h2 class="slide-h2">Two sites. Same operational standard.</h2>
-      <p class="slide-lede">Both sites are equipped end-to-end for Phase II–IV — on-site IP storage, specialized equipment, sponsor workspace.</p>
+      <h2 class="slide-h2">Equipment, IP storage and workspace at both sites</h2>
+      <p class="slide-lede">Both sites are equipped end-to-end for Phase II–IV.</p>
     </div>
     <div class="slide-body">
       <div class="fac-wrap">
@@ -1338,17 +1499,24 @@
               <li>Dedicated monitor workstations</li>
               <li>Sponsor conference / training room</li>
               <li>Patient-only restrooms</li>
+              <li>Free transportation and parking</li>
             </ul>
           </div>
         </div>
         <div class="fac-sites">
           <div class="fac-site">
-            <strong>Philadelphia, PA</strong>
-            <span>9501 Roosevelt Blvd #208 · Class-A medical building, 24-hour urgent care on campus, SEPTA accessible</span>
+            <img src="./assets/photos/site-philadelphia.png" alt="CRP Philadelphia">
+            <div class="fac-site-body">
+              <strong>Philadelphia, PA</strong>
+              <span>9501 Roosevelt Blvd #208 &middot; Class-A medical building, 24-hour urgent care on campus, SEPTA accessible</span>
+            </div>
           </div>
           <div class="fac-site">
-            <strong>Pennington, NJ</strong>
-            <span>21 Route 31 North, Suite A8 · Off I-95 / US-1, suburban location, free parking</span>
+            <img src="./assets/photos/site-pennington.jpg" alt="CRP Pennington">
+            <div class="fac-site-body">
+              <strong>Pennington, NJ</strong>
+              <span>21 Route 31 North, Suite A8 &middot; Off I-95 / US-1, suburban location, free parking</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1365,8 +1533,8 @@
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Risk profile</div>
-      <h2 class="slide-h2">Built for sponsor confidence.</h2>
-      <p class="slide-lede">Quality, security, and capacity are table stakes. We treat them as proof points.</p>
+      <h2 class="slide-h2">Regulatory and audit record</h2>
+      <p class="slide-lede">Zero 483s in thirty years, no findings at the last sponsor audit, standing IRBs, and capacity to start now.</p>
     </div>
     <div class="slide-body">
       <div class="risk-grid" style="max-width:1120px;margin:0 auto;width:100%;">
@@ -1394,7 +1562,7 @@
           <div class="risk-eye">Active capacity</div>
           <h4>Bandwidth for new starts</h4>
           <ul>
-            <li>15+ currently enrolling protocols</li>
+            <li>24 currently enrolling protocols</li>
             <li>Two sites running in parallel</li>
             <li>Coordinator rotation across protocols</li>
           </ul>
@@ -1410,6 +1578,16 @@
           </ul>
         </div>
       </div>
+      <div class="affil">
+        <span class="lbl">Member</span>
+        <span class="m"><img src="./assets/affiliations/scrs.png" alt="SCRS"></span>
+        <span class="m"><img src="./assets/affiliations/acrp.png" alt="ACRP"></span>
+        <span class="m"><img src="./assets/affiliations/socra.png" alt="SOCRA"></span>
+        <span class="m"><img src="./assets/affiliations/sip.png" alt="SIP"></span>
+        <span class="m"><img src="./assets/affiliations/transcelerate.png" alt="TransCelerate"></span>
+        <span class="m"><img src="./assets/affiliations/vtc.png" alt="Virtual Trial Capable"></span>
+      </div>
+
     </div>
   </div>
   <div class="footer">
@@ -1423,47 +1601,41 @@
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Diversity in enrollment</div>
-      <h2 class="slide-h2">Our enrollment reflects the populations FDA wants to reach.</h2>
-      <p class="slide-lede">Aggregate participant demographics across all studies, trailing 12 months. Pulled live from CRIO.</p>
+      <h2 class="slide-h2">Participant demographics, 2021 to date</h2>
+      <p class="slide-lede">Every participant with a demographics record in our EDC. n = 2,010 with race reported.</p>
     </div>
     <div class="slide-body">
       <div style="max-width:1120px;margin:0 auto;width:100%;">
         <div class="div-hero">
-          <div class="num">37%</div>
+          <div class="num">32%</div>
           <div class="copy">
-            of CRP enrollment identifies as a racial or ethnic minority.
-            <span class="bench">Above FDA targets for representative trial populations.</span>
+            of participants with race reported identify as Black or African American — against 13.7% of the US population.
+            <span class="bench">Diversity Action Plan enrollment without a separate outreach spend.</span>
           </div>
         </div>
         <div class="div-grid">
           <div class="div-col">
-            <h4>Gender</h4>
-            <div class="div-row"><div class="dh"><span class="dl">Female</span><span class="dp">51%</span></div><div class="dt"><div class="df" style="width:51%"></div></div></div>
-            <div class="div-row"><div class="dh"><span class="dl">Male</span><span class="dp">43%</span></div><div class="dt"><div class="df" style="width:43%"></div></div></div>
-            <div class="div-row"><div class="dh"><span class="dl">Other / Not specified</span><span class="dp">6%</span></div><div class="dt"><div class="df" style="width:6%"></div></div></div>
+            <h4>Race — reported</h4>
+            <div class="div-row"><div class="dh"><span class="dl">White</span><span class="dp">59%</span></div><div class="dt"><div class="df" style="width:59%"></div></div></div>
+            <div class="div-row"><div class="dh"><span class="dl">Black or African American</span><span class="dp">32%</span></div><div class="dt"><div class="df" style="width:32%"></div></div></div>
+            <div class="div-row"><div class="dh"><span class="dl">Other or multiple</span><span class="dp">5%</span></div><div class="dt"><div class="df" style="width:5%"></div></div></div>
+            <div class="div-row"><div class="dh"><span class="dl">Asian</span><span class="dp">4%</span></div><div class="dt"><div class="df" style="width:4%"></div></div></div>
           </div>
           <div class="div-col">
-            <h4>Race &amp; Ethnicity</h4>
-            <div class="div-row"><div class="dh"><span class="dl">Caucasian</span><span class="dp">53%</span></div><div class="dt"><div class="df" style="width:53%"></div></div></div>
-            <div class="div-row"><div class="dh"><span class="dl">African American</span><span class="dp">23%</span></div><div class="dt"><div class="df" style="width:23%"></div></div></div>
-            <div class="div-row"><div class="dh"><span class="dl">Hispanic / Latino</span><span class="dp">14%</span></div><div class="dt"><div class="df" style="width:14%"></div></div></div>
-            <div class="div-row"><div class="dh"><span class="dl">Asian</span><span class="dp">7%</span></div><div class="dt"><div class="df" style="width:7%"></div></div></div>
-            <div class="div-row"><div class="dh"><span class="dl">Other</span><span class="dp">3%</span></div><div class="dt"><div class="df" style="width:3%"></div></div></div>
+            <h4>Ethnicity — reported</h4>
+            <div class="div-row"><div class="dh"><span class="dl">Not Hispanic or Latino</span><span class="dp">91%</span></div><div class="dt"><div class="df" style="width:91%"></div></div></div>
+            <div class="div-row"><div class="dh"><span class="dl">Hispanic or Latino</span><span class="dp">9%</span></div><div class="dt"><div class="df" style="width:9%"></div></div></div>
           </div>
           <div class="div-col">
-            <h4>Age</h4>
-            <div class="div-row"><div class="dh"><span class="dl">18 – 34</span><span class="dp">15%</span></div><div class="dt"><div class="df" style="width:15%"></div></div></div>
-            <div class="div-row"><div class="dh"><span class="dl">35 – 44</span><span class="dp">15%</span></div><div class="dt"><div class="df" style="width:15%"></div></div></div>
-            <div class="div-row"><div class="dh"><span class="dl">45 – 54</span><span class="dp">25%</span></div><div class="dt"><div class="df" style="width:25%"></div></div></div>
-            <div class="div-row"><div class="dh"><span class="dl">55 – 64</span><span class="dp">25%</span></div><div class="dt"><div class="df" style="width:25%"></div></div></div>
-            <div class="div-row"><div class="dh"><span class="dl">65+</span><span class="dp">20%</span></div><div class="dt"><div class="df" style="width:20%"></div></div></div>
+            <h4>Why it holds</h4>
+            <p style="font-size:15px;line-height:1.55;color:var(--crp-navy);opacity:0.92;margin:0;">Both sites sit inside the populations sponsors struggle to reach. Roosevelt Boulevard is SEPTA-accessible and draws from North and Northeast Philadelphia; Pennington covers suburban Mercer and Bucks counties. We recruit from where we are, so representative enrollment is the default rather than a campaign.</p>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Demographics · trailing 12 months</span>
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Demographics · all participants, 2021 to date</span>
     <span class="pageno">12</span>
   </div>
 </section>
@@ -1473,7 +1645,7 @@
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Track record</div>
-      <h2 class="slide-h2">Sponsors trust us. Approved medicines prove it.</h2>
+      <h2 class="slide-h2">Sponsors we have worked with</h2>
       <p class="slide-lede">A non-exhaustive selection.</p>
     </div>
     <div class="slide-body">
@@ -1519,7 +1691,7 @@
   <div class="slide-pad">
     <div class="slide-head">
       <div class="slide-eyebrow">Treatments we've helped advance</div>
-      <h2 class="slide-h2">Approved medicines our trials helped get to market.</h2>
+      <h2 class="slide-h2">Approved medicines from trials we ran</h2>
       <p class="slide-lede">A non-exhaustive selection across diabetes &amp; obesity, migraine, and dermatology &amp; rheumatology.</p>
     </div>
     <div class="slide-body">
@@ -1586,7 +1758,7 @@
     </div>
   </div>
   <div class="footer">
-    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Clinical Research Philadelphia · April 2026</span>
+    <span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Clinical Research Philadelphia · August 2026</span>
     <span class="pageno">15</span>
   </div>
 </section>
