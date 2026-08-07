@@ -38,7 +38,7 @@ leo = [
           "dermatology records before it ever reaches a research site. We recruit from exactly "
           "those records; where a new biopsy is needed we refer through our derm network."),
          ("Right investigators, and can you score IGA-LS?",
-          "A <b>dermatology bench</b> (Dr. Tomeo, Parth Patel PA, Lolita Vaughan CRNP) alongside a "
+          "A <b>dermatology bench</b> (Dr. Tomeo, Melissa Richart, Lolita Vaughan CRNP) alongside a "
           "<b>board-certified OB/GYN</b> (Dr. Andruczyk) &mdash; most derm sites have no gynecologist. "
           "Six vulvovaginal programs behind us; IGA, BSA and PASI scored daily."),
          ("Screening needs cytology, hrHPV and STD/BV testing.",
@@ -53,7 +53,7 @@ leo = [
           "with <b>ICON</b>. And delgocitinib's topical JAK mechanism is the class our derm bench "
           "works in daily, so nothing about the IMP is unfamiliar here.")],
         ["<b>PI</b> &middot; Michael Tomeo, MD &mdash; Dermatology",
-         "<b>Sub-I</b> &middot; Parth Patel, PA &mdash; Dermatology",
+         "<b>Sub-I</b> &middot; Melissa Richart &mdash; Dermatology",
          "<b>Sub-I</b> &middot; Eugene Andruczyk, DO &mdash; OB / GYN",
          "<b>Sub-I</b> &middot; Lolita Vaughan, CRNP &mdash; Derm / Rheum"],
         "DELTA CARE 1"),
