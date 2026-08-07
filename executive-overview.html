@@ -565,10 +565,10 @@
   }
   /* Marks vary wildly in aspect, so each gets an identical box to sit in. */
   .affil span.m {
-    width: 118px; height: 42px; display: flex;
+    width: 130px; height: 58px; display: flex;
     align-items: center; justify-content: center;
   }
-  .affil span.m img { max-height: 34px; max-width: 108px; width: auto; }
+  .affil span.m img { max-width: 120px; width: auto; height: auto; }
   .affil .lbl {
     font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--fg-3); font-weight: 700; margin-right: 6px;
@@ -599,7 +599,7 @@
     max-width: 1120px; margin: 0 auto; width: 100%;
   }
   .tx-cell {
-    height: 88px;
+    height: 112px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
@@ -607,7 +607,7 @@
     padding: 10px 16px;
     box-shadow: var(--shadow-sm);
   }
-  .tx-cell img { max-height: 82px; max-width: 100%; width: auto; }
+  .tx-cell img { max-width: 330px; width: auto; height: auto; }
   .tx-cell .tx-fb {
     display: none; flex-direction: column; align-items: center; gap: 4px;
     text-align: center;
@@ -625,7 +625,7 @@
     color: var(--crp-blue); font-weight: 700;
     text-align: center; margin-bottom: 14px;
   }
-  .tx-col { display: flex; flex-direction: column; gap: 10px; }
+  .tx-col { display: flex; flex-direction: column; gap: 8px; }
 
   /* ═══ SLIDE — track record / logo wall ═══ */
   .logo-wall-wrap { max-width: 1120px; margin: 0 auto; width: 100%; }
@@ -639,15 +639,14 @@
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    height: 64px;
+    height: 80px;
     display: flex; align-items: center; justify-content: center;
     padding: 12px 16px;
     box-shadow: var(--shadow-xs);
     position: relative;
   }
   .logo-cell img {
-    max-width: 100%; max-height: 58px;
-    width: auto; height: auto;
+    max-width: 184px; width: auto; height: auto;
     filter: grayscale(100%);
     opacity: 0.92;
   }
@@ -677,6 +676,46 @@
     font-style: normal; letter-spacing: 0.05em; text-transform: uppercase;
   }
 
+  /* ═══ Logo optical sizing ═══
+     Equal max-height makes a 6:1 wordmark look three times bigger than a
+     square mark. These heights give every logo the same rendered AREA
+     instead, capped by its cell. Regenerate if a logo asset changes. */
+  /* sponsors — target ~3000px² */
+  .logo-cell img[src$="_wall.png"] { height: 27px; }
+  .logo-cell img[src$="abbott.svg"] { height: 21px; }
+  .logo-cell img[src$="abbvie.svg"] { height: 24px; }
+  .logo-cell img[src$="amgen.svg"] { height: 28px; }
+  .logo-cell img[src$="bayer.svg"] { height: 55px; }
+  .logo-cell img[src$="bms.svg"] { height: 22px; }
+  .logo-cell img[src$="daiichi-sankyo.svg"] { height: 54px; }
+  .logo-cell img[src$="gsk.svg"] { height: 51px; }
+  .logo-cell img[src$="janssen.svg"] { height: 36px; }
+  .logo-cell img[src$="lilly.svg"] { height: 40px; }
+  .logo-cell img[src$="merck.svg"] { height: 30px; }
+  .logo-cell img[src$="novartis.svg"] { height: 21px; }
+  .logo-cell img[src$="novo-nordisk.svg"] { height: 47px; }
+  .logo-cell img[src$="pfizer.svg"] { height: 35px; }
+  .logo-cell img[src$="sanofi.svg"] { height: 28px; }
+  .logo-cell img[src$="takeda.svg"] { height: 32px; }
+  .logo-cell img[src$="teva.svg"] { height: 33px; }
+  .logo-cell img[src$="viatris.svg"] { height: 28px; }
+  /* treatments — target ~12400px² */
+  .tx-cell img[src$="dupixent.png"] { height: 70px; }
+  .tx-cell img[src$="mounjaro.png"] { height: 87px; }
+  .tx-cell img[src$="nurtec.png"] { height: 84px; }
+  .tx-cell img[src$="olumiant.png"] { height: 92px; }
+  .tx-cell img[src$="ozempic.png"] { height: 84px; }
+  .tx-cell img[src$="qulipta.png"] { height: 90px; }
+  .tx-cell img[src$="rinvoq.png"] { height: 76px; }
+  .tx-cell img[src$="ubrelvy.png"] { height: 62px; }
+  .tx-cell img[src$="wegovy.png"] { height: 74px; }
+  /* affiliations — target ~3000px² */
+  .affil span.m img[src$="acrp.png"] { height: 30px; }
+  .affil span.m img[src$="scrs.png"] { height: 35px; }
+  .affil span.m img[src$="sip.png"] { height: 39px; }
+  .affil span.m img[src$="socra.png"] { height: 55px; }
+  .affil span.m img[src$="transcelerate.png"] { height: 46px; }
+  .affil span.m img[src$="vtc.png"] { height: 55px; }
   /* ═══ SLIDE — facilities ═══ */
   .fac-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
   .fac-card {
