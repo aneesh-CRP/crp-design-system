@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+
+# Intermediate geometry dumps for the PPTX build (regenerate from the browser)
+.pptx-*.json

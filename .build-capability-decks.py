@@ -46,7 +46,7 @@ derm = [
           "hrHPV are <b>routine collections here</b>. Nothing in that panel leaves the building, "
           "which protects your screening window."),
          ("Can you hold participants for 55 weeks?",
-          "Dermatology is a standing book here &mdash; <b>3,400+ patients worked across 13 protocols</b>, "
+          "Dermatology is a standing book here &mdash; <b>3,400+ candidates pre-screened across 13 protocols</b>, "
           "1,200+ in atopic dermatitis, with <b>no discontinuations from our current atopic-dermatitis programs</b>. "
           "Coordinators average eight years here, which is what a 55-week schedule needs."),
          ("CRO relationship and drug class?",
@@ -77,7 +77,7 @@ derm = [
          ("Sj&ouml;gren's syndrome &mdash; nipocalimab, FcRn blockade (Janssen)", "III"),
          ("Systemic lupus erythematosus &mdash; four protocols across "
           "JAK1, TYK2, FcRn and IL-2 mutein", "II/III")],
-        [("3,400+", "Dermatology patients worked", "13 protocols &middot; 8 sponsors &middot; since 2021"),
+        [("3,400+", "Dermatology candidates pre-screened", "13 protocols &middot; 8 sponsors &middot; since 2021"),
          ("4", "Dedicated coordinators", "10+ years each"),
          ("100%", "eSource via CRIO", "real-time remote monitor access"),
          ("&lt;21d", "Study start-up", "95% hit the enrollment target")],
@@ -135,11 +135,11 @@ alz = [
     cover(
         "Alzheimer's disease &middot; Site capabilities &middot; 2026",
         "Alzheimer's Disease Site Overview",
-        "A Philadelphia site with an early Alzheimer's study open now, and an investigator who "
-        "has worked nine Alzheimer's protocols since 2020 across four sponsors.",
+        "A neurology site in Philadelphia, with an early Alzheimer's study enrolling now and nine "
+        "Alzheimer's protocols behind its investigator.",
         "Site capabilities for early Alzheimer's and MCI protocols.",
         [("9", "Alzheimer's protocols, PI or Sub-I"),
-         ("484", "Worked on an Alzheimer's trial"),
+         ("146", "Taken through Alzheimer's screening"),
          ("6,258", "Patients aged 65+ in database"),
          ("&lt;21d", "Study start-up")],
         "Sponsors &amp; CROs", "begins with you", "ALZHEIMER'S"),
@@ -150,7 +150,7 @@ alz = [
         "The questions a neurology feasibility team asks &mdash; answered with our own numbers.",
         [("Have you actually run an Alzheimer's trial?",
           "Yes &mdash; and one is open now. Lilly <b>TRAILRUNNER-ALZ 3</b> (remternetug, NCT06653153), "
-          "early Alzheimer's: <b>484 patients worked and 140 taken through full screening</b>. Our "
+          "early Alzheimer's: <b>484 candidates pre-screened, 146 taken through full screening</b>. Our "
           "investigator, <b>Joseph Heether, MD</b>, has worked <b>nine Alzheimer's protocols since 2020</b>."),
          ("Right patients for early Alzheimer's / MCI?",
           "<b>6,258 patients aged 65+</b> with verified date of birth inside a live 37,500-patient "
@@ -217,15 +217,15 @@ alz = [
          ("~5", "Randomized", "range 4&ndash;7")],
         [("72%", "reached"), ("20%", "qualify"), ("25%", "sched&times;show"), ("17%", "randomize")],
         "Biomarker-confirmed early Alzheimer's screen-fails heavily at every site, and we model it that way: "
-        "on TRAILRUNNER-ALZ 3 we ran <b>484 patients</b> through this funnel and <b>140 through full screening</b> "
-        "to randomize 6. These projections assume that same burden.",
+        "on TRAILRUNNER-ALZ 3 we pre-screened <b>484 candidates</b> and took <b>146 through full "
+        "screening</b> to randomize 6. These projections assume that same burden.",
         "How we fill the top of funnel",
         ["<b>6,258 patients aged 65+</b> with verified DOB &mdash; a standing, re-contactable pool",
          "<b>289-patient Alzheimer's prescreening funnel</b> already built from prior Alzheimer's work",
          "<b>Community referral channels built for Alzheimer's</b> &mdash; Alzheimer's Association Delaware "
          "Valley, Walk to End Alzheimer's, Philadelphia Corporation for Aging"],
         "How we protect the bottom of funnel",
-        ["<b>We are absorbing Alzheimer's screening burden now</b> &mdash; 140 screened on TRAILRUNNER-ALZ 3, so the "
+        ["<b>We are absorbing Alzheimer's screening burden now</b> &mdash; 146 screened on TRAILRUNNER-ALZ 3, so the "
          "attrition is already budgeted for",
          "<b>Nine Alzheimer's protocols of rater and imaging-referral workflow</b> &mdash; the long visit "
          "schedule is familiar to this team",
