@@ -40,14 +40,15 @@ leo = [
          ("Right investigators, and can you score IGA-LS?",
           "A <b>dermatology bench</b> (Dr. Tomeo, Melissa Richart, Lolita Vaughan CRNP) alongside a "
           "<b>board-certified OB/GYN</b> (Dr. Andruczyk) &mdash; most derm sites have no gynecologist. "
-          "Six vulvovaginal programs behind us. <b>IGA, EASI, %BSA, vIGA-AD, DLQI and POEM</b> are configured and scored in our own eSource today &mdash; IGA-LS is the same discipline."),
+          "<b>IGA, EASI, %BSA, vIGA-AD, DLQI and POEM</b> are scored in our own eSource today; IGA-LS is the same discipline."),
          ("Screening needs cytology, hrHPV and STD/BV testing.",
           "On-site phlebotomy, sample-processing lab and an OB/GYN workflow. Cervical cytology and "
           "hrHPV are <b>routine collections here, not outbound referrals</b> &mdash; which protects "
           "your screening window."),
          ("Can you hold participants for 55 weeks?",
-          "Our atopic-dermatitis programs are <b>4 of 4 still on treatment, zero discontinuations</b>. "
-          "Coordinators average eight years here, so a year-long visit schedule sees the same faces."),
+          "Dermatology is a standing book here &mdash; <b>3,400+ patients worked across 13 protocols</b>, "
+          "1,200+ in atopic dermatitis, with <b>no discontinuations from our current AD programs</b>. "
+          "Coordinators average eight years, so a 55-week schedule sees the same faces."),
          ("Sponsor relationship and drug class?",
           "New to LEO's site network, but <b>not to your CRO</b> &mdash; three delivered programs "
           "with <b>ICON</b>. And delgocitinib's topical JAK mechanism is the class our derm bench "
@@ -76,7 +77,7 @@ leo = [
          ("Sj&ouml;gren's syndrome &mdash; nipocalimab, FcRn blockade (Janssen)", "III"),
          ("Systemic lupus erythematosus &mdash; four protocols across "
           "JAK1, TYK2, FcRn and IL-2 mutein", "II/III")],
-        [("13", "Dermatology protocols", "since 2021, across 8 sponsors"),
+        [("3,400+", "Dermatology patients worked", "13 protocols &middot; 8 sponsors &middot; since 2021"),
          ("4", "Dedicated coordinators", "10+ years each"),
          ("100%", "eSource via CRIO", "real-time remote monitor access"),
          ("&lt;21d", "Study start-up", "95% hit the enrollment target")],
@@ -150,7 +151,7 @@ ucb = [
         "The questions a neurology feasibility team asks &mdash; answered with our own numbers.",
         [("Have you actually run an Alzheimer's trial?",
           "Yes &mdash; and one is open now. Lilly <b>TRAILRUNNER-ALZ 3</b> (remternetug, NCT06653153), "
-          "early AD: <b>484 patients worked, 140 through full screening, 6 randomized</b>. Our "
+          "early AD: <b>484 patients worked and 140 taken through full screening</b>. Our "
           "investigator, <b>Joseph Heether, MD</b>, has worked <b>nine AD protocols since 2020</b>."),
          ("Right patients for early AD / MCI?",
           "<b>6,258 patients aged 65+</b> with verified date of birth inside a live 37,500-patient "

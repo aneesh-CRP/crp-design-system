@@ -16,7 +16,7 @@ EXEC_HTML = (DS / "executive-overview.html").read_text()
 
 # The scoped .sx- styles are lifted verbatim from the proven BMS brief so the
 # study slides sit in the same visual system as the capabilities deck.
-SX_PEOPLE_FIX = "<style>.sx-people{margin-top:14px;gap:8px;}"\
+SX_PEOPLE_FIX = "<style>.sx-people{margin-top:8px;gap:8px;}"\
                 ".sx-person{padding:7px 12px;font-size:12px;}</style>"
 
 SX_STYLE = re.search(
