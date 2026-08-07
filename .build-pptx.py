@@ -60,6 +60,8 @@ def font_for(weight, family):
     silently substitutes and the metrics shift enough to re-wrap headings.
     Returns (family_name, use_bold_flag).
     """
+    if "Market Pro" in (family or ""):
+        return "Market Pro", False  # the orange script tagline
     if "Plex Mono" in (family or ""):
         return "IBM Plex Mono", weight >= 700
     if weight >= 800:
@@ -144,7 +146,15 @@ def add_text(slide, t):
     para = tf.paragraphs[0]
     para.alignment = ALIGN.get(t["align"], PP_ALIGN.LEFT)
     para.line_spacing = Pt(t["lh"] * 0.75)
-    for r in t["runs"]:
+    runs = list(t["runs"])
+    marker = (t.get("before") or "").strip()
+    if marker and runs:
+        lead = dict(runs[0])
+        lead["t"] = marker + " "
+        if t.get("beforeColor"):
+            lead["color"] = t["beforeColor"]
+        runs.insert(0, lead)
+    for r in runs:
         text = r["t"]
         if not text:
             continue
@@ -169,7 +179,14 @@ def add_text(slide, t):
 def add_image(slide, im):
     if "quat" in (im.get("cls") or "") or "stencil" in im["src"]:
         return None  # decorative watermark; rasterises to an opaque blob
-    src = (DS / im["src"].lstrip("./")).resolve()
+    # Forcing lazy images to load rewrites src to an absolute file:// URL, so
+    # accept both that and the authored relative path.
+    raw = im["src"]
+    if raw.startswith("file://"):
+        from urllib.parse import unquote, urlparse
+        src = pathlib.Path(unquote(urlparse(raw).path))
+    else:
+        src = (DS / raw.lstrip("./")).resolve()
     if not src.exists():
         return None
     if src.suffix.lower() == ".svg":  # PowerPoint cannot place SVG reliably
@@ -177,11 +194,32 @@ def add_image(slide, im):
         if not png.exists():
             return None
         src = png
+    # PowerPoint has no CSS filters, so the sponsor wall's grayscale(100%)
+    # has to come from a pre-desaturated file.
+    if im.get("gray"):
+        grey = src.with_name(src.stem + "-gray.png")
+        if grey.exists():
+            src = grey
     try:
-        return slide.shapes.add_picture(str(src), px(im["x"]), px(im["y"]),
-                                        px(im["w"]), px(im["h"]))
+        pic = slide.shapes.add_picture(str(src), px(im["x"]), px(im["y"]),
+                                       px(im["w"]), px(im["h"]))
     except Exception:
         return None
+    # object-fit: cover crops the overflow; add_picture would stretch instead.
+    if im.get("fit") == "cover":
+        try:
+            from PIL import Image
+            nw, nh = Image.open(src).size
+            box_ar, img_ar = im["w"] / im["h"], nw / nh
+            if img_ar > box_ar:                       # image too wide: crop sides
+                keep = box_ar / img_ar
+                pic.crop_left = pic.crop_right = (1 - keep) / 2
+            elif img_ar < box_ar:                     # too tall: crop top/bottom
+                keep = img_ar / box_ar
+                pic.crop_top = pic.crop_bottom = (1 - keep) / 2
+        except Exception:
+            pass
+    return pic
 
 
 def build(json_name, out_name):
