@@ -825,7 +825,31 @@
   .sx-covprep b{color:#fff;font-size:20px;display:block;margin-top:3px;}
   .sx-script{font-family:var(--font-script);color:var(--crp-orange);font-size:29px;margin-top:24px;line-height:1;}
   .footer .pageno{text-transform:none;}
-</style><style>.sx-people{margin-top:14px;gap:8px;}.sx-person{padding:7px 12px;font-size:12px;}</style>
+</style><style>.sx-people{margin-top:14px;gap:8px;}.sx-person{padding:7px 12px;font-size:12px;}</style><style>
+  .sx-exp{display:grid;grid-template-columns:1fr 1fr;gap:26px 34px;max-width:1120px;margin:0 auto;width:100%;}
+  .sx-exp .col-h{font-size:12.5px;font-weight:800;color:var(--crp-navy);text-transform:uppercase;
+                 letter-spacing:.06em;margin:0 0 10px;padding-bottom:7px;border-bottom:1px solid var(--border);}
+  .sx-trial{display:flex;gap:10px;align-items:flex-start;padding:6px 0;}
+  .sx-trial .ph{flex:0 0 auto;font-size:10px;font-weight:800;letter-spacing:.04em;
+                padding:3px 7px;border-radius:999px;background:var(--blue-bg);color:var(--crp-blue);margin-top:1px;}
+  .sx-trial .ph.two{background:#fff3e0;color:var(--crp-orange);}
+  .sx-trial .tx{font-size:13px;line-height:1.4;color:var(--crp-navy);opacity:.94;}
+  .sx-trial .tx b{font-weight:700;}
+  .sx-credstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+                max-width:1120px;margin:22px auto 0;width:100%;padding-top:16px;border-top:1px solid var(--border);}
+  .sx-credcell{border:1px solid var(--border);border-top:3px solid var(--crp-blue);border-radius:10px;
+               padding:11px 14px;background:#fff;}
+  .sx-credcell:nth-child(2n){border-top-color:var(--crp-orange);}
+  .sx-credcell .n{font-size:22px;font-weight:800;color:var(--crp-navy);line-height:1;}
+  .sx-credcell .k{font-size:12.5px;font-weight:700;color:var(--crp-navy);margin-top:6px;}
+  .sx-credcell .d{font-size:11px;color:var(--fg-2);margin-top:2px;line-height:1.35;}
+  .sx-partners{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+               max-width:1120px;margin:16px auto 0;width:100%;}
+  .sx-partners .lbl{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--fg-3);
+                    font-weight:700;margin-right:4px;}
+  .sx-partners .p{font-size:12px;color:var(--crp-navy);background:var(--surface-2);
+                  border:1px solid var(--border);border-radius:999px;padding:6px 13px;}
+</style>
 
 <section class="slide sx-cover2">
   <img class="sx-quat" src="./assets/stencils/quatrefoil.svg" alt="">
@@ -853,10 +877,28 @@
       <h2 class="slide-h2">An Alzheimer's trial is not new ground for this site.</h2>
       <p class="slide-lede">The questions a neurology feasibility team asks &mdash; answered with our own numbers.</p>
     </div>
-    <div class="sx-qa"><div class="sx-row"><div class="q">Have you actually run an Alzheimer's trial?</div><div class="a">Yes. Lilly <b>J1G-MC-LAKI</b>, prodromal-to-mild AD: <b>493 patients worked, 141 taken through full screening, 6 randomized</b>. We know what amyloid-era screening burden costs a site, because we have paid it.</div></div><div class="sx-row"><div class="q">Right patients for early AD / MCI?</div><div class="a"><b>5,853 patients aged 65+</b> with verified date of birth inside a live 35,000-patient database, plus a 289-patient Alzheimer's prescreening funnel already built.</div></div><div class="sx-row"><div class="q">Is neurology a real TA here, or a one-off?</div><div class="a">Migraine has been a franchise here since 2005 &mdash; <b>more than 25 protocols across nine sponsors</b> (Merck, Biohaven, GSK, Allergan, Amgen, BMS, Axsome, Kallyope, AbbVie), with <b>77% completion</b>. We do <b>not</b> run psychiatry: no MDD, bipolar or schizophrenia.</div></div><div class="sx-row"><div class="q">Cognitive assessment and rater workflow?</div><div class="a">LAKI put 141 patients through full screening here. The cognitive battery, rater certification and imaging-referral workflow are things we <b>have run</b>, not things we would be learning on your protocol.</div></div><div class="sx-row"><div class="q">Participant and study-partner logistics?</div><div class="a">Free transportation and parking, private exam rooms and patient-only restrooms. Roosevelt Boulevard is SEPTA-accessible; Pennington is off I-95 with free parking &mdash; both workable for an elderly participant travelling with a study partner.</div></div><div class="sx-row"><div class="q">What does the relationship save you?</div><div class="a">We are enrolling <b>ATD002</b> for UCB now &mdash; site-initiated February 2026, first participant randomized in April. Same coordinators, regulatory team and contracting counterparty. We have also delivered three programs with <b>ICON</b> as CRO.</div></div></div>
-    <div class="sx-people"><div class="sx-person"><b>Investigators</b> &middot; 8 on staff &mdash; neurology via provider network</div><div class="sx-person"><b>Active UCB study</b> &middot; ATD002</div><div class="sx-person"><b>Coordinators</b> &middot; 6 CRCs, 8-yr average</div></div>
+    <div class="sx-qa"><div class="sx-row"><div class="q">Have you actually run an Alzheimer's trial?</div><div class="a">Yes. Lilly <b>J1G-MC-LAKI</b>, prodromal-to-mild AD: <b>493 patients worked, 141 taken through full screening, 6 randomized</b>. We know what amyloid-era screening burden costs a site, because we have paid it.</div></div><div class="sx-row"><div class="q">Right patients for early AD / MCI?</div><div class="a"><b>5,853 patients aged 65+</b> with verified date of birth inside a live 35,000-patient database, plus a 289-patient Alzheimer's prescreening funnel already built.</div></div><div class="sx-row"><div class="q">Is neurology a real TA here, or a one-off?</div><div class="a">Migraine has been a franchise here since 2005 &mdash; <b>more than 25 protocols across nine sponsors</b> (Merck, Biohaven, GSK, Allergan, Amgen, BMS, Axsome, Kallyope, AbbVie), with <b>77% completion</b>. We do <b>not</b> run psychiatry: no MDD, bipolar or schizophrenia.</div></div><div class="sx-row"><div class="q">Cognitive assessment and rater workflow?</div><div class="a"><b>Four certified raters</b> trained in <b>MMSE, CDR, ADAS-Cog and FAQ</b> &mdash; in post, not to be recruited. Rater certification and the imaging-referral workflow are things we have run, not things we would be learning on your protocol.</div></div><div class="sx-row"><div class="q">Participant and study-partner logistics?</div><div class="a">Free transportation and parking, private exam rooms and patient-only restrooms. Roosevelt Boulevard is SEPTA-accessible; Pennington is off I-95 with free parking &mdash; both workable for an elderly participant travelling with a study partner.</div></div><div class="sx-row"><div class="q">What does the relationship save you?</div><div class="a">We are enrolling <b>ATD002</b> for UCB now &mdash; site-initiated February 2026, first participant randomized in April. Same coordinators, regulatory team and contracting counterparty. We have also delivered three programs with <b>ICON</b> as CRO.</div></div></div>
+    <div class="sx-people"><div class="sx-person"><b>3 investigators</b> &middot; incl. board-certified neurologist &amp; geriatrician</div><div class="sx-person"><b>4 certified raters</b> &middot; MMSE, CDR, ADAS-Cog, FAQ</div><div class="sx-person"><b>Active UCB study</b> &middot; ATD002</div><div class="sx-person"><b>5 coordinators</b> &middot; 10+ yrs each</div></div>
   </div>
   <div class="footer"><span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Clinical Research Philadelphia</span><span class="pageno">UCB NEUROLOGY &middot; S2</span></div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-pad">
+    <div class="slide-head">
+      <div class="slide-eyebrow">Investigator experience &middot; neurology</div>
+      <h2 class="slide-h2">Alzheimer's raters in post, and a migraine franchise two decades deep.</h2>
+      <p class="slide-lede">Alzheimer's below is investigator experience; migraine is this site's own delivery record.</p>
+    </div>
+    <div class="sx-exp">
+      <div><div class="col-h">Alzheimer's disease &mdash; investigator experience</div><div class="sx-trial"><span class="ph">III</span><span class="tx">Early Alzheimer's disease monoclonal antibody &mdash; 2025, ongoing</span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">Sensory stimulation for Alzheimer's &mdash; 2024</span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">Alzheimer's disease prevention &mdash; 2022</span></div><div class="sx-trial"><span class="ph two">I/II</span><span class="tx">Early-stage Alzheimer's immunotherapy &mdash; 2022</span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">Alzheimer's disease monoclonal antibody &mdash; 2021</span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">Cognitive health and metabolic intervention &mdash; 2021</span></div></div>
+      <div><div class="col-h">Migraine &mdash; delivered at this site since 2005</div><div class="sx-trial"><span class="ph">II/III</span><span class="tx">Merck telcagepant programme &mdash; 13 protocols</span></div><div class="sx-trial"><span class="ph">II/III</span><span class="tx">Biohaven rimegepant and zavegepant &mdash; 7 protocols</span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">GSK sumatriptan / naproxen &mdash; 5 protocols</span></div><div class="sx-trial"><span class="ph">III</span><span class="tx">Allergan ubrogepant, now Ubrelvy &mdash; 2 protocols</span></div><div class="sx-trial"><span class="ph">II/III</span><span class="tx">Amgen erenumab &middot; BMS &middot; Axsome &middot; Kallyope</span></div><div class="sx-trial"><span class="ph">&mdash;</span><span class="tx"><b>More than 25 protocols, nine sponsors, 77% completion</b></span></div></div>
+    </div>
+    <div class="sx-credstrip"><div class="sx-credcell"><div class="n">4</div><div class="k">Certified raters</div><div class="d">MMSE &middot; CDR &middot; ADAS-Cog &middot; FAQ</div></div><div class="sx-credcell"><div class="n">3</div><div class="k">Investigators</div><div class="d">incl. neurologist &amp; geriatrician</div></div><div class="sx-credcell"><div class="n">5,853</div><div class="k">Patients aged 65+</div><div class="d">verified DOB, live database</div></div><div class="sx-credcell"><div class="n">&lt;21d</div><div class="k">Study start-up</div><div class="d">95% hit the enrollment target</div></div></div>
+    <div class="sx-partners"><span class="lbl">Community</span><span class="p">Alzheimer's Association, Delaware Valley Chapter</span><span class="p">Walk to End Alzheimer's Philadelphia</span><span class="p">Philadelphia Corporation for Aging</span></div>
+  </div>
+  <div class="footer"><span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Investigator experience &middot; neurology</span><span class="pageno">UCB NEUROLOGY &middot; S3</span></div>
 </section>
 
 
@@ -874,7 +916,7 @@
       <div><div class="sx-h">How we protect the bottom of funnel</div><ul class="sx-list tealdot"><li><b>We have absorbed AD screening burden before</b> &mdash; 141 screened on LAKI, so the attrition is budgeted for rather than discovered</li><li>77% completion across our migraine programs on long visit schedules</li><li>Eight-year-average coordinators &mdash; continuity matters most to a participant with MCI</li></ul></div>
     </div>
   </div>
-  <div class="footer"><span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Recruitment projection &middot; anchored on LAKI actuals</span><span class="pageno">UCB NEUROLOGY &middot; S3</span></div>
+  <div class="footer"><span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Recruitment projection &middot; anchored on LAKI actuals</span><span class="pageno">UCB NEUROLOGY &middot; S4</span></div>
 </section>
 
 
@@ -895,7 +937,7 @@
     </div>
     <div class="sx-cred"><div class="c"><div class="n">30 yrs</div><div class="l">Operating since 1996</div></div><div class="c"><div class="n">500+</div><div class="l">Clinical trials run</div></div><div class="c"><div class="n">2 sites</div><div class="l">Philadelphia + Pennington</div></div><div class="c"><div class="n">95%</div><div class="l">Hit enrollment target</div></div><div class="c"><div class="n">&lt;21d</div><div class="l">Study start-up</div></div></div>
   </div>
-  <div class="footer"><span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Let's build the future of medicine</span><span class="pageno">UCB NEUROLOGY &middot; S4</span></div>
+  <div class="footer"><span class="mark"><img src="./assets/logos/crp-icon.svg" alt=""> Let's build the future of medicine</span><span class="pageno">UCB NEUROLOGY &middot; S5</span></div>
 </section>
 
 <!-- ============ END STUDY BRIEF — GENERAL CAPABILITIES FOLLOW ============ -->
@@ -1077,7 +1119,7 @@
     <div class="slide-head">
       <div class="slide-eyebrow">Therapeutic depth</div>
       <h2 class="slide-h2">Cardiometabolic is our anchor. We run four other areas alongside it.</h2>
-      <p class="slide-lede">Verified actuals shown for cardiometabolic. Other columns show current enrollment status.</p>
+      <p class="slide-lede">Verified actuals shown for cardiometabolic. Other columns mix live status with recent trial experience.</p>
     </div>
     <div class="slide-body">
       <div class="ta-cols" style="max-width:1120px;margin:0 auto;width:100%;">
@@ -1098,6 +1140,10 @@
             <span class="ta-status">Recently closed</span>
             <div class="ta-actual">Target 5 · <strong>Actual 9 · 180%</strong></div>
           </div>
+          <div class="ta-study">
+            <div class="ta-name">+ 6 more Phase II–III</div>
+            <span class="ta-status">2024–25</span>
+          </div>
         </div>
         <div class="ta-block">
           <h4>Derm &amp; Rheum</h4>
@@ -1105,11 +1151,16 @@
           <div class="ta-study"><div class="ta-name">Atopic Dermatitis</div><span class="ta-status live">Currently enrolling</span></div>
           <div class="ta-study"><div class="ta-name">Sjögren's Disease</div><span class="ta-status live">Currently enrolling</span></div>
           <div class="ta-study"><div class="ta-name">Hidradenitis Suppurativa</div><span class="ta-status live">Currently enrolling</span></div>
+          <div class="ta-study"><div class="ta-name">Rheumatoid Arthritis</div><span class="ta-status">In start-up</span></div>
         </div>
         <div class="ta-block">
           <h4>Neurology</h4>
           <div class="ta-study"><div class="ta-name">Migraine Prevention</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Alzheimer's Disease</div><span class="ta-status">Long-running</span></div>
+          <div class="ta-study">
+            <div class="ta-name">Alzheimer's Disease</div>
+            <span class="ta-status">Long-running</span>
+            <div class="ta-actual">6 trials since 2021 · raters certified in MMSE, CDR, ADAS-Cog, FAQ</div>
+          </div>
         </div>
         <div class="ta-block">
           <h4>Women's Health</h4>
