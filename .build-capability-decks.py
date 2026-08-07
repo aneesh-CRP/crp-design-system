@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compose the LEO Pharma and UCB study slides and render both briefs."""
+"""Compose the dermatology and Alzheimer's capability slides and render both decks."""
 import sys
 
 sys.path.insert(0, "/private/tmp/claude-501/-Users-aneeshvaze/1d4cb1e3-fdb5-4fe0-b257-b22ab00d10fb/scratchpad")
@@ -8,28 +8,28 @@ from build_leo_ucb import build, cover, qa_slide, experience_slide, funnel_slide
 WHO = ("<b>Aneesh Vaze, MBA</b> &mdash; Managing Director<br>"
        "aneesh@phillyresearch.com &middot; 215-676-6696<br>phillyresearch.com")
 
-# ══════════════════════════════════ LEO PHARMA ══════════════════════════════
-leo = [
+# ═════════════════════════════════ DERMATOLOGY ═════════════════════════════
+derm = [
     cover(
-        "DELTA CARE 1 (NCT07335588) &middot; Phase 3 &middot; Lichen Sclerosus",
+        "Dermatology &middot; Site capabilities &middot; 2026",
         "Dermatology Site Overview",
-        "A dermatology and gynecology site in Philadelphia, currently contracted for a Phase 3 "
-        "in anogenital lichen disease.",
-        "Prepared in response to DELTA CARE 1 site selection.",
-        [("Phase 3", "Anogenital lichen protocol held"),
+        "A dermatology and gynecology site in Philadelphia, running thirteen dermatology "
+        "protocols since 2021.",
+        "Site capabilities for dermatology protocols.",
+        [("13", "Dermatology protocols since 2021"),
          ("Derm + GYN", "Investigators on staff"),
          ("6", "Vulvovaginal programs run"),
          ("4&ndash;8", "Projected randomized"),
          ("95%", "Trials hit enrollment target"),
          ("&lt;21d", "Study start-up")],
-        "LEO Pharma", "begins with you", "DELTA CARE 1"),
+        "Sponsors &amp; CROs", "begins with you", "DERMATOLOGY"),
 
     qa_slide(
         "Site fit &middot; what you're evaluating",
-        "Site fit for DELTA CARE 1",
-        "The questions a feasibility team asks for DELTA CARE 1 &mdash; answered.",
+        "Site fit for a dermatology protocol",
+        "The questions a dermatology feasibility team asks &mdash; answered.",
         [("Have you been selected for an anogenital lichen protocol?",
-          "Yes &mdash; Sanofi <b>EFC18366</b> (dupilumab), Phase 3 in <b>lichen simplex chronicus</b>, "
+          "Yes &mdash; a Phase 3 in <b>lichen simplex chronicus</b>, "
           "whose criteria require an <b>anogenital lesion</b>. Active and contracted; <b>newly "
           "activated, first participants not yet screened</b>. Same anatomy, same examination."),
          ("The diagnosis must be biopsy-supported. Can you?",
@@ -49,15 +49,15 @@ leo = [
           "Dermatology is a standing book here &mdash; <b>3,400+ patients worked across 13 protocols</b>, "
           "1,200+ in atopic dermatitis, with <b>no discontinuations from our current atopic-dermatitis programs</b>. "
           "Coordinators average eight years here, which is what a 55-week schedule needs."),
-         ("Sponsor relationship and drug class?",
-          "New to LEO's site network, but <b>not to your CRO</b> &mdash; three delivered programs "
-          "with <b>ICON</b>. And delgocitinib's topical JAK mechanism is the class our derm bench "
-          "works in daily.")],
+         ("CRO relationship and drug class?",
+          "We have delivered <b>three programs with ICON</b> and run studies for eight "
+          "dermatology sponsors since 2021. Topical and oral JAK mechanisms are the class our "
+          "derm bench works in daily.")],
         ["<b>PI</b> &middot; Michael Tomeo, MD &mdash; Dermatology",
          "<b>Sub-I</b> &middot; Melissa Richart &mdash; Dermatology",
          "<b>Sub-I</b> &middot; Eugene Andruczyk, DO &mdash; OB / GYN",
          "<b>Sub-I</b> &middot; Lolita Vaughan, CRNP &mdash; Derm / Rheum"],
-        "DELTA CARE 1"),
+        "DERMATOLOGY"),
 
     experience_slide(
         "Recent research experience &middot; 2024&ndash;2025",
@@ -81,11 +81,11 @@ leo = [
          ("4", "Dedicated coordinators", "10+ years each"),
          ("100%", "eSource via CRIO", "real-time remote monitor access"),
          ("&lt;21d", "Study start-up", "95% hit the enrollment target")],
-        "DELTA CARE 1", "Recent experience &middot; derm &amp; rheum"),
+        "DERMATOLOGY", "Recent experience &middot; derm &amp; rheum"),
 
     funnel_slide(
         "Projected enrollment &middot; grounded in real CRP data",
-        "Projected enrollment for DELTA CARE 1",
+        "Projected enrollment for a dermatology protocol",
         "Conversion rates below are CRP <b>actuals</b>, "
         "drawn from our mature comparator studies.",
         [("500", "Prospects", "gyn + derm network, EMR-mined"),
@@ -96,7 +96,7 @@ leo = [
         [("72%", "reached"), ("26%", "qualify"), ("28%", "sched&times;show"), ("18%", "randomize")],
         "CRP conversion measured on n&asymp;1,200 leads and 260 screened: <b>72%</b> reached &middot; "
         "<b>26%</b> pre-qualify &middot; <b>19%</b> screen&rarr;randomize on our mature anchor study. "
-        "DELTA CARE 1 gates on documented biopsy plus hrHPV / cytology at screening. We target "
+        "An anogenital lichen protocol gates on documented biopsy plus hrHPV / cytology at screening. We target "
         "already-biopsied patients to clear the first gate, and still model the bottom of the "
         "funnel below our own benchmark.",
         "How we fill the top of funnel",
@@ -110,41 +110,39 @@ leo = [
          "before the screening visit",
          "On-site cytology, hrHPV and STD/BV collection removes an outbound referral loop",
          "Eight-year-average coordinators protect a 55-week treatment period"],
-        "DELTA CARE 1", "Recruitment projection &middot; real CRP conversion"),
+        "DERMATOLOGY", "Recruitment projection &middot; real CRP conversion"),
 
     cta_slide(
         "Next steps",
         "Send the feasibility questionnaire and we'll turn it around in days.",
         ["Confirmation that previously biopsied participants qualify",
-         "Feasibility questionnaire for DELTA CARE 1",
+         "The feasibility questionnaire",
          "Protocol synopsis and full I/E under CDA",
-         "Confirmation of the Part 1 / Part 2 site allocation",
+         "Protocol-specific rater and equipment requirements",
          "Draft budget / CTA to begin redlines"],
         ["Signed CDA within 24 hours",
          "IGA-LS pre-screen plan + network-mined candidate counts",
          "&lt;7 days budget &rarr; contract &middot; &lt;21-day activation",
          "Weekly enrollment and data-quality reporting once live"],
-        "Site selection for DELTA CARE 1, and the chronic hand eczema real-world study.",
-        "Your seven open sites have no PA or NJ address. We'll confirm projected enrollment against "
-        "your exact I/E on a 30-minute call.",
-        WHO, "DELTA CARE 1"),
+        "Site selection for your next dermatology protocol.",
+        "Philadelphia and Pennington cover a metro of six million with no competing site in our "
+        "network. We'll confirm projected enrollment against your exact I/E on a 30-minute call.",
+        WHO, "DERMATOLOGY"),
 ]
 
-# ═══════════════════════════════════════ UCB ════════════════════════════════
-ucb = [
+# ═════════════════════════════════ ALZHEIMER'S ═════════════════════════════
+alz = [
     cover(
-        "Neurology &middot; Early Alzheimer's &amp; MCI &middot; Program positioning",
-        "Neurology Site Overview",
-        "A Philadelphia site with an early Alzheimer's study open now, and an investigator who has "
-        "worked nine Alzheimer's protocols since 2020. Our existing UCB study is dermatology "
-        "Our existing UCB study, ATD002, is a dermatology protocol.",
-        "Prepared for consideration on early Alzheimer's protocols.",
+        "Alzheimer's disease &middot; Site capabilities &middot; 2026",
+        "Alzheimer's Disease Site Overview",
+        "A Philadelphia site with an early Alzheimer's study open now, and an investigator who "
+        "has worked nine Alzheimer's protocols since 2020 across four sponsors.",
+        "Site capabilities for early Alzheimer's and MCI protocols.",
         [("9", "Alzheimer's protocols, PI or Sub-I"),
          ("484", "Worked on an Alzheimer's trial"),
          ("6,258", "Patients aged 65+ in database"),
-         ("ATD002", "UCB contract already live"),
          ("&lt;21d", "Study start-up")],
-        "UCB", "begins with you", "UCB NEUROLOGY"),
+        "Sponsors &amp; CROs", "begins with you", "ALZHEIMER'S"),
 
     qa_slide(
         "Site fit &middot; what you're evaluating",
@@ -169,16 +167,15 @@ ucb = [
           "Free transportation and parking, private exam rooms and patient-only restrooms. "
           "Roosevelt Boulevard is SEPTA-accessible; Pennington is off I-95 with free parking &mdash; "
           "both workable for an elderly participant travelling with a study partner."),
-         ("What does the relationship save you?",
-          "<b>ATD002 is an atopic dermatitis study</b> &mdash; it buys you nothing scientific in "
-          "neurology, and we do not present it as if it does. What it buys you is a <b>live UCB "
-          "contract</b>: same coordinators, regulatory desk and contracting counterparty, already "
-          "in place since February 2026. Three delivered programs with <b>ICON</b> as CRO.")],
+         ("What does start-up actually look like?",
+          "Under 21 days from greenlight to first screen, and under 7 days from budget to signed "
+          "contract. Standing relationships with Advarra, WCG and Sterling, an in-house budget and "
+          "contracting team, and <b>three delivered programs with ICON</b> as CRO.")],
         ["<b>Joseph Heether, MD</b> &middot; 9 Alzheimer's protocols",
          "<b>Certified raters</b> &middot; MMSE, CDR, FAQ",
-         "<b>UCB contract live</b> &middot; ATD002",
+         "<b>4 sponsors</b> &middot; Lilly, Novo Nordisk, Cognito, Prothena",
          "<b>5 coordinators</b> &middot; 10+ yrs each"],
-        "UCB NEUROLOGY"),
+        "ALZHEIMER'S"),
 
     experience_slide(
         "Investigator experience &middot; Alzheimer's disease",
@@ -203,7 +200,7 @@ ucb = [
          ("4", "Sponsors", "Lilly &middot; Novo Nordisk &middot; Cognito &middot; Prothena"),
          ("MMSE", "CDR &middot; FAQ", "cognitive scales live in our eSource"),
          ("6,258", "Patients aged 65+", "verified DOB, live database")],
-        "UCB NEUROLOGY", "Investigator experience &middot; Alzheimer's disease",
+        "ALZHEIMER'S", "Investigator experience &middot; Alzheimer's disease",
         partners=["Alzheimer's Association, Delaware Valley Chapter",
                   "Walk to End Alzheimer's Philadelphia",
                   "Philadelphia Corporation for Aging"]),
@@ -233,32 +230,32 @@ ucb = [
          "<b>Nine Alzheimer's protocols of rater and imaging-referral workflow</b> &mdash; the long visit "
          "schedule is familiar to this team",
          "Eight-year-average coordinators &mdash; continuity matters most to a participant with MCI"],
-        "UCB NEUROLOGY", "Recruitment projection &middot; anchored on TRAILRUNNER-ALZ 3"),
+        "ALZHEIMER'S", "Recruitment projection &middot; anchored on TRAILRUNNER-ALZ 3"),
 
     cta_slide(
         "Next steps",
-        "And in the meantime, there are two more UCB studies we already fit.",
-        ["Feasibility questionnaire when the tau program opens",
-         "Protocol synopsis and I/E under our existing CDA",
+        "Send the feasibility questionnaire and we'll turn it around in days.",
+        ["The feasibility questionnaire",
+         "Protocol synopsis and I/E under CDA",
          "Rater-certification and imaging requirements, so we can pre-stage",
-         "Introductions for dapirolizumab pegol (SLE) and bimekizumab (PPP)"],
+         "Amyloid or tau confirmation pathway, so we can pre-stage imaging"],
         ["Feasibility returned in days",
          "65+ and MCI candidate counts against your exact I/E",
          "&lt;7 days budget &rarr; contract &middot; &lt;21-day activation",
-         "An existing UCB contract and regulatory desk, already open"],
-        "Consideration for the next neurology protocol.",
-        "Two other open UCB protocols match investigators we already have on staff &mdash; "
-        "SLE to our rheumatologist, palmoplantar pustulosis to our dermatologist.",
-        WHO, "UCB NEUROLOGY"),
+         "A regulatory desk that has opened nine Alzheimer's protocols"],
+        "Consideration for your next early Alzheimer's protocol.",
+        "6,258 patients aged 65+ with verified date of birth sit in a live database we can query "
+        "against your exact I/E. We'll do it on a 30-minute call.",
+        WHO, "ALZHEIMER'S"),
 ]
 
 for name, title, slides, pdf in [
-    ("crp-prospecting-LEO-DELTACARE1-LICHEN-SCLEROSUS.html",
-     "CRP &mdash; LEO Pharma Site Brief, DELTA CARE 1", leo,
-     "CRP-LEO-DELTACARE1-Site-Brief.pdf"),
-    ("crp-prospecting-UCB-NEUROLOGY-EARLY-AD.html",
-     "CRP &mdash; UCB Site Brief, Neurology / Early Alzheimer's", ucb,
-     "CRP-UCB-Neurology-Site-Brief.pdf"),
+    ("crp-capabilities-DERMATOLOGY.html",
+     "CRP &mdash; Dermatology Site Capabilities", derm,
+     "CRP-Dermatology-Site-Capabilities.pdf"),
+    ("crp-capabilities-ALZHEIMERS.html",
+     "CRP &mdash; Alzheimer's Disease Site Capabilities", alz,
+     "CRP-Alzheimers-Site-Capabilities.pdf"),
 ]:
     out, pdfp = build(name, title, slides, pdf)
     print(f"built {out.name} -> {pdfp}")
