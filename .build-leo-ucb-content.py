@@ -47,7 +47,7 @@ leo = [
           "your screening window."),
          ("Can you hold participants for 55 weeks?",
           "Dermatology is a standing book here &mdash; <b>3,400+ patients worked across 13 protocols</b>, "
-          "1,200+ in atopic dermatitis, with <b>no discontinuations from our current AD programs</b>. "
+          "1,200+ in atopic dermatitis, with <b>no discontinuations from our current atopic-dermatitis programs</b>. "
           "Coordinators average eight years, so a 55-week schedule sees the same faces."),
          ("Sponsor relationship and drug class?",
           "New to LEO's site network, but <b>not to your CRO</b> &mdash; three delivered programs "
@@ -135,13 +135,14 @@ ucb = [
     cover(
         "Neurology &middot; Early Alzheimer's &amp; MCI &middot; Program positioning",
         "Neurology Site Overview",
-        "An active UCB site in Philadelphia, currently enrolling ATD002, with an Alzheimer's "
-        "investigator who has worked nine AD protocols since 2020.",
-        "Prepared for consideration on future neurology protocols.",
-        [("ATD002", "Active UCB site, enrolling"),
-         ("9", "AD protocols, PI or Sub-I"),
-         ("484", "Patients worked on an AD trial"),
+        "A Philadelphia site with an early Alzheimer's study open now, and an investigator who has "
+        "worked nine Alzheimer's protocols since 2020. Our existing UCB study is dermatology "
+        "&mdash; it speeds start-up, not science.",
+        "Prepared for consideration on early Alzheimer's protocols.",
+        [("9", "Alzheimer's protocols, PI or Sub-I"),
+         ("484", "Worked on an Alzheimer's trial"),
          ("6,258", "Patients aged 65+ in database"),
+         ("ATD002", "UCB contract already live"),
          ("&lt;21d", "Study start-up")],
         "UCB", "begins with you", "UCB NEUROLOGY"),
 
@@ -151,13 +152,13 @@ ucb = [
         "The questions a neurology feasibility team asks &mdash; answered with our own numbers.",
         [("Have you actually run an Alzheimer's trial?",
           "Yes &mdash; and one is open now. Lilly <b>TRAILRUNNER-ALZ 3</b> (remternetug, NCT06653153), "
-          "early AD: <b>484 patients worked and 140 taken through full screening</b>. Our "
-          "investigator, <b>Joseph Heether, MD</b>, has worked <b>nine AD protocols since 2020</b>."),
-         ("Right patients for early AD / MCI?",
+          "early Alzheimer's: <b>484 patients worked and 140 taken through full screening</b>. Our "
+          "investigator, <b>Joseph Heether, MD</b>, has worked <b>nine Alzheimer's protocols since 2020</b>."),
+         ("Right patients for early Alzheimer's / MCI?",
           "<b>6,258 patients aged 65+</b> with verified date of birth inside a live 37,500-patient "
           "database, plus a 289-patient Alzheimer's prescreening funnel already built."),
          ("Is Alzheimer's a real programme here, or a one-off?",
-          "<b>Nine AD protocols since 2020</b>, across four sponsors, without a gap year &mdash; the "
+          "<b>Nine Alzheimer's protocols since 2020</b>, across four sponsors, without a gap year &mdash; the "
           "record is overleaf. Three distinct anti-amyloid antibodies, plus a metabolic and a "
           "non-pharmacologic mechanism. We do <b>not</b> run psychiatry: no MDD, bipolar or schizophrenia."),
          ("Cognitive assessment and rater workflow?",
@@ -169,12 +170,13 @@ ucb = [
           "Roosevelt Boulevard is SEPTA-accessible; Pennington is off I-95 with free parking &mdash; "
           "both workable for an elderly participant travelling with a study partner."),
          ("What does the relationship save you?",
-          "We are enrolling <b>ATD002</b> for UCB now &mdash; site-initiated February 2026, first "
-          "participant randomized in April. Same coordinators, regulatory team and contracting "
-          "counterparty. We have also delivered three programs with <b>ICON</b> as CRO.")],
-        ["<b>Joseph Heether, MD</b> &middot; 9 AD protocols since 2020",
-         "<b>Certified raters</b> &middot; MMSE, CDR, FAQ in eSource",
-         "<b>Active UCB study</b> &middot; ATD002",
+          "<b>ATD002 is an atopic dermatitis study</b> &mdash; it buys you nothing scientific in "
+          "neurology, and we do not present it as if it does. What it buys you is a <b>live UCB "
+          "contract</b>: same coordinators, regulatory desk and contracting counterparty, already "
+          "in place since February 2026. Three delivered programs with <b>ICON</b> as CRO.")],
+        ["<b>Joseph Heether, MD</b> &middot; 9 Alzheimer's protocols",
+         "<b>Certified raters</b> &middot; MMSE, CDR, FAQ",
+         "<b>UCB contract live</b> &middot; ATD002",
          "<b>5 coordinators</b> &middot; 10+ yrs each"],
         "UCB NEUROLOGY"),
 
@@ -207,7 +209,7 @@ ucb = [
                   "Philadelphia Corporation for Aging"]),
 
     funnel_slide(
-        "Projected enrollment &middot; anchored on our own AD actuals",
+        "Projected enrollment &middot; anchored on our own Alzheimer's actuals",
         "Projected enrollment for an early Alzheimer's protocol",
         "Modelled on <b>TRAILRUNNER-ALZ 3</b> &mdash; our own live Alzheimer's study &mdash; not on a "
         "cardiometabolic benchmark.",
@@ -217,18 +219,18 @@ ucb = [
          ("29", "Screened", "on-site + biomarker referral"),
          ("~5", "Randomized", "range 4&ndash;7")],
         [("72%", "reached"), ("20%", "qualify"), ("25%", "sched&times;show"), ("17%", "randomize")],
-        "Biomarker-confirmed early AD screen-fails heavily at every site, and we model it that way: "
+        "Biomarker-confirmed early Alzheimer's screen-fails heavily at every site, and we model it that way: "
         "on TRAILRUNNER-ALZ 3 we ran <b>484 patients</b> through this funnel and <b>140 through full screening</b> "
         "to randomize 6. These projections assume that same burden, not a friendlier one.",
         "How we fill the top of funnel",
         ["<b>6,258 patients aged 65+</b> with verified DOB &mdash; a standing, re-contactable pool",
-         "<b>289-patient Alzheimer's prescreening funnel</b> already built from prior AD work",
-         "<b>Community referral channels built for AD</b> &mdash; Alzheimer's Association Delaware "
+         "<b>289-patient Alzheimer's prescreening funnel</b> already built from prior Alzheimer's work",
+         "<b>Community referral channels built for Alzheimer's</b> &mdash; Alzheimer's Association Delaware "
          "Valley, Walk to End Alzheimer's, Philadelphia Corporation for Aging"],
         "How we protect the bottom of funnel",
-        ["<b>We are absorbing AD screening burden now</b> &mdash; 140 screened on TRAILRUNNER-ALZ 3, so the "
+        ["<b>We are absorbing Alzheimer's screening burden now</b> &mdash; 140 screened on TRAILRUNNER-ALZ 3, so the "
          "attrition is budgeted for rather than discovered",
-         "<b>Nine AD protocols of rater and imaging-referral workflow</b> &mdash; the long visit "
+         "<b>Nine Alzheimer's protocols of rater and imaging-referral workflow</b> &mdash; the long visit "
          "schedule is familiar to this team, not new to it",
          "Eight-year-average coordinators &mdash; continuity matters most to a participant with MCI"],
         "UCB NEUROLOGY", "Recruitment projection &middot; anchored on TRAILRUNNER-ALZ 3"),
@@ -243,7 +245,7 @@ ucb = [
         ["Feasibility returned in days, not weeks",
          "65+ and MCI candidate counts against your exact I/E",
          "&lt;7 days budget &rarr; contract &middot; &lt;21-day activation",
-         "The same team already delivering ATD002"],
+         "An existing UCB contract and regulatory desk, already open"],
         "Consideration for the next neurology protocol.",
         "Two other open UCB protocols match investigators we already have on staff &mdash; "
         "SLE to our rheumatologist, palmoplantar pustulosis to our dermatologist.",
