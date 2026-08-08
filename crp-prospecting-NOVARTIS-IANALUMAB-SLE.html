@@ -309,72 +309,59 @@
   .pillar p { font-size: 15.5px; line-height: 1.55; color: var(--crp-navy); opacity: 0.92; margin: 0; }
   .pillar-grid-wrap { max-width: 1120px; margin: 0 auto; width: 100%; }
 
-  /* ═══ SLIDE — therapeutic depth (4 columns w/ marquee studies) ═══ */
-  /* align-items:start lets each column end at its own content instead of
-     stretching to the tallest, which left a large gap under Neurology. */
-  .ta-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: start; }
-  /* The tallest column carries four studies; padding and gaps are sized so it
-     clears the footer band rather than running into it. */
-  .ta-block {
+  /* ═══ SLIDE — therapeutic depth ═══
+     One treatment for all eight areas. The per-study Target/Actual figures
+     that used to sit here are already the subject of slide 3 ("we've enrolled
+     340% and 186% of target"), so repeating them cost the slide its clarity
+     for nothing. Enrolment status is a dot plus one legend rather than eight
+     repeated pills. */
+  .ta-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 16px; max-width: 1120px; margin: 0 auto; width: 100%;
+  }
+  .ta-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-top: 3px solid var(--crp-blue);
     border-radius: var(--radius-lg);
-    padding: 13px 17px;
-    display: flex; flex-direction: column; gap: 8px;
-    box-shadow: var(--shadow-md);
+    padding: 16px 18px 14px;
+    box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column;
   }
-  .ta-block:nth-child(2) { border-top-color: var(--crp-orange); }
-  .ta-block:nth-child(4) { border-top-color: var(--crp-orange); }
-  .ta-block h4 {
-    font-size: 13.5px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--crp-blue); margin: 0; font-weight: 700;
+  .ta-card:nth-child(2n) { border-top-color: var(--crp-orange); }
+  .ta-card h4 {
+    font-size: 12.5px; letter-spacing: 0.13em; text-transform: uppercase;
+    color: var(--crp-blue); font-weight: 700; margin: 0 0 12px;
   }
-  .ta-study {
-    border-top: 1px solid var(--border);
-    padding-top: 7px;
+  .ta-card ul { list-style: none; padding: 0; margin: 0 0 12px; }
+  .ta-card li {
+    font-size: 14.5px; line-height: 1.45; color: var(--crp-navy);
+    padding-left: 15px; position: relative; margin-bottom: 3px;
   }
-  .ta-study .ta-name { font-size: 14.5px; font-weight: 600; color: var(--crp-navy); margin-bottom: 3px; line-height: 1.25; }
-  .ta-status {
-    display: inline-block;
-    font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em;
-    padding: 2px 8px; border-radius: 999px;
-    background: var(--blue-bg); color: var(--crp-blue);
+  /* filled dot = enrolling now, hollow = recent or historical */
+  .ta-card li::before {
+    content: ''; position: absolute; left: 0; top: 0.52em;
+    width: 6px; height: 6px; border-radius: 50%;
+    border: 1.5px solid var(--crp-blue); box-sizing: border-box;
   }
-  .ta-status.live { background: var(--orange-bg, #fff3e0); color: var(--crp-orange); font-weight: 800; }
-  .ta-actual {
-    margin-top: 4px;
-    font-size: 12.5px; color: var(--fg-2); line-height: 1.3;
+  .ta-card li.live::before { background: var(--crp-orange); border-color: var(--crp-orange); }
+  .ta-card .ev {
+    margin-top: auto; padding-top: 10px; border-top: 1px solid var(--border);
+    font-size: 12px; line-height: 1.35; color: var(--fg-2);
   }
-  .ta-actual strong { color: var(--crp-orange); font-weight: 800; }
-  /* Second tier — areas with real depth but no live marquee study to name.
-     Lighter weight on purpose: the eye should land on the top row first. */
-  .ta-cols-2 {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
-    margin-top: 14px;
+  .ta-card .ev b { color: var(--crp-navy); font-weight: 700; }
+  .ta-legend {
+    display: flex; align-items: center; justify-content: center; gap: 20px;
+    max-width: 1120px; margin: 14px auto 0; width: 100%;
+    font-size: 11.5px; color: var(--fg-3);
   }
-  .ta-block.compact {
-    padding: 11px 15px; gap: 5px;
-    border-top-width: 2px; box-shadow: var(--shadow-sm);
+  .ta-legend span { display: flex; align-items: center; gap: 7px; }
+  .ta-legend i {
+    width: 6px; height: 6px; border-radius: 50%;
+    border: 1.5px solid var(--crp-blue); box-sizing: border-box; display: inline-block;
   }
-  .ta-block.compact h4 { font-size: 12px; letter-spacing: 0.12em; }
-  /* Conditions and the evidence for them run as one paragraph — two stacked
-     blocks with a rule between them cost ~45px the slide does not have. */
-  .ta-block.compact .ta-conds {
-    font-size: 12.5px; line-height: 1.4; color: var(--crp-navy); opacity: .92;
-  }
-  .ta-block.compact .ta-note {
-    font-size: 11.5px; line-height: 1.3; color: var(--fg-2);
-    padding-top: 5px; border-top: 1px solid var(--border);
-  }
-  .ta-block.compact .ta-note b { color: var(--crp-navy); font-weight: 700; }
-  /* Tail line inside a top-row block: "and N more like this", so the column
-     shows three named studies instead of growing a fourth row. */
-  .ta-more {
-    margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border);
-    font-size: 11.5px; line-height: 1.35; color: var(--fg-2);
-  }
-  .ta-more b { color: var(--crp-navy); font-weight: 700; }
+  .ta-legend i.live { background: var(--crp-orange); border-color: var(--crp-orange); }
+
 
   /* ═══ SLIDE — tech stack architecture ═══ */
   .stack {
@@ -1211,77 +1198,83 @@
       <h2 class="slide-h2">Eight therapeutic areas</h2>
     </div>
     <div class="slide-body">
-      <div class="ta-cols" style="max-width:1120px;margin:0 auto;width:100%;">
-        <div class="ta-block">
+      <div class="ta-grid">
+        <div class="ta-card">
           <h4>Cardiometabolic</h4>
-          <div class="ta-study">
-            <div class="ta-name">Lp(a) ASCVD CVOT</div>
-            <span class="ta-status">Enrollment complete</span>
-            <div class="ta-actual">Target 15 · <strong>Actual 51 · 340%</strong></div>
-          </div>
-          <div class="ta-study">
-            <div class="ta-name">ASCVD + CKD</div>
-            <span class="ta-status live">Currently enrolling</span>
-            <div class="ta-actual">Target 7 · <strong>Actual 13 · 186%</strong></div>
-          </div>
-          <div class="ta-study">
-            <div class="ta-name">T2DM + CV Risk</div>
-            <span class="ta-status">Recently closed</span>
-            <div class="ta-actual">Target 5 · <strong>Actual 9 · 180%</strong></div>
-          </div>
-          <div class="ta-more"><b>+ 6 more Phase II–III</b> · 2024–25</div>
+          <ul>
+            <li>Lp(a) ASCVD outcomes</li>
+            <li class="live">ASCVD + chronic kidney disease</li>
+            <li>Type 2 diabetes + CV risk</li>
+          </ul>
+          <div class="ev"><b>9 protocols</b> since 2024 · our anchor area</div>
         </div>
-        <div class="ta-block">
+        <div class="ta-card">
           <h4>Dermatology</h4>
-          <div class="ta-study"><div class="ta-name">Plaque Psoriasis</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Atopic Dermatitis</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Hidradenitis Suppurativa</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-more"><b>13 protocols, 8 sponsors</b> · since 2021</div>
+          <ul>
+            <li class="live">Plaque psoriasis</li>
+            <li class="live">Atopic dermatitis</li>
+            <li class="live">Hidradenitis suppurativa</li>
+            <li>Chronic urticaria</li>
+          </ul>
+          <div class="ev"><b>13 protocols · 8 sponsors</b> since 2021</div>
         </div>
-        <div class="ta-block">
+        <div class="ta-card">
           <h4>Rheumatology</h4>
-          <div class="ta-study"><div class="ta-name">Sjögren's Disease</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Psoriatic Arthritis</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-study"><div class="ta-name">Systemic Lupus Erythematosus</div><span class="ta-status live">Currently enrolling</span></div>
-          <div class="ta-more"><b>Active pipeline</b> · rheumatoid arthritis in start-up</div>
+          <ul>
+            <li class="live">Sjögren's disease</li>
+            <li class="live">Psoriatic arthritis</li>
+            <li class="live">Systemic lupus erythematosus</li>
+            <li>Rheumatoid arthritis</li>
+          </ul>
+          <div class="ev"><b>Active pipeline</b> · RA in start-up</div>
         </div>
-        <div class="ta-block">
+        <div class="ta-card">
           <h4>Neurology</h4>
-          <div class="ta-study">
-            <div class="ta-name">Migraine Prevention</div>
-            <span class="ta-status live">Currently enrolling</span>
-            <div class="ta-actual">More than 25 protocols since 2005</div>
-          </div>
-          <div class="ta-study">
-            <div class="ta-name">Alzheimer's Disease</div>
-            <span class="ta-status live">Currently enrolling</span>
-            <div class="ta-actual">9 protocols since 2020 · MMSE, CDR, FAQ</div>
-          </div>
+          <ul>
+            <li class="live">Migraine prevention</li>
+            <li class="live">Alzheimer's disease</li>
+          </ul>
+          <div class="ev"><b>25+ migraine</b> since 2005 · <b>9 Alzheimer's</b> since 2020</div>
+        </div>
+        <div class="ta-card">
+          <h4>Women's Health</h4>
+          <ul>
+            <li class="live">Contraception</li>
+            <li>Menopause</li>
+            <li>Uterine bleeding</li>
+          </ul>
+          <div class="ev"><b>117 protocols</b> since 2001</div>
+        </div>
+        <div class="ta-card">
+          <h4>Hepatology &amp; Liver</h4>
+          <ul>
+            <li class="live">MASH</li>
+            <li>Liver fibrosis</li>
+          </ul>
+          <div class="ev"><b>FibroScan on site</b> · hepatologist on staff</div>
+        </div>
+        <div class="ta-card">
+          <h4>Urology &amp; Pelvic Health</h4>
+          <ul>
+            <li class="live">Stress urinary incontinence</li>
+            <li>Overactive bladder</li>
+            <li>Nocturia</li>
+          </ul>
+          <div class="ev"><b>28 protocols</b> · prescreening open</div>
+        </div>
+        <div class="ta-card">
+          <h4>Endocrine &amp; Bone</h4>
+          <ul>
+            <li class="live">Type 2 diabetes</li>
+            <li class="live">Obesity</li>
+            <li>Osteoporosis</li>
+          </ul>
+          <div class="ev"><b>Endocrinologist on staff</b></div>
         </div>
       </div>
-      <!-- Second tier: real depth, but historical or prescreening rather than a
-           named live study. Kept visually lighter so the live book reads first. -->
-      <div class="ta-cols-2" style="max-width:1120px;margin-left:auto;margin-right:auto;width:100%;">
-        <div class="ta-block compact">
-          <h4>Women's Health</h4>
-          <div class="ta-conds">Contraception · Menopause · Uterine bleeding</div>
-          <div class="ta-note"><b>117 protocols</b> since 2001</div>
-        </div>
-        <div class="ta-block compact">
-          <h4>Hepatology &amp; Liver</h4>
-          <div class="ta-conds">MASH · Liver fibrosis</div>
-          <div class="ta-note"><b>FibroScan on site</b> · hepatologist on staff</div>
-        </div>
-        <div class="ta-block compact">
-          <h4>Urology &amp; Pelvic Health</h4>
-          <div class="ta-conds">Overactive bladder · Nocturia · Incontinence</div>
-          <div class="ta-note"><b>28 protocols</b> · prescreening open</div>
-        </div>
-        <div class="ta-block compact">
-          <h4>Endocrine &amp; Bone</h4>
-          <div class="ta-conds">Type 2 diabetes · Obesity · Osteoporosis</div>
-          <div class="ta-note"><b>Endocrinologist on staff</b> · prescreening open</div>
-        </div>
+      <div class="ta-legend">
+        <span><i class="live"></i> Currently enrolling</span>
+        <span><i></i> Recent or historical</span>
       </div>
     </div>
   </div>
