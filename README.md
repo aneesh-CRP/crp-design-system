@@ -53,7 +53,7 @@ A design system for **Clinical Research Philadelphia, LLC (CRP)** — the brand,
 
 The internal dashboard is a large single-page app (`index.html` + `dashboard.js` built by `scripts/build-appscript.py`) with tabs for recruitment horizons, coordinator workload, study risk matrix, finance (AR, invoices, collections), and retention. All three surfaces must feel like the same company — the brand guide is the spine.
 
-**Legal:** Clinical Research Philadelphia, LLC · 9501 Roosevelt Blvd, Suite 208, Philadelphia, PA 19114 · NJ office 21 Route 31 N, Suite A8, Pennington, NJ 08543 · 215-676-6696.
+**Legal:** Clinical Research Philadelphia, LLC · 9501 Roosevelt Blvd, Suite 208, Philadelphia, PA 19114 · NJ office 21 Route 31 N, Suite A8, Pennington, NJ 08534 · 215-676-6696.
 
 ---
 
