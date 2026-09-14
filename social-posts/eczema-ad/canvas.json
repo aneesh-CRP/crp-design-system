@@ -1,0 +1,13 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html",       "x": 0,    "y": 0,    "w": 940, "h": 940, "title": "Hook A - Flaring up" },
+    { "file": "HookB.dc.html",      "x": 1040, "y": 0,    "w": 940, "h": 940, "title": "Hook B - Itchy dry red" },
+    { "file": "HookC.dc.html",      "x": 2080, "y": 0,    "w": 940, "h": 940, "title": "Hook C - Scratching at night" },
+    { "file": "HookPlain.dc.html",  "x": 0,    "y": 1080, "w": 940, "h": 940, "title": "Hook D - Plain question" },
+    { "file": "LayoutHero.dc.html", "x": 1040, "y": 1080, "w": 940, "h": 940, "title": "Layout 2 - Character hero" }
+  ],
+  "annotations": [
+    { "id": "test-matrix", "x": 2080, "y": 1080, "w": 620, "text": "Mix-and-match for Aneesh's test:\n\nMESSAGING (4 hooks): A Flaring up / B Itchy dry red / C Scratching at night / D Plain question\n\nARTWORK (2 layouts): standard (character left, bullets right) / character hero (art on top, bullets in a row)\n\nAny hook drops into either layout. Third bullet and footer are the swap points (Paid for Your Time, Now Enrolling in NE Philly).\n\nAll copy needs IRB/regulatory sign-off before it runs." }
+  ],
+  "launch": { "view": "canvas" }
+}
