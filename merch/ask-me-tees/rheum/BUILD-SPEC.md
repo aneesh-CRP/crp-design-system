@@ -49,3 +49,10 @@ Layout: art 400/640-880 2800×2100; p5-6 bubble (rounded rect 650/300 2300×480 
 | 10 | NOT THAT KIND OF BUTTERFLY. (butterfly cheek rash, puzzled butterflies; explainer "LUPUS: A BUTTERFLY-SHAPED RASH ACROSS THE CHEEKS.") | MAHWyj2jpWM | MAHWyulCG3s |
 | 11 | RUNNING ON COFFEE AND SUNSCREEN. (sunglasses + sun hat; explainer "LUPUS: TIRED, ACHY, AND THE SUN MAKES IT WORSE.") | MAHWygCgPZs | MAHWyorvoVM |
 Color versions not built yet — make for whichever she picks.
+
+### Lupus round 3 (2026-10-01) — Leticia liked both; audience = ALREADY-DIAGNOSED lupus patients (SLE3001), so explainer is "DIAGNOSED WITH LUPUS? THERE'S A STUDY FOR YOU." not "get checked"
+| Page | Shirt | Raw gen | Bg-removed |
+|---|---|---|---|
+| 12 | SOMETIMES IT IS LUPUS. (House MD gag; blob holding "TOLD YOU." sign + coffee) | MAHWyqkhiuY | MAHWyuEHYqE |
+| 13 | WOLF IN SHEEP'S CLOTHING. (blob in fluffy sheep onesie, wolf ears + tail peeking out, coffee) | MAHWypNRHWA | MAHWyiILSSI |
+Soft finish only; color versions once she picks.
