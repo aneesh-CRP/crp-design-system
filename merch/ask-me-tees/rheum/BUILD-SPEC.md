@@ -41,3 +41,11 @@ Edit: https://www.canva.com/d/eH8-iKcCDsUoCIb — 8 pages, 3600×3720, white, al
 
 Style refs uploaded to Canva: PsA joint `MAHWyslqXh4`, lupus blob `MAHWyqnLlBM` (from `assets/characters/` on branch add-study-characters). Soft finish used liver scale-soft `MAHWs1un944` as the second reference; color cactus used liver scale-color `MAHWs0fXipg`.
 Layout: art 400/640-880 2800×2100; p5-6 bubble (rounded rect 650/300 2300×480 + tail) with 130px text; punchline 170-190px; explainer 95-120px; CTA 105-110px; logo 1128/3390 1344×280.
+
+### Lupus alternates (2026-10-01, Leticia didn't love "The great imitator") — soft finish only, pages 9-11
+| Page | Shirt | Raw gen | Bg-removed |
+|---|---|---|---|
+| 9 | IT'S LATIN FOR WOLF. (bubble "MOSTLY JUST TIRED.", wolf-ear hoodie) | MAHWympaJ7Y | MAHWyjhoeYs |
+| 10 | NOT THAT KIND OF BUTTERFLY. (butterfly cheek rash, puzzled butterflies; explainer "LUPUS: A BUTTERFLY-SHAPED RASH ACROSS THE CHEEKS.") | MAHWyj2jpWM | MAHWyulCG3s |
+| 11 | RUNNING ON COFFEE AND SUNSCREEN. (sunglasses + sun hat; explainer "LUPUS: TIRED, ACHY, AND THE SUN MAKES IT WORSE.") | MAHWygCgPZs | MAHWyorvoVM |
+Color versions not built yet — make for whichever she picks.
