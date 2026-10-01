@@ -1,6 +1,6 @@
 # Ask Me Tees — Rheumatology set (approved direction 2026-10-01)
 
-Three shirts, each in two finishes: **soft** (navy #072061 medium-thin outlines, one flat light-blue #a2dceb fill, white elsewhere, no hatching) and **full color** (kawaii, thick dark outlines, soft shading).
+Three concepts (Sjögren's gets two copy variants, so 4 shirts), each in two finishes: **soft** (navy #072061 medium-thin outlines, one flat light-blue #a2dceb fill, white elsewhere, no hatching) and **full color** (kawaii, thick dark outlines, soft shading).
 Same character design language as the liver set: simple closed-line happy eyes, tiny eyebrows, blush cheeks, thick clean outlines. Sash labels on characters. No sparkles/stars. All text on the front. CTA + long CRP logo at the bottom.
 Page size 3600×3720. Layout = liver pages: art at left 400 / top 880 / 2800×2100, bubble(s) above, punchline at top 3000 (170–190px), CTA at 3245 (110px), logo at 1128/3390 1344×280.
 
@@ -16,8 +16,9 @@ Alt copy: RUNNING ON COFFEE AND SUNSCREEN.
 
 ## 3. Sjögren's — "It's pronounced SHOW-grins" (Vor RC18G007)
 Art: cute cactus character in a small pot, big grin, sash "SJÖGREN'S", holding eye drops in one arm and a water bottle in the other. Tiny teardrop trying to fall and failing.
-Copy: bubble **IT'S PRONOUNCED SHOW-GRINS.** explainer **DRY EYES. DRY MOUTH. TIRED ALL THE TIME.** CTA.
-Alt copy: DRY EYES. DRIER HUMOR.
+Copy (Leticia 10/1, build BOTH as separate pages): 
+  3a. bubble **IT'S PRONOUNCED SHOW-GRINS.** explainer **DRY EYES. DRY MOUTH. TIRED ALL THE TIME.** CTA.
+  3b. punchline **DRY EYES. DRIER HUMOR.** explainer **SJÖGREN'S: DRY EYES, DRY MOUTH, TIRED.** CTA. Art for 3b: same cactus, deadpan half-smile instead of big grin, one tiny teardrop failing to fall, eye drops in hand.
 
 ## Generation prompts (Canva generate-image, reference = existing character)
 Soft: "Draw in a soft two-color illustration style: medium-thin deep navy (#072061) outlines, NO hatching, one flat light-blue (#a2dceb) fill, white everywhere else, plain white background, kawaii faces (simple closed-line happy eyes, tiny eyebrows, blush). Scene: …  Leave empty space above heads for speech bubbles. No text except sashes."
