@@ -24,3 +24,20 @@ Copy (Leticia 10/1, build BOTH as separate pages):
 Soft: "Draw in a soft two-color illustration style: medium-thin deep navy (#072061) outlines, NO hatching, one flat light-blue (#a2dceb) fill, white everywhere else, plain white background, kawaii faces (simple closed-line happy eyes, tiny eyebrows, blush). Scene: …  Leave empty space above heads for speech bubbles. No text except sashes."
 Color: "Draw in full-color kawaii style matching the reference (thick dark outlines, soft shading, same eyes/eyebrows/blush), white background. Scene: … No text except sashes."
 Then remove-background → new pages in a new Canva design "Ask Me Tees - Rheum shirts" (import blank 6-page HTML like characters/canva-import.html), text via add_text + format_text, bubbles via insert_shape.
+
+## BUILT 2026-10-01 — Canva design "Ask Me Tees - Rheum shirts" (DAHWylKZI6U)
+Edit: https://www.canva.com/d/eH8-iKcCDsUoCIb — 8 pages, 3600×3720, white, all navy (#072061) bold text, long logo at bottom.
+
+| Page | Shirt | Finish | Raw gen | Bg-removed (on page) |
+|---|---|---|---|---|
+| 1 | Stiff competition | soft | MAHWyukNEfU | MAHWyh2Djz4 |
+| 2 | Stiff competition | color | MAHWyliCNUs | MAHWyhiRjOI |
+| 3 | The great imitator | soft | MAHWynxXu88 (v2, no drawn bubble; v1 MAHWykfZWWo) | MAHWyksJj0s |
+| 4 | The great imitator | color | MAHWyndBGAc (v2, sash unobstructed; v1 MAHWymb57fo) | MAHWyliFJKk |
+| 5 | SHOW-grins (bubble) | soft | MAHWylhMi_U | MAHWyibXKzk |
+| 6 | SHOW-grins (bubble) | color | MAHWyqHPdoQ | MAHWyihrHcI |
+| 7 | Dry eyes. Drier humor. | soft | MAHWys1I0Mw | MAHWyvUHTGc |
+| 8 | Dry eyes. Drier humor. | color | MAHWyp4opS8 | MAHWymKLIaw |
+
+Style refs uploaded to Canva: PsA joint `MAHWyslqXh4`, lupus blob `MAHWyqnLlBM` (from `assets/characters/` on branch add-study-characters). Soft finish used liver scale-soft `MAHWs1un944` as the second reference; color cactus used liver scale-color `MAHWs0fXipg`.
+Layout: art 400/640-880 2800×2100; p5-6 bubble (rounded rect 650/300 2300×480 + tail) with 130px text; punchline 170-190px; explainer 95-120px; CTA 105-110px; logo 1128/3390 1344×280.
