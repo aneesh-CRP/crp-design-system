@@ -56,3 +56,14 @@ Color versions not built yet — make for whichever she picks.
 | 12 | SOMETIMES IT IS LUPUS. (House MD gag; blob holding "TOLD YOU." sign + coffee) | MAHWyqkhiuY | MAHWyuEHYqE |
 | 13 | WOLF IN SHEEP'S CLOTHING. (blob in fluffy sheep onesie, wolf ears + tail peeking out, coffee) | MAHWypNRHWA | MAHWyiILSSI |
 Soft finish only; color versions once she picks.
+
+### Black-outline round (2026-10-01) — Leticia: ALL outlines BLACK (so they work on colored shirts); lupus accent = house purple #7f66c1, others keep light blue #a2dceb; text black
+Leticia deleted the "great imitator" pages, so numbering shifted. New pages added at the end (page numbers as of this build):
+| Page | Shirt | Raw gen | Bg-removed |
+|---|---|---|---|
+| 12 | SOMETIMES IT IS LUPUS. — black + purple | MAHWy83oMzM | MAHWyzBCFwU |
+| 13 | WOLF IN SHEEP'S CLOTHING. — black + purple | MAHWy7D7Gkg | MAHWy9up8M4 |
+| 14 | STIFF COMPETITION. — black + light blue | MAHWy2nJcgQ | MAHWy1OFwyk |
+| 15 | SHOW-grins cactus — black + light blue | MAHWy6BDYfQ | MAHWy8vdt3Y |
+| 16 | DRY EYES. DRIER HUMOR. — black + light blue | MAHWy_D92LU | MAHWy0XWBwI |
+Recolor recipe: generate-image with the raw navy soft gen as the single reference, "change only the colors: outlines pure black, light-blue → X". Kept composition exactly.
